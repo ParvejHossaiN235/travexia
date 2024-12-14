@@ -1,0 +1,55 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  14. gellary css start
+/*----------------------------------------*/
+
+.tr-gellary {
+    &-item {
+        border-radius: 20px;
+        &:hover {
+            & .tr-gellary-content {
+                bottom: 0; 
+                opacity: 1;
+                visibility: visible;        
+            }
+            & .tr-gellary-thumb {
+                & img {
+                    transform: scale(1.1) rotate(-2deg);  
+                }  
+            }
+        }
+    }
+    &-thumb {
+        & img {
+            width: 100%;
+            border-radius: 20px;
+            transition: all 0.9s;
+        }
+    }
+    &-content {
+        position: absolute;
+        bottom: -50%;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .5s;
+        padding: 30px 30px;
+        border-radius: 0 0 20px 20px;
+        & p {
+            margin-bottom: 0;
+            color: var(--tr-common-white);
+            @media #{$lg,$md,$xs}{
+                font-size: 15px;
+            }
+        }
+    }
+    &-title {
+        font-weight: 700;
+        font-size: 24px;
+        margin-bottom: 13px;
+        text-transform: capitalize;
+        color: var(--tr-common-white);
+    }
+}

@@ -1,0 +1,257 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  03. about css start
+/*----------------------------------------*/
+
+
+.tr-about{
+    &-left {
+        @media #{$md,$xs}{
+            margin-bottom: 80px;
+        }
+    }
+    &-text{
+        & p{
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 1.50;
+            margin-bottom: 20px;
+            @media #{$lg,$md,$xs}{
+                font-size: 16px;
+            }
+        }
+    }
+    &-content{
+        padding-left: 35px;
+        margin-bottom: 35px;
+        & i{
+            position: absolute;
+            top: -4px;
+            left: 0;
+            font-weight: 400;
+            font-size: 25px;
+            color: var(--tr-theme-1);
+        }
+        & span{
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 1;
+            margin-bottom: 15px;
+            display: inline-block;
+            text-transform: capitalize;
+            color: var(--tr-common-black);
+        }
+        & p{
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 1.50;
+            margin-bottom: 0;
+            @media #{$lg,$md,$xs}{
+                font-size: 16px;
+                & br {
+                    display: none;
+                }
+            }
+        }
+    }
+    &-thumb{
+        &-wrap{
+            margin-left: 30px;
+            @media #{$lg,$md,$xs}{
+                margin-left: 0;
+            }
+        }
+        &-1,
+        &-2{
+            & img{
+                border-radius: 20px;
+            }
+        }
+        &-2{
+            @media #{$xs}{
+               margin-top: 20px;
+            }
+            & > img{
+                margin-bottom: 45px;
+            }
+        }
+    }
+    &-client{
+        & img{
+            margin-right: 20px;
+        }
+        &-content{
+            & h4{
+                font-weight: 700;
+                font-size: 40px;
+                line-height: 1;
+                margin-bottom: 0;
+                text-transform: capitalize;
+                color: var(--tr-common-black);
+                @media #{$xl,$lg,$md,$xs}{
+                    font-size: 30px;
+                }
+            }
+            & > span{
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 150%;
+                color: #242625;
+                @media #{$xl,$lg,$md,$xs}{
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    &-circle{
+        &-shape{
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            display: inline-block;
+            background-color: var(--tr-theme-2);
+            z-index: -1;
+        }
+    }
+    &-list {
+        & ul {
+            & li {
+                list-style-type: none;
+                &:not(:last-child){
+                    margin-bottom: 20px;
+                }
+                & > span {
+                    position: relative;
+                    padding-left: 23px;
+                    font-weight: 700;
+                    font-size: 18px;
+                    text-transform: capitalize;
+                    color: var(--tr-common-black);
+                    & i {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        font-size: 25px;
+                        color: var(--tr-theme-1);
+                    }
+                }
+            }
+        }
+        &-content {
+            padding-left: 45px;
+            & span {
+                font-weight: 700;
+                font-size: 18px;
+                display: block;
+                margin-bottom: 10px;
+                text-transform: capitalize;
+                color: var(--tr-common-black);
+            }
+        }
+        &-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 20px;
+            color: var(--tr-theme-1);
+        }
+    }
+}
+.tr-about-2 {
+    &-area{
+        @media #{$md,$xs}{
+            & .tr-about-left {
+                margin-bottom: 0px;
+            }
+        }
+    }
+    &-thumb-wrap {
+        padding-top: 55px;
+        margin-right: 80px;
+        @media #{$md,$xs}{
+            padding-top: 0;
+            margin-right: 0;
+            margin-bottom: 50px;
+        }
+        & .tr-about-client {
+            position: absolute;
+            bottom: 14%;
+            left: 0%;
+            padding: 32px 34px;
+            border-radius: 20px;
+            background-color: #F2F5EC;
+            display: inline-block;
+        }
+    }
+    &-thumb{
+        &-1 {
+            & img {
+                border-radius: 37px;
+            }
+        }
+        &-2 {
+            position: absolute;
+            top: 0;
+            right: -50px;
+            border: 10px solid var(--tr-common-white);
+            border-radius: 20px;
+            @media #{$md}{
+                right: 0;
+            }
+            & img {
+                border-radius: 10px;
+            }
+        }
+    }
+}
+.tr-about-3 {
+    &-area{
+        & .tr-about-left{
+            @media #{$md,$xs}{
+                margin-bottom: 0;
+            }
+        }
+    }
+    &-thumb {
+        &-wrap {
+            margin-right: 40px;
+            @media #{$lg,$md,$xs}{
+                margin-right: 0;
+            }
+            & .tr-about-client {
+                position: absolute;
+                bottom: 7%;
+                left: 13%;
+                &-content {
+                    border-radius: 20px;
+                    padding: 19px 40px;
+                    text-align: center;
+                    background-color: var(--tr-theme-1);
+                    & h4 {
+                        margin-bottom: 7px;
+                        color: var(--tr-common-white);
+                    }
+                    & span {
+                        color: var(--tr-common-white);
+                    }
+                }
+            }
+        }
+        &-main {
+            @media #{$md,$xs}{
+                margin-bottom: 40px;
+            }
+            & img {
+                border-radius: 38px;
+                border: 8px solid var(--tr-theme-2);
+                @media #{$md,$xs}{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

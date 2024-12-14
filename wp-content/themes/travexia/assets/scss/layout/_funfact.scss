@@ -1,0 +1,144 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  13. funfact css start
+/*----------------------------------------*/
+
+.tr-funfact{
+    &-title-box{
+        @media #{$md,$xs}{
+            margin-bottom: 50px;
+        }
+        & p{
+            margin-bottom: 30px;
+            @media #{$xl,$lg,$md,$xs}{
+                font-size: 16px;
+                & br {
+                    display: none;
+                }
+            }
+        }
+    }
+    &-thumb{
+        & img{
+            border-radius: 20px;
+            @media #{$md,$xs}{
+                width: 100%;
+            }
+        }
+    }
+    &-icon{
+        margin-right: 15px;
+        & span{
+            height: 80px;
+            width: 80px;
+            line-height: 78px;
+            border-radius: 50%;
+            text-align: center;
+            display: inline-block;
+            color: var(--tr-common-white);
+            background-color: var(--tr-theme-1);
+            @media #{$xl,$lg,$md,$xs}{
+                height: 60px;
+                width: 60px;
+                line-height: 58px;
+            }
+            & svg {
+                @media #{$xl,$lg,$md,$xs}{
+                    width: 35px;
+                }
+            }
+        }
+    }
+    &-content{
+        & h4{
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 1;
+            text-transform: capitalize;
+            color: var(--tr-common-black); 
+            margin-bottom: 30px;
+            @media #{$xl,$lg,$md,$xs}{
+                font-size: 34px;
+                margin-bottom: 15px;
+            }
+        }
+        & > span{
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 1;
+            color: #5B5B5B;
+            @media #{$xl,$lg,$md,$xs}{
+                font-size: 16px;
+            }
+        }
+    }
+    &-item{
+        padding: 35px 20px;
+        border-radius: 20px;
+        background-color: var(--tr-common-white);
+    }
+}
+.tr-funfact-2 {
+    &-area {
+        margin-top: -280px;
+    }
+    &-item {
+        padding:40px 20px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 999px;
+    }
+    &-icon {
+        & span {
+            display: inline-block;
+            height: 120px;
+            width: 120px;
+            line-height: 120px;
+            border-radius: 50%;
+            text-align: center;
+            color: var(--tr-common-white);
+            background-color: var(--tr-theme-2);
+        }
+    }
+    &-title {
+        font-size: 56px;
+        letter-spacing: -0.02em;
+        color: var(--tr-common-white);
+        @media #{$xs}{
+            font-size: 40px;
+        }
+        & i {
+            font-style: normal;
+        }
+    }
+    &-content {
+        display: inline-block;
+        border-radius: 20px;
+        padding: 15px 20px;
+        padding-bottom: 21px;
+        background: rgba($color: #FCFCFC, $alpha: .1);
+        backdrop-filter: blur(15px);
+        & span {
+            font-size: 20px;
+            color: var(--tr-common-white);
+        }
+    }
+}
+
+.tr-funfact{
+    &-inner{
+        &-bg{
+            border-radius: 20px;
+            background-color: var(--tr-common-white);
+            box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
+        }
+        &-style{
+            margin-top: -110px;
+            & .tr-funfact-item {
+                padding-bottom: 15px;
+                background-color: transparent;
+            }
+        }
+    }
+}

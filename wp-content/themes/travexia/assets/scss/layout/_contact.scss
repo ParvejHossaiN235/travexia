@@ -1,0 +1,164 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  08. contact css start
+/*----------------------------------------*/
+.tr-contact {
+    &-box {
+        & p{
+            @media #{$xl}{
+                font-size: 18px;
+            }
+        }
+        & ul {
+            margin-right: 110px;
+            @media #{$lg,$md,$xs}{
+                margin-right: 0;
+            }
+            & li {
+                list-style-type: none;
+                border-radius: 20px;
+                box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
+                background: #fff;
+                padding: 15px 30px;
+                @media #{$xs}{
+                    padding: 15px 20px;
+                }
+                &:not(:last-child){
+                    margin-bottom: 15px;
+                }
+                & span {
+                    & i {
+                        display: inline-block;
+                        height: 60px;
+                        width: 60px;
+                        line-height: 60px;
+                        border-radius: 50%;
+                        text-align: center;
+                        margin-right: 15px;
+                        color: var(--tr-theme-1);
+                        border: 1px solid var(--tr-theme-1);
+                    }
+                    & a {                        
+                        transition: .3s;
+                        font-weight: 700;
+                        font-size: 18px;
+                        color: var(--tr-common-black);
+                        text-transform: capitalize;
+                        &:hover {
+                            color: var(--tr-theme-2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-from{
+        &-box {
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #EEEEEE;
+            box-shadow: 0 25px 60px 0 rgba(0, 13, 48, 0.05);
+            @media #{$md,$xs}{
+                margin-bottom: 50px;
+            }
+        }
+    }
+    &-input {
+        &-box {
+            & label {
+                font-size: 20px;
+                display: block;
+                margin-bottom: 7px;
+                text-transform: capitalize;
+                color: var(--tr-common-black);
+                @media #{$xs}{
+                    font-size: 16px;
+                }
+            }
+            & input {
+                margin-bottom: 15px;   
+                padding-right: 50px;             
+            }
+        }
+        &-icon {
+            position: absolute;
+            top: 19px;
+            right: 20px;
+            color: var(--tr-common-black);
+        }
+    }
+}
+
+.tr-inner-contact{
+    &-left{
+        margin-right: 60px;
+        @media #{$md,$xs}{
+            margin-right: 0;
+            margin-bottom: 60px;
+        }
+    }
+    &-title{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 1;
+        padding-bottom: 20px;
+        padding-right: 55px;
+        margin-bottom: 40px;
+        display: inline-block;
+        text-transform: capitalize;
+        color: var(--tr-common-black);
+        border-bottom: 1px solid var(--tr-common-black);
+    }
+    &-info{
+        & p{
+            font-size: 18px;
+        }
+        &-icon{
+            margin-right: 30px;
+            & i{
+                height: 50px;
+                width: 50px;
+                font-size: 20px;
+                line-height: 50px;
+                border-radius: 50%;
+                text-align: center;
+                display: inline-block;
+                color: var(--tr-theme-1);
+                border: 1px solid #EEEEEE;
+            }
+        }
+        &-details{
+            & span{
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 1;
+                display: block;
+                margin-bottom: 10px;
+                color: var(--tr-theme-1);
+                text-transform: capitalize; 
+            }
+            & a{
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 1.39;
+                color: #5B5B5B;
+                &:hover{
+                    color: var(--tr-theme-1);
+                }
+            }
+        }
+    }
+}
+
+.tr-map-wrap{
+    line-height: 0;
+    & iframe{
+        width: 100%;
+        height: 580px;
+        border-radius: 20px;
+        @media #{$xs}{
+            height: 400px;
+        }
+    }
+}

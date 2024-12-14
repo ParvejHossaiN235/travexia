@@ -1,0 +1,408 @@
+@use '../utils' as *;
+/*-----------------------------------------------------------------------------------
+
+    Theme Name: Travexia - Tour and Travel booking and HTML Template
+    Author: techsometimes
+    Support: bd.amdadul@gmail.com
+    Description: Travexia - Tour and Travel booking and HTML Template
+    Version: 1.0
+
+-----------------------------------------------------------------------------------
+
+/************ TABLE OF CONTENTS ***************
+
+    01. THEME DEFAULT CSS
+	02. MEANMENU CSS START
+	03. about css start
+	04. adventure css start
+	05. blog css start
+    06. brand css start
+	07. choose css start 
+	08. contact css start
+	09. cta css start
+	10. destination css start 
+	11. discount css start 
+	12. footer css start 
+	13. funfact css start 
+	14. gellary css start 
+	15. header css start
+	16. hero css start
+	17. memorise css start 
+	18. menu css start
+	19. place css start 
+    20. price css start
+	21. subscribe css start
+	22. testimonial css start
+	23. text-slider css start
+	24. trip css start
+	25. video css start
+    
+    **********************************************/
+
+/*----------------------------------------*/
+/* 01. THEME DEFAULT CSS START
+/*----------------------------------------*/
+
+@media (min-width: 1400px) {
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        max-width: 1320px;
+    }
+
+    .container-1790 {
+        max-width: 1790px;
+    }
+}
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+
+/*---------------------------------
+	typography css start 
+---------------------------------*/
+body {
+    font-family: var(--tr-ff-body);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--tr-text-body);
+    line-height: 1.3;
+    overflow-x: hidden;
+}
+
+body,
+html {
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    transition: .3s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--tr-ff-heading);
+    color: var(--tr-heading-primary);
+    margin-top: 0px;
+    font-weight: 700;
+    line-height: 1.1;
+    @include transition(.3s);
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+h5 {
+    font-size: 20px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+p {
+    color: var(--tr-text-body);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.50;
+}
+
+.z-index-1 {
+    position: relative;
+    z-index: 1;
+}
+
+.z-index-2 {
+    position: relative;
+    z-index: 2;
+}
+
+.z-index-3 {
+    position: relative;
+    z-index: 3;
+}
+
+.z-index-4 {
+    position: relative;
+    z-index: 4;
+}
+
+.z-index-5 {
+    position: relative;
+    z-index: 5;
+}
+
+.z-index-6 {
+    position: relative;
+    z-index: 6;
+}
+
+.z-index-7 {
+    position: relative;
+    z-index: 7;
+}
+
+.z-index-8 {
+    position: relative;
+    z-index: 8;
+}
+
+.z-index-9 {
+    position: relative;
+    z-index: 9;
+}
+
+.z-index-10 {
+    position: relative;
+    z-index: 10;
+}
+
+a,
+.btn,
+button,
+input,
+select,
+textarea,
+li,
+img,
+.transition-3,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @include transition(.3s);
+}
+
+a:focus,
+.button:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+a:focus,
+a:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+a,
+button {
+    color: inherit;
+    outline: none;
+    border: none;
+    background: transparent;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:focus {
+    outline: 0;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+input {
+    height: 60px;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0 20px;
+    line-height: 60px;
+    border-radius: 999px;
+    color: var(--tr-common-black);
+    background-color: #F2F5EC;
+    border: 1px solid transparent;
+
+    @include tr-placeholder {
+        color: #5B5B5B;
+    }
+
+    &:focus {
+        border: 1px solid var(--tr-theme-1);
+    }
+
+}
+
+textarea {
+    outline: none;
+    width: 100%;
+    padding: 20px;
+    border: none;
+    height: 130px;
+    resize: none;
+    border-radius: 30px;
+    color: var(--tr-common-black);
+    background-color: #F2F5EC;
+    border: 1px solid transparent;
+    @include tr-placeholder {
+        color: #5B5B5B;
+    }
+
+    &:focus {
+        border: 1px solid var(--tr-theme-1);
+    }
+}
+
+input[type="color"] {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    border-radius: 50%;
+}
+
+*::-moz-selection {
+    background: var(--tr-common-black);
+    color: var(--trt-common-white);
+    text-shadow: none;
+}
+
+::-moz-selection {
+    background: var(--tr-common-black);
+    color: var(--tr-common-white);
+    text-shadow: none;
+}
+
+::selection {
+    background: var(--tr-common-black);
+    color: var(--tr-common-white);
+    text-shadow: none;
+}
+
+
+*::-moz-placeholder {
+    color: var(--tr-common-black);
+    font-size: var(--tr-fz-body);
+    opacity: 1;
+}
+
+*::placeholder {
+    color: var(--tr-common-black);
+    font-size: var(--tr-fz-body);
+    opacity: 1;
+}
+
+/*---------------------------------
+    common classes css start 
+---------------------------------*/
+
+.fix {
+    overflow: hidden
+}
+
+.p-relative {
+    position: relative;
+}
+
+.p-absolute {
+    position: absolute;
+}
+
+.border-line-black {
+    display: inline;
+    background-repeat: no-repeat;
+    background-size: 0% 1px, 0 1px;
+    background-position: 100% 100%, 0 100%;
+    transition: background-size 0.3s linear;
+    background-image: linear-gradient(var(--tr-common-black), var(--tr-common-black)), linear-gradient(var(--tr-common-black), var(--tr-common-black));
+
+    &:hover {
+        background-size: 0% 1px, 100% 1px;
+    }
+}
+
+.border-line-white {
+    display: inline;
+    background-repeat: no-repeat;
+    background-size: 0% 1px, 0 1px;
+    background-position: 100% 100%, 0 100%;
+    transition: background-size 0.3s linear;
+    background-image: linear-gradient(var(--tr-common-white), var(--tr-common-white)), linear-gradient(var(--tr-common-white), var(--tr-common-white));
+
+    &:hover {
+        background-size: 0% 1px, 100% 1px;
+    }
+}
+
+.gx-10 {
+    --bs-gutter-x: 10px;
+}
+
+.gx-20 {
+    --bs-gutter-x: 20px;
+}
+
+.gx-40 {
+    --bs-gutter-x: 40px;
+}
+
+.gx-50 {
+    --bs-gutter-x: 50px;
+}
+
+.gx-60 {
+    --bs-gutter-x: 60px;
+}
+
+.gx-70 {
+    --bs-gutter-x: 70px;
+}
+
+.gx-80 {
+    --bs-gutter-x: 80px;
+}

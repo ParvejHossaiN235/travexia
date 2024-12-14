@@ -1,0 +1,52 @@
+@use '../utils' as *;
+
+.tr-breadcurmb{
+    &-bg{
+        padding-top: 180px;
+        padding-bottom: 180px;
+        position: relative;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        @media #{$xs}{
+            padding-top: 140px;
+            padding-bottom: 140px;
+        }
+        &::after{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            content: '';
+            background-color: rgba($color: #191B1A, $alpha: 0.6);
+        }
+    }    
+    &-title {
+        font-weight: 700;
+        font-size: 56px;
+        line-height: 1;
+        margin-bottom: 16px;
+        letter-spacing: -0.02em;
+        color: var(--tr-common-white);
+        @media #{$xs}{
+            font-size: 45px;
+        }
+    }
+    &-list {
+        & span, i {
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 1;
+            color: var(--tr-common-white);
+            &.dvdr {
+                margin: 0 17px;
+            }
+        }
+        & i {
+            font-style: normal;
+            transform: translateY(2px);
+        }
+    }
+}
+

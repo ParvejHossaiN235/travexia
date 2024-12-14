@@ -1,0 +1,134 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  20. price css start
+/*----------------------------------------*/
+
+.tr-price{
+    &-item{
+        padding: 40px;
+        border-radius: 20px;
+        background-color: var(--tr-common-white);
+        box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
+        @media #{$xl,$md,$xs}{
+            padding: 40px 20px;
+        }
+        &.active{
+            & .tr-btn{
+                &.grey-border{
+                    color: var(--tr-common-white);
+                    border-color: var(--tr-theme-1);
+                    background-color: var(--tr-theme-1);
+                }
+            }
+        }
+    }
+    &-thumb{
+        padding: 10px;
+        margin-bottom: 25px;
+        border-radius: 20px;
+        background-color: #F2F5EC;
+        &-1{
+            border-radius: 20px;
+            @media #{$xl,$md}{
+                transform: scale(.95);
+            }
+            @media #{$xs}{
+                transform: scale(.85);
+            }
+        }
+        &-2{
+            border-radius: 999px;
+            @media #{$xl,$md}{
+                transform: scale(.95);
+            }
+            @media #{$xs}{
+                transform: scale(.85);
+            }
+        }
+    }
+    &-title{
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1;
+        margin-bottom: 0;
+        text-transform: capitalize;
+        color: var(--tr-common-black);    
+        @media #{$md,$xs}{
+            font-size: 27px;
+        }
+    }
+    &-value{
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1;
+        text-transform: capitalize;
+        color: var(--tr-common-black);
+        @media #{$md,$xs}{
+            font-size: 27px;
+        }
+        & i{
+            font-style: normal;
+            color: var(--tr-theme-1);
+        }
+    }
+    &-content{
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #EEEEEE;
+    }
+    &-text{
+        margin-bottom: 25px;
+        & p{
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.86; 
+            margin-bottom: 0;
+        }
+    }
+    &-list{
+        margin-bottom: 40px;
+        & ul{
+            & li{
+                display: flex;
+                align-items: center;
+                list-style-type: none;
+                &:not(:last-child){
+                    margin-bottom: 15px;
+                }
+                & i{
+                    font-weight: 400;
+                    font-size: 20px;
+                    margin-right: 15px;
+                    color: var(--tr-theme-2);
+
+                }
+                & span{
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 1.50;
+                    color: #5B5B5B;
+                    @media #{$xl,$md,$xs}{
+                       font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+    &-circle-shape{
+        & span{
+            height: 377px;
+            width: 377px;
+            border-radius: 100%;
+            display: inline-block;
+            filter: blur(500px);
+            background-color: rgba(130, 205, 32, 0.5);
+        }
+    }
+    &-shape {
+        position: absolute;
+        bottom: -150%;
+        left: 0;
+        z-index: -1;
+    }
+}

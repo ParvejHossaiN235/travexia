@@ -1,0 +1,56 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  19. place css start
+/*----------------------------------------*/
+
+.tr-place{
+    &-title-box{
+        & p{
+            margin-bottom: 0;
+            @media #{$xl,$lg,$md,$xs}{
+                font-size: 16px;
+                & br {
+                    display: none;
+                }
+            }
+        }
+    }
+    &-thumb{
+        margin-bottom: 20px;
+        border-radius: 10px;
+        & img{
+            border-radius: 10px;
+            transition: all .9s;
+            width: 100%;
+        }
+    }
+    &-title{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 1;
+        margin-bottom: 20px;
+        text-transform: capitalize;
+        color: var(--tr-common-black);
+    }
+    &-content{
+        & span{
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 1;
+            color: #5B5B5B; 
+            @media #{$xl,$lg,$md,$xs}{
+                font-size: 17px;
+            }
+        }
+    }
+    &-item{
+        &:hover{
+            & .tr-place-thumb{
+                & img{
+                    transform: scale(1.1) rotate(-2deg);
+                }
+            }
+        }
+    }
+}

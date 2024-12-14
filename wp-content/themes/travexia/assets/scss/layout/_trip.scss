@@ -1,0 +1,431 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  24. trip css start
+/*----------------------------------------*/
+
+.tr-trip{
+    &-title-box{
+        @media #{$xs}{
+            margin-bottom: 30px;
+        }
+        & p{
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 1.50;
+            margin-bottom: 0;
+            @media #{$md,$xs}{
+                font-size: 16px;
+            }
+        }
+    }
+    &-item{
+        overflow: hidden;
+        border-radius: 20px;
+        background: var(--tr-common-white);
+        box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.1);
+        &:hover{
+            & .tr-trip-thumb{
+                & img{
+                    transform: scale(1.1) rotate(-2deg);
+                }
+            }
+        }
+    }
+    &-thumb{
+        & img{
+            transition: all .9s;
+            width: 100%;
+        }
+    }
+    &-content{
+        padding: 20px 40px 40px 39px;
+        @media #{$xl,$lg,$md,$xs}{
+            padding: 20px 20px 40px 20px;
+        }
+    }
+    &-location{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1;
+        color:#5B5B5B;
+        margin-bottom: 10px;
+        display: inline-block;
+        & i{
+            margin-right: 8px;
+            color: var(--tr-common-black);
+        }
+    }
+    &-title{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 1.66;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+        color: var(--tr-common-black); 
+        @media #{$xl}{
+            font-size: 20px;
+        }
+        @media #{$lg,$md,$xs}{
+            font-size: 22px;
+        }
+        & a{
+            &:hover{
+                color: var(--tr-theme-1);
+            }
+        }
+    }
+    &-ratting{
+        margin-bottom: 20px;
+        & span{
+            color: var(--tr-theme-2);
+            transform: translateY(-3px);
+            display: inline-block;
+            &:not(:last-child){
+                margin-right: 3px;
+            }
+        }
+        & i{
+            margin-left: 10px;
+            font-style: normal;
+            color: var(--tr-common-black);
+        }
+    }
+    &-duration{
+        margin-bottom: 40px;
+        & span{
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 1;
+            color: #5B5B5B;
+            margin-right: 10px;
+            display: inline-block;
+            
+            & i{
+                margin-right: 4px;
+                color: var(--tr-common-black);
+            }
+        }
+        & p{
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 1;
+            color: var(--tr-common-black);
+            margin-bottom: 0;
+            @media #{$xl,$lg,$md,$xs}{
+                font-size: 16px;
+            }
+        }
+    }
+    &-price{
+        & span{
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 1;
+            color: #5B5B5B;
+            @media #{$xl,$lg,$md,$xs}{
+                font-size: 16px;
+            }
+            & i{
+                margin-left: 5px;
+                font-style: normal;
+                color: var(--tr-common-black);
+            }
+        }
+    }
+    &-link{
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1;
+        color: var(--tr-common-black);
+        @media #{$xl,$lg,$md,$xs}{
+            font-size: 16px;
+        }
+        &:hover{
+            color: var(--tr-theme-1);
+        }
+        & i{
+            margin-left: 10px;
+            transform: translateY(2px);
+        }
+    }
+    &-style-2 {
+        & .tr-trip-thumb {
+            & img {
+                border-radius: 20px;
+                width: 100%;
+            }
+        }
+        & .tr-trip-item {
+            background-color: #F2F5EC;
+            box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
+            &:hover {
+                & .tr-trip-content {
+                    background-color: var(--tr-common-white);
+                }
+            }
+        }
+        & .tr-trip-content {
+            padding: 20px 30px 40px 30px;
+            background-color: #F2F5EC;
+            transition: all .3s;
+        }
+        & .tr-trip-price  {
+            & span {
+                position: relative;
+                display: block;
+                &::before{
+                    position: absolute;
+                    top: 5px;
+                    left: 0;
+                    content: '';
+                    width: 46%;
+                    height: 2px;
+                    transform: translateY(4px);
+                    background-color: #EEEEEE;
+                }
+            }
+        }
+    }
+    &-bg {
+        padding: 120px 0;
+        border-radius: 40px;
+        background-color: var(--tr-common-white)
+    }
+    &-mlr {
+        margin: 0px 60px;
+        @media #{$xl,$lg,$md,$xs}{
+            margin: 0;
+        }
+    }
+    &-arrow {
+        position: relative;
+        padding: 0 50px;
+        z-index: 1;
+        display: inline-block;
+        background-color: var(--tr-common-white);
+        & button {
+            padding: 0;
+            & span {
+                height: 60px;
+                width: 60px;
+                line-height: 58px;
+                border-radius: 50%;
+                text-align: center;
+                display: inline-block;
+                transition: .3s;
+                color: var(--tr-theme-1);
+                background-color: rgba($color: #034833, $alpha: .1);
+            }
+            &.slider-prev {
+                margin-right: 15px;
+            }
+            &:hover {
+                & span {
+                    color: var(--tr-common-white);
+                    background-color: rgba($color: #034833, $alpha: 1);
+                }
+            }
+        }
+    }
+    &-arrow-wrap{
+        position: relative;
+        &::before{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 1px;
+            background-color: var(--tr-theme-1);
+        }
+        &::after{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            content: '';
+            width: 100%;
+            height: 1px;
+            background-color: var(--tr-theme-1);
+        }
+    }
+    &-style-3 {
+        padding-bottom: 360px;
+        border-radius: 40px;
+        @media #{$md}{
+            & .tr-memorise-title-box {
+                margin-bottom: 0px;
+            }
+        }
+        & .tr-trip-content {
+            padding: 8px 18px 35px 18px;   
+        }
+        & .tr-trip-location {
+            font-size: 20px;
+            margin-bottom: 12px;
+            @media #{$xl}{
+               font-size: 16px;
+            }
+            & i {
+                font-size: 16px;
+                display: inline-block;
+                margin-right: 5px;
+                transform: translateY(-2px);
+            }
+        }
+        & .tr-trip-ratting {
+            margin-bottom: 27px;
+            & i {
+                font-size: 20px;
+                margin-left: 0px;
+                @media #{$xl}{
+                  font-size: 16px;
+                }
+            }
+            & span {
+                color: var(--tr-theme-1);
+            }
+        }
+        & .tr-trip-duration {
+            & p {
+                font-size: 14px;
+                color: var(--tr-text-body);
+            } 
+            & span {
+                font-size: 16px;
+                & i {
+                    margin: 0;
+                }
+            }           
+        }
+        & .tr-trip-price {
+            & span {
+                font-size: 15px;
+                & i {
+                    font-weight: 700;
+                    font-size: 24px;
+                    display: inline-block;
+                    margin-left: 10px;
+                }
+            }           
+        }
+        & .tr-trip-title {
+            margin-bottom: 15px;
+        }
+    }
+}
+
+.tr-trip{
+    &-details{
+        &-thumb{
+            margin-bottom: 35px;
+            & img{
+                border-radius: 20px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.tr-book-form{
+    &-sidebar{
+        padding: 30px;
+        border-radius: 20px;
+    }
+    &-content{
+        & span{
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 1;
+            color: #5B5B5B;
+        }
+        & p{
+            @media #{$xl}{
+                font-size: 18px;
+            }
+            @media #{$lg}{
+                font-size: 17px;
+            }
+        }
+    }
+    &-list{
+        & ul{
+            & li{
+                margin-bottom: 20px;
+                & span{
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 1;
+                    color: #5B5B5B;
+                    text-transform: capitalize;
+                }
+                & i{
+                    margin-right: 15px;
+                    color: var(--tr-theme-1);
+                }
+            }
+        }
+    }
+    &-left{
+        & .tr-map-wrap{
+            & iframe{
+                height: 370px;
+            }
+        }
+    }
+    &-price{
+        &-btn{
+            & button{
+                width: 100%;
+                height: 40px;
+                padding: 0px 10px;
+                line-height: 36px;
+                border-radius: 5px;
+                font-weight: 700;
+                font-size: 18px;
+                transition: .3s;
+                text-transform: capitalize;
+                border: 2px solid var(--tr-theme-1);
+                @media #{$xl,$lg,$md,$xs}{
+                    font-size: 15px;
+                }
+                &.active{
+                    color: var(--tr-common-white);
+                    background-color: var(--tr-theme-1); 
+                }
+                &:hover{
+                    color: var(--tr-common-white);
+                    background-color: var(--tr-theme-1);
+                }
+            }
+        }
+        &-info{
+            border-bottom: 1px solid #D5D5D5;
+            & span{
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 1;
+                display: block;
+                margin-bottom: 15px;
+                text-transform: capitalize;
+                color: var(--tr-common-black);
+            }
+            & a{
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 1;
+            }
+        }
+    }
+}
+.tr-trip-details{
+    &-content{
+        & p{
+            @media #{$lg,$md,$xs}{
+                font-size: 18px;
+            }
+        }
+    }
+}

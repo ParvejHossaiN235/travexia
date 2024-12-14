@@ -1,0 +1,86 @@
+@use '../utils' as *;
+
+.tr-btn{
+    font-weight: 500;
+    font-size: 20px;
+    padding: 16px 30px;
+    border-radius: 999px;
+    transition: all .3s;
+    display: inline-block;
+    color: var(--tr-common-black);
+    border: 1px solid var(--tr-theme-1);
+    @media #{$md,$xs}{
+        font-size: 17px;
+        padding: 13px 27px;
+    }
+    & i{
+        margin-left: 10px;
+        transform: translateY(1px);
+    }
+    &:hover{
+        color: var(--tr-common-white);
+        border-color: var(--tr-theme-1);
+        background-color: var(--tr-theme-1);
+    }
+    &.grey-border{
+        border: 2px solid #EEEEEE;
+    }
+    &-green{
+        font-weight: 500;
+        font-size: 20px;
+        padding: 16px 30px;
+        border-radius: 999px;
+        transition: all .3s;
+        display: inline-block;
+        color: var(--tr-common-white);
+        border: 1px solid transparent; 
+        background-color: var(--tr-theme-1);
+        @media #{$md,$xs}{
+            font-size: 17px;
+            padding: 13px 27px;
+        }
+        & i{
+            margin-left: 10px;
+            transform: translateY(1px);
+        }
+        &.light-green{
+            color: var(--tr-common-white);
+            background-color: var(--tr-theme-2);
+            &:hover{
+                color: var(--tr-common-black);
+                border-color: var(--tr-common-white);
+                background-color: var(--tr-common-white);
+            }
+        }
+        &:hover{
+            color: var(--tr-common-black);
+            background-color: transparent;
+            border-color: var(--tr-theme-1);
+        }
+    }
+    &-white{
+        font-weight: 500;
+        font-size: 20px;
+        padding: 16px 30px;
+        border-radius: 999px;
+        transition: all .3s;
+        display: inline-block;
+        color: var(--tr-common-black);
+        border: 1px solid transparent; 
+        background-color: var(--tr-common-white);
+        border: 2px solid transparent;
+        @media #{$md,$xs}{
+            font-size: 17px;
+            padding: 13px 27px;
+        }
+        & i{
+            margin-left: 10px;
+            transform: translateY(1px);
+        }
+        &:hover{
+            color: var(--tr-common-white);
+            background-color: transparent;
+            border: 2px solid var(--tr-common-white);
+        }
+    }
+}

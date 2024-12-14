@@ -1,0 +1,150 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  17. memorise css start
+/*----------------------------------------*/
+
+.tr-memorise{
+    &-title-box{
+        @media #{$md,$xs}{
+            margin-bottom: 50px;
+        }
+        & p{
+            margin-bottom: 40px;
+            @media #{$xl,$lg,$md,$xs}{
+                font-size: 16px;
+                & br {
+                    display: none;
+                }
+            }
+        }
+    }
+    &-item{
+        margin-left: 40px;
+        @media #{$xl,$lg,$md}{
+            margin-left: 0;
+            margin-bottom: 90px;
+        }
+        @media #{$xs}{
+            margin-left: 0;
+            margin-bottom: 30px;
+        }
+    }
+    &-icon{
+        & span {
+            margin-right: 30px;
+            display: inline-block;
+            color: var(--tr-theme-1);
+            transition: .4s;
+            @media #{$lg,$md,$xs}{
+                margin-right: 20px;
+            }
+            & svg {
+                @media #{$lg,$md,$xs}{
+                    width: 52px;
+                }
+            }
+        }
+    }
+    &-title{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 0;
+        text-transform: capitalize;
+        color: var(--tr-common-black);
+        transition: .4s;
+        @media #{$xl}{
+            font-size: 20px;
+        }
+        @media #{$lg,$md,$xs}{
+            font-size: 19px;
+        }
+    }
+    &-content{
+        & p{
+            @media #{$xl}{
+                font-size: 16px;
+            }
+            @media #{$xs}{
+                font-size: 15px;
+            }
+        }
+    }
+    &-mlr{
+        margin: 0px 60px;
+        @media #{$xl,$lg,$md}{
+            margin: 0px 20px;
+        }
+        @media #{$xs}{
+            margin: 0;
+        }
+    }
+    &-bg{
+        padding-top: 130px;
+        padding-bottom: 340px;
+        border-radius: 40px;
+        background-color: var(--tr-common-white);
+        @media #{$md}{
+            padding-top: 90px;
+            padding-bottom: 280px;
+        }
+        @media #{$sm}{
+            padding-top: 90px;
+            padding-bottom: 300px;
+        }
+    }
+    &-shape {
+        &-1 {
+            position: absolute;
+            top: -20%;
+            left: 0;
+            z-index: -1;
+        }
+    }
+    &-style-2{
+        & .tr-memorise-item{
+            padding: 36.5px 38px;
+            margin-left: 0;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            transition: .4s;
+            background-color: var(--tr-common-white);
+            @media #{$xs}{
+                padding: 36.5px 25px;
+            }
+            &:hover {
+                background-color: var(--tr-theme-1);
+                & .tr-memorise-icon {
+                    & span {
+                        color: var(--tr-common-white);
+                    }
+                }
+                & .tr-memorise-title {
+                    color: var(--tr-common-white);
+                }
+            }
+        }
+    }
+    &-style-3 {
+        & .tr-memorise-title-box {
+            @media #{$md}{
+                margin-bottom: 0px;
+            }
+        }
+        & .tr-memorise-item{
+            padding: 36px 30px;
+            margin-left: 0;
+            border: 2px solid #EEEEEE;
+            border-radius: 20px;
+            transition: .3s;
+            @media #{$xl,$lg,$md,$xs}{
+                margin-bottom: 0;
+            }
+            &:hover {
+                box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
+                border: 2px solid transparent;
+            }
+        }       
+    }
+}

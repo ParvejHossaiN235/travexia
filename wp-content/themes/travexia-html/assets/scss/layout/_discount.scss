@@ -1,0 +1,81 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  11. discount css start
+/*----------------------------------------*/
+.tr-discount{
+    &-wrap {
+        margin-top: -270px;
+        padding: 89px 80px;
+        border-radius: 20px;
+        box-shadow: 0 25px 60px 0 rgba(0, 13, 48, 0.05);
+        @media #{$lg}{
+            padding: 70px 60px;
+        }
+        @media #{$md}{
+            padding: 60px 40px;
+        }
+        @media #{$xs}{
+            padding: 50px 20px;
+        }
+        background: #fff;
+        & .tr-hero-search-box {
+            border-radius: 999px;
+            background: #fff;
+            padding: 23px 30px;
+            padding-left: 40px;
+            margin-right: 115px;
+            box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
+            @media #{$lg,$md,$xs}{
+                margin-right: 0;
+
+            }
+            @media #{$md,$xs}{
+                border-radius: 0;
+
+            }
+        }
+        & .tr-hero-widget {
+            &-title {
+                font-size: 14px;
+                margin-bottom: 18px;
+            }
+            &-item {
+                margin-right: 0;
+                &.widget-style-2 {
+                    margin-right: -50px;
+                }
+            }
+        }
+        & .tr-hero-widget-icon span{
+            border-radius: 50%;
+        }
+    }
+    &-thumb {
+        position: absolute;
+        top: 13%;
+        right: 5%;
+        z-index: -1;
+        @media #{$xl}{
+            right: 0%;
+            transform: scale(.8);
+        }
+    }
+    &-content{
+        & .tr-section-title{
+            @media #{$lg}{
+                & br{
+                    display: none;
+                }
+            }
+        }
+        & p{
+            @media #{$md,$xs}{
+                font-size: 16px;
+                & br{
+                    display: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,100 @@
+@use '../utils' as *;
+
+.tr-custom-accordion {
+    & .accordion-items {
+        border-radius: 10px;
+        margin-bottom: 30px;
+        box-shadow: 0 0 30px 0 rgba(8, 0, 83, 0.1);
+        background: #fff;
+    }
+    & .accordion-header{
+        border-radius: 5px;
+    }
+    & .accordion-buttons {
+        position: relative;
+        width: 100%;
+        font-weight: 700;
+        font-size: 20px;
+        text-align: left;
+        letter-spacing: -0.01em;
+        border-radius: 5px 5px 0 0;
+        padding: 24px 70px 24px 30px;
+        color: var(--tr-common-black);
+        @media #{$xl} {
+            font-size: 20px;
+        }
+        @media #{$lg,$md} {
+            font-size: 16px;
+            padding: 15px 70px 15px 30px;
+        }
+        @media #{$xs} {
+            font-size: 17px;
+            & br{
+                display: none;
+            }
+        }
+        @media #{$sm} {
+            font-size: 17px;
+        }
+        &::after {
+            position: absolute;
+            content: "\f106";
+            font-family: 'Font Awesome 6 Pro';
+            top: 0;
+            bottom: 0;
+            right: 30px;
+            font-weight: 300;
+            font-size: 30px;
+            opacity: 1;
+            height: 26px;
+            line-height: 26px;
+            text-align: center;
+            width: 26px;
+            border-radius: 50%;
+            margin: auto;
+            @media #{$xs} {
+                font-size: 18px;
+            }
+            &:not(.collapsed) {
+                color: var(--it-common-white);
+            }
+        }
+        &.collapsed {
+            &::after {
+                content: '\f107';
+            }
+        }
+    }
+
+    & .collapsed {
+        position: relative;
+        z-index: 99;
+    }
+
+    & .accordion-body {
+        padding: 25px 30px;
+        padding-top: 0;
+        position: relative;
+        z-index: 1;
+        & p {
+            font-size: 19px;
+            color: #5B5B5B;
+            letter-spacing: -0.01em;
+        }
+        @media #{$xl} {
+            font-size: 15px;
+        }
+
+        @media #{$lg} {
+            font-size: 14px;
+        }
+
+        @media #{$md,$xs} {
+            font-size: 14px;
+        }
+
+        @media #{$sm} {
+            font-size: 15px;
+        }
+    }
+}

@@ -1,0 +1,58 @@
+	// bg color
+	@mixin bg-color($color, $opacity) {
+	    background-color: rgba($color, $opacity);
+	}
+
+	// placeholder input
+	@mixin tr-placeholder {
+	    &::-webkit-input-placeholder {
+	        @content;
+	    }
+
+	    &:-moz-placeholder {
+	        @content;
+	    }
+
+	    &::-moz-placeholder {
+	        @content;
+	    }
+
+	    &:-ms-input-placeholder {
+	        @content;
+	    }
+	}
+
+	// keyframes 
+	@mixin keyframes($name) {
+	    @-webkit-keyframes #{$name} {
+	        @content;
+	    }
+
+	    @-moz-keyframes #{$name} {
+	        @content;
+	    }
+
+	    @-ms-keyframes #{$name} {
+	        @content;
+	    }
+
+	    @keyframes #{$name} {
+	        @content;
+	    }
+	}
+
+	//backgroud 
+	@mixin background {
+	    background-position: center;
+	    background-size: cover;
+	    background-repeat: no-repeat;
+	}
+
+	//transition
+	@mixin transition($time) {
+	    -webkit-transition: all $time ease-out 0s;
+	    -moz-transition: all $time ease-out 0s;
+	    -ms-transition: all $time ease-out 0s;
+	    -o-transition: all $time ease-out 0s;
+	    transition: all $time ease-out 0s;
+	}

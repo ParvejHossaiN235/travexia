@@ -1,0 +1,60 @@
+@use '../utils' as *;
+
+.tr-section{
+    &-subtitle{
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.50;
+        display: inline-block;
+        color: var(--tr-theme-1);
+    }
+}
+.tr-section{
+    &-title{
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 1;
+        display: block;
+        text-transform: capitalize;
+        color: var(--tr-common-black);
+        &.fs-32{
+            font-size: 32px;
+        }
+        &.fs-24{
+            font-size: 24px;
+        }
+        @media #{$xl}{
+            font-size: 34px;
+        }
+        @media #{$lg,$md}{
+            font-size: 32px;
+        }
+        @media #{$md}{
+            & br{
+                display: none;
+            }
+        }
+        @media #{$xs}{
+            font-size: 30px;
+            & br {
+                display: none;
+            }
+        }
+        @media #{$sm}{
+            font-size: 34px;
+        }
+        &-2 {
+            font-size: 64px;
+            line-height: 1.1;
+            color: var(--tr-common-white);
+            @media #{$md}{
+                & br{
+                    display: none;
+                }
+            }
+            @media #{$xs}{
+                font-size: 55px;
+            }
+        }
+    }
+}
