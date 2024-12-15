@@ -15,16 +15,22 @@ $hexa_blog_cat = get_theme_mod('hexa_blog_cat', false);
 
 if (is_single()) : ?>
 
-    <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item-details format-audio'); ?>>
+    <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item-details postbox-details-wrapper format-audio'); ?>>
         <?php if (!empty($link_audio)) : ?>
-            <div class="postbox-thumb postbox-audio">
-                <?php echo wp_oembed_get($link_audio); ?>
+            <div class="postbox-thumb postbox-audio postbox-main-thumb mb-35">
+                <a href="<?php the_permalink(); ?>">
+                    <?php echo wp_oembed_get($link_audio); ?>
+                </a>
             </div>
         <?php endif; ?>
-        <div class="postbox-content">
+
+        <div class="postbox-content postbox-content-box">
             <?php get_template_part('template-parts/post-meta/meta'); ?>
 
             <div class="postbox-text">
+                <h3 class="postbox-title mb-25">
+                    <?php the_title(); ?>
+                </h3>
                 <?php the_content(); ?>
                 <?php
                 wp_link_pages([
@@ -37,13 +43,29 @@ if (is_single()) : ?>
             </div>
             <!-- post tatgs and social share -->
             <?php if (!empty(hexa_get_tag()) || !empty(get_theme_mod('post_socials'))) : ?>
-                <div class="postbox-share">
-                    <div class="postbox-tags">
-                        <?php print hexa_get_tag(); ?>
-                    </div>
-                    <div class="postbox-social">
-                        <?php if (get_theme_mod('post_socials')) hexa_socials_share(); ?>
-                    </div>
+                <div class="postbox-tag-box mb-45 d-flex justify-content-between align-items-center g-10 flex-wrap">
+                    <?php if (!empty(hexa_get_tag())) : ?>
+                        <div class="postbox-tags postbox-tag d-flex align-items-center">
+                            <h3 class="postbox-tag-title">
+                                <?php esc_html_e('Tag', 'hexa-theme'); ?>
+                            </h3>
+                            <div class="postbox-tag-content tagcloud">
+                                <?php print hexa_get_tag(); ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (!empty(get_theme_mod('post_socials'))) : ?>
+                        <div class="postbox-social d-flex align-items-center">
+                            <h3 class="postbox-tag-title">
+                                <?php esc_html_e('Share', 'hexa-theme'); ?>
+                            </h3>
+
+                            <div class="postbox-share-s">
+                                <?php if (get_theme_mod('post_socials')) hexa_socials_share(); ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
             <?php endif; ?>
             <!-- post author -->
@@ -51,6 +73,7 @@ if (is_single()) : ?>
             <!-- single post nav -->
             <?php if (get_theme_mod('post_nav')) hexa_single_post_nav(); ?>
         </div>
+
     </article>
 
 <?php else : ?>

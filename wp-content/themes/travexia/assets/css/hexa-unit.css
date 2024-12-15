@@ -101,13 +101,18 @@ blockquote p code {
   border-radius: 50px;
 }
 .latest-comments li ul.children {
-  padding-inline-start: 50px;
+  padding-inline-start: 60px;
   list-style: none;
 }
 @media (max-width: 767px) {
   .latest-comments li ul.children {
     padding-inline-start: 0;
   }
+}
+
+.latest-comments {
+  border-bottom: 1px solid #EBF0E7;
+  margin-bottom: 25px;
 }
 /* block quote */
 .wp-block-quote cite {
@@ -693,14 +698,18 @@ pre {
   font-size: 14px;
   font-weight: 500;
   width: 100%;
-  height: 58px;
-  line-height: 58px;
+  height: 60px;
+  line-height: 60px;
   padding: 0 25px;
   padding-inline-end: 25px;
   padding-inline-end: 60px;
   color: #727272;
   background: #f9f9f9;
   border: 1px solid #f9f9f9;
+  border-radius: 5px;
+}
+.sidebar-widget.widget_search button {
+  border-radius: 0 5px 5px 0;
 }
 .sidebar-search-input input:is(:focus) {
   border: 1px solid #034833;
@@ -715,17 +724,12 @@ pre {
   background: #034833;
 }
 /* recent post */
-.recent-post {
-  display: flex;
-  align-items: center;
-}
 .recent-post:not(:last-child) {
   margin-bottom: 20px;
 }
 .recent-post .post-thumb {
-  min-width: 100px;
-  width: 100px;
-  padding-inline-end: 20px;
+  flex: 0 0 100px;
+  margin-inline-end: 20px;
 }
 .recent-post .post-thumb img {
   width: 100%;
@@ -1040,9 +1044,51 @@ ol.wp-block-latest-comments {
   margin-top: 5px;
   margin-bottom: 15px;
 }
+
+/* categories */
 .content-wrapper .wp-block-categories {
   margin-bottom: 20px;
 }
+
+.widget_categories.sidebar-widget ul li a {
+  position: relative;
+  display: block;
+  padding: 18px 20px;
+  padding-left: 60px;
+  margin-bottom: 15px;
+  transition: 0.3s;
+  font-size: 16px;
+  font-weight: 700;
+  color: #5B5B5B;
+  letter-spacing: -0.01em;
+  border-radius: 5px;
+  background-color: var(--tr-common-white);
+  transition: .3s linear;
+}
+
+.widget_categories.sidebar-widget ul li a::before {
+  position: absolute;
+  content: "\f178";
+  font-family: "Font Awesome 6 Pro";
+  font-weight: 400;
+  top: 53%;
+  left: 25px;
+  transform: translateY(-50%);
+  transition: 0.3s;
+  font-size: 16px;
+  color: #5B5B5B;
+  transition: .3s linear;
+}
+
+.widget_categories.sidebar-widget ul li a:hover {
+  background-color: #034833;
+  color: #fff;
+}
+
+.widget_categories.sidebar-widget ul li a:hover::before {
+  color: #fff;
+}
+
 .content-wrapper .wp-block-page-list li {
   list-style: none;
 }
@@ -1207,37 +1253,39 @@ ol.wp-block-comment-template {
 }
 .wp-block-quote,
 blockquote {
-  background: #f1f2f6;
-  padding: 35px 50px;
-  border-radius: 4px;
-  margin-bottom: 35px;
-  border-left: 5px solid #034833 !important;
+  padding: 40px 40px 50px 40px;
+  border-radius: 20px;
+  border: 2px solid #034833;
 }
-blockquote::before {
+blockquote::after {
   content: "\f10e";
   position: static;
-  font-family: "Font Awesome 5 Pro";
+  font-family: "Font Awesome 6 Pro";
   font-size: 40px;
   color: #034833;
   line-height: 1;
   margin-bottom: 12px;
   display: inline-block;
+  float: right;
+  margin-top: -25px;
+  font-weight: 700;
 }
 .wp-block-quote p,
 blockquote p {
-  font-size: 16px;
+  font-size: 20px;
   line-height: 26px;
   margin-bottom: 0 !important;
+  color: #5b5b5b;
 }
 .wp-block-quote cite,
 blockquote cite {
-  font-size: 16px;
-  display: block;
-  margin-top: 10px;
-  color: #070337;
-  font-style: inherit;
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+  color: #034833;
   position: relative;
+  margin-top: 30px;
+  display: inline-block;
 }
 blockquote cite::before {
   content: "";
@@ -1296,35 +1344,20 @@ div.postbox-comment-content > ol {
 .page #comments {
   clear: both;
 }
-.content-wrapper blockquote.format-quote {
-  background: #f9f9f9;
-  border-radius: 10px;
-  padding: 50px 50px 50px 33px;
-  border-left: none !important;
-}
-.content-wrapper blockquote.format-quote span {
-  height: 60px;
-  width: 60px;
-  line-height: 60px;
-  text-align: center;
-  background-color: #fff;
-  display: inline-block;
-  border-radius: 50%;
-  margin-bottom: 20px;
-}
+
 .content-wrapper blockquote.format-quote p {
-  font-weight: 600;
-  font-size: 24px;
+  font-weight: 400;
+  font-size: 20px;
   line-height: 1.4;
-  letter-spacing: -0.01em;
-  color: #fff;
-  margin-bottom: 39px;
+  letter-spacing: 0;
+  color: #5B5B5B;
+  margin-bottom: 35px;
 }
 .content-wrapper blockquote.format-quote cite {
-  color: #fff;
+  color: #034833;
 }
 .content-wrapper blockquote.format-quote cite::before {
-  background-color: #fff;
+  background-color: #034833;
 }
 .no-breadcrumb-blog .breadcrumb-area {
   display: none;
@@ -1401,13 +1434,6 @@ div.postbox-comment-content > ol {
   background-color: #034833;
 }
 /* Theme default post details css */
-.postbox-item-details {
-  background-color: #fff;
-  box-shadow: 0 0 0 0.05rem rgba(8, 60, 130, 0.06), 0 0 1.25rem rgba(30, 34, 40, 0.04);
-}
-.postbox-item-details .postbox-content {
-  margin-bottom: 75px;
-}
 .postbox-tags {
   overflow: hidden;
   clear: both;
@@ -1429,15 +1455,15 @@ div.postbox-comment-content > ol {
 .tagcloud {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 13px;
 }
 .tagcloud a {
   display: inline-block;
   padding: 10px 12px;
   border: 1px solid #ddd;
   background-color: transparent;
-  font-size: 14px !important;
-  font-weight: 500;
+  font-size: 16px !important;
+  font-weight: 400;
   line-height: 1;
 }
 .postbox-item-details .author-socials a,
@@ -1445,10 +1471,12 @@ div.postbox-comment-content > ol {
   width: 40px;
   height: 40px;
   background-color: transparent;
-  border: 1px solid #ddd;
+  border: 1px solid #034833;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50%;
+  color: #034833;
 }
 .postbox-item-details .author-socials a:hover,
 .share-post a:hover,
@@ -1461,10 +1489,11 @@ div.postbox-comment-content > ol {
 .postbox-item-details .author-bio {
   overflow: hidden;
   padding: 30px;
-  border: 1px solid #ddd;
+  border: 1px solid #034833;
   margin-top: 40px;
   display: flex;
   gap: 30px;
+  border-radius: 10px;
 }
 @media (max-width: 767px) {
   .postbox-item-details .author-bio {
@@ -1499,13 +1528,12 @@ div.postbox-comment-content > ol {
 /* Pagination css */
 .hexa-post-nav {
   overflow: hidden;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #034833;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
-  margin-top: 40px;
+  padding: 0px 0 30px;
+  margin: 40px 0;
 }
 .hexa-post-nav .post-prev,
 .hexa-post-nav .post-next {
@@ -1564,23 +1592,26 @@ div.postbox-comment-content > ol {
   padding-inline-start: 0;
   margin-bottom: 0;
   margin-top: 30px;
+  gap: 10px;
 }
 .hexa-pagination ul li {
   display: inline-block;
 }
 .hexa-pagination ul li a,
 .hexa-pagination ul li span {
-  font-size: 18px;
-  color: #1b1d21;
-  background: #fff;
-  font-weight: 500;
-  height: 40px;
-  width: 40px;
-  display: block;
+  font-weight: 700;
+  font-size: 23px;
+  letter-spacing: -0.01em;
+  color: #00102f;
+  height: 58px;
+  width: 58px;
+  line-height: 58px;
+  border-radius: 50%;
+  display: inline-block;
   text-align: center;
-  line-height: 40px;
-  margin-inline-end: 5px;
-  border: 1px solid #e7e7e7;
+  font-family: var(--tr-ff-heading);
+  border: 1px solid var(--tr-theme-1);
+  transition: 0.3s;
 }
 .hexa-pagination ul li span.current,
 .hexa-pagination ul li a:hover {
@@ -1591,6 +1622,15 @@ div.postbox-comment-content > ol {
 .hexa-pagination ul li span.dots {
   line-height: 32px;
 }
+
+h3.postbox-tag-title {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: #00102f;
+  margin: 0;
+  margin-right: 18px;
+}
 /* Comment Form Css */
 .postbox-comment-input {
   position: relative;
@@ -1598,29 +1638,25 @@ div.postbox-comment-content > ol {
 }
 .postbox-comment-input input,
 .postbox-comment-input textarea {
-  height: 55px;
-  padding: 0 20px;
-  width: 100%;
-  font-size: 15px;
-  color: #727272;
-  outline: none;
-  border: 1px solid #ddd;
-  background: transparent;
-  line-height: 12px;
+  border-radius: 100px;
+  height: 70px;
+  padding: 20px 20px;
+  font-weight: 400;
+  font-size: 18px;
+  text-transform: capitalize;
+  color: var(--tr-common-black);
+  border: 1px solid transparent
 }
 .postbox-comment-input input::placeholder,
 .postbox-comment-input textarea::placeholder {
-  color: #727272;
-  font-family: "Rubik", sans-serif;
   font-weight: 400;
-  font-size: 15px;
-  line-height: 12px;
+  font-size: 18px;
+  color: #5B5B5B;
 }
-.postbox-comment-input textarea {
-  height: 180px;
-  resize: none;
-  padding-top: 20px;
-  padding-bottom: 20px;
+
+.postbox-comment-input textarea { 
+  height: 170px;
+  border-radius: 30px;
 }
 /* comments reply css */
 .postbox-comment-avater {
@@ -1643,19 +1679,14 @@ div.postbox-comment-content > ol {
   margin-bottom: 0;
 }
 .postbox-comment-name .post-meta {
-  font-size: 13px;
-  line-height: 12px;
   font-weight: 400;
-  color: #68686f;
-  position: relative;
-  padding-inline-start: 9px;
-  margin-inline-start: 9px;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  color: #5B5B5B;
+  display: block;
+  margin-bottom: 15px;
 }
-.postbox-comment-reply {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
+
 .postbox-comment-reply a {
   font-weight: 400;
   font-size: 14px;
@@ -1666,14 +1697,15 @@ div.postbox-comment-content > ol {
   color: #034833;
 }
 .postbox-comment-text {
-  background: #edeffa;
+  background: transparent;
   border-radius: 0;
-  padding: 21px 22px;
+  letter-spacing: -0.01em;
+  margin-bottom: 15px;
 }
 .postbox-comment-text p {
   font-weight: 400;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
-  color: #494950;
+  color: #5b5b5b;
   margin-bottom: 0;
 }

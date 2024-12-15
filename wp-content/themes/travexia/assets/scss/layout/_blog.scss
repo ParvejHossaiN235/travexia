@@ -133,7 +133,7 @@
     }
 }
 
-.postbox{
+div.postbox{
     &-meta {
         & span {
             margin-right: 35px;
@@ -196,6 +196,7 @@
                     top: 50%;
                     transform: translateY(-50%);
                     right: 20px;
+                    left: auto !important;
                     z-index: 9;
                 }
 
@@ -206,7 +207,11 @@
                     background-color: var(--tr-common-white);
                     color: var(--tr-common-black);
                     text-align: center;
-                    font-size: 18px;
+                    font-size: 18px; 
+                    i {
+                        position: relative;
+                        transform: rotate(-180deg);
+                    }                   
                 }
             }
         }
@@ -718,17 +723,16 @@
 .tagcloud {
     & a {
         background-color: #fff;
-        display: inline-block;
+        display: inline-flex;
         line-height: 1;
         padding: 13px 15px;
-        margin-bottom: 10px;
-        margin-right: 10px;
         font-size: 16px;
         letter-spacing: -0.01em;
         text-align: center;
         color: #5B5B5B;
         text-align: center;
         border-radius: 10px;
+        border: inherit;
         @media #{$xl} {
             padding: 13px 10px;
         }

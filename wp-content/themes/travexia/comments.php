@@ -64,7 +64,7 @@ if (post_password_required()) {
         <?php endif; // check for comment navigation 
         ?>
 
-        <div class="postbox-comment-form">
+        <div class="postbox-comment-form mt-20">
             <?php
             $post_id = '';
             if (null === $post_id)
@@ -101,7 +101,7 @@ if (post_password_required()) {
                 <div class="clearfix"></div>
             </div>
         ',
-                'submit_button'    => '<div class="col-xl-12 form-inner-btn"><button class="theme-btn" type="submit">' . esc_html__('Post Comment', 'hexa-theme') . ' </button></div>',
+                'submit_button'    => '<div class="col-xl-12 form-inner-btn"><button class="tr-btn-green" type="submit">' . esc_html__('Post Comment', 'hexa-theme') . ' </button></div>',
                 /** This filtwp-content/themes/hexa/incer is documented in wp-includes/link-template.php */
                 'must_log_in'        => '
             <p class="must-log-in">
@@ -115,7 +115,7 @@ if (post_password_required()) {
                 'id_form'            => 'commentform',
                 'id_submit'          => 'submit',
                 'class_submit'       => 'tp-btn',
-                'title_reply'        => esc_html__('Write a comment', 'hexa-theme'),
+                'title_reply'        => esc_html__('Leave A Comment', 'hexa-theme'),
                 'title_reply_to'     => esc_html__('Leave a Reply to %s', 'hexa-theme'),
                 'cancel_reply_link'  => esc_html__('Cancel reply', 'hexa-theme'),
                 'label_submit'       => esc_html__('Post Comment', 'hexa-theme'),

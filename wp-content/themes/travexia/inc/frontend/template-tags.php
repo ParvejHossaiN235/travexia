@@ -91,35 +91,31 @@ if (!function_exists('hexa_comment postbox-details-comment-inner')) {
         $replayClass = 'comment-depth-' . esc_attr($depth);
     ?>
 
-        <li id="comment-<?php comment_ID(); ?>" class="comment-list mt-30">
+        <li id="comment-<?php comment_ID(); ?>" class="comment-list ">
             <div class="postbox-comment-box p-relative">
-                <div class="postbox-comment-info d-flex align-items-center mb-10">
-                    <div class="postbox-comment-avater">
+                <div class="postbox-comment-info d-flex align-items-start mb-40">
+                    <div class="postbox-comment-avater postbox-user-thumb">
                         <?php print get_avatar($comment, 102, null, null, ['class' => []]); ?>
                     </div>
-                    <div class="postbox-comment-name d-flex align-items-center">
-                        <h5><?php print ucwords(get_the_author()); ?></h5>
-                        <span class="post-meta"> <?php comment_time(get_option('date_format')); ?></span>
+                    <div class="postbox-comment-name postbox-user-info">
+                        <h4 class="user-title">
+                            <?php print ucwords(get_the_author()); ?>
+                        </h4>
+                        <span class="post-meta m-0 mb-15 p-0"> 
+                            <?php comment_time(get_option('date_format')); ?>
+                        </span>
+
+                        <div class="postbox-comment-text mt-15">
+                            <?php comment_text(); ?>
+                        </div>
+                        <div class="postbox-comment-reply postbox-user-reply">
+                            <?php comment_reply_link(array_merge($args, ['reply_text' => __('<button> Reply</button>', 'hexa-theme'), 'depth' => $depth, 'max_depth' => $args['max_depth']])); ?>
+                        </div>
                     </div>
                 </div>
-                <div class="postbox-comment-text ml-65">
-                    <?php comment_text(); ?>
-                </div>
-                <div class="postbox-comment-reply">
-                    <?php comment_reply_link(array_merge($args, ['reply_text' => __('<span><svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.8125 6.625L1 3.8125L3.8125 1" stroke="currentColor"
-                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path
-                    d="M10 10V6.0625C10 5.46576 9.76295 4.89347 9.34099 4.47151C8.91903 4.04955 8.34674 3.8125 7.75 3.8125H1"
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-                </span>Reply', 'hexa-theme'), 'depth' => $depth, 'max_depth' => $args['max_depth']])); ?>
-                </div>
+                
             </div>
-
-    <?php
+        <?php
     }
 }
 
@@ -244,7 +240,7 @@ if (!function_exists('hexa_posts_navigation')) :
         return $pagination;
     }
 
-    function hexa_posts_navigation($prev = '<i class="fal fa-arrow-left-long"></i>', $next = '<i class="fal fa-arrow-right-long"></i>', $pages = '')
+    function hexa_posts_navigation($prev = '<i class="fa-solid fa-arrow-left-long"></i>', $next = '<i class="fa-solid fa-arrow-right-long"></i>', $pages = '')
     {
         global $wp_query, $wp_rewrite;
 

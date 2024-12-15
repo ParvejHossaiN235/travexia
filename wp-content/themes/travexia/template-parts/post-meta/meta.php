@@ -18,15 +18,16 @@ $blog_cat = get_theme_mod('blog_cat', false);
 
 <div class="postbox-meta mb-20">
    <?php if (!empty($blog_author)) : ?>
-      <span><a href="<?php print esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>"><i class="far fa-user"></i> <?php print ucwords(get_the_author()); ?></a></span>
+      <span><a href="<?php print esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>"><i class="fa-solid fa-user"></i> <?php echo esc_html__('By', 'hexa-theme'); ?> <?php print ucwords(get_the_author()); ?></a></span>
    <?php endif; ?>
-   <?php if (!empty($blog_date)) : ?>
-      <span><i class="far fa-calendar-check"></i> <?php the_time(get_option('date_format')); ?> </span>
-   <?php endif; ?>
-   <?php if (!empty($blog_comments)) : ?>
-      <span><a href="<?php comments_link(); ?>"><i class="fal fa-comments"></i> <?php comments_number(); ?></a></span>
-   <?php endif; ?>
+   
    <?php if (!empty($blog_cat)) : ?>
-      <span><a href="<?php print esc_url(get_category_link($categories[0]->term_id)); ?>"><i class="fal fa-tag"></i> <?php echo esc_html($categories[0]->name); ?></a></span>
+      <span><a href="<?php print esc_url(get_category_link($categories[0]->term_id)); ?>"><i class="fa-regular fa-folder-open"></i> <?php echo esc_html($categories[0]->name); ?></a></span>
    <?php endif; ?>
+
+   <?php if (!empty($blog_comments)) : ?>
+      <span><a href="<?php comments_link(); ?>"><i class="fa-regular fa-comments"></i> <?php comments_number(); ?></a></span>
+   <?php endif; ?>
+
+   
 </div>

@@ -23,7 +23,7 @@ $protocol = is_ssl() ? 'https' : 'http';
     <?php // get_header(); 
     ?>
 
-    <section class="hexa-area postbox-area pt-120 pb-120" >
+    <section class="hexa-area postbox-area pt-120 pb-100" >
         <div class="entry-content">
             <?php
             while (have_posts()) :

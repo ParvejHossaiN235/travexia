@@ -3439,7 +3439,7 @@ input[type=color] {
   color: var(--tr-theme-2);
 }
 
-.postbox-meta span {
+div.postbox-meta span {
   margin-right: 35px;
   font-size: 16px;
   letter-spacing: -0.01em;
@@ -3447,21 +3447,21 @@ input[type=color] {
   transition: 0.3s;
 }
 @media (max-width: 767px) {
-  .postbox-meta span {
+  div.postbox-meta span {
     margin-right: 10px;
     font-size: 14px;
   }
 }
-.postbox-meta span i {
+div.postbox-meta span i {
   color: var(--tr-theme-1);
   margin-right: 10px;
   font-size: 16px;
   display: inline-block;
 }
-.postbox-meta span:hover {
+div.postbox-meta span:hover {
   color: var(--tr-theme-1);
 }
-.postbox-play-icon {
+div.postbox-play-icon {
   position: absolute;
   left: 0;
   right: 0;
@@ -3469,7 +3469,7 @@ input[type=color] {
   transform: translateY(-50%);
   text-align: center;
 }
-.postbox-play-icon a {
+div.postbox-play-icon a {
   width: 60px;
   height: 60px;
   line-height: 60px;
@@ -3480,25 +3480,26 @@ input[type=color] {
   border-radius: 50%;
 }
 @media (max-width: 767px) {
-  .postbox-slider-arrow-wrap {
+  div.postbox-slider-arrow-wrap {
     display: none;
   }
 }
-.postbox-slider-arrow-wrap .postbox-arrow-prev {
+div.postbox-slider-arrow-wrap .postbox-arrow-prev {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   left: 20px;
   z-index: 9;
 }
-.postbox-slider-arrow-wrap .postbox-arrow-next {
+div.postbox-slider-arrow-wrap .postbox-arrow-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   right: 20px;
+  left: auto !important;
   z-index: 9;
 }
-.postbox-slider-arrow-wrap button {
+div.postbox-slider-arrow-wrap button {
   height: 60px;
   width: 60px;
   line-height: 64px;
@@ -3507,37 +3508,41 @@ input[type=color] {
   text-align: center;
   font-size: 18px;
 }
-.postbox-title {
+div.postbox-slider-arrow-wrap button i {
+  position: relative;
+  transform: rotate(-180deg);
+}
+div.postbox-title {
   font-weight: 700;
   font-size: 34px;
   letter-spacing: -0.01em;
   color: #00102f;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px) {
-  .postbox-title {
+  div.postbox-title {
     font-size: 30px;
   }
 }
 @media (max-width: 767px) {
-  .postbox-title {
+  div.postbox-title {
     font-size: 24px;
   }
 }
-.postbox-title:hover {
+div.postbox-title:hover {
   color: var(--tr-theme-1);
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px), only screen and (min-width: 576px) and (max-width: 767px) {
-  .postbox-wrap {
+  div.postbox-wrap {
     padding-right: 0;
     margin-bottom: 50px;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px), only screen and (min-width: 576px) and (max-width: 767px) {
-  .postbox-tag {
+  div.postbox-tag {
     margin-bottom: 20px;
   }
 }
-.postbox-tag-title {
+div.postbox-tag-title {
   font-weight: 700;
   font-size: 20px;
   letter-spacing: -0.01em;
@@ -3545,62 +3550,62 @@ input[type=color] {
   margin: 0;
   margin-right: 18px;
 }
-.postbox-tag-content.tagcloud a {
+div.postbox-tag-content.tagcloud a {
   margin-bottom: 0;
 }
-.postbox-tag-box {
+div.postbox-tag-box {
   padding: 30px 40px;
   border-radius: 20px;
   background-color: var(--tr-grey-1);
 }
 @media (max-width: 767px) {
-  .postbox-tag-box {
+  div.postbox-tag-box {
     padding: 30px 20px;
   }
 }
-.postbox-share-content a {
+div.postbox-share-content a {
   font-size: 18px;
   display: inline-block;
   transition: 0.3s;
 }
-.postbox-share-content a.linkedin {
+div.postbox-share-content a.linkedin {
   color: #0072AC;
 }
-.postbox-share-content a.facebook {
+div.postbox-share-content a.facebook {
   color: #0072AC;
 }
-.postbox-share-content a.pinterest {
+div.postbox-share-content a.pinterest {
   color: #DA0021;
 }
-.postbox-share-content a.twitter {
+div.postbox-share-content a.twitter {
   color: #3AC4FF;
 }
-.postbox-share-content a:not(:last-child) {
+div.postbox-share-content a:not(:last-child) {
   margin-right: 25px;
 }
-.postbox-comment-title {
+div.postbox-comment-title {
   font-weight: 700;
   font-size: 30px;
   letter-spacing: -0.01em;
   color: var(--tr-common-black);
 }
-.postbox-comment-content {
+div.postbox-comment-content {
   border-bottom: 1px solid #EBF0E7;
 }
-.postbox-comment-content ul li {
+div.postbox-comment-content ul li {
   list-style-type: none;
   margin-bottom: 40px;
   display: inline-block;
 }
-.postbox-comment-content ul li.children {
+div.postbox-comment-content ul li.children {
   margin-left: 100px;
 }
 @media (max-width: 767px) {
-  .postbox-comment-content ul li.children {
+  div.postbox-comment-content ul li.children {
     margin-left: 0;
   }
 }
-.postbox-user-reply button {
+div.postbox-user-reply button {
   padding: 5px 10px;
   font-size: 12px;
   font-weight: 700;
@@ -3608,26 +3613,26 @@ input[type=color] {
   color: var(--tr-theme-1);
   border: 1px solid var(--tr-theme-1);
 }
-.postbox-user-reply button:hover {
+div.postbox-user-reply button:hover {
   color: var(--tr-common-white);
   border-color: var(--tr-theme-1);
   background-color: var(--tr-theme-1);
 }
-.postbox-user-thumb {
+div.postbox-user-thumb {
   flex: 0 0 auto;
 }
-.postbox-user-thumb img {
+div.postbox-user-thumb img {
   height: 80px;
   width: 80px;
   border-radius: 50%;
   margin-right: 30px;
 }
-.postbox-user-info .user-title {
+div.postbox-user-info .user-title {
   font-weight: 600;
   font-size: 18px;
   color: var(--tr-common-black);
 }
-.postbox-user-info span {
+div.postbox-user-info span {
   font-weight: 400;
   font-size: 14px;
   letter-spacing: -0.01em;
@@ -3635,20 +3640,20 @@ input[type=color] {
   display: block;
   margin-bottom: 15px;
 }
-.postbox-user-info p {
+div.postbox-user-info p {
   font-size: 16px;
   letter-spacing: -0.01em;
   margin-bottom: 15px;
 }
 @media (max-width: 767px) {
-  .postbox-review-form p {
+  div.postbox-review-form p {
     font-size: 18px;
   }
 }
-.postbox-review-title {
+div.postbox-review-title {
   font-size: 30px;
 }
-.postbox-review-input input {
+div.postbox-review-input input {
   height: 70px;
   line-height: 58px;
   border-radius: 999px;
@@ -3660,30 +3665,30 @@ input[type=color] {
   text-transform: capitalize;
   color: var(--tr-common-black);
 }
-.postbox-review-input input:focus {
+div.postbox-review-input input:focus {
   border: 1px solid var(--tr-theme-1);
 }
-.postbox-review-input input::-webkit-input-placeholder {
+div.postbox-review-input input::-webkit-input-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: #5B5B5B;
 }
-.postbox-review-input input:-moz-placeholder {
+div.postbox-review-input input:-moz-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: #5B5B5B;
 }
-.postbox-review-input input::-moz-placeholder {
+div.postbox-review-input input::-moz-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: #5B5B5B;
 }
-.postbox-review-input input:-ms-input-placeholder {
+div.postbox-review-input input:-ms-input-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: #5B5B5B;
 }
-.postbox-review-textarea textarea {
+div.postbox-review-textarea textarea {
   border-radius: 30px;
   height: 170px;
   padding: 20px 20px;
@@ -3693,49 +3698,49 @@ input[type=color] {
   color: var(--tr-common-black);
   border: 1px solid transparent;
 }
-.postbox-review-textarea textarea:focus {
+div.postbox-review-textarea textarea:focus {
   border: 1px solid var(--tr-theme-1);
 }
-.postbox-review-textarea textarea::-webkit-input-placeholder {
+div.postbox-review-textarea textarea::-webkit-input-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: #5B5B5B;
 }
-.postbox-review-textarea textarea:-moz-placeholder {
+div.postbox-review-textarea textarea:-moz-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: #5B5B5B;
 }
-.postbox-review-textarea textarea::-moz-placeholder {
+div.postbox-review-textarea textarea::-moz-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: #5B5B5B;
 }
-.postbox-review-textarea textarea:-ms-input-placeholder {
+div.postbox-review-textarea textarea:-ms-input-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: #5B5B5B;
 }
-.postbox-main-thumb img {
+div.postbox-main-thumb img {
   border-radius: 20px;
 }
-.postbox-blookquote {
+div.postbox-blookquote {
   padding: 40px 40px 50px 40px;
   border-radius: 20px;
   border: 2px solid var(--tr-theme-1);
 }
-.postbox-blookquote p {
+div.postbox-blookquote p {
   margin-bottom: 35px;
   font-weight: 400;
 }
-.postbox-blookquote-box span {
+div.postbox-blookquote-box span {
   font-weight: 700;
   font-size: 18px;
   line-height: 1;
   color: var(--tr-theme-1);
   text-transform: capitalize;
 }
-.postbox-blookquote-box span::before {
+div.postbox-blookquote-box span::before {
   content: "";
   height: 2px;
   width: 40px;
@@ -3744,20 +3749,20 @@ input[type=color] {
   transform: translateY(-5px);
   background-color: var(--tr-theme-1);
 }
-.postbox-blookquote-box i {
+div.postbox-blookquote-box i {
   font-size: 35px;
   color: var(--tr-theme-1);
 }
-.postbox-details-thumb img {
+div.postbox-details-thumb img {
   border-radius: 10px;
 }
 @media (max-width: 767px) {
-  .postbox-details-thumb img {
+  div.postbox-details-thumb img {
     margin-bottom: 20px;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
-  .postbox-content-box p {
+  div.postbox-content-box p {
     font-size: 18px;
   }
 }
@@ -3967,17 +3972,16 @@ input[type=color] {
 
 .tagcloud a {
   background-color: #fff;
-  display: inline-block;
+  display: inline-flex;
   line-height: 1;
   padding: 13px 15px;
-  margin-bottom: 10px;
-  margin-right: 10px;
   font-size: 16px;
   letter-spacing: -0.01em;
   text-align: center;
   color: #5B5B5B;
   text-align: center;
   border-radius: 10px;
+  border: inherit;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
   .tagcloud a {

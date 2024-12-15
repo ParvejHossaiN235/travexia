@@ -12,7 +12,7 @@ while (have_posts()) :
 ?>
 
     <!-- postbox area start -->
-    <section class="hexa-area postbox-area pt-120 pb-120" >
+    <section class="hexa-area postbox-area pt-120 pb-100" >
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-10 col-lg-10 col-md-10">

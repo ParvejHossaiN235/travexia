@@ -17,7 +17,7 @@ get_header();
 
 ?>
 
-<div class="hexa-area postbox-area pt-120 pb-120" >
+<div class="hexa-area postbox-area pt-120 pb-100" >
 	<div class="entry-content">
 		<div class="container">
 			<div class="row">

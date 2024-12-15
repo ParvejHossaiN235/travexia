@@ -39,7 +39,7 @@ class Hexa_Recent_Post extends WP_Widget
 
             echo htmlspecialchars_decode($args['before_title']) . $title . htmlspecialchars_decode($args['after_title']);
         } ?>
-        <div class="recent-post">
+        <div class="recent-post flex-direction-column">
             <?php
 
             $r = new WP_Query(
@@ -75,23 +75,25 @@ class Hexa_Recent_Post extends WP_Widget
                 $post_thumb   = get_the_post_thumbnail($recent_post->ID, 'thumbnail');
                 $title        = (!empty($post_title)) ? $post_title : __('(no title)');
                 ?>
-                <div class="recent-post">
+                <div class="recent-post rc-post mb-15 d-flex align-items-center">
                     <?php if ($post_thumb) { ?>
-                        <div class="post-thumb">
+                        <div class="post-thumb rc-post-thumb">
                             <a href="<?php the_permalink($recent_post->ID); ?>">
                                 <?php echo $post_thumb; ?>
                             </a>
                         </div>
                     <?php } ?>
-                    <div class="post-content">
-                        <h3 class="post-title">
-                            <a href="<?php the_permalink($recent_post->ID); ?>"><?php echo $title; ?></a>
-                        </h3>
-                        <?php if ($date) { ?>
-                            <div class="post-date">
-                                <span><i class="fa-light fa-calendar-days"></i> <?php echo get_the_date('', $recent_post->ID); ?></span>
-                            </div>
-                        <?php } ?>
+                    <div class="post-content rc-post-content">
+                        <div class="rc-meta d-flex mb-10">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <span><?php echo get_the_date('d-m-Y', $recent_post->ID); ?></span>
+                        </div>
+
+                        <h3 class="post-title rc-post-title">
+                            <a href="<?php the_permalink($recent_post->ID); ?>">
+                                <?php print wp_trim_words($title, 4, ''); ?>
+                            </a>
+                        </h3>                                             
                     </div>
                 </div>
             <?php endforeach; ?>

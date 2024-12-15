@@ -29,6 +29,9 @@ if (is_single()) : ?>
             <?php get_template_part('template-parts/post-meta/meta'); ?>
 
             <div class="postbox-text">
+                <h3 class="postbox-title mb-25">
+                    <?php the_title(); ?>
+                </h3>
                 <?php the_content(); ?>
                 <?php
                 wp_link_pages([
@@ -41,13 +44,29 @@ if (is_single()) : ?>
             </div>
             <!-- post tatgs and social share -->
             <?php if (!empty(hexa_get_tag()) || !empty(get_theme_mod('post_socials'))) : ?>
-                <div class="postbox-share">
-                    <div class="postbox-tags">
-                        <?php print hexa_get_tag(); ?>
-                    </div>
-                    <div class="postbox-social">
-                        <?php if (get_theme_mod('post_socials')) hexa_socials_share(); ?>
-                    </div>
+                <div class="postbox-tag-box mb-45 d-flex justify-content-between align-items-center g-10 flex-wrap">
+                    <?php if (!empty(hexa_get_tag())) : ?>
+                        <div class="postbox-tags postbox-tag d-flex align-items-center">
+                            <h3 class="postbox-tag-title">
+                                <?php esc_html_e('Tag', 'hexa-theme'); ?>
+                            </h3>
+                            <div class="postbox-tag-content tagcloud">
+                                <?php print hexa_get_tag(); ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (!empty(get_theme_mod('post_socials'))) : ?>
+                        <div class="postbox-social d-flex align-items-center">
+                            <h3 class="postbox-tag-title">
+                                <?php esc_html_e('Share', 'hexa-theme'); ?>
+                            </h3>
+
+                            <div class="postbox-share-s">
+                                <?php if (get_theme_mod('post_socials')) hexa_socials_share(); ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
             <?php endif; ?>
             <!-- post author -->

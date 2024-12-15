@@ -154,7 +154,7 @@ function hexa_widgets_init()
         'id'            => 'post-sidebar',
         'before_widget' => '<div id="%1$s" class="sidebar-widget widget mb-40 %2$s">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h4 class="sidebar-widget-title">',
+        'before_title'  => '<h4 class="sidebar-widget-title mb-35">',
         'after_title'   => '</h4>',
     ]);
 }
@@ -209,11 +209,14 @@ require HEXA_THEME_INC . 'backend/admin-functions.php';
 
 /**
  * initialize customizer.
- */
-if (class_exists('Kirki')) {
-    require HEXA_THEME_INC . 'backend/customizer/customizer.php';
-    require HEXA_THEME_INC . 'backend/color.php';
-}
+*/
+
+add_action('init', function () {
+    if (class_exists('Kirki')) {
+        require HEXA_THEME_INC . 'backend/customizer/customizer.php';
+        require HEXA_THEME_INC . 'backend/color.php';
+    }
+});
 
 if (class_exists('WooCommerce')) {
     require HEXA_THEME_INC . 'woocommerce/woocommerce.php';
