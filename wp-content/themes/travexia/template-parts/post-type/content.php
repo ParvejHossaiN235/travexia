@@ -53,15 +53,15 @@ if (is_single()) : ?>
 <?php else : ?>
 
     <div class="<?php hexa_blog_style(); ?>">
-        <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item format-standared mb-50'); ?>>
+        <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item format-standared postbox-thumb-box mb-80'); ?>>
             <?php if (has_post_thumbnail()) : ?>
-                <div class="postbox-thumb">
+                <div class="postbox-thumb postbox-main-thumb mb-35">
                     <a href="<?php the_permalink(); ?>">
                         <?php the_post_thumbnail('full', ['class' => 'img-responsive']); ?>
                     </a>
                 </div>
             <?php endif; ?>
-            <div class="postbox-content">
+            <div class="postbox-content postbox-content-box">
                 <?php get_template_part('template-parts/post-meta/meta'); ?>
                 <h3 class="postbox-title">
                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>

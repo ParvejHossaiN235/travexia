@@ -61,17 +61,16 @@ if (is_single()) : ?>
 <?php else : ?>
 
     <div class="<?php hexa_blog_style(); ?>">
-        <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item format-video mb-50'); ?>>
-
+        <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item format-video postbox-thumb-box mb-80'); ?>>
             <?php if (!empty($link_video) || !empty($video_images)) : ?>
-                <div class="postbox-thumb postbox-video p-relative">
+                <div class="postbox-thumb postbox-video p-relative postbox-main-thumb mb-35">
                     <?php foreach ($video_images as $image) {  ?>
                         <a href="<?php the_permalink(); ?>">
                             <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" width="<?php echo esc_attr($image['width']); ?>" height="<?php echo esc_attr($image['height']); ?>">
                         </a>
                     <?php } ?>
                     <?php if (!empty($link_video)) : ?>
-                        <a href="<?php echo esc_url($link_video); ?>" class="postbox-video-btn popup-video tpvideo-icon-anim"><i class="fas fa-play"></i></a>
+                        <a href="<?php echo esc_url($link_video); ?>" class=" it-choose-play pulse popup-video"><i class="fas fa-play"></i></a>
                     <?php endif; ?>
                 </div>
             <?php endif; ?>

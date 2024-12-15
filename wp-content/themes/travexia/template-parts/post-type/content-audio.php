@@ -56,9 +56,9 @@ if (is_single()) : ?>
 <?php else : ?>
 
     <div class="<?php hexa_blog_style(); ?>">
-        <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item format-audio mb-50'); ?>>
+        <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item format-audio mb-80'); ?>>
             <?php if (!empty($link_audio)) : ?>
-                <div class="postbox-thumb postbox-audio">
+                <div class="postbox-thumb postbox-audio postbox-main-thumb mb-35">
                     <a href="<?php the_permalink(); ?>">
                         <?php echo wp_oembed_get($link_audio); ?>
                     </a>

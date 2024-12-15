@@ -16,7 +16,7 @@ $blog_cat = get_theme_mod('blog_cat', false);
 
 ?>
 
-<div class="postbox-meta">
+<div class="postbox-meta mb-20">
    <?php if (!empty($blog_author)) : ?>
       <span><a href="<?php print esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>"><i class="far fa-user"></i> <?php print ucwords(get_the_author()); ?></a></span>
    <?php endif; ?>

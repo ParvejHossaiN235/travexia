@@ -14,7 +14,7 @@ if (is_single()) : ?>
 
     <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item-details format-search'); ?>>
         <?php if (has_post_thumbnail()) : ?>
-            <div class="postbox-thumb">
+            <div class="postbox-thumb postbox-main-thumb mb-35">
                 <?php the_post_thumbnail('full', ['class' => 'img-responsive']); ?>
             </div>
         <?php endif; ?>
@@ -53,9 +53,9 @@ if (is_single()) : ?>
 <?php else : ?>
 
     <div class="<?php hexa_blog_style(); ?>">
-        <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item format-search mb-50'); ?>>
+        <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item format-search mb-80'); ?>>
             <?php if (has_post_thumbnail()) : ?>
-                <div class="postbox-thumb">
+                <div class="postbox-thumb postbox-main-thumb mb-35">
                     <a href="<?php the_permalink(); ?>">
                         <?php the_post_thumbnail('full', ['class' => 'img-responsive']); ?>
                     </a>

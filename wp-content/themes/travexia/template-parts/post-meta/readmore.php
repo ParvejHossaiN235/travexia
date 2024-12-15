@@ -14,8 +14,9 @@ $post_btn_show = get_theme_mod('post_btn_show', true);
 ?>
 <?php if (!empty($post_btn_show)) : ?>
     <div class="postbox-read-more">
-        <a href="<?php the_permalink(); ?>" class="theme-btn">
-            <?php print esc_html($post_read_more); ?><i class="fal fa-arrow-alt-right"></i>
+        <a href="<?php the_permalink(); ?>" class="tr-btn">
+            <?php print esc_html($post_read_more); ?>
+            <i class="fa-sharp fa-regular fa-arrow-right-long"></i>
         </a>
     </div>
 <?php endif; ?>

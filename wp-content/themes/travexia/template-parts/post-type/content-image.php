@@ -17,15 +17,15 @@ $hexa_blog_cat = get_theme_mod('hexa_blog_cat', false);
 
 if (is_single()) : ?>
 
-    <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item-details format-image'); ?>>
+    <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item-details format-image postbox-thumb-box'); ?>>
         <?php if (!empty($images)) : ?>
-            <div class="postbox-thumb">
+            <div class="postbox-thumb postbox-main-thumb mb-35">
                 <?php foreach ($images as $image) {  ?>
                     <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" width="<?php echo esc_attr($image['width']); ?>" height="<?php echo esc_attr($image['height']); ?>">
                 <?php } ?>
             </div>
         <?php endif; ?>
-        <div class="postbox-content">
+        <div class="postbox-content postbox-content-box">
             <?php get_template_part('template-parts/post-meta/meta'); ?>
 
             <div class="postbox-text">
@@ -60,10 +60,10 @@ if (is_single()) : ?>
 <?php else : ?>
 
     <div class="<?php hexa_blog_style(); ?>">
-        <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item format-image mb-50'); ?>>
+        <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item format-image postbox-thumb-box mb-80'); ?>>
 
             <?php if (!empty($images)) : ?>
-                <div class="postbox-thumb">
+                <div class="postbox-thumb postbox-main-thumb mb-35">
                     <?php foreach ($images as $image) {  ?>
                         <a href="<?php the_permalink(); ?>">
                             <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" width="<?php echo esc_attr($image['width']); ?>" height="<?php echo esc_attr($image['height']); ?>">
@@ -72,7 +72,7 @@ if (is_single()) : ?>
                 </div>
             <?php endif; ?>
 
-            <div class="postbox-content">
+            <div class="postbox-content postbox-content-box">
                 <?php get_template_part('template-parts/post-meta/meta'); ?>
                 <h3 class="postbox-title">
                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>

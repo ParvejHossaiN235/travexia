@@ -11,9 +11,7 @@ body {
   word-wrap: break-word;
   overflow-x: hidden;
 }
-.hexa-area {
-  padding: 100px 0;
-}
+
 .row-gap-15 {
   row-gap: 15px;
 }
@@ -362,6 +360,9 @@ body {
 }
 .breadcrumbs {
   margin-top: 15px;
+  position: relative;
+  z-index: 3;
+  display: block;
 }
 .breadcrumbs li {
   display: inline-block;

@@ -4061,7 +4061,9 @@ input[type=color] {
   transform: translateY(-50%);
   height: 104px;
   width: 104px;
-  line-height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   color: var(--tr-theme-1);
   margin: 0 auto;

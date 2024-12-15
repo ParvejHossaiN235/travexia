@@ -13,7 +13,7 @@ $post_column = is_active_sidebar('post-sidebar') ? 'col-xl-8 col-lg-8 col-md-12'
 
 ?>
 
-<div class="hexa-area">
+<div class="hexa-area postbox-area pt-120 pb-120" >
     <div class="entry-content">
         <div class="container">
             <div class="row row-gap-50 <?php echo $row_swipe; ?>">

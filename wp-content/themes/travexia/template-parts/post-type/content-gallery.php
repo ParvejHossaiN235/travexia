@@ -13,7 +13,7 @@ $categories = get_the_terms($post->ID, 'category');
 
 if (is_single()) : ?>
 
-    <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item-details format-gallery'); ?>>
+    <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item-details format-gallery '); ?>>
         <?php if (!empty($gallery_images)) : ?>
             <div class="postbox-thumb postbox-slider swiper-container p-relative">
                 <div class="swiper-wrapper">
@@ -66,21 +66,21 @@ if (is_single()) : ?>
 <?php else : ?>
 
     <div class="<?php hexa_blog_style(); ?>">
-        <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item format-gallery mb-50'); ?>>
+        <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item format-gallery postbox-thumb-box mb-80'); ?>>
             <?php if (!empty($gallery_images)) : ?>
-                <div class="postbox-thumb postbox-slider swiper-container p-relative">
-                    <div class="swiper-wrapper">
+                <div class="postbox-thumb postbox-slider swiper-container p-relative postbox-thumb-slider-active fix">
+                    <div class="swiper-wrapper fix post-format-gallery">
                         <?php foreach ($gallery_images as $image) {  ?>
 
-                            <div class="item-image swiper-slide">
+                            <div class="item-image swiper-slide postbox-main-thumb mb-35">
                                 <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" width="<?php echo esc_attr($image['width']); ?>" height="<?php echo esc_attr($image['height']); ?>">
                             </div>
 
                         <?php } ?>
                     </div>
-                    <div class="postbox-nav">
-                        <button class="postbox-slider-button-next"><i class="fal fa-arrow-right"></i></button>
-                        <button class="postbox-slider-button-prev"><i class="fal fa-arrow-left"></i></button>
+                    <div class="postbox-nav postbox-slider-arrow-wrap">
+                        <button class="postbox-slider-button-next postbox-arrow-prev"><i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="postbox-slider-button-prev postbox-arrow-next"><i class="fa-solid fa-arrow-left"></i></button>
                     </div>
                 </div>
             <?php endif; ?>

@@ -8,7 +8,7 @@ while (have_posts()) :
     the_post();
 ?>
     <!-- postbox area start -->
-    <section class="hexa-area">
+    <section class="hexa-area postbox-area pt-120 pb-120" >
         <div class="container">
             <div class="row ">
                 <div class="col-xxl-12">
