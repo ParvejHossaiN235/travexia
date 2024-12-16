@@ -601,7 +601,7 @@ pre {
   position: relative;
   display: block;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   color: #5B5B5B;
   letter-spacing: -0.01em;
 }
@@ -673,6 +673,8 @@ pre {
 }
 .sidebar-widget .nice-select {
   position: relative;
+  border-radius: 5px;
+  border: solid 1px #c5c5c5;
 }
 .sidebar-widget .nice-select::after {
   position: absolute;
