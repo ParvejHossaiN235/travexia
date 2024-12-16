@@ -13,29 +13,20 @@ $quote_name  = get_post_meta(get_the_ID(), 'quote_name', true);
 
 if ($quote_text) : ?>
 
-    <div class="col-12">
-        <blockquote id="post-<?php the_ID(); ?>" <?php post_class('postbox-item mb-50'); ?>>
-            <span>
-                <i class="flaticon-edit-tools-1"></i>
-            </span>
-            <div class="quote-text">
-                <?php echo esc_html($quote_text); ?>
-                <span><?php echo esc_html($quote_name); ?></span>
-            </div>
-        </blockquote>
+    <div id="post-<?php the_ID();?>" <?php post_class( 'postbox_quote__item format-quote mb-50' );?>>
+        <div class="post-text">
+            <?php the_content();?>
+        </div>
     </div>
 
 <?php else : ?>
 
-    <div class="col-12">
-        <blockquote id="post-<?php the_ID(); ?>" <?php post_class('postbox-item mb-50'); ?>>
-            <span>
-                <i class="flaticon-edit-tools-1"></i>
-            </span>
-            <div class="quote-text">
-                <?php the_content(); ?>
-            </div>
-        </blockquote>
+    <div id="post-<?php the_ID();?>" <?php post_class( 'postbox_quote__item format-quote mb-50' );?>>
+        <div class="post-text">
+            <?php the_content();?>
+            <!-- single post nav -->
+            <?php if (get_theme_mod('post_nav')) hexa_single_post_nav(); ?>
+        </div>
     </div>
 
 <?php endif; ?>

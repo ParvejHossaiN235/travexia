@@ -83,6 +83,7 @@ class Hexa_Recent_Post extends WP_Widget
                             </a>
                         </div>
                     <?php } ?>
+
                     <div class="post-content rc-post-content">
                         <div class="rc-meta d-flex mb-10">
                             <i class="fa-solid fa-calendar-days"></i>

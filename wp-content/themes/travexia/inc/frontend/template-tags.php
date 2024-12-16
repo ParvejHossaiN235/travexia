@@ -92,28 +92,26 @@ if (!function_exists('hexa_comment postbox-details-comment-inner')) {
     ?>
 
         <li id="comment-<?php comment_ID(); ?>" class="comment-list ">
-            <div class="postbox-comment-box p-relative">
-                <div class="postbox-comment-info d-flex align-items-start mb-40">
-                    <div class="postbox-comment-avater postbox-user-thumb">
-                        <?php print get_avatar($comment, 102, null, null, ['class' => []]); ?>
-                    </div>
-                    <div class="postbox-comment-name postbox-user-info">
-                        <h4 class="user-title">
-                            <?php print ucwords(get_the_author()); ?>
-                        </h4>
-                        <span class="post-meta m-0 mb-15 p-0"> 
-                            <?php comment_time(get_option('date_format')); ?>
-                        </span>
-
-                        <div class="postbox-comment-text mt-15">
-                            <?php comment_text(); ?>
-                        </div>
-                        <div class="postbox-comment-reply postbox-user-reply">
-                            <?php comment_reply_link(array_merge($args, ['reply_text' => __('<button> Reply</button>', 'hexa-theme'), 'depth' => $depth, 'max_depth' => $args['max_depth']])); ?>
-                        </div>
-                    </div>
+            <div class="postbox-comment-box p-relative postbox-comment-info d-flex align-items-start mb-40">
+                <div class="postbox-comment-avater postbox-user-thumb">
+                    <?php print get_avatar($comment, 102, null, null, ['class' => []]); ?>
                 </div>
                 
+                <div class="postbox-comment-name postbox-user-info">
+                    <h4 class="user-title">
+                        <?php print ucwords(get_the_author()); ?>
+                    </h4>
+                    <span class="post-meta m-0 mb-15 p-0"> 
+                        <?php comment_time(get_option('date_format')); ?>
+                    </span>
+
+                    <div class="postbox-comment-text mt-15">
+                        <?php comment_text(); ?>
+                    </div>
+                    <div class="postbox-comment-reply postbox-user-reply">
+                        <?php comment_reply_link(array_merge($args, ['reply_text' => __('<button> Reply</button>', 'hexa-theme'), 'depth' => $depth, 'max_depth' => $args['max_depth']])); ?>
+                    </div>
+                </div>
             </div>
         <?php
     }

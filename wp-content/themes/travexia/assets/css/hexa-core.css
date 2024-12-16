@@ -274,7 +274,7 @@ button:focus {
 
 input {
   height: 60px;
-  width: 100%;
+  width: auto;
   border: none;
   outline: none;
   padding: 0 20px;
@@ -436,6 +436,56 @@ input[type=color] {
 
 .gx-80 {
   --bs-gutter-x: 80px;
+}
+
+/*gallery */
+.gallery-item {
+  display: inline-block;
+  max-width: 33.33%;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
+  padding-right: 5px !important;
+}
+
+.gallery-columns-1 .gallery-item {
+  max-width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+  max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+  max-width: 33.3333333333%;
+}
+
+.gallery-columns-4 .gallery-item {
+  max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+  max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+  max-width: 16.6666666667%;
+}
+
+.gallery-columns-7 .gallery-item {
+  max-width: 14.2857142857%;
+}
+
+.gallery-columns-8 .gallery-item {
+  max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+  max-width: 11.1111111111%;
+}
+
+.gallery-columns-10 .gallery-item {
+  max-width: 10%;
 }
 
 .tr-btn {
@@ -3556,6 +3606,8 @@ div.postbox-tag-content.tagcloud a {
 div.postbox-tag-box {
   padding: 30px 40px;
   border-radius: 20px;
+  margin-top: 25px;
+  gap: 20px;
   background-color: var(--tr-grey-1);
 }
 @media (max-width: 767px) {

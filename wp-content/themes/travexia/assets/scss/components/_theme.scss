@@ -253,7 +253,7 @@ button:focus {
 
 input {
     height: 60px;
-    width: 100%;
+    width: auto;
     border: none;
     outline: none;
     padding: 0 20px;
@@ -405,4 +405,20 @@ input[type="color"] {
 
 .gx-80 {
     --bs-gutter-x: 80px;
+}
+
+/*gallery */
+.gallery-item {
+	display: inline-block;
+	max-width: 33.33%;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+	padding-right: 5px !important;
+}
+
+@for $i from 1 through 10 {
+	.gallery-columns-#{$i} .gallery-item {
+		max-width: calc(100% / $i);
+	}
 }

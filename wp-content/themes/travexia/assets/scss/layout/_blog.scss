@@ -260,6 +260,8 @@ div.postbox{
         &-box {
             padding: 30px 40px;
             border-radius: 20px;
+            margin-top: 25px;
+            gap: 20px;
             background-color: var(--tr-grey-1);
             @media #{$xs}{
                 padding: 30px 20px;

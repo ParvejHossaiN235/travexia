@@ -93,14 +93,14 @@ if (!function_exists('hexa_404_builder')) {
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <div class="error-wrapper text-center">
-                                <div class=" error-logo hf-error-thumb">
+                            <div class="error-wrapper text-center ">
+                                <div class=" error-logo hf-error-thumb mb-50">
                                     <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/error.jpg" alt="404" />
                                 </div>
                                 <h1 class="error-title hf-error-title"><?php esc_html_e('Oops! Page Not Found', 'hexa-theme'); ?></h1>
                                 <div class="error-content">
                                     <p class="mb-30"><?php esc_html_e('The page you are looking for is not available or has been moved. Try a different page or go to homepage with the button below.', 'hexa-theme'); ?></p>
-                                    <a class="hexa-btn hf-btn" href="<?php echo esc_url(home_url('/')); ?>">
+                                    <a class="hexa-btn tr-btn" href="<?php echo esc_url(home_url('/')); ?>">
                                         <?php esc_html_e('Back To Home', 'hexa-theme'); ?>
                                     </a>
                                 </div>

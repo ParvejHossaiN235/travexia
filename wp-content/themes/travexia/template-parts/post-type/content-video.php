@@ -48,7 +48,7 @@ if (is_single()) : ?>
             <?php if (!empty(hexa_get_tag()) || !empty(get_theme_mod('post_socials'))) : ?>
                 <div class="postbox-tag-box mb-45 d-flex justify-content-between align-items-center g-10 flex-wrap">
                     <?php if (!empty(hexa_get_tag())) : ?>
-                        <div class="postbox-tags postbox-tag d-flex align-items-center">
+                        <div class="postbox-tags postbox-tag d-flex align-items-start">
                             <h3 class="postbox-tag-title">
                                 <?php esc_html_e('Tag', 'hexa-theme'); ?>
                             </h3>
