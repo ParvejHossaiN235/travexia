@@ -13,9 +13,9 @@ if (!function_exists('hexa_page_header')) {
                     $pheader = rwmb_meta('pheader_switch', "type=switch", get_option('woocommerce_shop_page_id'));
                 }
             }
-            if (!$pheader) {
-                // return;
-            }
+            // if (!$pheader) {
+            //     // return;
+            // }
         }
         if (!get_theme_mod('pheader_switch') && !$pheader) {
             return;
