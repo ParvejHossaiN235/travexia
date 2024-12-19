@@ -10,3 +10,6 @@ wp-content/wpo-cache
 wp-content/fonts
 wp-content/languages
 wp-content/litespeed
+wp-content/debug.log
+wp-content/upgrade
+wp-content/upgrade-temp-backup
