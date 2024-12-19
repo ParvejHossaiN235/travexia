@@ -1,0 +1,136 @@
+.tf-single-page {
+  &.tf-template-global {
+    padding: 100px 0px;
+  }
+  .tf-tour-single {
+    .tf-template-container {
+      max-width: 1320px;
+      padding: 0px 15px;
+    }
+    .tf-container-inner p {
+      font-family: var(--tr-ff-body) !important;
+      font-weight: 400 !important;
+      font-size: 16px !important;
+      font-style: normal !important;
+      line-height: 1.5 !important;
+      color: var(--tr-text-body);
+    }
+    .tf-container-inner h1,
+    .tf-main-wrapper h1,
+    .tf-container h1,
+    .tf-container-inner h2,
+    .tf-main-wrapper h2,
+    .tf-container h2,
+    .tf-container-inner h3,
+    .tf-main-wrapper h3,
+    .tf-container h3,
+    #tour_room_details_qv h3,
+    .tf-container-inner h4,
+    .tf-main-wrapper h4,
+    #tour_room_details_qv h4,
+    .tf-container h4,
+    #tf-ask-question h4,
+    .tf-container-inner h5,
+    .tf-main-wrapper h5,
+    .tf-container h5,
+    .tf-container-inner h6,
+    .tf-main-wrapper h6,
+    .tf-container h6 {
+      font-family: var(--tr-ff-heading) !important;
+      font-weight: 700 !important;
+      color: var(--tr-common-black) !important;
+      line-height: 1 !important;
+    }
+    .tf-single-head .tf-head-info .tf-head-title h1 {
+      margin-bottom: 20px;
+    }
+    .tf-single-head a {
+      color: var(--tr-text-body);
+    }
+    .tf-trip-info li i,
+    .tf-single-head i {
+      color: var(--tr-theme-1) !important;
+    }
+    .tf-head-info .tf-icon i {
+      background: var(--tr-grey-1);
+      box-shadow: none;
+    }
+    .tf-head-info .share-tour-content .tf-dropdown-share-content h4 {
+      font-size: 16px !important;
+      color: var(--tr-text-body) !important;
+      font-weight: 500;
+    }
+    .tf-hero-gallery .tf-gallery-featured {
+      margin-bottom: 30px;
+    }
+    .tf-hero-gallery .tf-gallery-featured .tf-single-review-box .tf-single-rating {
+      background-color: rgba(3, 72, 51, 0.65);
+      color: var(--tr-common-white);
+      border-radius: 5px;
+    }
+    .tf-hero-gallery .tf-gallery a.tf-gallery-more {
+      position: relative;
+      overflow: hidden;
+    }
+    .tf-hero-gallery .tf-gallery a.tf-gallery-more::before {
+      background: #0000009c;
+      font-size: 16px;
+      border-radius: 20px;
+    }
+    .tf-hero-gallery img {
+      border-radius: 20px;
+    }
+    .tf-hero-gallery .tf-gallery-featured .featured-column {
+      background: var(--tr-grey-1);
+      border-radius: 5px;
+      a {
+        color: var(--tr-text-body);
+        &:hover {
+          background-color: var(--tr-theme-1);
+          color: var(--tr-common-white);
+        }
+      }
+    }
+    .tf-trip-info {
+      background-color: none;
+      border-radius: 5px;
+      box-shadow: none;
+      border: 1px solid var(--tr-border-1);
+    }
+    .tf-trip-info li {
+      font-size: 16px;
+      font-family: var(--tr-ff-body);
+      color: var(--tr-text-body);
+    }
+    .tf-trip-info .person-info {
+      border: 1px solid var(--tr-border-1);
+      box-shadow: none;
+      width: max-content;
+      height: unset;
+      flex-direction: row;
+      padding: 10px 15px;
+      gap: 12px;
+    }
+    .tf-trip-info .person-info.active {
+      background: var(--tr-grey-1);
+    }
+    .tf-trip-feature-blocks .tf-feature-block {
+      background: none;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0;
+      align-items: start;
+    }
+    .tf-trip-feature-blocks .tf-feature-block i {
+      color: var(--tr-theme-1) !important;
+      font-size: 30px;
+      line-height: 1;
+    }
+    .tf-highlights-wrapper {
+      background: none;
+      border-radius: 5px;
+      box-shadow: none;
+      border: 1px solid var(--tr-border-1);
+    }
+  }
+}

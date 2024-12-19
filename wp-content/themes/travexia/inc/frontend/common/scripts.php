@@ -29,6 +29,7 @@ function hexa_main_scripts()
     wp_enqueue_style('hf-hexa-elementor', HEXA_THEME_CSS_DIR . 'hexa-elementor.css', []);
     wp_enqueue_style('hf-hexa-unit', HEXA_THEME_CSS_DIR . 'hexa-unit.css', [], time());
     wp_enqueue_style('hf-hexa-core', HEXA_THEME_CSS_DIR . 'hexa-core.css', [], time());
+    wp_enqueue_style('hf-hexa-tour', HEXA_THEME_CSS_DIR . 'travexia-tour.css', [], time());
     wp_enqueue_style('hf-hexa-style', get_stylesheet_uri());
 
 

@@ -625,3 +625,4 @@ require get_template_directory() . '/inc/backend/customizer/customizer-header.ph
 require get_template_directory() . '/inc/backend/customizer/customizer-page-header.php';
 require get_template_directory() . '/inc/backend/customizer/customizer-footer.php';
 require get_template_directory() . '/inc/backend/customizer/customizer-blog.php';
+require get_template_directory() . '/inc/backend/customizer/customizer-shop.php';
