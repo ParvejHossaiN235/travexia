@@ -6,6 +6,9 @@
     .tf-template-container {
       max-width: 1320px;
       padding: 0px 15px;
+      .tf-bottom-booking-bar {
+        display: none;
+      }
     }
     .tf-container-inner p {
       font-family: var(--tr-ff-body) !important;
@@ -40,6 +43,9 @@
       font-weight: 700 !important;
       color: var(--tr-common-black) !important;
       line-height: 1 !important;
+    }
+    .tf-section-title {
+      margin-bottom: 20px;
     }
     .tf-single-head .tf-head-info .tf-head-title h1 {
       margin-bottom: 20px;
@@ -93,7 +99,7 @@
     }
     .tf-trip-info {
       background-color: none;
-      border-radius: 5px;
+      border-radius: 20px;
       box-shadow: none;
       border: 1px solid var(--tr-border-1);
     }
@@ -128,9 +134,169 @@
     }
     .tf-highlights-wrapper {
       background: none;
-      border-radius: 5px;
+      border-radius: 20px;
       box-shadow: none;
       border: 1px solid var(--tr-border-1);
+    }
+    .tf-inex-wrapper .tf-inex {
+      background: none;
+      border-radius: 20px;
+      box-shadow: none;
+      border: 1px solid var(--tr-border-1);
+    }
+    #tf-tour-map .tf-map-area #tour-location {
+      border-radius: 20px;
+    }
+    .tf-faq-wrapper .tf-faq-inner .tf-faq-single {
+      border-bottom: 0;
+      margin-bottom: 20px;
+    }
+    .tf-faq-wrapper .tf-faq-inner .tf-faq-single:last-child {
+      margin-bottom: 0;
+    }
+    .tf-faq-wrapper .tf-faq-inner .active .tf-faq-single-inner {
+      background: none;
+      border-radius: 20px;
+      margin: 0;
+      box-shadow: none;
+    }
+    .tf-faq-wrapper .tf-faq-inner .tf-faq-single-inner {
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .tf-faq-wrapper .tf-faq-single-inner .tf-faq-collaps {
+      padding: 24px;
+      background: var(--tr-grey-1);
+      box-shadow: none;
+    }
+    .tf-faq-wrapper .tf-faq-single-inner .tf-faq-content {
+      background: var(--tr-grey-1);
+    }
+    .tf-faq-wrapper .tf-faq-single-inner .tf-faq-collaps .faq-icon i.fa-plus,
+    .tf-faq-wrapper .tf-faq-inner .active .tf-faq-single-inner .tf-faq-collaps .faq-icon i.fa-minus {
+      color: var(--tr-common-black);
+    }
+    .tf-review-wrapper .tf-review-form .tf-review-form-container .tf-rating-wrapper .tf-form-single-rating > label {
+      font-family: var(--tr-ff-heading);
+      font-size: 16px !important;
+      font-weight: 500 !important;
+      line-height: 1.5 !important;
+      color: var(--tr-common-black);
+    }
+    .tf-review-wrapper .tf-review-form .tf-review-form-container .review-desc textarea {
+      padding: 15px 20px;
+      border: 1px solid var(--tr-border-1);
+      background: var(--tr-grey-1);
+      width: 100%;
+      border-radius: 20px;
+      font-size: 16px;
+      color: var(--tr-text-body);
+      font-family: var(--tr-ff-body);
+    }
+    .tf-review-wrapper .tf-review-form .tf-review-form-container .tf-rating-wrapper .tf-form-single-rating .ratings-container label:before {
+      color: var(--tr-theme-1);
+    }
+    .tf-btn-normal,
+    .tf-review-wrapper .tf-review-form .tf-review-form-container .tf-review-submit input[type="submit"],
+    .tf_button.btn-styled {
+      font-family: var(--tr-ff-body);
+      font-weight: 500 !important;
+      font-size: 18px !important;
+      padding: 16px 30px !important;
+      border-radius: 999px !important;
+      color: var(--tr-common-white) !important;
+      border: 1px solid transparent !important;
+      background: var(--tr-theme-1) !important;
+      &:hover {
+        color: var(--tr-common-black) !important;
+        background: transparent !important;
+        border-color: var(--tr-theme-1) !important;
+      }
+    }
+    .tf-trip-info .tf-trip-pricing .tf-price-amount {
+      color: var(--tr-theme-1);
+      font-weight: 700;
+    }
+    .tf-tour-details-right .tf-booking-price p {
+      font-size: 30px !important;
+      font-weight: 700 !important;
+      color: var(--tr-theme-1);
+    }
+    .tf-tour-details-right .tf-tour-booking-advantages,
+    .tf-tour-details-right .tf-tour-booking-box {
+      background: var(--tr-grey-1);
+      border-radius: 20px;
+      box-shadow: none;
+    }
+    .tf-tour-details-right .tf-tour-booking-advantages li a {
+      color: var(--tr-text-body);
+    }
+    .tf-tour-details-right .tf-tour-booking-advantages li a:hover {
+      color: var(--tr-theme-1);
+    }
+    .tf-tour-details-right .tf-tour-booking-advantages li i {
+      height: 50px;
+      width: 50px;
+      background: var(--tr-common-white);
+      border-radius: 50%;
+    }
+    .tf-ask-enquiry i {
+      background-color: var(--tr-common-white);
+      border-radius: 50%;
+      color: var(--tr-theme-1);
+    }
+    .tf-ask-enquiry h3 {
+      margin-bottom: 15px;
+    }
+    .tf-booking-form-inner h3 {
+      margin-bottom: 16px;
+    }
+    .tf-tour-details-right .tf-form-title p {
+      color: var(--tr-common-black) !important;
+      font-size: 24px !important;
+      font-weight: 700 !important;
+    }
+    .tf-field-group.tf_form-inner .tf-field,
+    .tf-field-group .tf-field {
+      border: none !important;
+      padding: 15px 40px !important;
+      width: 100% !important;
+      border-radius: 5px !important;
+      font-size: 16px !important;
+      margin: 0px !important;
+      color: var(--tr-text-body) !important;
+      font-family: var(--tr-ff-body);
+      background: var(--tr-common-white) !important;
+      -moz-appearance: auto !important;
+      height: auto;
+      &:focus {
+        box-shadow: none;
+      }
+    }
+    .tf_acrselection.tf-field-group .tf-field {
+      padding: 15px 20px !important;
+    }
+    .acr-select input[type="number"] {
+      width: 50px !important;
+      padding: 0px !important;
+      margin: 0px !important;
+      border: 0px !important;
+      box-shadow: none;
+      background: transparent !important;
+      text-align: center;
+      -moz-appearance: none !important;
+      appearance: none !important;
+      height: unset;
+      line-height: unset;
+    }
+    .acr-inc,
+    .acr-dec {
+      background-color: var(--tr-common-white);
+      color: var(--tr-theme-1);
+      border-color: var(--tr-border-1);
+      border: 1px solid var(--tr-border-1);
+      font-size: 24px;
+      font-weight: 500;
     }
   }
 }
