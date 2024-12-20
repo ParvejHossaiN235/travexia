@@ -42,12 +42,12 @@ register_activation_hook(__FILE__, 'check_elementor_activation');
  */
 
 //include_once(HEXACORE_TOOLKIT_PATH . 'woocommerce.php');
-include_once(HEXACORE_TOOLKIT_PATH . 'mega-menu.php');
+//include_once(HEXACORE_TOOLKIT_PATH . 'mega-menu.php');
 include_once(HEXACORE_TOOLKIT_PATH . 'common-functions.php');
 include_once(HEXACORE_TOOLKIT_PATH . 'custom-post-header.php');
 include_once(HEXACORE_TOOLKIT_PATH . 'custom-post-footer.php');
 include_once(HEXACORE_TOOLKIT_PATH . 'custom-post-service.php');
-include_once(HEXACORE_TOOLKIT_PATH . 'custom-post-megamenu.php');
+//include_once(HEXACORE_TOOLKIT_PATH . 'custom-post-megamenu.php');
 include_once(HEXACORE_TOOLKIT_PATH . 'custom-post-portfolio.php');
 include_once(HEXACORE_TOOLKIT_PATH . 'class-ocdi-importer.php');
 include_once(HEXACORE_TOOLKIT_PATH . 'custom-elementor-support.php');

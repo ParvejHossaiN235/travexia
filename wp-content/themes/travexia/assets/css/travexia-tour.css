@@ -268,10 +268,17 @@
       font-family: var(--tr-ff-body);
       background: var(--tr-common-white) !important;
       -moz-appearance: auto !important;
-      height: auto;
+      height: 60px;
       &:focus {
         box-shadow: none;
       }
+      i {
+        color: var(--tr-theme-1);
+      }
+    }
+    .tf-field-group.tf_form-inner i,
+    .tf-field-group i {
+      color: var(--tr-theme-1);
     }
     .tf_acrselection.tf-field-group .tf-field {
       padding: 15px 20px !important;
@@ -406,6 +413,14 @@ div.tf-withoutpayment-booking-confirm .tf-withoutpayment-popup .tf-booking-pagin
   .tf-container {
     max-width: 1320px;
   }
+  .tf-container h3 {
+    font-weight: 700 !important;
+    font-size: 24px !important;
+    font-style: normal !important;
+    line-height: 1.2 !important;
+    font-family: var(--tr-ff-heading);
+    color: var(--tr-common-black);
+  }
   .tf-archive-inner {
     .tf-archive-head .tf-search-result {
       color: var(--tr-common-black);
@@ -458,8 +473,15 @@ div.tf-withoutpayment-booking-confirm .tf-withoutpayment-popup .tf-booking-pagin
       font-weight: 700 !important;
       a {
         color: var(--tr-common-black);
+        display: inline;
+        background-repeat: no-repeat;
+        background-size: 0% 1px, 0 1px;
+        background-position: 100% 100%, 0 100%;
+        transition: background-size 0.3s linear;
+        background-image: linear-gradient(var(--tr-common-black), var(--tr-common-black)), linear-gradient(var(--tr-common-black), var(--tr-common-black));
         &:hover {
           color: var(--tr-theme-1);
+          background-size: 0% 1px, 100% 1px;
         }
       }
     }
@@ -487,10 +509,103 @@ div.tf-withoutpayment-booking-confirm .tf-withoutpayment-popup .tf-booking-pagin
         }
       }
     }
+    .tf-search-results-list .tf-item-card .tf-item-featured .tf-features-box .tf-feature {
+      background: var(--tr-theme-1) !important;
+      color: var(--tr-common-white);
+    }
+    .tf-search-results-list .tf-item-card .tf-item-featured {
+      overflow: hidden;
+      img {
+        transition: all 0.9s;
+      }
+    }
+    .tf-search-results-list .tf-item-card .tf-item-featured .tf-tag-items {
+      z-index: 9999999;
+    }
+    .tf-search-results-list .tf-layout-grid .tf-item-card:hover {
+      .tf-item-featured {
+        img {
+          transform: scale(1.1) rotate(-2deg);
+        }
+      }
+    }
     .tf-sidebar .tf-box-wrapper.tf-box {
       background: var(--tr-grey-1);
       border-radius: 20px;
       box-shadow: none;
+      .tf-field-group.tf_form-inner .tf-field,
+      .tf-field-group .tf-field {
+        border: none !important;
+        padding: 15px 40px !important;
+        width: 100% !important;
+        border-radius: 5px !important;
+        font-size: 16px !important;
+        margin: 0px !important;
+        color: var(--tr-text-body) !important;
+        font-family: var(--tr-ff-body);
+        background: var(--tr-common-white) !important;
+        -moz-appearance: auto !important;
+        height: 60px;
+        &:focus {
+          box-shadow: none;
+        }
+        i {
+          color: var(--tr-theme-1);
+        }
+      }
+      .tf_acrselection.tf-field-group .tf-field {
+        padding: 15px 20px !important;
+      }
+      .acr-select input[type="number"] {
+        width: 50px !important;
+        padding: 0px !important;
+        margin: 0px !important;
+        border: 0px !important;
+        box-shadow: none;
+        background: transparent !important;
+        text-align: center;
+        -moz-appearance: none !important;
+        appearance: none !important;
+        height: unset;
+        line-height: unset;
+      }
+      .acr-inc,
+      .acr-dec {
+        background-color: var(--tr-common-white);
+        color: var(--tr-theme-1);
+        border-color: var(--tr-border-1);
+        border: 1px solid var(--tr-border-1);
+        font-size: 24px;
+        font-weight: 500;
+      }
+      .tf-field-group.tf_form-inner i,
+      .tf-field-group i {
+        color: var(--tr-theme-1);
+      }
+      .tf-booking-bttns button {
+        font-family: var(--tr-ff-body);
+        font-weight: 500 !important;
+        font-size: 18px !important;
+        padding: 16px 30px !important;
+        border-radius: 999px !important;
+        color: var(--tr-common-white) !important;
+        border: 1px solid transparent !important;
+        background: var(--tr-theme-1) !important;
+        &:hover {
+          color: var(--tr-common-black) !important;
+          background: transparent !important;
+          border-color: var(--tr-theme-1) !important;
+        }
+      }
+      .tf-field-group.tf-destination-box {
+        margin-bottom: 16px;
+      }
     }
   }
+}
+
+.fa-regular,
+.fa-solid,
+.far {
+  font-family: "Font Awesome 6 Pro" !important;
 }

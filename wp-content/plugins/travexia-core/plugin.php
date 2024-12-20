@@ -237,6 +237,7 @@ class Hexa_Core_Plugin
 			'team-slider',
 			'testimonial',
 			'testimonial-slider',
+			'tour-grid',
 			'video-popup'
 		];
 	}
