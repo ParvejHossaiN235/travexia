@@ -1738,3 +1738,6 @@ textarea:focus {
 .post-password-form label {
   width: 100%;
 }
+.tr-header-menu > nav > ul {
+  margin-right: 0 !important;
+}

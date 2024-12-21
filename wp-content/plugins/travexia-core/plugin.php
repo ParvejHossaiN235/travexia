@@ -195,6 +195,8 @@ class Hexa_Core_Plugin
 			'side-panel',
 			//'footer-list',
 			'copyright',
+			'header-style-1',
+			'header-style-2',
 		];
 	}
 
