@@ -1,77 +1,36 @@
 <?php
 /**
- * Pagination - Show numbered pagination for catalog pages
+ * Pagination - Show numbered pagination for catalog pages.
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/loop/pagination.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
- * @see     https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce\Templates
- * @version 3.3.1
+ * @author 		WooThemes
+ * @package 	WooCommerce/Templates
+ * @version     9.3.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-$total   = isset( $total ) ? $total : wc_get_loop_prop( 'total_pages' );
-$current = isset( $current ) ? $current : wc_get_loop_prop( 'current_page' );
-$base    = isset( $base ) ? $base : esc_url_raw( str_replace( 999999999, '%#%', remove_query_arg( 'add-to-cart', get_pagenum_link( 999999999, false ) ) ) );
-$format  = isset( $format ) ? $format : '';
+global $wp_query;
 
-if ( $total <= 1 ) {
+if ( $wp_query->max_num_pages <= 1 )
 	return;
-}
 ?>
-<div class="row">
-   <div class="col-xxl-12">
-		<div class="basic-pagination text-center">
-			<nav class="">
-				<?php
-				echo paginate_links(
-					apply_filters(
-						'woocommerce_pagination_args',
-						array( // WPCS: XSS ok.
-							'base'      => $base,
-							'format'    => $format,
-							'add_args'  => false,
-							'current'   => max( 1, $current ),
-							'total'     => $total,
-							'prev_text' => is_rtl() ? 'Next page <i>
-							<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-							   <path d="M1 6H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-							   <path d="M6 11L11 6L6 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-							</svg>
-						 </i>' : '<i>
-							<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-							   <path d="M11 6H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-							   <path d="M6 11L1 6L6 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-							</svg>
-						 </i> Prev Page',
-							'next_text' => is_rtl() ? '<i>
-							<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-							   <path d="M11 6H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-							   <path d="M6 11L1 6L6 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-							</svg>
-						 </i> Prev Page' : 'Next page <i>
-							<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-							   <path d="M1 6H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-							   <path d="M6 11L11 6L6 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-							</svg>
-						 </i>',
-							'type'      => 'list',
-							'end_size'  => 3,
-							'mid_size'  => 3,
-						)
-					)
-				);
-				?>
-			</nav>
+<div class="column one pager_wrapper">
+	<div class="pager">
+		<div class="pages">
+			<?php
+				echo paginate_links( apply_filters( 'woocommerce_pagination_args', array(
+					'base'         => esc_url_raw( str_replace( 999999999, '%#%', remove_query_arg( 'add-to-cart', get_pagenum_link( 999999999, false ) ) ) ),
+					'format'       => '',
+					'add_args'     => false,
+					'current'      => max( 1, get_query_var( 'paged' ) ),
+					'total'        => $wp_query->max_num_pages,
+					'prev_text'    => '&larr;',
+					'next_text'    => '&rarr;',
+					'type'         => 'plain',
+					'end_size'     => 3,
+					'mid_size'     => 3
+				) ) );
+			?>
 		</div>
 	</div>
 </div>

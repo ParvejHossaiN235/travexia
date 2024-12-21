@@ -8,7 +8,7 @@ if (!function_exists('hexa_page_header')) {
             if (is_home() || is_archive() || is_search() || is_singular('post')) {
                 $pheader = rwmb_meta('pheader_switch', "type=switch", get_option('page_for_posts'));
             }
-            if (class_exists('woocommerce')) {
+            if (class_exists('WooCommerce')) {
                 if (is_shop() || is_product_category() || is_product_tag() || is_product()) {
                     $pheader = rwmb_meta('pheader_switch', "type=switch", get_option('woocommerce_shop_page_id'));
                 }

@@ -32,8 +32,6 @@ function hexa_main_scripts()
     wp_enqueue_style('hf-hexa-tour', HEXA_THEME_CSS_DIR . 'travexia-tour.css', [], time());
     wp_enqueue_style('hf-hexa-style', get_stylesheet_uri());
 
-
-
     // all js
     wp_enqueue_script('hf-bootstrap-bundle', HEXA_THEME_JS_DIR . 'bootstrap.bundle.min.js', ['jquery'], '', true);
     wp_enqueue_script('hf-slick-min', HEXA_THEME_JS_DIR . 'slick.min.js', ['jquery'], '', true);
@@ -47,6 +45,15 @@ function hexa_main_scripts()
     wp_enqueue_script('hf-swiper-bundle', HEXA_THEME_JS_DIR . 'swiper-bundle.js', ['jquery'], '', true);
     wp_enqueue_script('hf-hexa-elementor', HEXA_THEME_JS_DIR . 'hexa-elementor.js', ['jquery'], false, true);
     wp_enqueue_script('hf-hexa-main', HEXA_THEME_JS_DIR . 'hexa-main.js', ['jquery'], false, true);
+
+
+    //Woocommerce
+    if (class_exists('WooCommerce')) {
+        wp_enqueue_style('hf-hexa-woocoomerce', HEXA_THEME_CSS_DIR . 'woocommerce.css', array(), time());
+        wp_enqueue_style('hf-hexa-product-grid', HEXA_THEME_CSS_DIR . 'woo-product-grid.css', array(), time());
+        wp_dequeue_script('wc-add-to-cart');
+        wp_enqueue_script('wc-add-to-cart', HEXA_THEME_JS_DIR . 'add-to-cart.js', array('jquery'));
+    }
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');

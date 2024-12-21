@@ -74,6 +74,73 @@
     });
   }
 
+  // product single slider
+  if (jQuery(".sw-product-carousel").length > 0) {
+    let relatedProducts = new Swiper(".sw-product-carousel", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+      },
+      // If we need navigation
+      navigation: {
+        nextEl: ".swiper-nav-next",
+        prevEl: ".swiper-nav-prev",
+      },
+      breakpoints: {
+        550: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 3,
+        },
+        1200: {
+          slidesPerView: 3,
+        },
+      },
+    });
+  }
+
+  var productDetails = new Swiper(".wc-gallery-nav", {
+    slidesPerView: "auto",
+    spaceBetween: 10,
+    navigation: {
+      nextEl: ".wc-gallery-btn-next",
+      prevEl: ".wc-gallery-btn-prev",
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 2,
+      },
+      390: {
+        slidesPerView: 2,
+      },
+      640: {
+        slidesPerView: 3,
+      },
+      768: {
+        slidesPerView: 4,
+      },
+      1024: {
+        slidesPerView: 4,
+      },
+      1400: {
+        slidesPerView: 4,
+      },
+    },
+  });
+  var productDetailsActive = new Swiper(".wc-gallery-carousel", {
+    spaceBetween: 0,
+    thumbs: {
+      swiper: productDetails,
+    },
+    navigation: {
+      nextEl: ".wc-gallery-btn-next",
+      prevEl: ".wc-gallery-btn-prev",
+    },
+  });
+
   /**
    * Elementor JS Hooks
    */

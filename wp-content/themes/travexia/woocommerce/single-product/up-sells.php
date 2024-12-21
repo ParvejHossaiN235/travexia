@@ -3,53 +3,52 @@
 /**
  * Single Product Up-Sells
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/single-product/up-sells.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
- * @see         https://docs.woocommerce.com/document/template-structure/
- * @package     WooCommerce\Templates
+ * @author 		WooThemes
+ * @package 	WooCommerce/Templates
  * @version     3.0.0
  */
 
-if (! defined('ABSPATH')) {
-	exit;
-}
+if (! defined('ABSPATH')) exit; // Exit if accessed directly
 
-if ($upsells) : ?>
+global $product, $woocommerce_loop;
 
-	<section class="up-sells upsells products">
-		<?php
-		$heading = apply_filters('woocommerce_product_upsells_products_heading', __('You may also like&hellip;', 'hexa-theme'));
+$upsells = $product->get_upsell_ids();
 
-		if ($heading) :
-		?>
-			<h2><?php echo esc_html($heading); ?></h2>
-		<?php endif; ?>
+if (sizeof($upsells) == 0) return;
 
-		<?php woocommerce_product_loop_start(); ?>
+$meta_query = WC()->query->get_meta_query();
 
-		<?php foreach ($upsells as $upsell) : ?>
+$args = array(
+	'post_type'           => 'product',
+	'ignore_sticky_posts' => 1,
+	'no_found_rows'       => 1,
+	'posts_per_page'      => $posts_per_page,
+	'orderby'             => $orderby,
+	'post__in'            => $upsells,
+	'post__not_in'        => array($product->get_id()),
+	'meta_query'          => $meta_query
+);
 
-			<?php
-			$post_object = get_post($upsell->get_id());
+$products = new WP_Query($args);
 
-			setup_postdata($GLOBALS['post'] = &$post_object); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+$woocommerce_loop['columns'] = $columns;
 
-			wc_get_template_part('content', 'product');
-			?>
+if ($products->have_posts()) : ?>
 
-		<?php endforeach; ?>
+	<div class="upsells widget products">
 
-		<?php woocommerce_product_loop_end(); ?>
+		<h2 class="widget-title"><?php echo esc_html(get_theme_mod('upsell_heading_text', 'You may also like&hellip;')) ?></h2>
+		<div class="widget-content">
+			<div class="lg-block-grid-3 md-block-grid-3 sm-block-grid-2">
+				<?php while ($products->have_posts()) : $products->the_post(); ?>
+					<?php wc_get_template_part('content', 'product'); ?>
+				<?php endwhile; // end of the loop. 
+				?>
+			</div>
+		</div>
 
-	</section>
+	</div>
 
-<?php
-endif;
+<?php endif;
 
 wp_reset_postdata();

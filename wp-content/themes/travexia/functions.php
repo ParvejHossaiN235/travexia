@@ -8,8 +8,8 @@
  * @package hexa
  */
 
-define('HEXA_THEME_NAME', 'Funden');
-define('HEXA_THEME_SLUG', 'funden');
+define('HEXA_THEME_NAME', 'Travexia');
+define('HEXA_THEME_SLUG', 'travexia');
 define('HEXA_THEME_DIR', get_template_directory());
 define('HEXA_THEME_URI', get_template_directory_uri());
 define('HEXA_THEME_CSS_DIR', HEXA_THEME_URI . '/assets/css/');
@@ -200,7 +200,9 @@ require HEXA_THEME_INC . 'backend/plugin-requires.php';
 /**
  * Custom metabox for this theme.
  */
-require HEXA_THEME_INC . 'backend/meta-boxes.php';
+if (function_exists('rwmb_meta')) {
+    require HEXA_THEME_INC . 'backend/meta-boxes.php';
+}
 
 /**
  * Functions which add more to backend.
@@ -209,15 +211,18 @@ require HEXA_THEME_INC . 'backend/admin-functions.php';
 
 /**
  * initialize customizer.
-*/
+ */
 
-add_action('init', function () {
+add_action('after_setup_theme', function () {
     if (class_exists('Kirki')) {
         require HEXA_THEME_INC . 'backend/customizer/customizer.php';
         require HEXA_THEME_INC . 'backend/color.php';
     }
 });
 
+//Load Woocommerce plugin
 if (class_exists('WooCommerce')) {
-    require HEXA_THEME_INC . 'woocommerce/woocommerce.php';
+    add_theme_support('woocommerce');
+    require(HEXA_THEME_INC . 'woocommerce/functions.php');
+    require(HEXA_THEME_INC . 'woocommerce/hooks.php');
 }

@@ -12,64 +12,61 @@
  * the readme will list any important changes.
  *
  * @see https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce\Templates
- * @version 3.5.0
+ * @package WooCommerce/Templates
+ * @version 9.4.0
  */
 
-if (!defined('ABSPATH')) {
+if (! defined('ABSPATH')) {
 	exit;
 }
+
+do_action('woocommerce_before_checkout_form', $checkout);
+
+// If checkout registration is disabled and not logged in, the user cannot checkout.
+if (! $checkout->is_registration_enabled() && $checkout->is_registration_required() && ! is_user_logged_in()) {
+	echo esc_html(apply_filters('woocommerce_checkout_must_be_logged_in_message', esc_html__('You must be logged in to checkout.', 'hexa-theme')));
+	return;
+}
+
 ?>
-<div class="row">
-	<div class="col-lg-12">
-		<?php do_action('woocommerce_before_checkout_form', $checkout); ?>
-	</div>
-</div> <?php
-
-		// If checkout registration is disabled and not logged in, the user cannot checkout.
-		if (!$checkout->is_registration_enabled() && $checkout->is_registration_required() && !is_user_logged_in()) {
-			echo esc_html(apply_filters('woocommerce_checkout_must_be_logged_in_message', __('You must be logged in to checkout.', 'hexa-theme')));
-			return;
-		}
-
-		?>
 
 <form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
+	<div class="row">
+		<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+			<?php if ($checkout->get_checkout_fields()) : ?>
 
-	<?php if ($checkout->get_checkout_fields()) : ?>
+				<?php do_action('woocommerce_checkout_before_customer_details'); ?>
 
-		<?php do_action('woocommerce_checkout_before_customer_details'); ?>
+				<div id="customer_details">
+					<div class="clearfix">
+						<?php do_action('woocommerce_checkout_billing'); ?>
+					</div>
 
-		<div class="row" id="customer_details">
-			<div class="col-lg-7">
-				<div class="hexa-checkout-billing-wrapper mb-30" id="customer_form_details">
-					<?php do_action('woocommerce_checkout_billing'); ?>
-					<?php do_action('woocommerce_checkout_shipping'); ?>
-				</div>
-			</div>
-
-			<div class="col-lg-5">
-				<div class="cart-wrapper mb-30">
-					<div class="order-review-wrapper">
-						<?php do_action('woocommerce_checkout_before_order_review_heading'); ?>
-
-						<h3 id="order_review_heading"><?php esc_html_e('Your order', 'hexa-theme'); ?></h3>
-
-						<?php do_action('woocommerce_checkout_before_order_review'); ?>
-
-						<div id="order_review" class="woocommerce-checkout-review-order">
-							<?php do_action('woocommerce_checkout_order_review'); ?>
-						</div>
-
-						<?php do_action('woocommerce_checkout_after_order_review'); ?>
+					<div class="clearfix">
+						<?php do_action('woocommerce_checkout_shipping'); ?>
 					</div>
 				</div>
-			</div>
+
+				<?php do_action('woocommerce_checkout_after_customer_details'); ?>
+
+			<?php endif; ?>
 		</div>
 
-		<?php do_action('woocommerce_checkout_after_customer_details'); ?>
+		<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
 
-	<?php endif; ?>
+			<?php do_action('woocommerce_checkout_before_order_review_heading'); ?>
+
+			<h3 id="order_review_heading"><?php esc_html_e('Your order', 'hexa-theme'); ?></h3>
+
+			<?php do_action('woocommerce_checkout_before_order_review'); ?>
+
+			<div id="order_review" class="woocommerce-checkout-review-order">
+				<?php do_action('woocommerce_checkout_order_review'); ?>
+			</div>
+
+			<?php do_action('woocommerce_checkout_after_order_review'); ?>
+		</div>
+	</div>
 
 </form>
 

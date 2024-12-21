@@ -1,49 +1,31 @@
 <?php
+
 /**
  * Content wrappers
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/global/wrapper-start.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
- * @see         https://docs.woocommerce.com/document/template-structure/
- * @package     WooCommerce\Templates
+ * @author 		WooThemes
+ * @package 	WooCommerce/Templates
  * @version     3.3.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+if (! defined('ABSPATH')) exit; // Exit if accessed directly
 
-$template = wc_get_theme_slug_for_templates();
+$template = get_option('template');
 
-switch ( $template ) {
-	case 'twentyten':
-		echo '<div id="container"><div id="content" role="main">';
-		break;
+switch ($template) {
 	case 'twentyeleven':
-		echo '<div id="primary"><div id="content" role="main" class="twentyeleven">';
+		echo '<div id="primary"><div id="content" role="main">';
 		break;
 	case 'twentytwelve':
-		echo '<div id="primary" class="site-content"><div id="content" role="main" class="twentytwelve">';
+		echo '<div id="primary" class="site-content"><div id="content" role="main">';
 		break;
 	case 'twentythirteen':
 		echo '<div id="primary" class="site-content"><div id="content" role="main" class="entry-content twentythirteen">';
 		break;
-	case 'twentyfourteen':
-		echo '<div id="primary" class="content-area"><div id="content" role="main" class="site-content twentyfourteen"><div class="tfwc">';
-		break;
-	case 'twentyfifteen':
-		echo '<div id="primary" role="main" class="content-area twentyfifteen"><div id="main" class="site-main t15wc">';
-		break;
-	case 'twentysixteen':
-		echo '<div id="primary" class="content-area twentysixteen"><main id="main" class="site-main" role="main">';
+	case 'hexa-theme':
+		echo '<div id="primary" class="content-area"><div id="content" role="main" class="site-content gowilds">';
 		break;
 	default:
-		echo '<div class="product-filter-area pt-100 pb-80"><div class="container">';
+		echo '<div class="woo-container"><div id="content" role="main">';
 		break;
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Single Product Thumbnails
  *
@@ -12,22 +13,24 @@
  *
  * @see         https://docs.woocommerce.com/document/template-structure/
  * @package     WooCommerce\Templates
- * @version     3.5.1
+ * @version     9.9.9
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 // Note: `wc_get_gallery_image_html` was added in WC 3.3.2 and did not exist prior. This check protects against theme overrides being used on older versions of WC.
-if ( ! function_exists( 'wc_get_gallery_image_html' ) ) {
+if (!function_exists('wc_get_gallery_image_html')) {
 	return;
 }
 
 global $product;
 
+$post_thumbnail_id = $product->get_image_id();
 $attachment_ids = $product->get_gallery_image_ids();
 
-if ( $attachment_ids && $product->get_image_id() ) {
-	foreach ( $attachment_ids as $attachment_id ) {
-		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $attachment_id ), $attachment_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+if ($attachment_ids && $product->get_image_id()) {
+	array_unshift($attachment_ids, $post_thumbnail_id);
+	foreach ($attachment_ids as $attachment_id) {
+		echo apply_filters('woocommerce_single_product_image_thumbnail_html', hexa_wc_get_gallery_image_html($attachment_id), $attachment_id); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
 	}
 }

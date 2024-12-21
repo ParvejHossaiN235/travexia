@@ -1,22 +1,30 @@
 <?php
+
 /**
  * Product Loop Start
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/loop/loop-start.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
- * @see         https://docs.woocommerce.com/document/template-structure/
- * @package     WooCommerce\Templates
+ * @author 		WooThemes
+ * @package 	WooCommerce/Templates
  * @version     3.3.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+global $woocommerce_loop;
+$std_lg = 4;
+$std_md = 3;
+$std_sm = 3;
+$std_xs = 2;
+if (is_active_sidebar('woocommerce_sidebar')) {
+   $std_lg = 3;
+   $std_md = 2;
+   $std_sm = 3;
+   $std_xs = 2;
 }
+$columns_lg = get_theme_mod('product_columns_lg', $std_lg);
+$columns_md = get_theme_mod('product_columns_md', $std_md);
+$columns_sm = get_theme_mod('product_columns_sm', $std_sm);
+$columns_xs = get_theme_mod('product_columns_xs', $std_xs);
 ?>
-<div class="row row-cols-xl-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?> row-cols-lg-3 row-cols-md-2 row-cols-1">
+
+<div class="clearfix"></div>
+<div class="products_wrapper grid-view">
+   <div class="products lg-block-grid-<?php echo esc_attr($columns_lg); ?> md-block-grid-<?php echo esc_attr($columns_md); ?> sm-block-grid-<?php echo esc_attr($columns_sm); ?> xs-block-grid-<?php echo esc_attr($columns_xs); ?> xx-block-grid-1">

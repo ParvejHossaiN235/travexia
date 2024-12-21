@@ -1,38 +1,91 @@
 <?php
 
 /**
- * The template for displaying product content within loops
+ * The template for displaying product content within loops.
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/content-product.php.
+ * Override this template by copying it to yourtheme/woocommerce/content-product.php
  *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
- * @see     https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce\Templates
- * @version 3.6.0
+ * @author  WooThemes
+ * @package WooCommerce/Templates
+ * @version 9.4.0
  */
 
-defined('ABSPATH') || exit;
+if (! defined('ABSPATH')) {
+	exit; // Exit if accessed directly
+}
 
-global $product;
+global $product, $woocommerce_loop;
 
-// Ensure visibility.
-if (empty($product) || !$product->is_visible()) {
+
+// Action: woocommerce_after_shop_loop_item_title
+remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
+remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
+
+remove_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10);
+remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
+
+// Ensure visibility
+if (! $product || ! $product->is_visible()) {
 	return;
 }
-?>
-<div <?php wc_product_class('hexa-core-product', $product); ?>>
-	<?php
-	/**
-	 * Hook: woocommerce_before_shop_loop_item.
-	 *
-	 * @hooked woocommerce_template_loop_product_link_open - 10
-	 */
-	do_action('woocommerce_before_shop_loop_item');
 
-	?>
+// Extra post classes
+$classes = array();
+
+$classes[] = 'product-block product';
+
+?>
+
+<div <?php post_class($classes); ?>>
+	<div class="product-block-inner clearfix">
+		<?php do_action('woocommerce_before_shop_loop_item'); ?>
+
+		<div class="product-thumbnail">
+			<div class="product-thumbnail-inner">
+				<?php
+				/**
+				 * woocommerce_before_shop_loop_item_title hook
+				 *
+				 * @hooked woocommerce_show_product_loop_sale_flash - 10
+				 * @hooked woocommerce_template_loop_product_thumbnail - 10
+				 */
+				do_action('woocommerce_before_shop_loop_item_title');
+				?>
+			</div>
+			<div class="content-hover">
+				<div class="add-to-cart">
+					<?php woocommerce_template_loop_add_to_cart(); ?>
+				</div>
+			</div>
+		</div>
+
+		<?php
+		/**
+		 * woocommerce_shop_loop_item_title hook
+		 *
+		 * @hooked woocommerce_template_loop_product_title - 10
+		 */
+		do_action('woocommerce_shop_loop_item_title');
+		?>
+
+		<?php
+		/**
+		 * woocommerce_after_shop_loop_item_title hook
+		 *
+		 * @hooked woocommerce_template_loop_rating - 5
+		 * @hooked woocommerce_template_loop_price - 10
+		 */
+		do_action('woocommerce_after_shop_loop_item_title');
+		?>
+
+		<div class="product-meta">
+			<div class="clearfix"></div>
+			<?php echo wc_get_product_category_list($product->get_id(), ', ', '<div class="shop-category">', '</div>'); ?>
+			<h3 class="shop-loop-title"><a href="<?php esc_url(the_permalink()); ?>"><?php the_title(); ?></a></h3>
+			<div class="shop-loop-price">
+				<?php woocommerce_template_loop_price(); ?>
+			</div>
+		</div>
+
+	</div>
 </div>

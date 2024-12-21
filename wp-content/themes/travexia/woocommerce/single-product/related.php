@@ -3,53 +3,57 @@
 /**
  * Related Products
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/single-product/related.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
- * @see         https://docs.woocommerce.com/document/template-structure/
- * @package     WooCommerce\Templates
+ * @author 		WooThemes
+ * @package 	WooCommerce/Templates
  * @version     3.9.0
  */
 
-if (! defined('ABSPATH')) {
-	exit;
-}
+if (! defined('ABSPATH')) exit; // Exit if accessed directly
 
-if ($related_products) : ?>
+global $product;
+$posts_per_page = 6;
+$related = wc_get_related_products($product->get_id(), $posts_per_page);
 
-	<section class="related-products">
+if (sizeof($related) == 0) return;
 
-		<?php
-		$heading = apply_filters('woocommerce_product_related_products_heading', __('Related products', 'hexa-theme'));
+$args = apply_filters('woocommerce_related_products_args', array(
+	'post_type'				=> 'product',
+	'ignore_sticky_posts'	=> 1,
+	'no_found_rows' 		=> 1,
+	'posts_per_page' 		=> $posts_per_page,
+	'post__in' 				=> $related,
+	'post__not_in'			=> array($product->get_id())
+));
+$show = 3;
+$products = new WP_Query($args);
 
-		if ($heading) :
-		?>
-			<h2 class="tpsection__title mb-40"><?php echo esc_html($heading); ?></h2>
-		<?php endif; ?>
+if ($products->have_posts()) : ?>
 
-		<?php woocommerce_product_loop_start(); ?>
+	<div class="widget related products">
 
-		<?php foreach ($related_products as $related_product) : ?>
+		<h2 class="widget-title"><?php echo esc_html(get_theme_mod('related_heading_text', 'Related Products')) ?></h2>
 
-			<?php
-			$post_object = get_post($related_product->get_id());
+		<div class="swiper-slider-wrapper">
+			<div class="swiper-content-inner products carousel-view count-row-1">
+				<div class="sw-product-carousel swiper-container">
+					<div class="swiper-wrapper">
+						<?php while ($products->have_posts()) : $products->the_post(); ?>
+							<?php
+							echo '<div class="swiper-slide">';
+							wc_get_template_part('content', 'product');
+							echo '</div>';
+							?>
+						<?php endwhile; // end of the loop. 
+						?>
+					</div>
+				</div>
+				<div class="swiper-nav-next"></div>
+				<div class="swiper-nav-prev"></div>
+			</div>
+		</div>
 
-			setup_postdata($GLOBALS['post'] = &$post_object); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+	</div>
 
-			wc_get_template_part('content', 'product');
-			?>
-
-		<?php endforeach; ?>
-
-		<?php woocommerce_product_loop_end(); ?>
-
-	</section>
-<?php
-endif;
+<?php endif;
 
 wp_reset_postdata();
