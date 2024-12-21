@@ -254,17 +254,6 @@ class Hexa_Post_Grid extends Widget_Base
             ]
         );
         $this->add_control(
-            'category_show',
-            [
-                'label' => __('Category On/Off', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => __('Show', 'hexacore'),
-                'label_off' => __('Hide', 'hexacore'),
-                'return_value' => 'yes',
-                'default' => 'yes',
-            ]
-        );
-        $this->add_control(
             'date_show',
             [
                 'label' => __('Date On/Off', 'hexacore'),
@@ -275,45 +264,7 @@ class Hexa_Post_Grid extends Widget_Base
                 'default' => 'yes',
             ]
         );
-        $this->add_control(
-            'date_icon',
-            [
-                'label' => __('Date Icon', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::ICONS,
-                'default' => [
-                    'value' => 'fa-light fa-calendar',
-                    'library' => 'reguler',
-                ],
-                'condition' => [
-                    'date_show' => 'yes',
-                ]
-            ]
-        );
-        $this->add_control(
-            'comment_show',
-            [
-                'label' => __('Comment On/Off', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => __('Show', 'hexacore'),
-                'label_off' => __('Hide', 'hexacore'),
-                'return_value' => 'yes',
-                'default' => 'yes',
-            ]
-        );
-        $this->add_control(
-            'comments_icon',
-            [
-                'label' => __('Comments Icon', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::ICONS,
-                'default' => [
-                    'value' => 'fa-light fa-comment',
-                    'library' => 'reguler',
-                ],
-                'condition' => [
-                    'comment_show' => 'yes',
-                ]
-            ]
-        );
+
         $this->add_control(
             'show_pagination',
             [
@@ -492,7 +443,7 @@ class Hexa_Post_Grid extends Widget_Base
         $settings = $this->get_settings_for_display();
         extract($settings);
 
-        $number_show = (!empty($settings['number_show']) ? $settings['number_show'] : 9);
+        $number_show = (!empty($settings['number_show']) ? $settings['number_show'] : 3);
 
         if (get_query_var('paged')) {
             $paged = get_query_var('paged');
@@ -640,11 +591,11 @@ class Hexa_Post_Grid extends Widget_Base
 
         ?>
             <!-- postbox area start -->
-            <div class="postbox__area">
+            <div class="blog-area">
                 <div class="<?php echo esc_attr($post_container); ?>">
-                    <div class="row g-5">
+                    <div class="row">
                         <div class="<?php echo esc_attr($post_column); ?>">
-                            <div class="row g-5 wow fadeInUp" data-wow-delay=".3s">
+                            <div class="row row-gap-30">
                                 <?php if ($the_query->have_posts()) :
                                     $i = 0.0;
                                     while ($the_query->have_posts()) :
@@ -656,8 +607,8 @@ class Hexa_Post_Grid extends Widget_Base
                                         $i += 0.3;
                                 ?>
                                         <div class="col-xl-<?php echo esc_attr($desktop_col); ?> col-lg-<?php echo esc_attr($laptop_col); ?> col-md-<?php echo esc_attr($tablet_col); ?> col-<?php echo esc_attr($mobile_col); ?>">
-                                            <div class="blog__wrap blog__item style-five wellconcept-el-blog-item">
-                                                <div class="blog__thumb is-hover">
+                                            <div class="tr-blog-item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                                                <div class="tr-blog-thumb fix">
                                                     <a href="<?php the_permalink($post->ID); ?>">
                                                         <?php
                                                         if (has_post_thumbnail()) {
@@ -671,56 +622,41 @@ class Hexa_Post_Grid extends Widget_Base
                                                         echo wp_kses_post($thumbnail_html);
                                                         ?>
                                                     </a>
-                                                    <?php if (!empty($settings['category_show'])) : ?>
-                                                        <div class="blog__tag wellconcept-el-blog-cat">
-                                                            <?php if (!empty($categories[0]->name)) : ?>
-                                                                <a class="bdevs-el-cat" href="<?php echo esc_url(get_category_link($categories[0]->term_id)); ?>"><?php echo esc_html($categories[0]->name); ?></a>
-                                                            <?php endif; ?>
-                                                        </div>
-                                                    <?php endif; ?>
                                                 </div>
-                                                <div class="blog__content bg-solid">
-                                                    <?php if (!empty($settings['meta'])) : ?>
-                                                        <div class="blog__meta wellconcept-el-blog-meta">
-                                                            <?php if (!empty($settings['date_show'])) : ?>
-                                                                <span>
-                                                                    <?php if ($settings['date_icon']) :
-                                                                        \Elementor\Icons_Manager::render_icon($settings['date_icon'], ['aria-hidden' => 'true']);
-                                                                    endif;
-                                                                    echo the_time('d M, Y', $post->ID); ?>
-                                                                </span>
-                                                            <?php endif; ?>
-                                                            <?php if (!empty($settings['comment_show'])) : ?>
-                                                                <span>
-                                                                    <?php if ($settings['comments_icon']) :
-                                                                        \Elementor\Icons_Manager::render_icon($settings['comments_icon'], ['aria-hidden' => 'true']);
-                                                                    endif;
-                                                                    echo get_comments_number($post->ID); ?> <?php print esc_html__('Comments', 'hexacore'); ?>
-                                                                </span>
-                                                            <?php endif; ?>
-                                                        </div>
-                                                    <?php endif; ?>
+                                                <div class="tr-blog-content">
+                                                    <div class="tr-blog-meta">
+                                                        <?php if (!empty($settings['date_show'])) : ?>
+                                                            <span>
+                                                                <i class="fa-regular fa-calendar-days"></i><?php the_time('M d, Y', $post->ID); ?>
+                                                            </span>
+                                                        <?php endif; ?>
+                                                        <?php if (!empty($settings['admin_show'])) : ?>
+                                                            <span><i class="fa-light fa-user"></i>
+                                                                <a href="<?php print esc_url($author_avatar_url); ?>">
+                                                                    <?php echo ucwords(get_the_author()); ?>
+                                                                </a>
+                                                            </span>
+                                                        <?php endif; ?>
+                                                    </div>
                                                     <?php if (!empty($settings['title_show'])) : ?>
-                                                        <h5 class="blog__title wellconcept-el-title">
-                                                            <a href="<?php the_permalink($post->ID); ?>">
+                                                        <h4 class="hf-blog-title tr-blog-title">
+                                                            <a class="border-line-black" href="<?php the_permalink($post->ID); ?>">
                                                                 <?php echo wp_trim_words(get_the_title($post->ID), $settings['title_limit'], ''); ?>
                                                             </a>
-                                                        </h5>
+                                                        </h4>
                                                     <?php endif; ?>
                                                     <?php if (!empty($settings['content_show'])) :
                                                         $content_limit = (!empty($settings['content_limit'])) ? $settings['content_limit'] : '';
                                                     ?>
-                                                        <p class="wellconcept-el-desc">
+                                                        <p class="hexa-el-desc">
                                                             <?php print wp_trim_words(get_the_excerpt($post->ID), $content_limit, ''); ?>
                                                         </p>
                                                     <?php endif; ?>
                                                     <?php if (!empty($settings['btn_text'])) : ?>
-                                                        <div class="blog__btn">
-                                                            <a class="bd-btn bordered-light wellconcept-el-btn is-btn-anim" href="<?php echo esc_url(get_the_permalink($post->ID)); ?>">
-                                                                <span class="bd-btn-inner">
-                                                                    <span class="bd-btn-normal"><?php echo esc_html($btn_text); ?></span>
-                                                                    <span class="bd-btn-hover"><?php echo esc_html($btn_text); ?></span>
-                                                                </span>
+                                                        <div class="blog-btn">
+                                                            <a class="tr-blog-link" href="<?php echo esc_url(get_the_permalink($post->ID)); ?>">
+                                                                <?php echo esc_html($btn_text); ?>
+                                                                <i class="fa-regular fa-arrow-right-long"></i>
                                                             </a>
                                                         </div>
                                                     <?php endif; ?>
@@ -731,6 +667,30 @@ class Hexa_Post_Grid extends Widget_Base
                                     wp_reset_query();
                                 endif; ?>
                             </div>
+
+                            <?php if (!empty($settings['show_pagination'])) : ?>
+                                <div class="hexa-pagination mt-50">
+                                    <?php
+                                    $prev = '<i class="fas fa-long-arrow-left"></i>';
+                                    $next = '<i class="fas fa-long-arrow-right"></i>';
+                                    $pagination = array(
+                                        'base'      => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+                                        'format'    => '?paged=%#%',
+                                        'current'   => max(1, get_query_var('paged')),
+                                        'total'     => $the_query->max_num_pages,
+                                        'prev_text' => $prev,
+                                        'next_text' => $next,
+                                        'type'      => 'list',
+                                        'end_size'  => 3,
+                                        'mid_size'  => 3
+                                    );
+                                    // Generate pagination links
+                                    $return =  paginate_links($pagination);
+                                    echo str_replace("<ul class='page-numbers'>", '<ul class="page-pagination mb-0 p-0">', $return);
+                                    ?>
+                                </div>
+                            <?php endif; ?>
+
                         </div>
                         <?php if (!empty($settings['show_sidebar'])) : ?>
                             <div class="col-xxl-4 col-lg-4">
@@ -740,36 +700,6 @@ class Hexa_Post_Grid extends Widget_Base
                             </div>
                         <?php endif; ?>
                     </div>
-                    <?php if (!empty($settings['show_pagination'])) : ?>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="pagination__wrapper <?php echo esc_attr($nav_align); ?>">
-                                    <div class="bd-basic__pagination style-2">
-                                        <nav>
-                                            <?php
-                                            $prev = '<i class="fas fa-long-arrow-left"></i>';
-                                            $next = '<i class="fas fa-long-arrow-right"></i>';
-                                            $pagination = array(
-                                                'base'      => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
-                                                'format'    => '?paged=%#%',
-                                                'current'   => max(1, get_query_var('paged')),
-                                                'total'     => $the_query->max_num_pages,
-                                                'prev_text' => $prev,
-                                                'next_text' => $next,
-                                                'type'      => 'list',
-                                                'end_size'  => 3,
-                                                'mid_size'  => 3
-                                            );
-                                            // Generate pagination links
-                                            $return =  paginate_links($pagination);
-                                            echo str_replace("<ul class='page-numbers'>", '<ul class="page-pagination mb-0 p-0 ' . esc_attr($nav_align) . '">', $return);
-                                            ?>
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endif; ?>
                 </div>
             </div>
             <!-- postbox area end -->
@@ -788,8 +718,8 @@ class Hexa_Post_Grid extends Widget_Base
                         $i += 0.3;
                 ?>
                         <div class="col-xl-<?php echo esc_attr($desktop_col); ?> col-lg-<?php echo esc_attr($laptop_col); ?> col-md-<?php echo esc_attr($tablet_col); ?> col-<?php echo esc_attr($mobile_col); ?>">
-                            <div class="hf-blog-item mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
-                                <div class="hf-blog-thumb">
+                            <div class="tr-blog-item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                                <div class="tr-blog-thumb fix">
                                     <a href="<?php the_permalink($post->ID); ?>">
                                         <?php
                                         if (has_post_thumbnail()) {
@@ -803,33 +733,25 @@ class Hexa_Post_Grid extends Widget_Base
                                         echo wp_kses_post($thumbnail_html);
                                         ?>
                                     </a>
-                                    <?php if (!empty($settings['date_show'])) : ?>
-                                        <div class="hf-blog-date">
-                                            <span><?php the_time('d M, Y', $post->ID); ?></span>
-                                        </div>
-                                    <?php endif; ?>
                                 </div>
-                                <div class="hf-blog-content">
-                                    <div class="hf-blog-item-info d-flex">
+                                <div class="tr-blog-content">
+                                    <div class="tr-blog-meta">
+                                        <?php if (!empty($settings['date_show'])) : ?>
+                                            <span>
+                                                <i class="fa-regular fa-calendar-days"></i><?php the_time('M d, Y', $post->ID); ?>
+                                            </span>
+                                        <?php endif; ?>
                                         <?php if (!empty($settings['admin_show'])) : ?>
-                                            <span><i class="flaticon-user"></i>
+                                            <span><i class="fa-light fa-user"></i>
                                                 <a href="<?php print esc_url($author_avatar_url); ?>">
                                                     <?php echo ucwords(get_the_author()); ?>
                                                 </a>
                                             </span>
                                         <?php endif; ?>
-                                        <?php if (!empty($settings['category_show'])) : ?>
-                                            <span>
-                                                <i class="fal fa-user"></i>
-                                                <?php if (!empty($categories[0]->name)) : ?>
-                                                    <a class="hexa-el-cat" href="<?php echo esc_url(get_category_link($categories[0]->term_id)); ?>"><?php echo esc_html($categories[0]->name); ?></a>
-                                                <?php endif; ?>
-                                            </span>
-                                        <?php endif; ?>
                                     </div>
                                     <?php if (!empty($settings['title_show'])) : ?>
-                                        <h4 class="hf-blog-title">
-                                            <a href="<?php the_permalink($post->ID); ?>">
+                                        <h4 class="hf-blog-title tr-blog-title">
+                                            <a class="border-line-black" href="<?php the_permalink($post->ID); ?>">
                                                 <?php echo wp_trim_words(get_the_title($post->ID), $settings['title_limit'], ''); ?>
                                             </a>
                                         </h4>
@@ -841,6 +763,14 @@ class Hexa_Post_Grid extends Widget_Base
                                             <?php print wp_trim_words(get_the_excerpt($post->ID), $content_limit, ''); ?>
                                         </p>
                                     <?php endif; ?>
+                                    <?php if (!empty($settings['btn_text'])) : ?>
+                                        <div class="blog-btn">
+                                            <a class="tr-blog-link" href="<?php echo esc_url(get_the_permalink($post->ID)); ?>">
+                                                <?php echo esc_html($btn_text); ?>
+                                                <i class="fa-regular fa-arrow-right-long"></i>
+                                            </a>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -849,7 +779,7 @@ class Hexa_Post_Grid extends Widget_Base
                 endif; ?>
                 <?php if (!empty($settings['show_pagination'])) : ?>
                     <div class="col-12">
-                        <div class="hexa-pagination">
+                        <div class="hexa-pagination mt-50">
                             <?php
                             $prev = '<i class="fas fa-long-arrow-left"></i>';
                             $next = '<i class="fas fa-long-arrow-right"></i>';
