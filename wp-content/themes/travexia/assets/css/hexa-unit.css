@@ -612,8 +612,8 @@ pre {
   position: relative;
 }
 .sidebar-widget .wp-block-search__input {
-  height: 62px;
-  line-height: 62px;
+  height: 54px;
+  line-height: 54px;
   padding-left: 25px;
   padding-right: 80px;
   border-radius: 5px;

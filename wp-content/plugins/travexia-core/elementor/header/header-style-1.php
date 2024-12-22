@@ -656,7 +656,7 @@ class Hexa_Header_Style_One extends Widget_Base
                             </div>
                         <?php endif; ?>
 
-                        <div class="tr-header-menu tr-dropdown-menu">
+                        <div class="tr-header-menu tr-dropdown-menu d-none d-xl-block ">
                             <nav class="it-menu-content">
                                 <?php echo $menu_html; ?>
                             </nav>

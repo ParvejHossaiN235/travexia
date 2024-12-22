@@ -656,7 +656,7 @@ class Hexa_Header_Style_2 extends Widget_Base
                             </div>
                         <?php endif; ?>
 
-                        <div class="tr-header-menu tr-dropdown-menu">
+                        <div class="tr-header-menu tr-dropdown-menu d-none d-xl-block">
                             <nav class="it-menu-content">
                                 <?php echo $menu_html; ?>
                             </nav>
@@ -695,9 +695,7 @@ class Hexa_Header_Style_2 extends Widget_Base
                             <?php if (!empty($settings['login_text'])) : ?>
                                 <div class="tr-header-right-loging ml-40 d-none d-lg-block">
                                     <i class="fa-solid fa-user"></i>
-                                    <a <?php echo $this->get_render_attribute_string('login'); ?>>
-                                        <?php $this->print_unescaped_setting('login_text'); ?>
-                                    </a>
+                                    <?php $this->print_unescaped_setting('login_text'); ?>                                    
                                 </div>
                             <?php endif; ?>
                             <div class="tr-header-bar d-xl-none ml-30">
