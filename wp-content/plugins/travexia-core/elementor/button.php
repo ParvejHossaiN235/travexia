@@ -223,7 +223,7 @@ class Hexa_Button extends Widget_Base
                 'fa4compatibility' => 'icon',
                 'label_block' => true,
                 'default' => [
-                    'value' => 'fas fa-star',
+                    'value' => 'fa-sharp fa-regular fa-arrow-right-long',
                     'library' => 'fa-solid',
                 ],
             ]
@@ -325,26 +325,78 @@ class Hexa_Button extends Widget_Base
     {
         $settings = $this->get_settings_for_display();
 
-        $this->add_render_attribute('button-wrapper', 'class', 'hexa-btn-wrapper');
-
-        if (!empty($settings['btn_link']['url'])) {
-            $this->add_link_attributes('button', $settings['btn_link']);
-        }
-        $this->add_render_attribute('button', 'class', 'hexa-el-btn');
-        if (!empty($settings['btn_size'])) {
-            $this->add_render_attribute('button', 'class', 'hexa-btn-' . $settings['btn_size']);
-        }
-
-        $migrated = isset($settings['__fa4_migrated']['btn_selected_icon']);
-        $is_new = empty($settings['icon']) && \Elementor\Icons_Manager::is_migration_allowed();
-
 ?>
+        <?php if ($settings['hexa_design_layout']  == 'layout_3') :
 
-        <?php if ($settings['hexa_design_layout']  == 'layout_2') :
+            if (!empty($settings['btn_link']['url'])) {
+                $this->add_link_attributes('button', $settings['btn_link']);
+            }
+            $this->add_render_attribute('button', 'class', 'tr-btn-green hexa-el-btn');
+            if (!empty($settings['btn_size'])) {
+                $this->add_render_attribute('button', 'class', 'hexa-btn-' . $settings['btn_size']);
+            }
+
+            $migrated = isset($settings['__fa4_migrated']['btn_selected_icon']);
+            $is_new = empty($settings['icon']) && \Elementor\Icons_Manager::is_migration_allowed();
 
         ?>
 
+            <div class="tr-fill-btn">
+                <a <?php echo $this->get_render_attribute_string('button'); ?>>
+                    <?php $this->print_unescaped_setting('btn_text'); ?>
+                    <?php if (!empty($settings['icon']) || !empty($settings['btn_selected_icon']['value'])) : ?>
+                        <?php if ($is_new || $migrated) :
+                            \Elementor\Icons_Manager::render_icon($settings['btn_selected_icon'], ['aria-hidden' => 'true']);
+                        else : ?>
+                            <i class="<?php echo esc_attr($settings['icon']); ?>" aria-hidden="true"></i>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </a>
+            </div>
+
+        <?php elseif ($settings['hexa_design_layout']  == 'layout_2') :
+
+
+            if (!empty($settings['btn_link']['url'])) {
+                $this->add_link_attributes('button', $settings['btn_link']);
+            }
+            $this->add_render_attribute('button', 'class', 'tr-btn hexa-el-btn');
+            if (!empty($settings['btn_size'])) {
+                $this->add_render_attribute('button', 'class', 'hexa-btn-' . $settings['btn_size']);
+            }
+
+            $migrated = isset($settings['__fa4_migrated']['btn_selected_icon']);
+            $is_new = empty($settings['icon']) && \Elementor\Icons_Manager::is_migration_allowed();
+        ?>
+
+            <div class="tr-trip-btn">
+                <a <?php echo $this->get_render_attribute_string('button'); ?>>
+                    <?php $this->print_unescaped_setting('btn_text'); ?>
+                    <?php if (!empty($settings['icon']) || !empty($settings['btn_selected_icon']['value'])) : ?>
+                        <?php if ($is_new || $migrated) :
+                            \Elementor\Icons_Manager::render_icon($settings['btn_selected_icon'], ['aria-hidden' => 'true']);
+                        else : ?>
+                            <i class="<?php echo esc_attr($settings['icon']); ?>" aria-hidden="true"></i>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </a>
+            </div>
+
         <?php else :
+
+            $this->add_render_attribute('button-wrapper', 'class', 'hexa-btn-wrapper');
+
+            if (!empty($settings['btn_link']['url'])) {
+                $this->add_link_attributes('button', $settings['btn_link']);
+            }
+            $this->add_render_attribute('button', 'class', 'hexa-el-btn');
+            if (!empty($settings['btn_size'])) {
+                $this->add_render_attribute('button', 'class', 'hexa-btn-' . $settings['btn_size']);
+            }
+
+            $migrated = isset($settings['__fa4_migrated']['btn_selected_icon']);
+            $is_new = empty($settings['icon']) && \Elementor\Icons_Manager::is_migration_allowed();
+
 
         ?>
             <div <?php echo $this->get_render_attribute_string('button-wrapper'); ?>>

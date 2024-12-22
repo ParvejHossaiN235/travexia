@@ -130,7 +130,7 @@ class Hexa_Heading extends Widget_Base
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'options' => [
 					'layout_1' => esc_html__('Layout 1', 'hexacore'),
-					//'layout-2' => esc_html__('Layout 2', 'hexacore'),
+					'layout-2' => esc_html__('Layout 2', 'hexacore'),
 					//'layout-3' => esc_html__('Layout 3', 'hexacore'),
 				],
 				'default' => 'layout_1',
@@ -274,24 +274,56 @@ class Hexa_Heading extends Widget_Base
 	protected function render()
 	{
 		$settings = $this->get_settings_for_display();
-		$html_tag = $settings['title_tag'];
-		$title = $settings['title'];
-		$this->add_render_attribute('subtitle', 'class', 'hexa-el-subtitle d-inline-block');
-		$this->add_render_attribute('title', 'class', 'hexa-el-title');
-		$this->add_render_attribute('description', 'class', 'hexa-el-desc');
-		if (!empty($settings['title_link']['url'])) {
-			$this->add_link_attributes('title_link', $settings['title_link']);
-			$title = sprintf('<a %1$s>%2$s</a>', $this->get_render_attribute_string('title_link'), $title);
-		}
-		$title_html = sprintf('<%1$s %2$s>%3$s</%1$s>', $html_tag, $this->get_render_attribute_string('title'), $title);
-		$subtitle_html = sprintf('<span %1$s>%2$s</span>', $this->get_render_attribute_string('subtitle'), $settings['subtitle']);
-		$desc_html = sprintf('<p %1$s>%2$s</p>', $this->get_render_attribute_string('description'), $settings['desc']);
+
 ?>
 
-		<?php if ($settings['hexa_design_layout']  == 'layout_2') : ?>
+		<?php if ($settings['hexa_design_layout']  == 'layout_2') :
+
+			$html_tag = $settings['title_tag'];
+			$title = $settings['title'];
+			$this->add_render_attribute('subtitle', 'class', 'hexa-el-subtitle tr-section-subtitle mb-10 d-inline-block');
+			$this->add_render_attribute('title', 'class', 'hexa-el-title tr-section-title mb-20');
+			$this->add_render_attribute('description', 'class', 'hexa-el-desc');
+			if (!empty($settings['title_link']['url'])) {
+				$this->add_link_attributes('title_link', $settings['title_link']);
+				$title = sprintf('<a %1$s>%2$s</a>', $this->get_render_attribute_string('title_link'), $title);
+			}
+			$title_html = sprintf('<%1$s %2$s>%3$s</%1$s>', $html_tag, $this->get_render_attribute_string('title'), $title);
+			$subtitle_html = sprintf('<span %1$s>%2$s</span>', $this->get_render_attribute_string('subtitle'), $settings['subtitle']);
+			$desc_html = sprintf('<p %1$s>%2$s</p>', $this->get_render_attribute_string('description'), $settings['desc']);
+
+		?>
+
+			<div class="tr-trip-title-box">
+				<?php if (!empty($settings['subtitle'])) {
+					echo $subtitle_html;
+				} ?>
+				<?php if (!empty($settings['title'])) {
+					echo $title_html;
+				} ?>
+				<?php if (!empty($settings['desc'])) {
+					echo $desc_html;
+				} ?>
+			</div>
+
+		<?php else :
+
+			$html_tag = $settings['title_tag'];
+			$title = $settings['title'];
+			$this->add_render_attribute('subtitle', 'class', 'hexa-el-subtitle d-inline-block');
+			$this->add_render_attribute('title', 'class', 'hexa-el-title');
+			$this->add_render_attribute('description', 'class', 'hexa-el-desc');
+			if (!empty($settings['title_link']['url'])) {
+				$this->add_link_attributes('title_link', $settings['title_link']);
+				$title = sprintf('<a %1$s>%2$s</a>', $this->get_render_attribute_string('title_link'), $title);
+			}
+			$title_html = sprintf('<%1$s %2$s>%3$s</%1$s>', $html_tag, $this->get_render_attribute_string('title'), $title);
+			$subtitle_html = sprintf('<span %1$s>%2$s</span>', $this->get_render_attribute_string('subtitle'), $settings['subtitle']);
+			$desc_html = sprintf('<p %1$s>%2$s</p>', $this->get_render_attribute_string('description'), $settings['desc']);
 
 
-		<?php else : ?>
+
+		?>
 			<div class="hexa-heading">
 				<?php if (!empty($settings['subtitle'])) {
 					echo $subtitle_html;
