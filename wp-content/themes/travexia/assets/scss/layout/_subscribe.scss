@@ -118,12 +118,14 @@
             padding: 37px 0 0 0;
         }
         & .tr-subscribe-input {
-            margin-right: 110px;
+            margin-right: 0px;
+            
             @media #{$xs}{
                 margin-right: 0;
             }
             & input {
                 border: 1.5px solid var(--tr-theme-2);
+                width: 100%;
             }
             & button {
                 right: 3px;

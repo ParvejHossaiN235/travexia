@@ -4352,7 +4352,7 @@ div.postbox-details-thumb img {
   padding: 37px 0 0 0;
 }
 .tr-subscribe-style-2 .tr-subscribe-input {
-  margin-right: 110px;
+  margin-right: 0px;
 }
 @media (max-width: 767px) {
   .tr-subscribe-style-2 .tr-subscribe-input {
@@ -4361,6 +4361,7 @@ div.postbox-details-thumb img {
 }
 .tr-subscribe-style-2 .tr-subscribe-input input {
   border: 1.5px solid var(--tr-theme-2);
+  width: 100%;
 }
 .tr-subscribe-style-2 .tr-subscribe-input button {
   right: 3px;
