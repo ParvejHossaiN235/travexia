@@ -210,7 +210,7 @@ class Hexa_Tour_Grid extends Widget_Base
         );
 
         $this->add_control(
-            'btn_text',
+            'btn_text2',
             [
                 'label' => esc_html__('Button Label', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::TEXT,
@@ -639,7 +639,7 @@ class Hexa_Tour_Grid extends Widget_Base
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tr-memorise-btn text-md-end">
                                     <a <?php echo $this->get_render_attribute_string('button'); ?>>
-                                        <?php $this->print_unescaped_setting('btn_text'); ?>
+                                        <?php $this->print_unescaped_setting('btn_text2'); ?>
                                         <i class="fa-sharp fa-regular fa-arrow-right-long"></i>
                                     </a>
                                 </div>
