@@ -1527,7 +1527,7 @@ div.postbox-comment-content > ol {
 /* Pagination css */
 .hexa-post-nav {
   overflow: hidden;
-  border-bottom: 1px solid #034833;
+  border-bottom: 1px solid #EBF0E7;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1740,4 +1740,8 @@ textarea:focus {
 }
 .tr-header-menu > nav > ul {
   margin-right: 0 !important;
+}
+
+.postbox-comment-box.p-relative.postbox-comment-info {
+  margin-bottom: 55px;
 }

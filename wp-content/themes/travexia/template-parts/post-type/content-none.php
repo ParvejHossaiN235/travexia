@@ -11,7 +11,7 @@
 ?>
 
 <section class="no-results not-found">
-    <header class="page-header">
+    <header class="page-headers">
         <h1 class="page-title"><?php esc_html_e('Nothing Found', 'hexa-theme'); ?></h1>
     </header><!-- .page-header -->
     <div class="page-content blog-search-content  mt-20 mb-10">
