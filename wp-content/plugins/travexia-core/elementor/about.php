@@ -137,20 +137,151 @@ class Hexa_About extends Widget_Base
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'layout-1' => esc_html__('Layout 1', 'hexacore'),
-                    'layout-2' => esc_html__('Layout 2', 'hexacore'),
-                    'layout-3' => esc_html__('Layout 3', 'hexacore'),
-                    'layout-4' => esc_html__('Layout 4', 'hexacore'),
-                    'layout-5' => esc_html__('Layout 5', 'hexacore'),
-                    'layout-6' => esc_html__('Layout 6', 'hexacore'),
-                    'layout-7' => esc_html__('Layout 7', 'hexacore'),
-                    'layout-8' => esc_html__('Layout 8', 'hexacore'),
-                    'layout-9' => esc_html__('Layout 9', 'hexacore'),
+                    // 'layout-2' => esc_html__('Layout 2', 'hexacore'),
+                    // 'layout-3' => esc_html__('Layout 3', 'hexacore'),
+                    // 'layout-4' => esc_html__('Layout 4', 'hexacore'),
+                    // 'layout-5' => esc_html__('Layout 5', 'hexacore'),
+                    // 'layout-6' => esc_html__('Layout 6', 'hexacore'),
+                    // 'layout-7' => esc_html__('Layout 7', 'hexacore'),
+                    // 'layout-8' => esc_html__('Layout 8', 'hexacore'),
+                    // 'layout-9' => esc_html__('Layout 9', 'hexacore'),
                 ],
                 'default' => 'layout-1',
             ]
         );
 
         $this->end_controls_section();
+
+        // about content
+        $this->start_controls_section(
+            'section_about_content',
+            [
+                'label' => __('About Content', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
+        $this->add_control(
+            'about_subtitle',
+            [
+                'label' => __('Subtitle', 'hexacore'),
+                'label_block' => true,
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __('Banner subtitle', 'hexacore'),
+            ]
+        );
+
+        $this->add_control(
+            'title',
+            [
+                'label' => __('Title', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __('Banner title', 'hexacore'),
+                'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
+            'title_tag',
+            [
+                'label' => __('Title HTML Tag', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => [
+                    'h1' => 'H1',
+                    'h2' => 'H2',
+                    'h3' => 'H3',
+                    'h4' => 'H4',
+                    'h5' => 'H5',
+                    'h6' => 'H6',
+                    'div' => 'div',
+                    'span' => 'span',
+                    'p' => 'p',
+                ],
+                'default' => 'h1',
+            ]
+        );
+
+        $this->add_control(
+            'desc',
+            [
+                'label' => __('Description', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'rows' => '10',
+                'label_block' => true,
+                'default' => __('Cum sociis natoque penatibus et magnis dis parturient montes.', 'hexacore'),
+            ]
+        );
+
+
+        $this->add_control(
+            'client_content_number',
+            [
+                'label' => __('Number', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'label_block' => true,
+                'default' => __('20', 'hexacore'),
+            ]
+        );
+
+        $this->add_control(
+            'client_content_title',
+            [
+                'label' => __('Title', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'label_block' => true,
+                'default' => __('Our Happy Clients', 'hexacore'),
+            ]
+        );        
+
+        $this->end_controls_section();
+
+
+        // button
+        $this->start_controls_section(
+            'hexa_button_section',
+            [
+                'label' => esc_html__('Button', 'hexacore'),
+            ]
+        );
+        $this->add_control(
+            'btn_text',
+            [
+                'label' => __('Button One', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => __('Click here', 'hexacore'),
+                'label_block' => true,
+            ]
+        );        
+
+        $this->add_control(
+            'btn_link',
+            [
+                'label' => esc_html__('Link One', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::URL,
+                'options' => ['url', 'is_external', 'nofollow'],
+                'default' => [
+                    'url' => '',
+                    'is_external' => false,
+                    'nofollow' => false,
+                ],
+                'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
+			'button_icon',
+			[
+				'label' => esc_html__( 'Icon', 'hexacore' ),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-smile',
+					'library' => 'fa-solid',
+				],
+			]
+		);
+
+        $this->end_controls_section();
+
 
         // Features Sections
         $this->start_controls_section(
@@ -164,22 +295,6 @@ class Hexa_About extends Widget_Base
             ]
         );
 
-        $this->add_control(
-            'hexa_light_switcher',
-            [
-                'label' => esc_html__('Light Version', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'hexacore'),
-                'label_off' => esc_html__('No', 'hexacore'),
-                'return_value' => 'yes',
-                'default' => '0',
-                'separator' => 'before',
-                'condition' => [
-                    'hexa_design_layout' => 'layout-2'
-                ]
-            ]
-        );
-
         $repeater = new \Elementor\Repeater();
 
         $repeater->add_control(
@@ -189,14 +304,14 @@ class Hexa_About extends Widget_Base
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'style_1' => __('Style 1', 'hexacore'),
-                    'style_2' => __('Style 2', 'hexacore'),
-                    'style_3' => __('Style 3', 'hexacore'),
-                    'style_4' => __('Style 4', 'hexacore'),
-                    'style_5' => __('Style 5', 'hexacore'),
-                    'style_6' => __('Style 6', 'hexacore'),
-                    'style_7' => __('Style 7', 'hexacore'),
-                    'style_8' => __('Style 8', 'hexacore'),
-                    'style_9' => __('Style 9', 'hexacore'),
+                    // 'style_2' => __('Style 2', 'hexacore'),
+                    // 'style_3' => __('Style 3', 'hexacore'),
+                    // 'style_4' => __('Style 4', 'hexacore'),
+                    // 'style_5' => __('Style 5', 'hexacore'),
+                    // 'style_6' => __('Style 6', 'hexacore'),
+                    // 'style_7' => __('Style 7', 'hexacore'),
+                    // 'style_8' => __('Style 8', 'hexacore'),
+                    // 'style_9' => __('Style 9', 'hexacore'),
                 ],
                 'default' => 'style_1',
                 'frontend_available' => true,
@@ -297,77 +412,7 @@ class Hexa_About extends Widget_Base
                 'default'     => esc_html__('Understand how your keyword/group is ranking specific cases.', 'hexacore'),
                 'label_block' => true,
                 'condition' => [
-                    'repeater_condition' => ['style_2', 'style_4', 'style_5', 'style_6', 'style_8', 'style_9']
-                ]
-            ]
-        );
-
-        $repeater->add_control(
-            'hexa_about_link_switcher',
-            [
-                'label' => esc_html__('Add About link', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'hexacore'),
-                'label_off' => esc_html__('No', 'hexacore'),
-                'return_value' => 'yes',
-                'default' => 'yes',
-                'separator' => 'before',
-                'condition' => [
-                    'repeater_condition' => ['style_1', 'style_2', 'style_8']
-                ]
-            ]
-        );
-
-        $repeater->add_control(
-            'about_features_btn_text',
-            [
-                'label'   => esc_html__('Button Text', 'hexacore'),
-                'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__('Read More', 'hexacore'),
-                'label_block' => true,
-                'condition' => [
-                    'hexa_about_link_switcher' => 'yes',
-                    'repeater_condition' => ['style_2', 'style_8']
-                ]
-            ]
-        );
-
-        $repeater->add_control(
-            'hexa_about_link_type',
-            [
-                'label' => esc_html__('About Link Type', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::SELECT,
-                'options' => [
-                    '1' => 'Custom Link',
-                    '2' => 'Internal Page',
-                ],
-                'default' => '1',
-                'condition' => [
-                    'hexa_about_link_switcher' => 'yes',
-                    'repeater_condition' => ['style_1', 'style_2', 'style_8']
-                ]
-            ]
-        );
-
-        $repeater->add_control(
-            'hexa_about_link',
-            [
-                'label' => esc_html__('About Link link', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::URL,
-                'dynamic' => [
-                    'active' => true,
-                ],
-                'placeholder' => esc_html__('https://your-link.com', 'hexacore'),
-                'show_external' => true,
-                'default' => [
-                    'url' => '#',
-                    'is_external' => false,
-                    'nofollow' => false,
-                ],
-                'condition' => [
-                    'hexa_about_link_type' => '1',
-                    'hexa_about_link_switcher' => 'yes',
-                    'repeater_condition' => ['style_1', 'style_2', 'style_8']
+                    'repeater_condition' => ['style_1', 'style_4', 'style_5', 'style_6', 'style_8', 'style_9']
                 ]
             ]
         );
@@ -392,13 +437,12 @@ class Hexa_About extends Widget_Base
 
         $this->end_controls_section();
 
-        // $this->hexa_button_render('about', 'Button', ['layout-3', 'layout-6', 'layout-7']);
 
         // _hexa_image
         $this->start_controls_section(
             '_hexa_image',
             [
-                'label' => esc_html__('Thumbnail', 'hexacore'),
+                'label' => esc_html__('Image', 'hexacore'),
             ]
         );
 
@@ -422,24 +466,10 @@ class Hexa_About extends Widget_Base
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
                 'condition' => [
-                    'hexa_design_layout' => ['layout-2', 'layout-3', 'layout-6', 'layout-7', 'layout-8']
+                    'hexa_design_layout' => ['layout-1', 'layout-3', 'layout-6', 'layout-7', 'layout-8']
                 ]
             ]
-        );
-
-        $this->add_control(
-            'hexa_image3',
-            [
-                'label' => esc_html__('Choose Image 3', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
-                ],
-                'condition' => [
-                    'hexa_design_layout' => ['layout-2', 'layout-3', 'layout-8']
-                ]
-            ]
-        );
+        );       
 
         $this->add_group_control(
             Group_Control_Image_Size::get_type(),
@@ -452,117 +482,8 @@ class Hexa_About extends Widget_Base
             ]
         );
 
-        $this->add_control(
-            'about_vid_url',
-            [
-                'label'   => esc_html__('Video URL', 'hexacore'),
-                'type'        => \Elementor\Controls_Manager::TEXT,
-                'default'     => esc_html__('https://www.youtube.com/watch?v=EW4ZYb3mCZk', 'hexacore'),
-                'label_block' => true,
-                'condition' => [
-                    'hexa_design_layout' => 'layout-5'
-                ]
-            ]
-        );
-
         $this->end_controls_section();
 
-        // shape
-        $this->start_controls_section(
-            'hexa_shape',
-            [
-                'label' => esc_html__('Shape Section', 'hexacore'),
-                'condition' => [
-                    'hexa_design_layout' => ['layout-1', 'layout-2', 'layout-3', 'layout-4', 'layout-6', 'layout-7', 'layout-8', 'layout-9']
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'hexa_shape_switch',
-            [
-                'label'        => esc_html__('Shape On/Off', 'hexacore'),
-                'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__('Show', 'hexacore'),
-                'label_off'    => esc_html__('Hide', 'hexacore'),
-                'return_value' => 'yes',
-                'default'      => '0',
-            ]
-        );
-
-        $this->add_control(
-            'hexa_shape_image_1',
-            [
-                'label' => esc_html__('Choose Shape Image 1', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
-                ],
-                'condition' => [
-                    'hexa_shape_switch' => 'yes'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'hexa_shape_image_2',
-            [
-                'label' => esc_html__('Choose Shape Image 2', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
-                ],
-                'condition' => [
-                    'hexa_shape_switch' => 'yes',
-                    'hexa_design_layout!' => 'layout-8',
-                    'hexa_design_layout' => ['layout-1', 'layout-2', 'layout-3', 'layout-4', 'layout-5', 'layout-6', 'layout-7', 'layout-9']
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'hexa_shape_image_3',
-            [
-                'label' => esc_html__('Choose Shape Image 3', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
-                ],
-                'condition' => [
-                    'hexa_shape_switch' => 'yes',
-                    'hexa_design_layout!' => ['layout-8', 'layout-7'],
-                    'hexa_design_layout' => ['layout-1', 'layout-2', 'layout-3', 'layout-4', 'layout-5', 'layout-6', 'layout-9']
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'hexa_shape_image_4',
-            [
-                'label' => esc_html__('Choose Shape Image 4', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
-                ],
-                'condition' => [
-                    'hexa_shape_switch' => 'yes',
-                    'hexa_design_layout' => 'layout-9'
-                ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Image_Size::get_type(),
-            [
-                'name' => 'shape_image_size', // // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `thumbnail_size` and `thumbnail_custom_dimension`.
-                'exclude' => ['custom'],
-                'condition' => [
-                    'hexa_shape_switch' => 'yes'
-                ]
-            ]
-        );
-
-        $this->end_controls_section();
     }
 
     // style_tab_content
@@ -1637,158 +1558,148 @@ class Hexa_About extends Widget_Base
                 $hexa_image_alt = get_post_meta($settings["hexa_image"]["id"], "_wp_attachment_image_alt", true);
             }
 
-            // shape image
-            if (!empty($settings['hexa_shape_image_1']['url'])) {
-                $hexa_shape_image = !empty($settings['hexa_shape_image_1']['id']) ? wp_get_attachment_image_url($settings['hexa_shape_image_1']['id'], $settings['shape_image_size_size']) : $settings['hexa_shape_image_1']['url'];
-                $hexa_shape_image_alt = get_post_meta($settings["hexa_shape_image_1"]["id"], "_wp_attachment_image_alt", true);
-            }
-            if (!empty($settings['hexa_shape_image_2']['url'])) {
-                $hexa_shape_image2 = !empty($settings['hexa_shape_image_2']['id']) ? wp_get_attachment_image_url($settings['hexa_shape_image_2']['id'], $settings['shape_image_size_size']) : $settings['hexa_shape_image_2']['url'];
-                $hexa_shape_image_alt2 = get_post_meta($settings["hexa_shape_image_2"]["id"], "_wp_attachment_image_alt", true);
-            }
-            if (!empty($settings['hexa_shape_image_3']['url'])) {
-                $hexa_shape_image3 = !empty($settings['hexa_shape_image_3']['id']) ? wp_get_attachment_image_url($settings['hexa_shape_image_3']['id'], $settings['shape_image_size_size']) : $settings['hexa_shape_image_3']['url'];
-                $hexa_shape_image_alt3 = get_post_meta($settings["hexa_shape_image_3"]["id"], "_wp_attachment_image_alt", true);
-            }
+            if (!empty($settings['hexa_image2']['url'])) {
+                $hexa_image2 = !empty($settings['hexa_image2']['id']) ? wp_get_attachment_image_url($settings['hexa_image2']['id'], $settings['hexa_image_size_size']) : $settings['hexa_image2']['url'];
+                $hexa_image_alt2 = get_post_meta($settings["hexa_image2"]["id"], "_wp_attachment_image_alt", true);
+            }            
 
-            $this->add_render_attribute('title_args', 'class', 'hfsection__title mb-15 hf-el-title');
+            $this->add_render_attribute('title_args', 'class', 'tr-section-title mb-20 hf-el-title');
+
+
+            // button one
+            if (!empty($settings['btn_link']['url'])) {
+                $this->add_link_attributes('button', $settings['btn_link']);
+            }
+            $this->add_render_attribute('button', 'class', 'tr-btn-green hexa-el-btn');
         ?>
+        <!-- about-area-start -->
+       <div class="tr-about-area fix pt-120 pb-120">
+         <div class="container">
+            <div class="row align-items-end">
+               <div class="col-xl-6 col-lg-6">
+                  <div class="tr-about-left">
+                     <div class="tr-about-title-box">
+                     <?php if (!empty($settings['about_subtitle'])) : ?>
+                        <span class="tr-section-subtitle mb-10 hf-el-subtitle">
+                            <?php echo hexa_kses($settings['about_subtitle']); ?>
+                        </span>
+                        <?php endif; ?>
 
-            <section class="choose-area tpchoose-bottom pb-80 hf-el-section">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-6 col-lg-5">
-                            <div class="hfchoose-thumb mt-30 p-relative mb-50">
-                                <?php if (!empty($hexa_image)) : ?>
-                                    <img class="hfchoose-border-anim" src="<?php echo esc_url($hexa_image); ?>" alt="<?php echo esc_attr($hexa_image_alt); ?>">
+                        <?php
+                            if (!empty($settings['title'])) :
+                                printf(
+                                    '<%1$s %2$s>%3$s</%1$s>',
+                                    tag_escape($settings['title_tag']),
+                                    $this->get_render_attribute_string('title_args'),
+                                    hexa_kses($settings['title'])
+                                );
+                            endif;
+                        ?>
+                     </div>
+
+                    <?php if (!empty($settings['desc'])) : ?>
+                        <div class="tr-about-text">
+                            <p class="hf-el-content">
+                                <?php echo hexa_kses($settings['desc']); ?>
+                            </p>
+                        </div>                
+                    <?php endif; ?>
+
+                    <?php foreach ($settings['about_features_list'] as $key => $item) :  ?>
+
+                     <div class="tr-about-content p-relative">
+
+                        <div class="hfchoose-icon">
+                            <?php if ($item['hexa_box_icon_type'] == 'icon') : ?>
+                                <?php if (!empty($item['hexa_box_icon']) || !empty($item['hexa_box_selected_icon']['value'])) : ?>
+                                    <span class="hf-el-rep-icon">
+                                        <?php hexa_render_icon($item, 'hexa_box_icon', 'hexa_box_selected_icon'); ?>
+                                    </span>
                                 <?php endif; ?>
-                                <div class="hfchoose-shape">
-                                    <?php if (!empty($hexa_shape_image)) : ?>
-                                        <div class="hfchoose-shape-one d-none d-md-block">
-                                            <img src="<?php echo esc_url($hexa_shape_image); ?>" alt="<?php echo esc_attr($hexa_shape_image_alt); ?>">
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if (!empty($hexa_shape_image2)) : ?>
-                                        <div class="hfchoose-shape-two">
-                                            <img src="<?php echo esc_url($hexa_shape_image2); ?>" alt="<?php echo esc_attr($hexa_shape_image_alt2); ?>">
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if (!empty($hexa_shape_image3)) : ?>
-                                        <div class="hfchoose-shape-three">
-                                            <img src="<?php echo esc_url($hexa_shape_image3); ?>" alt="<?php echo esc_attr($hexa_shape_image_alt3); ?>">
-                                        </div>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
+                            <?php elseif ($item['hexa_box_icon_type'] == 'image') : ?>
+                                <?php if (!empty($item['hexa_box_icon_image']['url'])) : ?>
+                                    <span class="hf-el-rep-icon">
+                                        <img src="<?php echo $item['hexa_box_icon_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['hexa_box_icon_image']['url']), '_wp_attachment_image_alt', true); ?>">
+                                    </span>
+                                <?php endif; ?>
+                            <?php else : ?>
+                                <?php if (!empty($item['hexa_box_icon_svg'])) : ?>
+                                    <span class="hf-el-rep-icon">
+                                        <?php echo $item['hexa_box_icon_svg']; ?>
+                                    </span>
+                                <?php endif; ?>
+                            <?php endif; ?>
                         </div>
-                        <div class="col-xl-6 col-lg-7">
-                            <div class="hfchoose-wrapper mb-30">
-                                <div class="hfsection__content mb-50">
 
-                                    <?php if (!empty($settings['hexa_about_sub_title'])) : ?>
-                                        <div class="hfbanner__sub-title mb-15">
-                                            <span class="hf-el-subtitle"><?php echo hexa_kses($settings['hexa_about_sub_title']); ?></span>
-                                            <i>
-                                                <svg width="130" height="42" viewBox="0 0 130 42" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                    <rect y="0.941895" width="130" height="40.9551" fill="url(#pattern6)" fill-opacity="0.08" />
-                                                    <defs>
-                                                        <pattern id="pattern6" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                                            <use xlink:href="#image0_868_3547" transform="translate(-0.0587762 0.0123052) scale(0.00611916 0.0198269)" />
-                                                        </pattern>
-                                                        <image id="image0_868_3547" width="180" height="50" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAAyCAYAAAD1JPH3AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDcuMS1jMDAwIDc5LmVkYTJiM2ZhYywgMjAyMS8xMS8xNy0xNzoyMzoxOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RUMyMzkwQTczMTM3MTFFRDg3NUZBOUZCRDk1MThFMTMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RUMyMzkwQTYzMTM3MTFFRDg3NUZBOUZCRDk1MThFMTMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIzLjEgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjFBQkIwMjIzMTA2MTFFREEzRkNBQzVFOTRFRTVERTgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MjFBQkIwMjMzMTA2MTFFREEzRkNBQzVFOTRFRTVERTgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5lgZ3iAAAB2ElEQVR42uzd7U3CUBiA0Wr4DxvQDWQE4gS6gSO6ibhB2aBMoCG5ja83pVRaSSnnJE2/MII+t7386sPz21dxQ1ZpKdNSpPUynItL/nNd6rSc2t6n/Sot+TYTsJhgrJsU6TqLt7zS779EE3ad1vuwvwuDg5kF3QQao92E47fq3ICrQ/RN8LsQPBMPOob7lEV8j5o7z6Yj+Cbwzyx+U5orB32MdCvcwcFv0/ZLx5SmubrHAVCZ0lwW9CrEu07rcsC8k/GmNPk8vg7hx2P13K/4fYP+6LhdcjvR5wMgrmP0h5bXxdecmjadu1N0ffFuOxc/zzKcP65fhwQt5nkOgGJu08NH/1cEDYIGQYOgETQIGgQNggZBI2gQNAgaBA2CRtAgaBA0CBoEjaBB0CBoEDQIGkGDoEHQIGgQNIIGQYOgQdAgaAQNE7aY+Ptre7JSn6ct9VWe2UfQvx4XFuPbZ+fz1/5HsGPEHh831mw359bhWH6OCQf9Xvw8v67OQmyLcg6GfJ4Yd769Dvviv+yuXQ0N+tXf8aKpUtUz/rJlvWw5Pmf5RfIQ7vJV0fO55wvtTSL+3R+mQasTd4BlyzRpdeWBEKeL+aC+yt1d0PczDSpH/PJbjfi+RvUtwADssXzgKiX3gwAAAABJRU5ErkJggg==" />
-                                                    </defs>
-                                                </svg>
-                                            </i>
-                                        </div>
-                                    <?php endif; ?>
+                        <?php if (!empty($item['about_features_title'])) : ?>
+                            <span class="hf-el-rep-title">
+                                <?php echo hexa_kses($item['about_features_title']); ?>
+                            </span>
+                        <?php endif; ?>
 
-                                    <?php
-                                    if (!empty($settings['hexa_about_title'])) :
-                                        printf(
-                                            '<%1$s %2$s>%3$s</%1$s>',
-                                            tag_escape($settings['hexa_about_title_tag']),
-                                            $this->get_render_attribute_string('title_args'),
-                                            hexa_kses($settings['hexa_about_title'])
-                                        );
-                                    endif;
-                                    ?>
-                                    <?php if (!empty($settings['hexa_about_description'])) : ?>
-                                        <p class="hf-el-content"><?php echo hexa_kses($settings['hexa_about_description']); ?></p>
-                                    <?php endif; ?>
+                        <?php if (!empty($item['about_features_des'])) : ?>
+                            <p class="hf-el-rep-des">
+                                <?php echo hexa_kses($item['about_features_des']); ?>
+                            </p>
+                        <?php endif; ?>
+                     </div>
 
-                                </div>
-                                <div class="row gx-6">
+                    <?php endforeach; ?>
 
-                                    <?php foreach ($settings['about_features_list'] as $key => $item) :
-                                        // Link
-                                        if ('2' == $item['hexa_about_link_type']) {
-                                            $link = get_permalink($item['hexa_about_page_link']);
-                                            $target = '_self';
-                                            $rel = 'nofollow';
-                                        } else {
-                                            $link = !empty($item['hexa_about_link']['url']) ? $item['hexa_about_link']['url'] : '';
-                                            $target = !empty($item['hexa_about_link']['is_external']) ? '_blank' : '';
-                                            $rel = !empty($item['hexa_about_link']['nofollow']) ? 'nofollow' : '';
-                                        }
-                                    ?>
-                                        <div class="col-lg-4 col-md-4 col-sm-6">
+                    <?php if (!empty($settings['btn_text'])) : ?>
+                     <div class="tr-about-btn">
+                        <a <?php echo $this->get_render_attribute_string('button'); ?>>
+                            <?php echo hexa_kses($settings['btn_text']); ?>
+                            <i class="<?php echo esc_attr($settings['button_icon']['value']); ?>"></i>
+                        </a>
+                     </div>
+                     <?php endif; ?>
 
-                                            <?php if (!empty($link)) : ?>
-                                                <a href="<?php echo esc_url($link); ?>" class="hfchoose mb-30">
-                                                <?php else : ?>
-                                                    <div class="hfchoose mb-30">
-                                                    <?php endif; ?>
+                  </div>
+               </div>
+               <div class="col-xl-6 col-lg-6">
+                  <div class="tr-about-thumb-wrap">
+                     <div class="row gx-20 align-items-end">
+                        <div class="col-xl-6 col-lg-6 col-md-6">
 
-                                                    <div class="hfchoose-icon mb-25">
-                                                        <?php if ($item['hexa_box_icon_type'] == 'icon') : ?>
-                                                            <?php if (!empty($item['hexa_box_icon']) || !empty($item['hexa_box_selected_icon']['value'])) : ?>
-                                                                <span class="hf-el-rep-icon">
-                                                                    <?php hexa_render_icon($item, 'hexa_box_icon', 'hexa_box_selected_icon'); ?>
-                                                                </span>
-                                                            <?php endif; ?>
-                                                        <?php elseif ($item['hexa_box_icon_type'] == 'image') : ?>
-                                                            <?php if (!empty($item['hexa_box_icon_image']['url'])) : ?>
-                                                                <span class="hf-el-rep-icon">
-                                                                    <img src="<?php echo $item['hexa_box_icon_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['hexa_box_icon_image']['url']), '_wp_attachment_image_alt', true); ?>">
-                                                                </span>
-                                                            <?php endif; ?>
-                                                        <?php else : ?>
-                                                            <?php if (!empty($item['hexa_box_icon_svg'])) : ?>
-                                                                <span class="hf-el-rep-icon">
-                                                                    <?php echo $item['hexa_box_icon_svg']; ?>
-                                                                </span>
-                                                            <?php endif; ?>
-                                                        <?php endif; ?>
-                                                    </div>
+                        <?php if (!empty($hexa_image)) : ?>
+                           <div class="tr-about-thumb-1 p-relative">
+                              <span class="tr-about-circle-shape"></span>
+                              <img class="w-100" src="<?php echo esc_url($hexa_image); ?>" alt="<?php echo esc_attr($hexa_image_alt); ?>">
+                           </div>
+                        <?php endif; ?>
 
-                                                    <div class="hfchoose-text">
-                                                        <?php if (!empty($item['about_features_title'])) : ?>
-                                                            <span class="hfchoose-title hf-el-rep-title"><?php echo hexa_kses($item['about_features_title']); ?></span>
-                                                        <?php endif; ?>
-                                                        <?php if (!empty($link)) : ?>
-                                                            <div class="hfarrow-right">
-                                                                <i class=" hf-el-rep-btn">
-                                                                    <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                        <path d="M0.930176 1L5.93018 6L0.930176 11" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                                                    </svg>
-                                                                </i>
-                                                            </div>
-                                                        <?php endif; ?>
-                                                    </div>
-                                                    <?php if (!empty($link)) : ?>
-                                                </a>
-                                            <?php else : ?>
-                                        </div>
-                                    <?php endif; ?>
-                                </div>
-                            <?php endforeach; ?>
-
-                            </div>
                         </div>
-                    </div>
-                </div>
-                </div>
-            </section>
+                        <div class="col-xl-6 col-lg-6 col-md-6">
+                           <div class="tr-about-thumb-2">
+                           <?php if (!empty($hexa_image2)) : ?>
+                                <img class="w-100" src="<?php echo esc_url($hexa_image2); ?>" alt="<?php echo esc_attr($hexa_image_alt2); ?>">
+                            <?php endif; ?>
+                              <div class="tr-about-client d-flex align-items-center">
+                                 <div class="tr-about-client-content">
+                                    <?php if (!empty($settings['client_content_number'])) : ?>
+                                    <h4>
+                                        <span data-purecounter-duration="1" data-purecounter-end="<?php echo esc_attr($settings['client_content_number']); ?>" class="purecounter">0</span>
+                                        +
+                                    </h4>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty($settings['client_content_title'])) : ?>
+                                    <span>
+                                        <?php echo hexa_kses($settings['client_content_title']); ?>
+                                    </span>
+                                    <?php endif; ?>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+       </div>
+      <!-- about-area-end -->
 
 <?php endif;
     }

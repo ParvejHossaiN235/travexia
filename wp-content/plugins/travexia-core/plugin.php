@@ -204,6 +204,7 @@ class Hexa_Core_Plugin
 	{
 		return [
 			# Element widgets
+			'about',
 			'heading',
 			'button',
 			'brand',
