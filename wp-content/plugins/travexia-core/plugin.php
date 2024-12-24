@@ -241,6 +241,7 @@ class Hexa_Core_Plugin
 			'testimonial-slider',
 			'tour-grid',
 			'tour-type',
+			'tour-activities',
 			'tour-locations',
 			'tour-search-form',
 			'tour-search-result',

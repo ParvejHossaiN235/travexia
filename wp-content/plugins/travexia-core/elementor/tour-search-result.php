@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class Hexa_Tour_Search_Result extends Widget_Base
+class Hexa_Tour_Search_Results extends Widget_Base
 {
 
     use \HexaCore\Widgets\HexaCoreElementFunctions;
@@ -157,17 +157,7 @@ class Hexa_Tour_Search_Result extends Widget_Base
                 'label' => __('Tour Content', 'hexacore'),
             ]
         );
-        $this->add_control(
-            'tour_cat',
-            [
-                'label' => __('Select Destination', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::SELECT2,
-                'options' => $this->tour_post_categories(),
-                'multiple' => true,
-                'label_block' => true,
-                'placeholder' => __('All Destination', 'hexacore'),
-            ]
-        );
+
         $this->add_control(
             'number_show',
             [
@@ -416,18 +406,6 @@ class Hexa_Tour_Search_Result extends Widget_Base
      * @access protected
      */
 
-    protected function tour_post_categories()
-    {
-        $args = array('orderby=name&order=ASC&hide_empty=0');
-        $terms = get_terms('tour_destination', $args);
-        $cat = array();
-        if (!empty($terms) && !is_wp_error($terms)) {
-            foreach ($terms as $term) {
-                $cat[$term->slug] = $term->name;
-            }
-        }
-        return $cat;
-    }
 
     protected function render()
     {
@@ -444,28 +422,13 @@ class Hexa_Tour_Search_Result extends Widget_Base
             $paged = 1;
         }
 
-        if ($settings['tour_cat']) {
-            $args = array(
-                'paged' => $paged,
-                'post_type' => 'tf_tours',
-                'post_status' => 'publish',
-                'posts_per_page' => $number_show,
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => 'category',
-                        'field'    => 'slug',
-                        'terms'    => $settings['tour_cat']
-                    ),
-                ),
-            );
-        } else {
-            $args = array(
-                'paged' => $paged,
-                'post_type' => 'tf_tours',
-                'post_status' => 'publish',
-                'posts_per_page' => $number_show,
-            );
-        }
+        $args = array(
+            'paged' => $paged,
+            'post_type' => 'tf_tours',
+            'post_status' => 'publish',
+            'posts_per_page' => $number_show,
+        );
+
 
         $s_loc = !empty($_GET['loc']) ? sanitize_text_field($_GET['loc']) : 0;
         $s_tour = !empty($_GET['tour']) ? sanitize_text_field($_GET['tour']) : 0;
@@ -816,4 +779,4 @@ class Hexa_Tour_Search_Result extends Widget_Base
     }
 }
 
-$widgets_manager->register(new Hexa_Tour_Search_Result());
+$widgets_manager->register(new Hexa_Tour_Search_Results());

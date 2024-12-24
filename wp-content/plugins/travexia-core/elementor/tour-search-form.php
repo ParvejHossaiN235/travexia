@@ -2,9 +2,6 @@
 
 namespace HexaCore\Widgets;
 
-use \Tourfic\Classes\Helper;
-use \Tourfic\App\TF_Review;
-use \Tourfic\Classes\Tour\Pricing as Tour_Price;
 use \Elementor\Widget_Base;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
@@ -456,4 +453,4 @@ class Hexa_Tour_Search_Form extends Widget_Base
     }
 }
 
-$widgets_manager->register(new Hexa_Tour_Search_Result());
+$widgets_manager->register(new Hexa_Tour_Search_Form());

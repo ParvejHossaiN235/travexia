@@ -30,7 +30,7 @@ class Hexa_Tour_Type extends Widget_Base
 	 */
 	public function get_name()
 	{
-		return 'hf-icon-list';
+		return 'hf-tour-type';
 	}
 
 	/**
@@ -44,7 +44,7 @@ class Hexa_Tour_Type extends Widget_Base
 	 */
 	public function get_title()
 	{
-		return __('Icon List', 'hexacore');
+		return __('Tour Type', 'hexacore');
 	}
 
 	/**
@@ -127,7 +127,7 @@ class Hexa_Tour_Type extends Widget_Base
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'options' => [
 					'layout_1' => esc_html__('Layout 1', 'hexacore'),
-					//'layout-2' => esc_html__('Layout 2', 'hexacore'),
+					'layout_2' => esc_html__('Layout 2', 'hexacore'),
 				],
 				'default' => 'layout_1',
 			]
@@ -136,9 +136,9 @@ class Hexa_Tour_Type extends Widget_Base
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_icon_list',
+			'section_tour_type',
 			[
-				'label' => __('Icon List', 'hexacore'),
+				'label' => __('Tour Type list', 'hexacore'),
 				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -146,67 +146,34 @@ class Hexa_Tour_Type extends Widget_Base
 		$repeater = new \Elementor\Repeater();
 
 		$repeater->add_control(
-			'text',
+			'title',
 			[
-				'label' => __('Text', 'hexacore'),
+				'label' => __('Title', 'hexacore'),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'label_block' => true,
-				'placeholder' => __('List Menu Item', 'hexacore'),
-				'default' => __('List Menu Item', 'hexacore'),
+				'placeholder' => __('Tour type title', 'hexacore'),
+				'default' => __('Tour type title', 'hexacore'),
+			]
+		);
+		$repeater->add_control(
+			'locs',
+			[
+				'label' => __('Locaton', 'hexacore'),
+				'type' => \Elementor\Controls_Manager::TEXTAREA,
+				'label_block' => true,
+				'placeholder' => __('Tour type location', 'hexacore'),
+				'default' => __('Paris, France', 'hexacore'),
 			]
 		);
 
 		$repeater->add_control(
-			'icon_type',
-			[
-				'label' => __('Icon Type', 'hexacore'),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'font',
-				'options' => [
-					'font' 	=> __('Font Icon', 'hexacore'),
-					'image' => __('Image Icon', 'hexacore'),
-					'class' => __('Custom Icon', 'hexacore'),
-				]
-			]
-		);
-		$repeater->add_control(
-			'icon_font',
-			[
-				'label' => __('Icon', 'hexacore'),
-				'type' => \Elementor\Controls_Manager::ICONS,
-				'label_block' => true,
-				'fa4compatibility' => 'icon',
-				'default' => [
-					'value' => 'fas fa-star',
-					'library' => 'fa-solid',
-				],
-				'condition' => [
-					'icon_type' => 'font',
-				]
-			]
-		);
-		$repeater->add_control(
-			'icon_image',
+			'image',
 			[
 				'label' => esc_html__('Image', 'hexacore'),
 				'type'  => \Elementor\Controls_Manager::MEDIA,
 				'default' => [
-					'url' => get_template_directory_uri() . '/images/analysis.png',
+					'url' => \Elementor\Utils::get_placeholder_image_src(),
 				],
-				'condition' => [
-					'icon_type' => 'image',
-				]
-			]
-		);
-		$repeater->add_control(
-			'icon_class',
-			[
-				'label' => __('Custom Class', 'hexacore'),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => __('flaticon-world-globe', 'hexacore'),
-				'condition' => [
-					'icon_type' => 'class',
-				]
 			]
 		);
 
@@ -219,7 +186,7 @@ class Hexa_Tour_Type extends Widget_Base
 				'placeholder' => __('https://your-link.com', 'hexacore'),
 				'options' => ['url', 'is_external', 'nofollow'],
 				'default' => [
-					'url' => '',
+					'url' => '#',
 					'is_external' => false,
 					'nofollow' => false,
 				],
@@ -227,7 +194,7 @@ class Hexa_Tour_Type extends Widget_Base
 		);
 
 		$this->add_control(
-			'menu_list',
+			'tour_types',
 			[
 				'label'       => '',
 				'show_label'  => false,
@@ -235,16 +202,112 @@ class Hexa_Tour_Type extends Widget_Base
 				'fields'      => $repeater->get_controls(),
 				'default'     => [
 					[
-						'text' => __('List Menu Item #1', 'hexacore'),
+						'title' => __('Tour type title #1', 'hexacore'),
 					],
 					[
-						'text' => __('List Menu Item #2', 'hexacore'),
+						'title' => __('Tour type title #2', 'hexacore'),
 					],
 					[
-						'text' => __('List Menu Item #3', 'hexacore'),
+						'title' => __('Tour type title #3', 'hexacore'),
 					],
 				],
-				'title_field' => '{{{ text }}}',
+				'title_field' => '{{{ title }}}',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Image_Size::get_type(),
+			[
+				'name' => 'image_size',
+				'exclude' => ['1536x1536', '2048x2048'],
+				'include' => [],
+				'default' => 'full',
+			]
+		);
+
+		$this->end_controls_section();
+
+
+		$this->start_controls_section(
+			'section_column_settings',
+			[
+				'label' => esc_html__('Column Settings', 'hexacore'),
+				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_control(
+			'desktop_column',
+			[
+				'label' => esc_html__('Columns for Desktop', 'hexacore'),
+				'description' => esc_html__('Screen width equal to or greater than 1200px', 'hexacore'),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					12 => esc_html__('1 Columns', 'hexacore'),
+					6 => esc_html__('2 Columns', 'hexacore'),
+					4 => esc_html__('3 Columns', 'hexacore'),
+					3 => esc_html__('4 Columns', 'hexacore'),
+					2 => esc_html__('6 Columns', 'hexacore'),
+				],
+				'separator' => 'before',
+				'default' => '3',
+				'style_transfer' => true,
+			]
+		);
+
+		$this->add_control(
+			'laptop_column',
+			[
+				'label' => esc_html__('Columns for Laptop', 'hexacore'),
+				'description' => esc_html__('Screen width equal to or greater than 992px', 'hexacore'),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					12 => esc_html__('1 Columns', 'hexacore'),
+					6 => esc_html__('2 Columns', 'hexacore'),
+					4 => esc_html__('3 Columns', 'hexacore'),
+					3 => esc_html__('4 Columns', 'hexacore'),
+					2 => esc_html__('6 Columns', 'hexacore'),
+				],
+				'separator' => 'before',
+				'default' => '3',
+				'style_transfer' => true,
+			]
+		);
+
+		$this->add_control(
+			'tablet_column',
+			[
+				'label' => esc_html__('Columns for Tablet', 'hexacore'),
+				'description' => esc_html__('Screen width equal to or greater than 768px', 'hexacore'),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					12 => esc_html__('1 Columns', 'hexacore'),
+					6 => esc_html__('2 Columns', 'hexacore'),
+					4 => esc_html__('3 Columns', 'hexacore'),
+					3 => esc_html__('4 Columns', 'hexacore'),
+					2 => esc_html__('6 Columns', 'hexacore'),
+				],
+				'separator' => 'before',
+				'default' => '4',
+				'style_transfer' => true,
+			]
+		);
+		$this->add_control(
+			'mobile_column',
+			[
+				'label' => esc_html__('Columns for Mobile', 'hexacore'),
+				'description' => esc_html__('Screen width less than 768px', 'hexacore'),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'options' => [
+					12 => esc_html__('1 Columns', 'hexacore'),
+					6 => esc_html__('2 Columns', 'hexacore'),
+					4 => esc_html__('3 Columns', 'hexacore'),
+					3 => esc_html__('4 Columns', 'hexacore'),
+					2 => esc_html__('6 Columns', 'hexacore'),
+				],
+				'separator' => 'before',
+				'default' => '6',
+				'style_transfer' => true,
 			]
 		);
 
@@ -254,78 +317,18 @@ class Hexa_Tour_Type extends Widget_Base
 	protected function style_tab_content()
 	{
 		$this->start_controls_section(
-			'section_menu_list',
+			'section_box_style',
 			[
-				'label' => __('List', 'hexacore'),
+				'label' => __('Card Style', 'hexacore'),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
 
-		$this->add_control(
-			'view',
-			[
-				'label' => __('Layout', 'hexacore'),
-				'type' => \Elementor\Controls_Manager::CHOOSE,
-				'default' => 'd-flex flex-column list-unstyled',
-				'options' => [
-					'd-flex flex-column list-unstyled' => [
-						'title' => __('Default', 'hexacore'),
-						'icon' => 'eicon-editor-list-ul',
-					],
-					'd-flex flex-row list-unstyled' => [
-						'title' => __('Inline', 'hexacore'),
-						'icon' => 'eicon-ellipsis-h',
-					],
-				],
-				'render_type' => 'template', /*Live load*/
-			]
-		);
-
-		$this->add_responsive_control(
-			'space_between',
-			[
-				'label' => __('Space Between', 'hexacore'),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'range' => [
-					'px' => [
-						'max' => 100,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .hexa-icon-list' => 'gap: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'list_menu_align',
-			[
-				'label' => __('Alignment', 'hexacore'),
-				'type' => \Elementor\Controls_Manager::CHOOSE,
-				'options' => [
-					'flex-start' => [
-						'title' => __('Left', 'hexacore'),
-						'icon' => 'eicon-text-align-left',
-					],
-					'center' => [
-						'title' => __('Center', 'hexacore'),
-						'icon' => 'eicon-text-align-center',
-					],
-					'flex-end' => [
-						'title' => __('Right', 'hexacore'),
-						'icon' => 'eicon-text-align-right',
-					],
-				],
-				'selectors'	=> [
-					'{{WRAPPER}} .hexa-icon-list' => 'justify-content: {{VALUE}};',
-				]
-			]
-		);
 
 		$this->end_controls_section();
 
-		$this->hexa_basic_style_controls('list_title', 'Text - Style', '.hexa-el-icon-text');
-		$this->hexa_icon_style_controls('mlist_icon', 'Icon - Style', '.hexa-el-icon');
+		$this->hexa_basic_style_controls('tour_type_title', 'Title - Style', '.hexa-el-title');
+		$this->hexa_icon_style_controls('tour_type_text', 'Text - Style', '.hexa-el-text');
 	}
 
 	/**
@@ -340,40 +343,88 @@ class Hexa_Tour_Type extends Widget_Base
 	protected function render()
 	{
 		$settings = $this->get_settings_for_display();
-
+		extract($settings);
 ?>
 
 		<?php if ($settings['hexa_design_layout']  == 'layout_2') : ?>
 
+			<!-- destination-area-start -->
+			<div class="tr-destination-area tr-destination-style-2">
 
-		<?php else : ?>
-
-			<div class="hexa-list-wrapper">
-				<ul class="hexa-icon-list <?php echo esc_attr($settings['view']); ?>">
-					<?php foreach ($settings['menu_list'] as $key => $item) :
+				<div class="row justify-content-center">
+					<?php foreach ($settings['tour_types'] as $key => $item) :
 						if (!empty($item['link']['url'])) {
 							$this->add_link_attributes('link_' . $key, $item['link']);
 						}
+						$image = $item['image']['url'];
+
 					?>
-						<li>
-							<?php if (!empty($item['icon_type'] == 'font') || !empty($item['icon_type'] == 'image') || !empty($item['icon_type'] == 'class')) : ?>
-								<span class="hexa-icon hexa-el-icon">
-									<?php if ($item['icon_type'] == 'font') {
-										\Elementor\Icons_Manager::render_icon($item['icon_font'], ['aria-hidden' => 'true']);
-									} ?>
-									<?php if ($item['icon_type'] == 'image') { ?><img src="<?php echo esc_attr($item['icon_image']['url']); ?>" alt="<?php echo esc_attr($item['title']); ?>"><?php } ?>
-									<?php if ($item['icon_type'] == 'class') { ?><i class="<?php echo esc_attr($item['icon_class']); ?>"></i><?php } ?>
-								</span>
-							<?php endif; ?>
-							<?php if (!empty($item['text'])) : ?>
-								<a class="hexa-el-icon-text" <?php echo $this->get_render_attribute_string('link_' . $key); ?>>
-									<span class="ot-icon-list-text"><?php echo esc_html($item['text']); ?></span>
-								</a>
-							<?php endif; ?>
-						</li>
+						<div class="col-xl-<?php echo esc_attr($desktop_column); ?> col-lg-<?php echo esc_attr($laptop_column); ?> col-md-<?php echo esc_attr($tablet_column); ?> col-sm-<?php echo esc_attr($mobile_column); ?> wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+							<div class="tr-destination-item mb-5">
+								<?php if (!empty($image)) : ?>
+									<div class="tr-destination-thumb fix">
+										<img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($item['title']); ?>">
+									</div>
+								<?php endif; ?>
+								<div class="tr-destination-content text-center">
+									<?php if (!empty($item['title'])) : ?>
+										<h4 class="tr-destination-title hexa-el-title">
+											<a class="border-line-black" <?php echo $this->get_render_attribute_string('link_' . $key); ?>>
+												<?php echo esc_html($item['title']); ?>
+											</a>
+										</h4>
+									<?php endif; ?>
+									<?php if (!empty($item['locs'])) : ?>
+										<span class="hexa-el-text"><?php echo esc_html($item['locs']); ?></span>
+									<?php endif; ?>
+								</div>
+							</div>
+						</div>
 					<?php endforeach ?>
-				</ul>
+				</div>
+
 			</div>
+			<!-- destination-area-end -->
+
+		<?php else : ?>
+
+			<!-- destination-area-start -->
+			<div class="tr-destination-area  p-relative z-index-1">
+
+				<div class="row row-gap-30 justify-content-center">
+					<?php foreach ($settings['tour_types'] as $key => $item) :
+						if (!empty($item['link']['url'])) {
+							$this->add_link_attributes('link_' . $key, $item['link']);
+						}
+						$image = $item['image']['url'];
+
+					?>
+						<div class="col-xl-<?php echo esc_attr($desktop_column); ?> col-lg-<?php echo esc_attr($laptop_column); ?> col-md-<?php echo esc_attr($tablet_column); ?> col-sm-<?php echo esc_attr($mobile_column); ?> wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+							<div class="tr-destination-item">
+								<?php if (!empty($image)) : ?>
+									<div class="tr-destination-thumb fix">
+										<img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($item['title']); ?>">
+									</div>
+								<?php endif; ?>
+								<div class="tr-destination-content text-center">
+									<?php if (!empty($item['title'])) : ?>
+										<h4 class="tr-destination-title hexa-el-title">
+											<a class="border-line-black" <?php echo $this->get_render_attribute_string('link_' . $key); ?>>
+												<?php echo esc_html($item['title']); ?>
+											</a>
+										</h4>
+									<?php endif; ?>
+									<?php if (!empty($item['locs'])) : ?>
+										<span class="hexa-el-text"><?php echo esc_html($item['locs']); ?></span>
+									<?php endif; ?>
+								</div>
+							</div>
+						</div>
+					<?php endforeach ?>
+				</div>
+			</div>
+			<!-- destination-area-end -->
+
 
 <?php endif;
 	}
