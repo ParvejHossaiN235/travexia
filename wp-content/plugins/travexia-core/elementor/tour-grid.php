@@ -118,6 +118,7 @@ class Hexa_Tour_Grid extends Widget_Base
     protected function register_content_controls()
     {
         $this->design_layout();
+        $this->tour_title_controls();
         $this->tour_content_controls();
         $this->tour_settings_option();
     }

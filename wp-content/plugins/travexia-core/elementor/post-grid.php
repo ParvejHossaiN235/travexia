@@ -136,6 +136,8 @@ class Hexa_Post_Grid extends Widget_Base
                 'options' => [
                     'layout_1' => esc_html__('Layout 1', 'hexacore'),
                     'layout_2' => esc_html__('Layout 2', 'hexacore'),
+                    'layout_3' => esc_html__('Layout 3', 'hexacore'),
+                    'layout_4' => esc_html__('Layout 4', 'hexacore'),
                 ],
                 'default' => 'layout_1',
             ]
@@ -224,7 +226,7 @@ class Hexa_Post_Grid extends Widget_Base
                 'label_on' => __('Show', 'hexacore'),
                 'label_off' => __('Hide', 'hexacore'),
                 'return_value' => 'yes',
-                'default' => 'yes',
+                'default' => 'no',
             ]
         );
         $this->add_control(
@@ -480,27 +482,131 @@ class Hexa_Post_Grid extends Widget_Base
 
 ?>
 
+        <?php if ($settings['hexa_design_layout']  == 'layout_4') : ?>
 
-        <?php if ($settings['hexa_design_layout']  == 'layout_3') : ?>
+            <!-- blog-area-start -->
+            <div class="tr-blog-area tr-blog-style-3">
+                <div class="container">
 
-            <!-- Blog area start -->
-            <div class="bd-blog__area">
-                <div class="row g-5">
+                    <div class="row row-gap-30">
+                        <?php if ($the_query->have_posts()) :
+                            $i = 0.0;
+                            while ($the_query->have_posts()) :
+                                $the_query->the_post();
+                                global $post;
+                                $categories = get_the_category($post->ID);
+                                $author_id = get_the_author_meta('ID');
+                                $author_avatar_url = get_author_posts_url($author_id);
+                                $i += 0.3;
+                        ?>
+                                <div class="col-xl-<?php echo esc_attr($desktop_col); ?> col-lg-<?php echo esc_attr($laptop_col); ?> col-md-<?php echo esc_attr($tablet_col); ?> col-<?php echo esc_attr($mobile_col); ?> wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
+                                    <div class="tr-blog-item">
+                                        <div class="tr-blog-thumb fix">
+                                            <a href="<?php the_permalink($post->ID); ?>">
+                                                <?php
+                                                if (has_post_thumbnail()) {
+                                                    $settings['post_thumbnail'] = [
+                                                        'id' => get_post_thumbnail_id(),
+                                                    ];
+                                                    $thumbnail_html = \Elementor\Group_Control_Image_Size::get_attachment_image_html($settings, 'post_thumbnail');
+                                                } else {
+                                                    $thumbnail_html = '<img src="' . get_bloginfo('stylesheet_directory') . '/assets/img/thumbnail-default.png" />';
+                                                }
+                                                echo wp_kses_post($thumbnail_html);
+                                                ?>
+                                            </a>
+                                        </div>
+                                        <div class="tr-blog-content">
+                                            <div class="tr-blog-meta">
+                                                <?php if (!empty($settings['date_show'])) : ?>
+                                                    <span>
+                                                        <i class="fa-regular fa-calendar-days"></i><?php the_time('M d, Y', $post->ID); ?>
+                                                    </span>
+                                                <?php endif; ?>
+                                                <?php if (!empty($settings['admin_show'])) : ?>
+                                                    <span><i class="fa-light fa-user"></i>
+                                                        <a href="<?php print esc_url($author_avatar_url); ?>">
+                                                            <?php echo ucwords(get_the_author()); ?>
+                                                        </a>
+                                                    </span>
+                                                <?php endif; ?>
+                                            </div>
+
+                                            <?php if (!empty($settings['title_show'])) : ?>
+                                                <h4 class="hf-blog-title tr-blog-title">
+                                                    <a class="border-line-black" href="<?php the_permalink($post->ID); ?>">
+                                                        <?php echo wp_trim_words(get_the_title($post->ID), $settings['title_limit'], ''); ?>
+                                                    </a>
+                                                </h4>
+                                            <?php endif; ?>
+                                            <?php if (!empty($settings['content_show'])) :
+                                                $content_limit = (!empty($settings['content_limit'])) ? $settings['content_limit'] : '';
+                                            ?>
+                                                <p class="hexa-el-desc">
+                                                    <?php print wp_trim_words(get_the_excerpt($post->ID), $content_limit, ''); ?>
+                                                </p>
+                                            <?php endif; ?>
+                                            <?php if (!empty($settings['btn_text'])) : ?>
+                                                <div class="blog-btn">
+                                                    <a class="tr-blog-link" href="<?php echo esc_url(get_the_permalink($post->ID)); ?>">
+                                                        <?php echo esc_html($btn_text); ?>
+                                                        <i class="fa-regular fa-arrow-right-long"></i>
+                                                    </a>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                        <?php endwhile;
+                            wp_reset_query();
+                        endif; ?>
+                        <?php if (!empty($settings['show_pagination'])) : ?>
+                            <div class="col-12">
+                                <div class="hexa-pagination mt-50">
+                                    <?php
+                                    $prev = '<i class="fas fa-long-arrow-left"></i>';
+                                    $next = '<i class="fas fa-long-arrow-right"></i>';
+                                    $pagination = array(
+                                        'base'      => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+                                        'format'    => '?paged=%#%',
+                                        'current'   => max(1, get_query_var('paged')),
+                                        'total'     => $the_query->max_num_pages,
+                                        'prev_text' => $prev,
+                                        'next_text' => $next,
+                                        'type'      => 'list',
+                                        'end_size'  => 3,
+                                        'mid_size'  => 3
+                                    );
+                                    // Generate pagination links
+                                    $return =  paginate_links($pagination);
+                                    echo str_replace("<ul class='page-numbers'>", '<ul class="page-pagination mb-0 p-0">', $return);
+                                    ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+            <!-- blog-area-end -->
+
+        <?php elseif ($settings['hexa_design_layout']  == 'layout_3') : ?>
+
+            <!-- blog-area-start -->
+            <div class="tr-blog-area tr-blog-style-2">
+                <div class="row row-gap-30">
                     <?php if ($the_query->have_posts()) :
                         $i = 0.0;
                         while ($the_query->have_posts()) :
                             $the_query->the_post();
                             global $post;
-                            $author_bio_avatar_size = 65;
-                            $display_name     = get_the_author_meta('display_name', $post->post_author);
-                            $display_name     = empty($display_name) ? get_the_author_meta('nickname', $post->post_author) : $display_name;
-                            $author_post  = get_the_author_meta('user_post', $post->post_author);
                             $categories = get_the_category($post->ID);
+                            $author_id = get_the_author_meta('ID');
+                            $author_avatar_url = get_author_posts_url($author_id);
                             $i += 0.3;
                     ?>
-                            <div class="col-xl-<?php echo esc_attr($desktop_column); ?> col-lg-<?php echo esc_attr($laptop_column); ?> col-md-<?php echo esc_attr($tablet_column); ?> col-<?php echo esc_attr($mobile_column); ?> wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
-                                <div class="blog__wrap blog__item style-two wellconcept-el-blog-item">
-                                    <div class="blog__thumb">
+                            <div class="col-xl-<?php echo esc_attr($desktop_col); ?> col-lg-<?php echo esc_attr($laptop_col); ?> col-md-<?php echo esc_attr($tablet_col); ?> col-<?php echo esc_attr($mobile_col); ?>">
+                                <div class="tr-blog-item">
+                                    <div class="tr-blog-thumb fix">
                                         <a href="<?php the_permalink($post->ID); ?>">
                                             <?php
                                             if (has_post_thumbnail()) {
@@ -514,65 +620,35 @@ class Hexa_Post_Grid extends Widget_Base
                                             echo wp_kses_post($thumbnail_html);
                                             ?>
                                         </a>
-
-                                        <div class="blog__btn-circle">
-                                            <a href="<?php the_permalink($post->ID); ?>" class="circle-btn is-bg-white">
-                                                <span class="icon__box">
-                                                    <i class="fa-regular fa-arrow-right-long"></i>
-                                                </span>
-                                            </a>
-                                        </div>
                                     </div>
-                                    <div class="blog__content">
-                                        <div class="blog__content-top">
-                                            <?php if (!empty($settings['category_show'])) : ?>
-                                                <div class="blog__tag is-bg-light wellconcept-el-blog-cat">
-                                                    <?php if (!empty($categories[0]->name)) : ?>
-                                                        <a class="bdevs-el-cat" href="<?php echo esc_url(get_category_link($categories[0]->term_id)); ?>"><?php echo esc_html($categories[0]->name); ?></a>
-                                                    <?php endif; ?>
-                                                </div>
-                                            <?php endif; ?>
+                                    <div class="tr-blog-content">
+                                        <div class="tr-blog-meta">
                                             <?php if (!empty($settings['date_show'])) : ?>
-                                                <div class="blog__meta wellconcept-el-blog-meta">
-                                                    <span>
-                                                        <?php if ($settings['date_icon']) :
-                                                            \Elementor\Icons_Manager::render_icon($settings['date_icon'], ['aria-hidden' => 'true']);
-                                                        endif;
-                                                        echo the_time('M d, Y', $post->ID); ?>
-                                                    </span>
-                                                </div>
+                                                <span>
+                                                    <i class="fa-regular fa-calendar-days"></i><?php the_time('M d, Y', $post->ID); ?>
+                                                </span>
+                                            <?php endif; ?>
+                                            <?php if (!empty($settings['admin_show'])) : ?>
+                                                <span><i class="fa-light fa-user"></i>
+                                                    <a href="<?php print esc_url($author_avatar_url); ?>">
+                                                        <?php echo ucwords(get_the_author()); ?>
+                                                    </a>
+                                                </span>
                                             <?php endif; ?>
                                         </div>
                                         <?php if (!empty($settings['title_show'])) : ?>
-                                            <h5 class="blog__title wellconcept-el-title">
-                                                <a href="<?php the_permalink($post->ID); ?>">
+                                            <h4 class="hf-blog-title tr-blog-title mb-0">
+                                                <a class="border-line-black" href="<?php the_permalink($post->ID); ?>">
                                                     <?php echo wp_trim_words(get_the_title($post->ID), $settings['title_limit'], ''); ?>
                                                 </a>
-                                            </h5>
+                                            </h4>
                                         <?php endif; ?>
                                         <?php if (!empty($settings['content_show'])) :
                                             $content_limit = (!empty($settings['content_limit'])) ? $settings['content_limit'] : '';
                                         ?>
-                                            <p class="wellconcept-el-desc">
+                                            <p class="hexa-el-desc">
                                                 <?php print wp_trim_words(get_the_excerpt($post->ID), $content_limit, ''); ?>
                                             </p>
-                                        <?php endif; ?>
-                                        <?php if (!empty($settings['admin_show'])) : ?>
-                                            <div class="blog__content-bottom">
-                                                <div class="blog__author">
-                                                    <div class="blog__author-thumb">
-                                                        <a href="<?php print esc_url(get_author_posts_url(get_the_author_meta($post->ID))); ?>">
-                                                            <?php print get_avatar(get_the_author_meta('user_email'), $author_bio_avatar_size, '', '', ['class' => 'media-object img-circle']); ?>
-                                                        </a>
-                                                    </div>
-                                                    <div class="blog__author-info">
-                                                        <span class="blog__author-title">
-                                                            <?php echo esc_html(ucfirst($display_name)); ?>
-                                                        </span>
-                                                        <span class="blog__author-designation"><?php echo esc_html($author_post); ?></span>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         <?php endif; ?>
                                     </div>
                                 </div>
@@ -580,10 +656,33 @@ class Hexa_Post_Grid extends Widget_Base
                     <?php endwhile;
                         wp_reset_query();
                     endif; ?>
+                    <?php if (!empty($settings['show_pagination'])) : ?>
+                        <div class="col-12">
+                            <div class="hexa-pagination mt-50">
+                                <?php
+                                $prev = '<i class="fas fa-long-arrow-left"></i>';
+                                $next = '<i class="fas fa-long-arrow-right"></i>';
+                                $pagination = array(
+                                    'base'      => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+                                    'format'    => '?paged=%#%',
+                                    'current'   => max(1, get_query_var('paged')),
+                                    'total'     => $the_query->max_num_pages,
+                                    'prev_text' => $prev,
+                                    'next_text' => $next,
+                                    'type'      => 'list',
+                                    'end_size'  => 3,
+                                    'mid_size'  => 3
+                                );
+                                // Generate pagination links
+                                $return =  paginate_links($pagination);
+                                echo str_replace("<ul class='page-numbers'>", '<ul class="page-pagination mb-0 p-0">', $return);
+                                ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
-            <!-- Blog area end -->
-
+            <!-- blog-area-end -->
 
         <?php elseif ($settings['hexa_design_layout']  == 'layout_2') :
 
@@ -705,8 +804,7 @@ class Hexa_Post_Grid extends Widget_Base
             <!-- postbox area end -->
 
         <?php else : ?>
-
-            <div class="row">
+            <div class="row row-gap-30">
                 <?php if ($the_query->have_posts()) :
                     $i = 0.0;
                     while ($the_query->have_posts()) :
