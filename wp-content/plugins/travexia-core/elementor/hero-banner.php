@@ -334,7 +334,7 @@ class Hexa_Hero_Banner extends Widget_Base
         $tour_activities = get_terms($term_args3);
 
 
-        $s_checkin = !empty($_GET['checkin']) ? strtotime($_GET['checkin']) : '';
+        $s_checkin = !empty($_GET['daterange']) ? strtotime($_GET['daterange']) : '';
         $s_loc = !empty($_GET['loc']) ? sanitize_text_field($_GET['loc']) : '';
         $s_tour = !empty($_GET['tour']) ? sanitize_text_field($_GET['tour']) : '';
         $s_activity = !empty($_GET['activity']) ? sanitize_text_field($_GET['activity']) : '';
@@ -419,7 +419,7 @@ class Hexa_Hero_Banner extends Widget_Base
                                                             <span class="tr-hero-widget-title">
                                                                 <?php echo esc_html($settings['time_label']); ?>
                                                             </span>
-                                                            <input name="checkin" type="text" name="daterange" value="<?php echo !empty($s_checkin) ? date('m/d/Y', $s_checkin) : ''; ?>">
+                                                            <input type="text" name="daterange" value="<?php echo !empty($s_checkin) ? date('m/d/Y', $s_checkin) : ''; ?>">
                                                         </div>
                                                     </div>
                                                 </div>

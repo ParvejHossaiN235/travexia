@@ -216,6 +216,7 @@ class Hexa_Core_Plugin
 			'feature-list',
 			'gallery',
 			'hero-banner',
+			'hero-banner-2',
 			'hero-slider',
 			'icons',
 			'icon-list',

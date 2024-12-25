@@ -446,7 +446,52 @@ class Hexa_Tour_Acitivities extends Widget_Base
 		extract($settings);
 ?>
 
-		<?php if ($settings['hexa_design_layout']  == 'layout_2') : ?>
+
+		<?php if ($settings['hexa_design_layout']  == 'layout_3') : ?>
+
+			<div class="row">
+				<?php foreach ($settings['acitvities_list'] as $key => $item) :
+					if (!empty($item['link']['url'])) {
+						$this->add_link_attributes('link_' . $key, $item['link']);
+					}
+				?>
+					<div class="col-xl-<?php echo esc_attr($desktop_column); ?> col-lg-<?php echo esc_attr($laptop_column); ?> col-md-<?php echo esc_attr($tablet_column); ?> col-sm-<?php echo esc_attr($mobile_column); ?>">
+						<div class="tr-memorise-item mb-105 d-flex align-items-center">
+							<?php if (!empty($item['icon_type'] == 'font') || !empty($item['icon_type'] == 'image') || !empty($item['icon_type'] == 'svg')) : ?>
+								<div class="tr-memorise-icon">
+									<span class="hexa-el-icon">
+										<?php if ($item['icon_type'] == 'font') {
+											\Elementor\Icons_Manager::render_icon($item['icon_font'], ['aria-hidden' => 'true']);
+										} ?>
+										<?php if ($item['icon_type'] == 'image') { ?>
+											<img src="<?php echo esc_attr($item['icon_image']['url']); ?>" alt="<?php echo esc_attr($item['title']); ?>">
+										<?php } ?>
+										<?php if ($item['icon_type'] == 'svg') { ?>
+											<?php echo $item['icon_class']; ?>
+										<?php } ?>
+									</span>
+								</div>
+							<?php endif; ?>
+							<div class="tr-memorise-content">
+								<?php if (!empty($item['title'])) : ?>
+									<h4 class="tr-memorise-title hexa-el-title">
+										<a class="border-line-black" <?php echo $this->get_render_attribute_string('link_' . $key); ?>>
+											<?php echo esc_html($item['title']); ?>
+										</a>
+									</h4>
+								<?php endif; ?>
+								<?php if (!empty($item['text'])) : ?>
+									<p class="mt-25 mb-0">
+										<?php echo esc_html($item['text']); ?>
+									</p>
+								<?php endif; ?>
+							</div>
+						</div>
+					</div>
+				<?php endforeach ?>
+			</div>
+
+		<?php elseif ($settings['hexa_design_layout']  == 'layout_2') : ?>
 
 			<!-- memorise-area-start -->
 			<div class="tr-memorise-area tr-memorise-style-3 ">
@@ -476,7 +521,7 @@ class Hexa_Tour_Acitivities extends Widget_Base
 								<div class="tr-memorise-content">
 									<?php if (!empty($item['title'])) : ?>
 										<h4 class="tr-memorise-title hexa-el-title">
-											<a class="border-line-white" <?php echo $this->get_render_attribute_string('link_' . $key); ?>>
+											<a class="border-line-black" <?php echo $this->get_render_attribute_string('link_' . $key); ?>>
 												<?php echo esc_html($item['title']); ?>
 											</a>
 										</h4>
