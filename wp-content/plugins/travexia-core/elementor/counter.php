@@ -131,10 +131,7 @@ class Hexa_Counter extends Widget_Base
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
                     'layout_1' => esc_html__('Layout 1', 'hexacore'),
-                    'layout_2' => esc_html__('Layout 2', 'hexacore'),
-                    // 'layout_3' => esc_html__('Layout 3', 'hexacore'),
-                    // 'layout_4' => esc_html__('Layout 4', 'hexacore'),
-                    // 'layout_5' => esc_html__('Layout 5', 'hexacore'),
+                    //'layout_2' => esc_html__('Layout 2', 'hexacore'),
                 ],
                 'default' => 'layout_1',
             ]
@@ -274,47 +271,53 @@ class Hexa_Counter extends Widget_Base
 
 ?>
 
-        <?php if ($settings['hexa_design_layout']  == 'layout_2') : ?>
+<?php if ($settings['hexa_design_layout']  == 'layout_2') : ?>
 
+<?php else : ?>
 
-        <?php else : ?>
+    <div class="tr-funfact-item d-flex align-items-center">
 
-            <div class="counter-item wow fadeIn" data-wow-delay=".3s" data-wow-duration="1s">
-                <?php if ($settings['icon_type'] == 'icon') : ?>
-                    <?php if (!empty($settings['selected_icon']['value'])) : ?>
-                        <div class="counter-icon hf-el-rep-icon">
-                            <?php \Elementor\Icons_Manager::render_icon($settings['selected_icon'], ['aria-hidden' => 'true']); ?>
-                        </div>
-                    <?php endif; ?>
-                <?php elseif ($settings['icon_type'] == 'image') : ?>
-                    <?php if (!empty($settings['icon_image']['url'])) : ?>
-                        <div class="counter-icon hf-el-rep-icon">
-                            <img src="<?php echo $settings['icon_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($settings['icon_image']['url']), '_wp_attachment_image_alt', true); ?>">
-                        </div>
-                    <?php endif; ?>
-                <?php else : ?>
-                    <?php if (!empty($settings['icon_svg'])) : ?>
-                        <div class="counter-icon hf-el-rep-icon">
-                            <?php echo $settings['icon_svg']; ?>
-                        </div>
-                    <?php endif; ?>
+        <?php if ($settings['icon_type'] == 'icon') : ?>
+            <div class="tr-funfact-icon">
+                <?php if (!empty($settings['selected_icon']['value'])) : ?>
+                    <span class="counter-icon hf-el-rep-icon">
+                        <?php \Elementor\Icons_Manager::render_icon($settings['selected_icon'], ['aria-hidden' => 'true']); ?>
+                    </span>
                 <?php endif; ?>
-
-                <div class="counter-content">
-                    <?php if (!empty($settings['number'])) : ?>
-                        <h2 class="counter-title">
-                            <span class="counter"><?php echo hexa_kses($settings['number']); ?></span>
-                            <?php echo hexa_kses($settings['suffix']); ?>
-                        </h2>
-                    <?php endif; ?>
-                    <?php if (!empty($settings['title'])) : ?>
-                        <h5> <?php echo hexa_kses($settings['title']); ?></h5>
-                    <?php endif; ?>
-                    <?php if (!empty($settings['desc'])) : ?>
-                        <p> <?php echo hexa_kses($settings['desc']); ?></p>
-                    <?php endif; ?>
-                </div>
             </div>
+        <?php elseif ($settings['icon_type'] == 'image') : ?>
+            <?php if (!empty($settings['icon_image']['url'])) : ?>
+                <div class="tr-funfact-icon">
+                    <span class="counter-icon hf-el-rep-icon">
+                        <img src="<?php echo $settings['icon_image']['url']; ?>"
+                            alt="<?php echo get_post_meta(attachment_url_to_postid($settings['icon_image']['url']), '_wp_attachment_image_alt', true); ?>">
+                    </span>
+                </div>
+            <?php endif; ?>
+        <?php elseif (!empty($settings['icon_svg'])) : ?>
+            <div class="tr-funfact-icon">
+                <span class="counter-icon hf-el-rep-icon">
+                    <?php echo $settings['icon_svg']; ?>
+                </span>
+            </div>
+        <?php endif; ?>
+
+        <div class="tr-funfact-content">
+            <?php if (!empty($settings['number'])) : ?>
+                <h4>
+                    <span data-purecounter-duration="1" data-purecounter-end="<?php echo hexa_kses($settings['number']); ?>" class="purecounter">
+                        <?php echo hexa_kses($settings['number']); ?>
+                    </span>
+                    <?php echo hexa_kses($settings['suffix']); ?>
+                </h4>
+            <?php endif; ?>
+
+            <?php if (!empty($settings['title'])) : ?>
+                <span><?php echo hexa_kses($settings['title']); ?></span>
+            <?php endif; ?>
+        </div>
+    </div>
+
 
 <?php endif;
     }

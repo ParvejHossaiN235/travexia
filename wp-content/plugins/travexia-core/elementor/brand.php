@@ -129,9 +129,7 @@ class Hexa_Main_Brand extends Widget_Base
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
                     'layout_1' => esc_html__('Layout 1', 'hexacore'),
-                    'layout_2' => esc_html__('Layout 2', 'hexacore'),
-                    // 'layout-3' => esc_html__('Layout 3', 'hexacore'),
-                    // 'layout-4' => esc_html__('Layout 4', 'hexacore'),
+                    //'layout_2' => esc_html__('Layout 2', 'hexacore'),
                 ],
                 'default' => 'layout_1',
             ]
@@ -169,16 +167,6 @@ class Hexa_Main_Brand extends Widget_Base
             ]
         );
 
-        $repeater->add_control(
-            'client_link',
-            [
-                'label' => __('Link', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::URL,
-                'default' => [
-                    'url' => '#',
-                ],
-            ]
-        );
         $this->add_control(
             'clients_slider',
             [
@@ -221,6 +209,9 @@ class Hexa_Main_Brand extends Widget_Base
             [
                 'label' => __('Slider Option', 'hexacore'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+                'condition' => [
+                    'hexa_design_layout' => 'layout_10',
+                ]
             ]
         );
 
@@ -376,11 +367,11 @@ class Hexa_Main_Brand extends Widget_Base
 
 ?>
 
-        <?php if ($settings['hexa_design_layout']  == 'layout_3') : ?>
+<?php if ($settings['hexa_design_layout']  == 'layout_3') : ?>
 
-            <div <?php echo $this->get_render_attribute_string('slides'); ?>>
-                <div class="owl-carousel owl-theme">
-                    <?php
+<div <?php echo $this->get_render_attribute_string('slides'); ?>>
+    <div class="owl-carousel owl-theme">
+        <?php
                     foreach ($settings['clients_slider'] as $key => $item) {
                         $title = $item['title'];
                         $slide_html = '';
@@ -400,15 +391,15 @@ class Hexa_Main_Brand extends Widget_Base
                         echo wp_kses_post($slide_html);
                     }
                     ?>
-                </div>
-            </div>
+    </div>
+</div>
 
-        <?php elseif ($settings['hexa_design_layout']  == 'layout_2') : ?>
+<?php elseif ($settings['hexa_design_layout']  == 'layout_2') : ?>
 
-            <div class="brand__wrapper style-two">
-                <div class="swiper brand-activation">
-                    <div class="swiper-wrapper">
-                        <?php foreach ($settings['clients_slider'] as $key => $item) :
+<div class="brand__wrapper style-two">
+    <div class="swiper brand-activation">
+        <div class="swiper-wrapper">
+            <?php foreach ($settings['clients_slider'] as $key => $item) :
                             $title = $item['title'];
                             $slide_html = '';
                             $image_html = wp_get_attachment_image($item['image_client']['id'], 'full');
@@ -421,45 +412,38 @@ class Hexa_Main_Brand extends Widget_Base
                                 $slide_html = '<a ' . $this->get_render_attribute_string('link' . $key) . '>' . $image_html . '</a>';
                             }
                         ?>
-                            <div class="swiper-slide">
-                                <div class="brand__item text-center">
-                                    <div class="brand__thumb hexa-el-brand">
-                                        <?php echo wp_kses_post($slide_html); ?>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach ?>
+            <div class="swiper-slide">
+                <div class="brand__item text-center">
+                    <div class="brand__thumb hexa-el-brand">
+                        <?php echo wp_kses_post($slide_html); ?>
                     </div>
                 </div>
             </div>
+            <?php endforeach ?>
+        </div>
+    </div>
+</div>
 
-        <?php else : ?>
-
-            <div class="brand__wrapper wow fadeInUp" data-wow-delay=".3s">
-                <div class="swiper brand-activation">
-                    <div class="swiper-wrapper">
-                        <?php foreach ($settings['clients_slider'] as $key => $item) :
-                            $title = $item['title'];
-                            $slide_html = '';
-                            $image_html = wp_get_attachment_image($item['image_client']['id'], 'full');
-                            if (empty($image_html) && isset($item['image_client']['url'])) {
-                                $image_html = '<img src="' . esc_attr($item['image_client']['url']) . '" alt="' . esc_attr(\Elementor\Control_Media::get_image_alt($item)) . '" />';
-                            }
-                            if (!empty($item['client_link']['url'])) {
-                                $this->add_render_attribute('link' . $key, 'class', 'client_link');
-                                $this->add_link_attributes('link' . $key, $item['client_link']);
-                                $slide_html = '<a ' . $this->get_render_attribute_string('link' . $key) . '>' . $image_html . '</a>';
-                            }
-                        ?>
-                            <div class="swiper-slide">
-                                <div class="brand__item hexa-el-brand">
-                                    <?php echo wp_kses_post($slide_html); ?>
-                                </div>
-                            </div>
-                        <?php endforeach ?>
-                    </div>
+<?php else : ?>
+<div class="tr-brand-wrpper">
+    <div class="swiper-container tr-brand-active">
+        <div class="swiper-wrapper">
+            <?php foreach ($settings['clients_slider'] as $key => $item) :
+                $image_html = wp_get_attachment_image($item['image_client']['id'], 'full');
+                if (empty($image_html) && isset($item['image_client']['url'])) {
+                    $image_html = '<img src="' . esc_attr($item['image_client']['url']) . '" alt="' . esc_attr(\Elementor\Control_Media::get_image_alt($item)) . '" />';
+                }                
+                
+            ?>
+            <div class="swiper-slide">
+                <div class="tr-brand-item text-center">
+                    <?php echo wp_kses_post($image_html); ?>
                 </div>
             </div>
+            <?php endforeach ?>
+        </div>
+    </div>
+</div>
 
 <?php endif;
     }

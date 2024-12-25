@@ -6,7 +6,8 @@ use \Elementor\Widget_Base;
 
 
 
-if (!defined('ABSPATH')) exit; // Exit if accessed directly
+if (!defined('ABSPATH'))
+    exit; // Exit if accessed directly
 
 /**
  * Hexa Core
@@ -145,6 +146,54 @@ class Hexa_Pricing extends Widget_Base
                 'return_value' => 'yes',
                 'default' => false,
                 'style_transfer' => true,
+            ]
+        );
+
+        $this->end_controls_section();
+
+
+        // _hexa_image
+        $this->start_controls_section(
+            '_hexa_image',
+            [
+                'label' => esc_html__('Image', 'hexacore'),
+                'condition' => [
+                    'hexa_design_layout' => ['layout_1', 'layout_3']
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'hexa_image',
+            [
+                'label' => esc_html__('Choose Image', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'hexa_image2',
+            [
+                'label' => esc_html__('Choose Image 2', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Image_Size::get_type(),
+            [
+                'name' => 'hexa_image_size',
+                'default' => 'full',
+                'exclude' => [
+                    'custom'
+                ]
             ]
         );
 
@@ -447,79 +496,107 @@ class Hexa_Pricing extends Widget_Base
         $settings = $this->get_settings_for_display();
         extract($settings);
 
-?>
-
-        <?php if ($settings['hexa_design_layout']  == 'layout-2') : ?>
-
-        <?php else :
-
-            if (!empty($settings['btn_link']['url'])) {
-                $this->add_link_attributes('button', $settings['btn_link']);
-            }
-            $this->add_render_attribute('button', 'class', 'bd-btn bordered-light w-100 hexa-el-btn');
-
-            if ($settings['currency'] === 'custom') {
-                $currency = $settings['currency_custom'];
-            } else {
-                $currency = self::get_currency_symbol($settings['currency']);
-            }
-            $item_active = $settings['active_price'] ? 'active' : '';
         ?>
 
+<?php if ($settings['hexa_design_layout'] == 'layout-2'): ?>
 
-            <div class="pricing__wrapper pricing__item style-three">
-                <div class="pricing__content">
-                    <?php if (!empty($title)) : ?>
-                        <h5 class="large pricing__title">
-                            <?php echo wp_kses_post($title); ?>
-                        </h5>
-                    <?php endif; ?>
-                    <?php if (!empty($desc)) : ?>
-                        <p class="pricing__description">
-                            <?php echo wp_kses_post($desc); ?>
-                        </p>
-                    <?php endif; ?>
-                    <?php if (!empty($price)) : ?>
-                        <h2 class="pricing__amount">
-                            <span class="dollar-sign color-primary"><?php echo esc_html($currency); ?></span>
-                            <?php echo wp_kses_post($price); ?>
-                            <span class="duration"><?php echo wp_kses_post($month_year); ?></span>
-                        </h2>
-                    <?php endif; ?>
-                </div>
-                <?php if (!empty($show_features)) : ?>
-                    <div class="pricing__feature">
-                        <ul class="pricing__list">
-                            <?php foreach ($settings['features_list'] as $key => $item) : ?>
-                                <li class="<?php echo $item['feature_unavailable'] ? "inactive" : NULL; ?>">
-                                    <?php if ($item['icon_type'] == 'icon') : ?>
-                                        <?php if (!empty($item['selected_icon']['value'])) : ?>
-                                            <span class="hexa-el-icon hexa-icon icon__box">
-                                                <?php \Elementor\Icons_Manager::render_icon($item['selected_icon'], ['aria-hidden' => 'true']); ?>
-                                            </span>
-                                        <?php endif; ?>
-                                    <?php else : ?>
-                                        <?php if (!empty($item['icon_class'])) : ?>
-                                            <span class="hexa-el-icon hexa-icon icon__box">
-                                                <i class="<?php echo esc_attr($item['icon_class']); ?>"></i>
-                                            </span>
-                                        <?php endif; ?>
-                                    <?php endif; ?>
-                                    <p><?php echo wp_kses_post($item['feature_text']); ?></p>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                <?php endif; ?>
-                <?php if (!empty($btn_text)) : ?>
-                    <div class="pricing__btn">
-                        <a <?php echo $this->get_render_attribute_string('button'); ?>>
-                            <?php $this->print_unescaped_setting('btn_text'); ?>
-                        </a>
-                    </div>
-                <?php endif; ?>
-            </div>
+<?php else:
 
+    if (!empty($settings['btn_link']['url'])) {
+        $this->add_link_attributes('button', $settings['btn_link']);
+    }
+    $this->add_render_attribute('button', 'class', 'tr-btn grey-border text-center w-100 hexa-el-btn');
+
+    if ($settings['currency'] === 'custom') {
+        $currency = $settings['currency_custom'];
+    } else {
+        $currency = self::get_currency_symbol($settings['currency']);
+    }
+    $item_active = $settings['active_price'] ? 'active' : '';
+
+    // thumbnail
+    if (!empty($settings['hexa_image']['url'])) {
+        $hexa_image = !empty($settings['hexa_image']['id']) ? wp_get_attachment_image_url($settings['hexa_image']['id'], $settings['hexa_image_size_size']) : $settings['hexa_image']['url'];
+        $hexa_image_alt = get_post_meta($settings["hexa_image"]["id"], "_wp_attachment_image_alt", true);
+    }
+
+    if (!empty($settings['hexa_image2']['url'])) {
+        $hexa_image2 = !empty($settings['hexa_image2']['id']) ? wp_get_attachment_image_url($settings['hexa_image2']['id'], $settings['hexa_image_size_size']) : $settings['hexa_image2']['url'];
+        $hexa_image_alt2 = get_post_meta($settings["hexa_image2"]["id"], "_wp_attachment_image_alt", true);
+    }
+?>
+
+<div class="wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
+    <div class="tr-price-item <?php echo esc_attr($item_active); ?> ">
+
+        <div class="tr-price-thumb d-flex align-items-center justify-content-between">
+            <img class="tr-price-thumb-1" src="<?php echo esc_url($hexa_image); ?>"
+                alt="<?php echo esc_attr($hexa_image_alt); ?>">
+            <img class="tr-price-thumb-2" src="<?php echo esc_url($hexa_image2); ?>"
+                alt="<?php echo esc_attr($hexa_image_alt2); ?>">
+        </div>
+
+        <div class="tr-price-content d-flex align-items-center justify-content-between">
+            <?php if (!empty($title)): ?>
+            <h4 class="tr-price-title pricing__title">
+                <?php echo wp_kses_post($title); ?>
+            </h4>
+            <?php endif; ?>
+
+            <?php if (!empty($price)): ?>
+            <h2 class="tr-price-value">
+                <i class="dollar-sign color-primary"><?php echo esc_html($currency); ?></i>
+                <?php echo wp_kses_post($price); ?>
+                <span class="duration"><?php echo wp_kses_post($month_year); ?></span>
+            </h2>
+            <?php endif; ?>
+        </div>
+
+        <?php if (!empty($desc)): ?>
+        <div class="tr-price-text">
+            <p>
+                <?php echo wp_kses_post($desc); ?>
+            </p>
+        </div>
+        <?php endif; ?>
+
+        <?php if (!empty($show_features)): ?>
+        <div class="tr-price-list">
+            <ul class="pricing__list">
+                <?php foreach ($settings['features_list'] as $key => $item): ?>
+                <li class="<?php echo $item['feature_unavailable'] ? "inactive" : NULL; ?>">
+                    <?php if ($item['icon_type'] == 'icon'): ?>
+                    <?php if (!empty($item['selected_icon']['value'])): ?>
+                    <div class="hexa-el-icon hexa-icon icon__box">
+                        <?php \Elementor\Icons_Manager::render_icon($item['selected_icon'], ['aria-hidden' => 'true']); ?>
+                    </div>
+                    <?php endif; ?>
+                    <?php else: ?>
+                    <?php if (!empty($item['icon_class'])): ?>
+                    <div class="hexa-el-icon hexa-icon icon__box">
+                        <i class="<?php echo esc_attr($item['icon_class']); ?>"></i>
+                    </div>
+                    <?php endif; ?>
+                    <?php endif; ?>
+                    <span><?php echo wp_kses_post($item['feature_text']); ?></span>
+                </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        <?php endif; ?>
+
+        <?php if (!empty($btn_text)): ?>
+        <div class="tr-price-btn">
+            <a <?php echo $this->get_render_attribute_string('button'); ?>>
+                <?php $this->print_unescaped_setting('btn_text'); ?>
+                <i class="fa-sharp fa-regular fa-arrow-right-long"></i>
+            </a>
+        </div>
+        <?php endif; ?>
+
+
+    </div>
+</div>
 <?php endif;
     }
 }
