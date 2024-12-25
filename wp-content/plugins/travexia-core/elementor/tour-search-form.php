@@ -146,11 +146,10 @@ class Hexa_Tour_Search_Form extends Widget_Base
     }
     public function search_content()
     {
-        // Button 01
         $this->start_controls_section(
             '_section_button',
             [
-                'label' => __('Search Content', 'bdevs-elementor'),
+                'label' => __('Search Content', 'hexacore'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -172,9 +171,9 @@ class Hexa_Tour_Search_Form extends Widget_Base
         $this->add_control(
             'loc_label',
             [
-                'label' => __('Destination Label', 'bdevs-elementor'),
+                'label' => __('Destination Label', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Your Destination', 'bdevs-elementor'),
+                'default' => __('Your Destination', 'hexacore'),
                 'label_block' => true,
             ]
         );
@@ -182,9 +181,9 @@ class Hexa_Tour_Search_Form extends Widget_Base
         $this->add_control(
             'type_label',
             [
-                'label' => __('Tour Type Label', 'bdevs-elementor'),
+                'label' => __('Tour Type Label', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Tour Type', 'bdevs-elementor'),
+                'default' => __('Tour Type', 'hexacore'),
                 'label_block' => true,
             ]
         );
@@ -192,9 +191,9 @@ class Hexa_Tour_Search_Form extends Widget_Base
         $this->add_control(
             'activity_label',
             [
-                'label' => __('Activity Label', 'bdevs-elementor'),
+                'label' => __('Activity Label', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Tour Activities', 'bdevs-elementor'),
+                'default' => __('Tour Activities', 'hexacore'),
                 'label_block' => true,
             ]
         );
@@ -202,9 +201,9 @@ class Hexa_Tour_Search_Form extends Widget_Base
         $this->add_control(
             'time_label',
             [
-                'label' => __('Duration Label', 'bdevs-elementor'),
+                'label' => __('Duration Label', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Duration', 'bdevs-elementor'),
+                'default' => __('Duration', 'hexacore'),
                 'label_block' => true,
             ]
         );
@@ -212,9 +211,9 @@ class Hexa_Tour_Search_Form extends Widget_Base
         $this->add_control(
             'btn_text',
             [
-                'label' => __('Button Label', 'bdevs-elementor'),
+                'label' => __('Button Label', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Search', 'bdevs-elementor'),
+                'default' => __('Search Plan', 'hexacore'),
                 'label_block' => true,
                 'dynamic' => [
                     'active' => true,
@@ -230,7 +229,7 @@ class Hexa_Tour_Search_Form extends Widget_Base
         $this->start_controls_section(
             'section_search_setting',
             [
-                'label' => __('Search Settings', 'bdevs-elementor'),
+                'label' => __('Search Settings', 'hexacore'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -238,10 +237,10 @@ class Hexa_Tour_Search_Form extends Widget_Base
         $this->add_control(
             'show_location',
             [
-                'label' => esc_html__('Show Location', 'bdevs-elementor'),
+                'label' => esc_html__('Show Location', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'bdevs-elementor'),
-                'label_off' => esc_html__('Hide', 'bdevs-elementor'),
+                'label_on' => esc_html__('Show', 'hexacore'),
+                'label_off' => esc_html__('Hide', 'hexacore'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -250,10 +249,10 @@ class Hexa_Tour_Search_Form extends Widget_Base
         $this->add_control(
             'show_type',
             [
-                'label' => esc_html__('Show Tour Type', 'bdevs-elementor'),
+                'label' => esc_html__('Show Tour Type', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'bdevs-elementor'),
-                'label_off' => esc_html__('Hide', 'bdevs-elementor'),
+                'label_on' => esc_html__('Show', 'hexacore'),
+                'label_off' => esc_html__('Hide', 'hexacore'),
                 'return_value' => 'yes',
                 'default' => '',
             ]
@@ -262,10 +261,10 @@ class Hexa_Tour_Search_Form extends Widget_Base
         $this->add_control(
             'show_activity',
             [
-                'label' => esc_html__('Show Tour Activity', 'bdevs-elementor'),
+                'label' => esc_html__('Show Tour Activity', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'bdevs-elementor'),
-                'label_off' => esc_html__('Hide', 'bdevs-elementor'),
+                'label_on' => esc_html__('Show', 'hexacore'),
+                'label_off' => esc_html__('Hide', 'hexacore'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -274,10 +273,10 @@ class Hexa_Tour_Search_Form extends Widget_Base
         $this->add_control(
             'show_date',
             [
-                'label' => esc_html__('Show Tour Date', 'bdevs-elementor'),
+                'label' => esc_html__('Show Tour Date', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'bdevs-elementor'),
-                'label_off' => esc_html__('Hide', 'bdevs-elementor'),
+                'label_on' => esc_html__('Show', 'hexacore'),
+                'label_off' => esc_html__('Hide', 'hexacore'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -366,8 +365,8 @@ class Hexa_Tour_Search_Form extends Widget_Base
                                                 <span class="tr-hero-widget-title">
                                                     <?php echo esc_html($settings['loc_label']); ?>
                                                 </span>
-                                                <select name="loc" class="banner-search-select">
-                                                    <option value=""><?php echo esc_html__('Select Locations', 'bdevs-elementor'); ?></option>
+                                                <select name="loc">
+                                                    <option value=""><?php echo esc_html__('Select Locations', 'hexacore'); ?></option>
                                                     <?php if (!empty($locations)) :
                                                         foreach ($locations as $loc) : ?>
                                                             <option <?php echo ($s_loc == $loc->name) ? 'selected="selected"' : ''; ?> value="<?php echo esc_attr($loc->name); ?>"><?php echo esc_html($loc->name); ?></option>
@@ -424,8 +423,8 @@ class Hexa_Tour_Search_Form extends Widget_Base
                                                 <span class="tr-hero-widget-title">
                                                     <?php echo esc_html($settings['activity_label']); ?>
                                                 </span>
-                                                <select name="activity" class="banner-search-select">
-                                                    <option value=""><?php echo esc_html__('Select Activity', 'bdevs-elementor'); ?></option>
+                                                <select name="activity">
+                                                    <option value=""><?php echo esc_html__('Select Activity', 'hexacore'); ?></option>
                                                     <?php if (!empty($tour_activities)) :
                                                         foreach ($tour_activities as $activities) : ?>
                                                             <option <?php echo ($s_activity == $activities->name) ? 'selected="selected"' : ''; ?> value="<?php echo esc_attr($activities->name); ?>"><?php echo esc_html($activities->name); ?></option>
@@ -438,7 +437,9 @@ class Hexa_Tour_Search_Form extends Widget_Base
                                     </div>
                                     <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-sm-6">
                                         <div class="tr-hero-widget-btn">
-                                            <button type="submit" class="tr-btn-green w-100 text-center">Search Plan</button>
+                                            <button type="submit" class="tr-btn-green w-100 text-center">
+                                                <?php echo esc_html($settings['btn_text']); ?>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>

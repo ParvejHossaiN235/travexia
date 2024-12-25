@@ -96,51 +96,6 @@ class Hexa_Hero_Banner extends Widget_Base
     }
 
 
-    protected static function get_profile_names()
-    {
-        return [
-            '500px' => esc_html__('500px', 'hexacore'),
-            'apple' => esc_html__('Apple', 'hexacore'),
-            'behance' => esc_html__('Behance', 'hexacore'),
-            'bitbucket' => esc_html__('BitBucket', 'hexacore'),
-            'codepen' => esc_html__('CodePen', 'hexacore'),
-            'delicious' => esc_html__('Delicious', 'hexacore'),
-            'deviantart' => esc_html__('DeviantArt', 'hexacore'),
-            'digg' => esc_html__('Digg', 'hexacore'),
-            'dribbble' => esc_html__('Dribbble', 'hexacore'),
-            'email' => esc_html__('Email', 'hexacore'),
-            'facebook-f' => esc_html__('Facebook', 'hexacore'),
-            'flickr' => esc_html__('Flicker', 'hexacore'),
-            'foursquare' => esc_html__('FourSquare', 'hexacore'),
-            'github' => esc_html__('Github', 'hexacore'),
-            'houzz' => esc_html__('Houzz', 'hexacore'),
-            'instagram' => esc_html__('Instagram', 'hexacore'),
-            'jsfiddle' => esc_html__('JS Fiddle', 'hexacore'),
-            'linkedin' => esc_html__('LinkedIn', 'hexacore'),
-            'medium' => esc_html__('Medium', 'hexacore'),
-            'pinterest' => esc_html__('Pinterest', 'hexacore'),
-            'product-hunt' => esc_html__('Product Hunt', 'hexacore'),
-            'reddit' => esc_html__('Reddit', 'hexacore'),
-            'slideshare' => esc_html__('Slide Share', 'hexacore'),
-            'snapchat' => esc_html__('Snapchat', 'hexacore'),
-            'soundcloud' => esc_html__('SoundCloud', 'hexacore'),
-            'spotify' => esc_html__('Spotify', 'hexacore'),
-            'stack-overflow' => esc_html__('StackOverflow', 'hexacore'),
-            'tripadvisor' => esc_html__('TripAdvisor', 'hexacore'),
-            'tumblr' => esc_html__('Tumblr', 'hexacore'),
-            'twitch' => esc_html__('Twitch', 'hexacore'),
-            'twitter' => esc_html__('Twitter', 'hexacore'),
-            'vimeo' => esc_html__('Vimeo', 'hexacore'),
-            'vk' => esc_html__('VK', 'hexacore'),
-            'website' => esc_html__('Website', 'hexacore'),
-            'whatsapp' => esc_html__('WhatsApp', 'hexacore'),
-            'wordpress' => esc_html__('WordPress', 'hexacore'),
-            'xing' => esc_html__('Xing', 'hexacore'),
-            'yelp' => esc_html__('Yelp', 'hexacore'),
-            'youtube' => esc_html__('YouTube', 'hexacore'),
-        ];
-    }
-
     /**
      * Register the widget controls.
      *
@@ -159,49 +114,12 @@ class Hexa_Hero_Banner extends Widget_Base
     protected function register_controls_section()
     {
 
-        // layout Panel
+        // hero banner
         $this->start_controls_section(
-            'hexa_layout',
-            [
-                'label' => esc_html__('Design Layout', 'hexacore'),
-            ]
-        );
-        $this->add_control(
-            'hexa_design_layout',
-            [
-                'label' => esc_html__('Select Layout', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::SELECT,
-                'options' => [
-                    'layout_1' => esc_html__('Layout 1', 'hexacore'),
-                    'layout_2' => esc_html__('Layout 2', 'hexacore'),
-                    // 'layout-3' => esc_html__('Layout 3', 'hexacore'),
-                    // 'layout-4' => esc_html__('Layout 4', 'hexacore'),
-                    // 'layout-5' => esc_html__('Layout 5', 'hexacore'),
-                ],
-                'default' => 'layout_1',
-            ]
-        );
-
-        $this->end_controls_section();
-
-        // hero slider
-        $this->start_controls_section(
-            'section_hero_slider',
+            'section_hero_banner',
             [
                 'label' => __('Banner Content', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::TAB_CONTENT,
-            ]
-        );
-
-
-        $this->add_control(
-            'image',
-            [
-                'label' => __('Image', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
-                ],
             ]
         );
 
@@ -252,7 +170,7 @@ class Hexa_Hero_Banner extends Widget_Base
                     'span' => 'span',
                     'p' => 'p',
                 ],
-                'default' => 'h1',
+                'default' => 'h2',
             ]
         );
 
@@ -264,56 +182,6 @@ class Hexa_Hero_Banner extends Widget_Base
                 'rows' => '10',
                 'label_block' => true,
                 'default' => __('Cum sociis natoque penatibus et magnis dis parturient montes.', 'hexacore'),
-            ]
-        );
-
-        $this->add_control(
-            'btn_text',
-            [
-                'label' => __('Button One', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Click here', 'hexacore'),
-                'label_block' => true,
-            ]
-        );
-
-        $this->add_control(
-            'btn_link',
-            [
-                'label' => esc_html__('Link One', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::URL,
-                'options' => ['url', 'is_external', 'nofollow'],
-                'default' => [
-                    'url' => '',
-                    'is_external' => false,
-                    'nofollow' => false,
-                ],
-                'label_block' => true,
-            ]
-        );
-
-        $this->add_control(
-            'btn_text2',
-            [
-                'label' => __('Button Two', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Click here', 'hexacore'),
-                'label_block' => true,
-            ]
-        );
-
-        $this->add_control(
-            'btn_link2',
-            [
-                'label' => esc_html__('Link Two', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::URL,
-                'options' => ['url', 'is_external', 'nofollow'],
-                'default' => [
-                    'url' => '',
-                    'is_external' => false,
-                    'nofollow' => false,
-                ],
-                'label_block' => true,
             ]
         );
 
@@ -331,69 +199,77 @@ class Hexa_Hero_Banner extends Widget_Base
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'social_profile',
+            '_section_button',
             [
-                'label' => esc_html__('Social Profiles', 'hexacore'),
+                'label' => __('Search Content', 'hexacore'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
-                'condition' => [
-                    'hexa_design_layout' => 'layout_2'
-                ]
             ]
         );
 
-        $repeater = new \Elementor\Repeater();
-
-        $repeater->add_control(
-            'name',
+        $this->add_control(
+            'btn_link',
             [
-                'label' => esc_html__('Profile Name', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::SELECT2,
-                'label_block' => true,
-                'select2options' => [
-                    'allowClear' => false,
-                ],
-                'options' => self::get_profile_names()
-            ]
-        );
-
-        $repeater->add_control(
-            'link',
-            [
-                'label' => esc_html__('Profile Link', 'hexacore'),
-                'placeholder' => esc_html__('Add your profile link', 'hexacore'),
+                'label' => esc_html__('Search Page link', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::URL,
-                'label_block' => true,
-                'autocomplete' => false,
+                'placeholder' => esc_html__('https://your-link.com', 'hexacore'),
                 'show_external' => false,
-                'condition' => [
-                    'name!' => 'email'
+                'default' => [
+                    'url' => '#',
                 ],
+                'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
+            'loc_label',
+            [
+                'label' => __('Destination Label', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => __('Your Destination', 'hexacore'),
+                'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
+            'type_label',
+            [
+                'label' => __('Tour Type Label', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => __('Tour Type', 'hexacore'),
+                'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
+            'activity_label',
+            [
+                'label' => __('Activity Label', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => __('Tour Activities', 'hexacore'),
+                'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
+            'time_label',
+            [
+                'label' => __('Duration Label', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => __('Duration', 'hexacore'),
+                'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
+            'btn_text',
+            [
+                'label' => __('Button Label', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => __('Search Plan', 'hexacore'),
+                'label_block' => true,
                 'dynamic' => [
                     'active' => true,
                 ]
-            ]
-        );
-        $this->add_control(
-            'profiles',
-            [
-                'show_label' => false,
-                'type' => \Elementor\Controls_Manager::REPEATER,
-                'fields' => $repeater->get_controls(),
-                'title_field' => '<# print(name.slice(0,1).toUpperCase() + name.slice(1)) #>',
-                'default' => [
-                    [
-                        'link' => ['url' => 'https://facebook.com/'],
-                        'name' => 'facebook-f'
-                    ],
-                    [
-                        'link' => ['url' => 'https://linkedin.com/'],
-                        'name' => 'linkedin'
-                    ],
-                    [
-                        'link' => ['url' => 'https://twitter.com/'],
-                        'name' => 'twitter'
-                    ]
-                ],
             ]
         );
 
@@ -426,142 +302,178 @@ class Hexa_Hero_Banner extends Widget_Base
         $html_tag = $settings['title_tag'];
         $title = $settings['title'];
 
+        //bg image
+        $bg_image_url = \Elementor\Group_Control_Image_Size::get_attachment_image_src($settings['bg_image']['id'], 'simage_size', $settings);
+        if (empty($bg_image_url)) {
+            $bg_image_url = \Elementor\Utils::get_placeholder_image_src();
+        }
+
+        //title
+        $this->add_render_attribute('title', 'class', 'tr-hero-title wow itfadeUp hexa-el-title');
+        $this->add_render_attribute('title', 'data-wow-delay', '0.3s');
+        $this->add_render_attribute('title', 'data-wow-duration', '0.7s');
+        $title_html = sprintf('<%1$s %2$s>%3$s</%1$s>', $html_tag, $this->get_render_attribute_string('title'), $title);
+
+
+        $term_args = array(
+            'taxonomy' => 'tour_destination',
+            'hide_empty' => false
+        );
+        $locations = get_terms($term_args);
+
+        $term_args2 = array(
+            'taxonomy' => 'tour_type',
+            'hide_empty' => false
+        );
+        $tour_types = get_terms($term_args2);
+
+        $term_args3 = array(
+            'taxonomy' => 'tour_activities',
+            'hide_empty' => false
+        );
+        $tour_activities = get_terms($term_args3);
+
+
+        $s_checkin = !empty($_GET['checkin']) ? strtotime($_GET['checkin']) : '';
+        $s_loc = !empty($_GET['loc']) ? sanitize_text_field($_GET['loc']) : '';
+        $s_tour = !empty($_GET['tour']) ? sanitize_text_field($_GET['tour']) : '';
+        $s_activity = !empty($_GET['activity']) ? sanitize_text_field($_GET['activity']) : '';
 ?>
 
-        <?php if ($settings['hexa_design_layout']  == 'layout-2') :
-
-            $image_url = \Elementor\Group_Control_Image_Size::get_attachment_image_src($settings['image']['id'], 'simage_size', $settings);
-            if (empty($image_url)) {
-                $image_url = \Elementor\Utils::get_placeholder_image_src();
-            }
-            $image_html = '<img src="' . esc_attr($image_url) . '" alt="' . esc_attr($settings['title']) . '">';
-
-            // button one
-            if (!empty($settings['btn_link']['url'])) {
-                $this->add_link_attributes('button', $settings['btn_link']);
-            }
-            $this->add_render_attribute('button', 'class', 'bd-btn is-btn-anim hexa-el-btn');
-
-        ?>
-
-
-            <div class="hfcontact-info-social">
-                <?php
-                foreach ($settings['profiles'] as $profile) :
-                    $icon = $profile['name'];
-                    $url = esc_url($profile['link']['url']);
-                    printf(
-                        '<a target="_blank" rel="noopener"  href="%s" class="elementor-repeater-item-%s"><i class="hf-el-rep-social mr-5 hf-el-sicon fa-brands fa-%s" aria-hidden="true"></i></a>',
-                        $url,
-                        esc_attr($profile['_id']),
-                        esc_attr($icon)
-                    );
-                endforeach;
-                ?>
-            </div>
-
-        <?php else :
-
-            //bg image
-            $bg_image_url = \Elementor\Group_Control_Image_Size::get_attachment_image_src($settings['bg_image']['id'], 'simage_size', $settings);
-            if (empty($bg_image_url)) {
-                $bg_image_url = \Elementor\Utils::get_placeholder_image_src();
-            }
-            // normal image
-            $image_url = \Elementor\Group_Control_Image_Size::get_attachment_image_src($settings['image']['id'], 'simage_size', $settings);
-            if (empty($image_url)) {
-                $image_url = \Elementor\Utils::get_placeholder_image_src();
-            }
-            $image_html = '<img src="' . esc_attr($image_url) . '" alt="' . esc_attr($settings['title']) . '">';
-            // button one
-            if (!empty($settings['btn_link']['url'])) {
-                $this->add_link_attributes('button', $settings['btn_link']);
-            }
-            $this->add_render_attribute('button', 'class', 'bd-btn is-btn-anim hexa-el-btn');
-            // button two
-            if (!empty($settings['btn_link2']['url'])) {
-                $this->add_link_attributes('button2', $settings['btn_link2']);
-            }
-            $this->add_render_attribute('button2', 'class', 'bd-btn is-btn-anim hexa-el-btn2');
-
-            //title
-            $this->add_render_attribute('title', 'class', 'banner__title large wow fadeInUp hexa-el-title');
-            $this->add_render_attribute('title', 'data-wow-delay', '0.3s');
-            $this->add_render_attribute('title', 'data-wow-duration', '0.7s');
-            $title_html = sprintf('<%1$s %2$s>%3$s</%1$s>', $html_tag, $this->get_render_attribute_string('title'), $title);
-
-        ?>
-            <!-- Banner area start -->
-            <section class="banner__area banner-height d-flex align-items-center style-two p-relative fix">
-                <?php if (!empty($settings['bg_image']['url'])) : ?>
-                    <div class="bg__thumb-position include-bg" data-background="<?php echo esc_attr($bg_image_url); ?>"></div>
-                <?php endif; ?>
-                <!-- social -->
-                <div class="theme__social banner-social style-two">
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href="#"><i class="icon-twiter"></i>
-                    </a>
-                    <a href="#"><i class="fa-brands fa-linkedin"></i>
-                    </a>
-                    <a href="#"><i class="fa-brands fa-behance"></i>
-                    </a>
-                </div>
-                <!-- when slide active remove this class -->
-                <div class="swiper banner__active overflow-visible">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide banner_more_item">
-                            <div class="container">
-                                <div class="row align-items-center gy-5">
-                                    <div class="col-xxl-5 col-xl-6 col-lg-6">
-                                        <div class="banner__content p-relative">
-
-                                            <?php if (!empty($settings['title'])) {
-                                                echo $title_html;
-                                            } ?>
-
-                                            <?php if (!empty($settings['desc'])) : ?>
-                                                <p class="wow fadeInUp" data-wow-delay=".4s" data-wow-duration=".9s">
-                                                    <?php echo wp_kses_post($settings['desc']); ?>
-                                                </p>
-                                            <?php endif; ?>
-
-                                            <div class="banner__btn wow fadeInUp" data-wow-delay=".6s" data-wow-duration="1.1s">
-                                                <a <?php echo $this->get_render_attribute_string('button'); ?>>
-                                                    <span class="bd-btn-inner">
-                                                        <span class="bd-btn-normal">
-                                                            <?php echo wp_kses_post($settings['btn_text']); ?>
-                                                        </span>
-                                                        <span class="bd-btn-hover">
-                                                            <?php echo wp_kses_post($settings['btn_text']); ?>
-                                                        </span>
-                                                    </span>
-                                                </a>
+        <!-- hero-area-start -->
+        <div class="tr-hero-area">
+            <div class="container container-1790">
+                <div class="tr-hero-bg z-index-1" <?php if (!empty($settings['bg_image']['url'])) { ?> data-background="<?php echo esc_attr($bg_image_url); ?>" <?php } ?>>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-8">
+                                <div class="tr-hero-content mb-115 text-center">
+                                    <?php if (!empty($settings['title'])) {
+                                        echo $title_html;
+                                    } ?>
+                                    <?php if (!empty($settings['desc'])) : ?>
+                                        <div class="wow itfadeUp mb-0" data-wow-delay=".4s" data-wow-duration=".9s">
+                                            <p><?php echo wp_kses_post($settings['desc']); ?></p>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tr-hero-search-wrap">
+                            <div class="row justify-content-center">
+                                <div class="col-xl-11">
+                                    <form action="<?php echo esc_url($settings['btn_link']['url']); ?>" method="get">
+                                        <div class="tr-hero-search-box">
+                                            <div class="row align-items-center gx-0">
+                                                <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                                                    <div class="tr-hero-widget-item widget-style-1 d-flex align-items-center">
+                                                        <div class="tr-hero-widget-icon">
+                                                            <span>
+                                                                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <g clip-path="url(#clip0_7876_199)">
+                                                                        <path d="M12 0.5C5.38317 0.5 0 5.88317 0 12.5C0 19.1168 5.38317 24.5 12 24.5C18.6168 24.5 24 19.1168 24 12.5C24 5.88317 18.6168 0.5 12 0.5ZM12 23.375C6.00352 23.375 1.125 18.4965 1.125 12.5C1.125 6.50352 6.00352 1.625 12 1.625C17.9965 1.625 22.875 6.50352 22.875 12.5C22.875 18.4965 17.9965 23.375 12 23.375ZM12 5.25781C8.9843 5.25781 6.53081 7.71125 6.53081 10.727C6.53081 12.9733 9.21919 16.6123 11.5612 19.5317C11.6139 19.5974 11.6807 19.6504 11.7567 19.6869C11.8326 19.7233 11.9158 19.7422 12 19.7422C12.0842 19.7422 12.1674 19.7233 12.2433 19.6869C12.3193 19.6504 12.3861 19.5974 12.4387 19.5317L12.5113 19.4412C14.963 16.3867 17.4692 12.9627 17.4692 10.727C17.4692 7.71125 15.0157 5.25781 12 5.25781ZM12.0005 18.2791C10.5493 16.4497 7.65581 12.6446 7.65581 10.727C7.65581 8.33159 9.60459 6.38281 12 6.38281C14.3954 6.38281 16.3442 8.33159 16.3442 10.727C16.3442 12.6885 13.473 16.4306 12.0005 18.2791ZM12 7.39241C10.1613 7.39241 8.66541 8.88828 8.66541 10.727C8.66541 12.5657 10.1613 14.0616 12 14.0616C13.8387 14.0616 15.3346 12.5657 15.3346 10.727C15.3346 8.88828 13.8387 7.39241 12 7.39241ZM12 12.9365C10.7816 12.9365 9.79041 11.9453 9.79041 10.727C9.79041 9.50858 10.7816 8.51736 12 8.51736C13.2184 8.51736 14.2096 9.50858 14.2096 10.727C14.2096 11.9453 13.2184 12.9365 12 12.9365Z" fill="currentcolor" />
+                                                                    </g>
+                                                                    <defs>
+                                                                        <clipPath id="clip0_7876_199">
+                                                                            <rect width="24" height="24" fill="white" transform="translate(0 0.5)" />
+                                                                        </clipPath>
+                                                                    </defs>
+                                                                </svg>
+                                                            </span>
+                                                        </div>
+                                                        <div class="tr-hero-widget-select">
+                                                            <span class="tr-hero-widget-title">
+                                                                <?php echo esc_html($settings['loc_label']); ?>
+                                                            </span>
+                                                            <select name="loc">
+                                                                <option value=""><?php echo esc_html__('Select Locations', 'hexacore'); ?></option>
+                                                                <?php if (!empty($locations)) :
+                                                                    foreach ($locations as $loc) : ?>
+                                                                        <option <?php echo ($s_loc == $loc->name) ? 'selected="selected"' : ''; ?> value="<?php echo esc_attr($loc->name); ?>"><?php echo esc_html($loc->name); ?></option>
+                                                                <?php endforeach;
+                                                                endif;
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                                    <div class="tr-hero-widget-item widget-style-2 d-flex align-items-center">
+                                                        <div class="tr-hero-widget-icon">
+                                                            <span>
+                                                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <g clip-path="url(#clip0_7876_2094)">
+                                                                        <path d="M5.625 0.4375V4.1875M15 0.4375V4.1875M8.28295 21.0625H3.75C1.67897 21.0625 0 19.3835 0 17.3125V6.0625C0 3.99133 1.67897 2.3125 3.75 2.3125H16.875C18.946 2.3125 20.625 3.99133 20.625 6.0625V7.9375H0" stroke="currentcolor" stroke-width="1.875" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        <path d="M16.5 22.5625C19.6066 22.5625 22.125 20.0441 22.125 16.9375C22.125 13.8309 19.6066 11.3125 16.5 11.3125C13.3934 11.3125 10.875 13.8309 10.875 16.9375C10.875 20.0441 13.3934 22.5625 16.5 22.5625Z" stroke="currentcolor" stroke-width="1.875" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        <path d="M16.5 15.0625V16.9375H18.375" stroke="currentcolor" stroke-width="1.875" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                                                    </g>
+                                                                    <defs>
+                                                                        <clipPath id="clip0_7876_2096">
+                                                                            <rect width="22.125" height="22.125" fill="white" transform="translate(0 0.4375)" />
+                                                                        </clipPath>
+                                                                    </defs>
+                                                                </svg>
+                                                            </span>
+                                                        </div>
+                                                        <div class="tr-hero-widget-input">
+                                                            <span class="tr-hero-widget-title">
+                                                                <?php echo esc_html($settings['time_label']); ?>
+                                                            </span>
+                                                            <input name="checkin" type="text" name="daterange" value="<?php echo !empty($s_checkin) ? date('m/d/Y', $s_checkin) : ''; ?>">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xxl-3 col-xl-2 col-lg-4 col-md-6 col-sm-6">
+                                                    <div class="tr-hero-widget-item widget-style-3 d-flex align-items-center">
+                                                        <div class="tr-hero-widget-icon">
+                                                            <span>
+                                                                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <g clip-path="url(#clip0_7876_1999)">
+                                                                        <path d="M12 0.5C5.38317 0.5 0 5.88317 0 12.5C0 19.1168 5.38317 24.5 12 24.5C18.6168 24.5 24 19.1168 24 12.5C24 5.88317 18.6168 0.5 12 0.5ZM12 23.375C6.00352 23.375 1.125 18.4965 1.125 12.5C1.125 6.50352 6.00352 1.625 12 1.625C17.9965 1.625 22.875 6.50352 22.875 12.5C22.875 18.4965 17.9965 23.375 12 23.375ZM12 5.25781C8.9843 5.25781 6.53081 7.71125 6.53081 10.727C6.53081 12.9733 9.21919 16.6123 11.5612 19.5317C11.6139 19.5974 11.6807 19.6504 11.7567 19.6869C11.8326 19.7233 11.9158 19.7422 12 19.7422C12.0842 19.7422 12.1674 19.7233 12.2433 19.6869C12.3193 19.6504 12.3861 19.5974 12.4387 19.5317L12.5113 19.4412C14.963 16.3867 17.4692 12.9627 17.4692 10.727C17.4692 7.71125 15.0157 5.25781 12 5.25781ZM12.0005 18.2791C10.5493 16.4497 7.65581 12.6446 7.65581 10.727C7.65581 8.33159 9.60459 6.38281 12 6.38281C14.3954 6.38281 16.3442 8.33159 16.3442 10.727C16.3442 12.6885 13.473 16.4306 12.0005 18.2791ZM12 7.39241C10.1613 7.39241 8.66541 8.88828 8.66541 10.727C8.66541 12.5657 10.1613 14.0616 12 14.0616C13.8387 14.0616 15.3346 12.5657 15.3346 10.727C15.3346 8.88828 13.8387 7.39241 12 7.39241ZM12 12.9365C10.7816 12.9365 9.79041 11.9453 9.79041 10.727C9.79041 9.50858 10.7816 8.51736 12 8.51736C13.2184 8.51736 14.2096 9.50858 14.2096 10.727C14.2096 11.9453 13.2184 12.9365 12 12.9365Z" fill="currentcolor" />
+                                                                    </g>
+                                                                    <defs>
+                                                                        <clipPath id="clip0_7876_1998">
+                                                                            <rect width="24" height="24" fill="white" transform="translate(0 0.5)" />
+                                                                        </clipPath>
+                                                                    </defs>
+                                                                </svg>
+                                                            </span>
+                                                        </div>
+                                                        <div class="tr-hero-widget-select">
+                                                            <span class="tr-hero-widget-title">
+                                                                <?php echo esc_html($settings['activity_label']); ?>
+                                                            </span>
+                                                            <select name="activity">
+                                                                <option value=""><?php echo esc_html__('Select Activity', 'hexacore'); ?></option>
+                                                                <?php if (!empty($tour_activities)) :
+                                                                    foreach ($tour_activities as $activities) : ?>
+                                                                        <option <?php echo ($s_activity == $activities->name) ? 'selected="selected"' : ''; ?> value="<?php echo esc_attr($activities->name); ?>"><?php echo esc_html($activities->name); ?></option>
+                                                                <?php endforeach;
+                                                                endif;
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                                                    <div class="tr-hero-widget-btn">
+                                                        <button type="submit" class="tr-btn-green w-100 text-center">
+                                                            <?php echo esc_html($settings['btn_text']); ?>
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xxl-7 col-xl-6 col-lg-6">
-                                        <div class="banner__thumb-wrapper wow fadeInRight" data-wow-delay=".8s" data-wow-duration="1.2s">
-                                            <div class="banner__bg"></div>
-                                            <div class="banner__thumb">
-                                                <?php if (!empty($settings['image']['url'])) {
-                                                    echo wp_kses_post($image_html);
-                                                } ?>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            <!-- Banner area end -->
-
-
-
-
-<?php endif;
+            </div>
+        </div>
+        <!-- hero-area-end -->
+<?php
     }
 }
 

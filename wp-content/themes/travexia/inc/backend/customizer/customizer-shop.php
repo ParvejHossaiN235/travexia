@@ -13,8 +13,8 @@ function hexa_shop_customize_settings()
     $panels = array();
 
     $sections = array(
-        'single_product'  => array(
-            'title'       => esc_html__('Single Product', 'hexa-theme'),
+        'product_options'  => array(
+            'title'       => esc_html__('Product Options', 'hexa-theme'),
             'description' => '',
             'priority'    => 16,
             'capability'  => 'edit_theme_options',
@@ -37,13 +37,73 @@ function hexa_shop_customize_settings()
             )
         ),
 
-        // Single Product Page
-        'page_title_product'    => array(
-            'type'     => 'text',
-            'label'    => esc_html__('Title Page Header', 'hexa-theme'),
-            'section'  => 'single_product',
-            'default'  => esc_html__('Shop Single', 'hexa-theme'),
-            'priority' => 1,
+        // Product options
+        'products_per_page'    => array(
+            'type'     => 'number',
+            'label'    => esc_html__('Products Per Page', 'hexa-theme'),
+            'section'  => 'product_options',
+            'default'  => esc_html__('24', 'hexa-theme'),
+            'priority' => 10,
+        ),
+        'product_columns_lg'   => array(
+            'type'          => 'select',
+            'label'         => esc_html__('Product Columns for Large Screen', 'hexa-theme'),
+            'section'       => 'product_options',
+            'default'       => '3',
+            'priority'      => 10,
+            'choices'       => array(
+                '1'      => '1',
+                '2'      => '2',
+                '3'      => '3',
+                '4'      => '4',
+                '5'      => '5',
+                '6'      => '6',
+            ),
+        ),
+        'product_columns_md'   => array(
+            'type'          => 'select',
+            'label'         => esc_html__('Product Columns for Medium Screen', 'hexa-theme'),
+            'section'       => 'product_options',
+            'default'       => '3',
+            'priority'      => 10,
+            'choices'       => array(
+                '1'      => '1',
+                '2'      => '2',
+                '3'      => '3',
+                '4'      => '4',
+                '5'      => '5',
+                '6'      => '6',
+            ),
+        ),
+        'product_columns_sm'   => array(
+            'type'          => 'select',
+            'label'         => esc_html__('Product Columns for Small Screen', 'hexa-theme'),
+            'section'       => 'product_options',
+            'default'       => '2',
+            'priority'      => 10,
+            'choices'       => array(
+                '1'      => '1',
+                '2'      => '2',
+                '3'      => '3',
+                '4'      => '4',
+                '5'      => '5',
+                '6'      => '6',
+            ),
+        ),
+        'product_columns_xs'   => array(
+            'type'          => 'select',
+            'label'         => esc_html__('Product Columns for Extra Small Screen', 'hexa-theme'),
+            'section'       => 'product_options',
+            'default'       => '1',
+            'priority'      => 10,
+            'choices'       => array(
+                '1'      => '1',
+                '2'      => '2',
+                '3'      => '3',
+                '4'      => '4',
+                '5'      => '5',
+                '6'      => '6',
+            ),
         ),
     );
 

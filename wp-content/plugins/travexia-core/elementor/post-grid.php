@@ -496,7 +496,7 @@ class Hexa_Post_Grid extends Widget_Base
                                 global $post;
                                 $categories = get_the_category($post->ID);
                                 $author_id = get_the_author_meta('ID');
-                                $author_avatar_url = get_author_posts_url($author_id);
+                                $author_url = get_author_posts_url($author_id);
                                 $i += 0.3;
                         ?>
                                 <div class="col-xl-<?php echo esc_attr($desktop_col); ?> col-lg-<?php echo esc_attr($laptop_col); ?> col-md-<?php echo esc_attr($tablet_col); ?> col-<?php echo esc_attr($mobile_col); ?> wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
@@ -525,7 +525,7 @@ class Hexa_Post_Grid extends Widget_Base
                                                 <?php endif; ?>
                                                 <?php if (!empty($settings['admin_show'])) : ?>
                                                     <span><i class="fa-light fa-user"></i>
-                                                        <a href="<?php print esc_url($author_avatar_url); ?>">
+                                                        <a href="<?php print esc_url($author_url); ?>">
                                                             <?php echo ucwords(get_the_author()); ?>
                                                         </a>
                                                     </span>
@@ -601,7 +601,7 @@ class Hexa_Post_Grid extends Widget_Base
                             global $post;
                             $categories = get_the_category($post->ID);
                             $author_id = get_the_author_meta('ID');
-                            $author_avatar_url = get_author_posts_url($author_id);
+                            $author_url = get_author_posts_url($author_id);
                             $i += 0.3;
                     ?>
                             <div class="col-xl-<?php echo esc_attr($desktop_col); ?> col-lg-<?php echo esc_attr($laptop_col); ?> col-md-<?php echo esc_attr($tablet_col); ?> col-<?php echo esc_attr($mobile_col); ?>">
@@ -630,7 +630,7 @@ class Hexa_Post_Grid extends Widget_Base
                                             <?php endif; ?>
                                             <?php if (!empty($settings['admin_show'])) : ?>
                                                 <span><i class="fa-light fa-user"></i>
-                                                    <a href="<?php print esc_url($author_avatar_url); ?>">
+                                                    <a href="<?php print esc_url($author_url); ?>">
                                                         <?php echo ucwords(get_the_author()); ?>
                                                     </a>
                                                 </span>
@@ -702,7 +702,7 @@ class Hexa_Post_Grid extends Widget_Base
                                         global $post;
                                         $categories = get_the_category($post->ID);
                                         $author_id = get_the_author_meta('ID');
-                                        $author_avatar_url = get_author_posts_url($author_id);
+                                        $author_url = get_author_posts_url($author_id);
                                         $i += 0.3;
                                 ?>
                                         <div class="col-xl-<?php echo esc_attr($desktop_col); ?> col-lg-<?php echo esc_attr($laptop_col); ?> col-md-<?php echo esc_attr($tablet_col); ?> col-<?php echo esc_attr($mobile_col); ?>">
@@ -731,7 +731,7 @@ class Hexa_Post_Grid extends Widget_Base
                                                         <?php endif; ?>
                                                         <?php if (!empty($settings['admin_show'])) : ?>
                                                             <span><i class="fa-light fa-user"></i>
-                                                                <a href="<?php print esc_url($author_avatar_url); ?>">
+                                                                <a href="<?php print esc_url($author_url); ?>">
                                                                     <?php echo ucwords(get_the_author()); ?>
                                                                 </a>
                                                             </span>
@@ -811,8 +811,10 @@ class Hexa_Post_Grid extends Widget_Base
                         $the_query->the_post();
                         global $post;
                         $categories = get_the_category($post->ID);
-                        $author_id = get_the_author_meta('ID');
-                        $author_avatar_url = get_author_posts_url($author_id);
+                        $author_id = get_the_author_meta($post->post_author);
+                        $author_url = get_author_posts_url($author_id);
+                        $display_name  = empty($display_name) ? get_the_author_meta('nickname', $post->post_author) : get_the_author_meta('display_name', $post->post_author);
+
                         $i += 0.3;
                 ?>
                         <div class="col-xl-<?php echo esc_attr($desktop_col); ?> col-lg-<?php echo esc_attr($laptop_col); ?> col-md-<?php echo esc_attr($tablet_col); ?> col-<?php echo esc_attr($mobile_col); ?>">
@@ -841,8 +843,8 @@ class Hexa_Post_Grid extends Widget_Base
                                         <?php endif; ?>
                                         <?php if (!empty($settings['admin_show'])) : ?>
                                             <span><i class="fa-light fa-user"></i>
-                                                <a href="<?php print esc_url($author_avatar_url); ?>">
-                                                    <?php echo ucwords(get_the_author()); ?>
+                                                <a href="<?php print esc_url($author_url); ?>">
+                                                    <?php echo esc_html(ucfirst($display_name)); ?>
                                                 </a>
                                             </span>
                                         <?php endif; ?>

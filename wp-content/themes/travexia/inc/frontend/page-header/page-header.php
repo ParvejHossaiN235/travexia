@@ -14,7 +14,7 @@ if (!function_exists('hexa_page_header')) {
                 }
             }
             // if (!$pheader) {
-            //     // return;
+            //     return;
             // }
         }
         if (!get_theme_mod('pheader_switch') && !$pheader) {
@@ -30,6 +30,8 @@ if (!function_exists('hexa_page_header')) {
                 $title = esc_html__('Home', 'hexa-theme');
             } elseif (is_home()) {
                 $title = get_the_title(get_option('page_for_posts'));
+            } elseif (is_single() && 'product' == get_post_type()) {
+                $title = get_the_title();
             } elseif (is_search()) {
                 $title = esc_html__('Search Results for: ', 'hexa-theme') . get_search_query();
             } elseif (is_404()) {
@@ -75,28 +77,12 @@ if (!function_exists('hexa_page_header')) {
                     <div class="row align-items-center">
                         <div class="col-sm-12">
                             <div class="page-header-inner <?php echo esc_attr($pheader_align); ?>">
-                                <?php if (class_exists('woocommerce') && is_woocommerce()) { ?>
-                                    <?php if (!is_product()) { ?>
-                                        <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
-                                            <<?php echo $htmltag; ?> class="woocommerce-page-title page-title">
-                                                <?php woocommerce_page_title(); ?>
-                                            </<?php echo $htmltag; ?>>
-                                        <?php endif; ?>
-                                    <?php } else { ?>
-                                        <<?php echo $htmltag; ?> class="page-title tr-breadcurmb-title">
-                                            <?php echo esc_html(get_theme_mod('page_title_product')); ?>
-                                        </<?php echo $htmltag; ?>>
-                                    <?php } ?>
-                                    <?php do_action('hexa_woocommerce_breadcrumb'); ?>
-                                <?php } else { ?>
-                                    <<?php echo $htmltag; ?> class="page-title tr-breadcurmb-title">
-                                        <?php echo implode('', $output); ?>
-                                    </<?php echo $htmltag; ?>>
-                                <?php
-                                    if (function_exists('hexa_breadcrumbs') && get_theme_mod('breadcrumbs')) :
-                                        echo hexa_breadcrumbs();
-                                    endif;
-                                } ?>
+                                <<?php echo $htmltag; ?> class="page-title tr-breadcurmb-title">
+                                    <?php echo implode('', $output); ?>
+                                </<?php echo $htmltag; ?>>
+                                <?php if (function_exists('hexa_breadcrumbs') && get_theme_mod('breadcrumbs', true)) : ?>
+                                    <?php echo hexa_breadcrumbs(); ?>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
