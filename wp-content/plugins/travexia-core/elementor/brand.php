@@ -320,58 +320,13 @@ class Hexa_Main_Brand extends Widget_Base
         if (empty($settings['clients_slider'])) {
             return;
         }
-        $dots      = (in_array($settings['navigation'], ['dots', 'both']));
-        $arrows    = (in_array($settings['navigation'], ['arrows', 'both']));
-        $showXxl   = !empty($settings['tshow']) ? $settings['tshow'] : 3;
-        $showXl    = !empty($settings['tshow_laptop']) ? $settings['tshow_laptop'] : $showXxl;
-        $showLg    = !empty($settings['tshow_tablet_extra']) ? $settings['tshow_tablet_extra'] : $showXl;
-        $showMd    = !empty($settings['tshow_tablet']) ? $settings['tshow_tablet'] : $showLg;
-        $showSm    = !empty($settings['tshow_mobile_extra']) ? $settings['tshow_mobile_extra'] : $showMd;
-        $showXs    = !empty($settings['tshow_mobile']) ? $settings['tshow_mobile'] : $showSm;
-
-        $gapXxl  = isset($settings['slider_spacing']['size']) && is_numeric($settings['slider_spacing']['size']) ? $settings['slider_spacing']['size'] : 30;
-        $gapXl  = isset($settings['slider_spacing_laptop']['size']) && is_numeric($settings['slider_spacing_laptop']['size']) ? $settings['slider_spacing_laptop']['size'] : $gapXxl;
-        $gapLg  = isset($settings['slider_spacing_tablet_extra']['size']) && is_numeric($settings['slider_spacing_tablet_extra']['size']) ? $settings['slider_spacing_tablet_extra']['size'] : $gapXl;
-        $gapMd  = isset($settings['slider_spacing_tablet']['size']) && is_numeric($settings['slider_spacing_tablet']['size']) ? $settings['slider_spacing_tablet']['size'] : $gapLg;
-        $gapSm  = isset($settings['slider_spacing_mobile_extra']['size']) && is_numeric($settings['slider_spacing_mobile_extra']['size']) ? $settings['slider_spacing_mobile_extra']['size'] : $gapMd;
-        $gapXs  = isset($settings['slider_spacing_mobile']['size']) && is_numeric($settings['slider_spacing_mobile']['size']) ? $settings['slider_spacing_mobile']['size'] : $gapSm;
-        $timeout  = isset($settings['timeout']['size']) ? $settings['timeout']['size'] : 5000;
-
-        $owl_options = [
-            'slides_show_desktop'        => absint($showXxl),
-            'slides_show_laptop'         => absint($showXl),
-            'slides_show_tablet_extra'   => absint($showLg),
-            'slides_show_tablet'         => absint($showMd),
-            'slides_show_mobile_extra'   => absint($showSm),
-            'slides_show_mobile'         => absint($showXs),
-            'margin_desktop'             => absint($gapXxl),
-            'margin_laptop'              => absint($gapXl),
-            'margin_tablet_extra'        => absint($gapLg),
-            'margin_tablet'              => absint($gapMd),
-            'margin_mobile_extra'        => absint($gapSm),
-            'margin_mobile'              => absint($gapXs),
-            'autoplay'                   => $settings['autoplay'] ? $settings['autoplay'] : 'no',
-            'autoplay_time_out'          => absint($timeout),
-            'loop'                       => $settings['loop'] ? $settings['loop'] : 'no',
-            'arrows'                     => $arrows,
-            'dots'                       => $dots,
-        ];
-
-        $this->add_render_attribute(
-            'slides',
-            [
-                'class'               => 'hf-carousel ot-clients-carousel',
-                'data-slider_options' => wp_json_encode($owl_options),
-            ]
-        );
-
 ?>
 
-<?php if ($settings['hexa_design_layout']  == 'layout_3') : ?>
+        <?php if ($settings['hexa_design_layout']  == 'layout_3') : ?>
 
-<div <?php echo $this->get_render_attribute_string('slides'); ?>>
-    <div class="owl-carousel owl-theme">
-        <?php
+            <div <?php echo $this->get_render_attribute_string('slides'); ?>>
+                <div class="owl-carousel owl-theme">
+                    <?php
                     foreach ($settings['clients_slider'] as $key => $item) {
                         $title = $item['title'];
                         $slide_html = '';
@@ -391,15 +346,15 @@ class Hexa_Main_Brand extends Widget_Base
                         echo wp_kses_post($slide_html);
                     }
                     ?>
-    </div>
-</div>
+                </div>
+            </div>
 
-<?php elseif ($settings['hexa_design_layout']  == 'layout_2') : ?>
+        <?php elseif ($settings['hexa_design_layout']  == 'layout_2') : ?>
 
-<div class="brand__wrapper style-two">
-    <div class="swiper brand-activation">
-        <div class="swiper-wrapper">
-            <?php foreach ($settings['clients_slider'] as $key => $item) :
+            <div class="brand__wrapper style-two">
+                <div class="swiper brand-activation">
+                    <div class="swiper-wrapper">
+                        <?php foreach ($settings['clients_slider'] as $key => $item) :
                             $title = $item['title'];
                             $slide_html = '';
                             $image_html = wp_get_attachment_image($item['image_client']['id'], 'full');
@@ -412,38 +367,38 @@ class Hexa_Main_Brand extends Widget_Base
                                 $slide_html = '<a ' . $this->get_render_attribute_string('link' . $key) . '>' . $image_html . '</a>';
                             }
                         ?>
-            <div class="swiper-slide">
-                <div class="brand__item text-center">
-                    <div class="brand__thumb hexa-el-brand">
-                        <?php echo wp_kses_post($slide_html); ?>
+                            <div class="swiper-slide">
+                                <div class="brand__item text-center">
+                                    <div class="brand__thumb hexa-el-brand">
+                                        <?php echo wp_kses_post($slide_html); ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach ?>
                     </div>
                 </div>
             </div>
-            <?php endforeach ?>
-        </div>
-    </div>
-</div>
 
-<?php else : ?>
-<div class="tr-brand-wrpper">
-    <div class="swiper-container tr-brand-active">
-        <div class="swiper-wrapper">
-            <?php foreach ($settings['clients_slider'] as $key => $item) :
-                $image_html = wp_get_attachment_image($item['image_client']['id'], 'full');
-                if (empty($image_html) && isset($item['image_client']['url'])) {
-                    $image_html = '<img src="' . esc_attr($item['image_client']['url']) . '" alt="' . esc_attr(\Elementor\Control_Media::get_image_alt($item)) . '" />';
-                }                
-                
-            ?>
-            <div class="swiper-slide">
-                <div class="tr-brand-item text-center">
-                    <?php echo wp_kses_post($image_html); ?>
+        <?php else : ?>
+            <div class="tr-brand-wrpper">
+                <div class="swiper-container tr-brand-active">
+                    <div class="swiper-wrapper">
+                        <?php foreach ($settings['clients_slider'] as $key => $item) :
+                            $image_html = wp_get_attachment_image($item['image_client']['id'], 'full');
+                            if (empty($image_html) && isset($item['image_client']['url'])) {
+                                $image_html = '<img src="' . esc_attr($item['image_client']['url']) . '" alt="' . esc_attr(\Elementor\Control_Media::get_image_alt($item)) . '" />';
+                            }
+
+                        ?>
+                            <div class="swiper-slide">
+                                <div class="tr-brand-item text-center">
+                                    <?php echo wp_kses_post($image_html); ?>
+                                </div>
+                            </div>
+                        <?php endforeach ?>
+                    </div>
                 </div>
             </div>
-            <?php endforeach ?>
-        </div>
-    </div>
-</div>
 
 <?php endif;
     }
