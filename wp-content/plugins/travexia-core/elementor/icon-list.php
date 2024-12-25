@@ -127,7 +127,7 @@ class Hexa_Iconlist extends Widget_Base
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'options' => [
 					'layout_1' => esc_html__('Layout 1', 'hexacore'),
-					//'layout-2' => esc_html__('Layout 2', 'hexacore'),
+					'layout_2' => esc_html__('Layout 2', 'hexacore'),
 				],
 				'default' => 'layout_1',
 			]
@@ -219,7 +219,7 @@ class Hexa_Iconlist extends Widget_Base
 				'placeholder' => __('https://your-link.com', 'hexacore'),
 				'options' => ['url', 'is_external', 'nofollow'],
 				'default' => [
-					'url' => '',
+					'url' => '#',
 					'is_external' => false,
 					'nofollow' => false,
 				],
@@ -324,6 +324,7 @@ class Hexa_Iconlist extends Widget_Base
 
 		$this->end_controls_section();
 
+		$this->hexa_card_style_controls('icon_card', 'Wrpper - Style', '.hexa-el-card');
 		$this->hexa_basic_style_controls('list_title', 'Text - Style', '.hexa-el-icon-text');
 		$this->hexa_icon_style_controls('mlist_icon', 'Icon - Style', '.hexa-el-icon');
 	}
@@ -340,11 +341,35 @@ class Hexa_Iconlist extends Widget_Base
 	protected function render()
 	{
 		$settings = $this->get_settings_for_display();
-
+		extract($settings);
 ?>
 
 		<?php if ($settings['hexa_design_layout']  == 'layout_2') : ?>
 
+			<div class="tr-contact-box">
+				<ul>
+					<?php foreach ($settings['menu_list'] as $key => $item) :
+						if (!empty($item['link']['url'])) {
+							$this->add_link_attributes('link_' . $key, $item['link']);
+						}
+					?>
+						<li class="hexa-el-card">
+							<span>
+								<?php if ($item['icon_type'] == 'font') {
+									\Elementor\Icons_Manager::render_icon($item['icon_font'], ['aria-hidden' => 'true']);
+								} ?>
+								<?php if ($item['icon_type'] == 'image') { ?><img src="<?php echo esc_attr($item['icon_image']['url']); ?>" alt="<?php echo esc_attr($item['title']); ?>"><?php } ?>
+								<?php if ($item['icon_type'] == 'class') { ?><i class="<?php echo esc_attr($item['icon_class']); ?>"></i><?php } ?>
+								<?php if (!empty($item['text'])) : ?>
+									<a class="hexa-el-icon-text" <?php echo $this->get_render_attribute_string('link_' . $key); ?>>
+										<?php echo esc_html($item['text']); ?>
+									</a>
+								<?php endif; ?>
+							</span>
+						</li>
+					<?php endforeach ?>
+				</ul>
+			</div>
 
 		<?php else : ?>
 

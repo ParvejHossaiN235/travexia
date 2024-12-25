@@ -144,7 +144,7 @@ class Hexa_Hero_Slider extends Widget_Base
         $this->start_controls_section(
             'section_hero_slider',
             [
-                'label' => __('Slider Content', 'hexacore'),
+                'label' => __('Slider Image', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -163,102 +163,11 @@ class Hexa_Hero_Slider extends Widget_Base
         );
 
         $repeater->add_control(
-            'subtitle',
-            [
-                'label' => __('Subtitle', 'hexacore'),
-                'label_block' => true,
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Funden subtitle', 'hexacore'),
-            ]
-        );
-
-        $repeater->add_control(
             'title',
             [
                 'label' => __('Title', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Funden title', 'hexacore'),
-                'label_block' => true,
-            ]
-        );
-
-        $repeater->add_control(
-            'title_tag',
-            [
-                'label' => __('Title HTML Tag', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::SELECT,
-                'options' => [
-                    'h1' => 'H1',
-                    'h2' => 'H2',
-                    'h3' => 'H3',
-                    'h4' => 'H4',
-                    'h5' => 'H5',
-                    'h6' => 'H6',
-                    'div' => 'div',
-                    'span' => 'span',
-                    'p' => 'p',
-                ],
-                'default' => 'h1',
-            ]
-        );
-
-        $repeater->add_control(
-            'desc',
-            [
-                'label' => __('Description', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'rows' => '10',
-                'label_block' => true,
-                'default' => __('Cum sociis natoque penatibus et magnis dis parturient montes.', 'hexacore'),
-            ]
-        );
-
-        $repeater->add_control(
-            'btn_text',
-            [
-                'label' => __('Button One', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Click here', 'hexacore'),
-                'label_block' => true,
-            ]
-        );
-
-        $repeater->add_control(
-            'btn_link',
-            [
-                'label' => esc_html__('Link One', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::URL,
-                'options' => ['url', 'is_external', 'nofollow'],
-                'default' => [
-                    'url' => '',
-                    'is_external' => false,
-                    'nofollow' => false,
-                ],
-                'label_block' => true,
-            ]
-        );
-
-        $repeater->add_control(
-            'btn_text2',
-            [
-                'label' => __('Button Two', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Click here', 'hexacore'),
-                'label_block' => true,
-            ]
-        );
-
-        $repeater->add_control(
-            'btn_link2',
-            [
-                'label' => esc_html__('Link Two', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::URL,
-                'options' => ['url', 'is_external', 'nofollow'],
-                'default' => [
-                    'url' => '',
-                    'is_external' => false,
-                    'nofollow' => false,
-                ],
+                'default' => __('Banner title', 'hexacore'),
                 'label_block' => true,
             ]
         );
@@ -271,19 +180,13 @@ class Hexa_Hero_Slider extends Widget_Base
                 'show_label'  => false,
                 'default'     => [
                     [
-                        'subtitle'      => __('Financial Analyst', 'hexacore'),
-                        'title'      => __('Coriss Ambady', 'hexacore'),
-                        'desc' => __('“Cum sociis natoque penatibus et magnis dis parturient montes.”', 'hexacore'),
+                        'title'      => __('Image 1', 'hexacore'),
                     ],
                     [
-                        'subtitle'      => __('Financial Analyst', 'hexacore'),
-                        'title'      => __('Coriss Ambady', 'hexacore'),
-                        'desc' => __('“Cum sociis natoque penatibus et magnis dis parturient montes.”', 'hexacore'),
+                        'title'      => __('Image 2', 'hexacore'),
                     ],
                     [
-                        'subtitle'      => __('Financial Analyst', 'hexacore'),
-                        'title'      => __('Coriss Ambady', 'hexacore'),
-                        'desc' => __('“Cum sociis natoque penatibus et magnis dis parturient montes.”', 'hexacore'),
+                        'title'      => __('Image 3', 'hexacore'),
                     ]
                 ],
                 'fields'      => $repeater->get_controls(),
@@ -302,89 +205,67 @@ class Hexa_Hero_Slider extends Widget_Base
         );
 
         $this->end_controls_section();
-        /* Option Slider */
+
         $this->start_controls_section(
-            'slider_option_section',
+            'section_hero_slider2 ',
             [
-                'label' => __('Slider Option', 'hexacore'),
-                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+                'label' => __('Slider Image 2', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
 
-        $slides_show = range(1, 10);
-        $slides_show = array_combine($slides_show, $slides_show);
+        $repeater2 = new \Elementor\Repeater();
 
-        $this->add_responsive_control(
-            'tshow',
+        $repeater2->add_control(
+            'image2',
             [
-                'label' => __('Slides To Show', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::SELECT,
-                'options' => [
-                    '' => __('Default', 'hexacore'),
-                ] + $slides_show,
-                'default' => ''
-            ]
-        );
-
-        $this->add_control(
-            'loop',
-            [
-                'label'   => esc_html__('Loop', 'hexacore'),
-                'type'    => \Elementor\Controls_Manager::SWITCHER,
-                'default' => 'yes',
-            ]
-        );
-        $this->add_control(
-            'autoplay',
-            [
-                'label'   => esc_html__('Autoplay', 'hexacore'),
-                'type'    => \Elementor\Controls_Manager::SWITCHER,
-                'default' => 'yes',
-            ]
-        );
-        $this->add_control(
-            'timeout',
-            [
-                'label' => __('Autoplay Timeout', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min'  => 1000,
-                        'max'  => 20000,
-                        'step' => 1000,
-                    ],
-                ],
+                'label' => __('Image', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'size' => 7000,
-                ],
-                'condition' => [
-                    'autoplay' => 'yes',
-                ]
-            ]
-        );
-        $this->add_responsive_control(
-            'slider_spacing',
-            [
-                'label' => __('Slider Spacing', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::SLIDER,
-                'range' => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 200,
-                    ],
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
             ]
         );
 
-        $this->add_control(
-            'nav_show',
+        $repeater2->add_control(
+            'title',
             [
-                'label' => esc_html__('Show Navigation', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Show', 'hexacore'),
-                'label_off' => esc_html__('Hide', 'hexacore'),
-                'return_value' => 'yes',
-                'default' => 'yes',
+                'label' => __('Title', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __('Banner title', 'hexacore'),
+                'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
+            'hero_slider2',
+            [
+                'label'       => '',
+                'type'        => \Elementor\Controls_Manager::REPEATER,
+                'show_label'  => false,
+                'default'     => [
+                    [
+                        'title2'      => __('Image 1', 'hexacore'),
+                    ],
+                    [
+                        'title2'      => __('Image 2', 'hexacore'),
+                    ],
+                    [
+                        'title2'      => __('Image 3', 'hexacore'),
+                    ]
+                ],
+                'fields'      => $repeater2->get_controls(),
+                'title_field' => '{{{title2}}}',
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Image_Size::get_type(),
+            [
+                'name' => 'simage_size2',
+                'exclude' => ['1536x1536', '2048x2048'],
+                'include' => [],
+                'default' => 'full',
             ]
         );
 
@@ -414,166 +295,80 @@ class Hexa_Hero_Slider extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
-
-        if (empty($settings['hero_slider'])) {
-            return;
-        }
-
-
-        $showXxl   = !empty($settings['tshow']) ? $settings['tshow'] : 3;
-        $showXl    = !empty($settings['tshow_laptop']) ? $settings['tshow_laptop'] : $showXxl;
-        $showLg    = !empty($settings['tshow_tablet_extra']) ? $settings['tshow_tablet_extra'] : $showXl;
-        $showMd    = !empty($settings['tshow_tablet']) ? $settings['tshow_tablet'] : $showLg;
-        $showSm    = !empty($settings['tshow_mobile_extra']) ? $settings['tshow_mobile_extra'] : $showMd;
-        $showXs    = !empty($settings['tshow_mobile']) ? $settings['tshow_mobile'] : $showSm;
-
-        $gapXxl  = isset($settings['slider_spacing']['size']) && is_numeric($settings['slider_spacing']['size']) ? $settings['slider_spacing']['size'] : 30;
-        $gapXl  = isset($settings['slider_spacing_laptop']['size']) && is_numeric($settings['slider_spacing_laptop']['size']) ? $settings['slider_spacing_laptop']['size'] : $gapXxl;
-        $gapLg  = isset($settings['slider_spacing_tablet_extra']['size']) && is_numeric($settings['slider_spacing_tablet_extra']['size']) ? $settings['slider_spacing_tablet_extra']['size'] : $gapXl;
-        $gapMd  = isset($settings['slider_spacing_tablet']['size']) && is_numeric($settings['slider_spacing_tablet']['size']) ? $settings['slider_spacing_tablet']['size'] : $gapLg;
-        $gapSm  = isset($settings['slider_spacing_mobile_extra']['size']) && is_numeric($settings['slider_spacing_mobile_extra']['size']) ? $settings['slider_spacing_mobile_extra']['size'] : $gapMd;
-        $gapXs  = isset($settings['slider_spacing_mobile']['size']) && is_numeric($settings['slider_spacing_mobile']['size']) ? $settings['slider_spacing_mobile']['size'] : $gapSm;
-        $timeout  = isset($settings['timeout']['size']) ? $settings['timeout']['size'] : 5000;
-
-        $owl_options = [
-            'slides_show_desktop'        => absint($showXxl),
-            'slides_show_laptop'         => absint($showXl),
-            'slides_show_tablet_extra'   => absint($showLg),
-            'slides_show_tablet'         => absint($showMd),
-            'slides_show_mobile_extra'   => absint($showSm),
-            'slides_show_mobile'         => absint($showXs),
-            'margin_desktop'             => absint($gapXxl),
-            'margin_laptop'              => absint($gapXl),
-            'margin_tablet_extra'        => absint($gapLg),
-            'margin_tablet'              => absint($gapMd),
-            'margin_mobile_extra'        => absint($gapSm),
-            'margin_mobile'              => absint($gapXs),
-            'autoplay'                   => $settings['autoplay'] ? $settings['autoplay'] : 'no',
-            'autoplay_time_out'          => absint($timeout),
-            'loop'                       => $settings['loop'] ? $settings['loop'] : 'no',
-        ];
-
-        $this->add_render_attribute(
-            'slides',
-            [
-                'class'               => 'hf-carousel ot-clients-carousel',
-                'data-slider_options' => wp_json_encode($owl_options),
-            ]
-        );
+        extract($settings);
 
 ?>
 
-        <?php if ($settings['hexa_design_layout']  == 'layout-2') :
-
-            // thumbnail
-            if (!empty($settings['hexa_image']['url'])) {
-                $hexa_image = !empty($settings['hexa_image']['id']) ? wp_get_attachment_image_url($settings['hexa_image']['id'], $settings['hexa_image_size_size']) : $settings['hexa_image']['url'];
-                $hexa_image_alt = get_post_meta($settings["hexa_image"]["id"], "_wp_attachment_image_alt", true);
-            }
-
-        ?>
+        <?php if ($settings['hexa_design_layout']  == 'layout_2') : ?>
 
         <?php else : ?>
 
-            <!-- banner area start -->
-            <section class="banner__area banner-height style-seven p-relative fix">
-                <!-- when slide active remove this class -->
-                <div class="swiper slider__active">
-                    <div class="swiper-wrapper">
-                        <?php
-                        foreach ($settings['hero_slider'] as $key => $item) :
+            <!-- hero-area-start -->
+            <div class="tr-hero-3-area grey-bg z-index-1">
+                <div class="tr-hero-3-bg fix">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="tr-hero-3-content">
+                                    <h3 class="tr-hero-3-title mb-25 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">Discover Your <br> Next Adventure Explore </h3>
+                                    <p class="wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">A travel agency is a private retailer or public service <br> that provides Traveling opens up a world</p>
+                                    <div class="tr-hero-2-btn wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
+                                        <a class="tr-btn-green" href="contact.html">Book Now<i class="fa-sharp fa-regular fa-arrow-right-long"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="tr-hero-3-slider-main">
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                            <div class="tr-hero-slider-wrap tr-hero-3-active-1">
+                                                <?php
+                                                foreach ($settings['hero_slider'] as $key => $item) :
 
-                            $html_tag = $item['title_tag'];
-                            $title = $item['title'];
-                            //image
-                            $image_url = \Elementor\Group_Control_Image_Size::get_attachment_image_src($item['image']['id'], 'simage_size', $settings);
-                            if (empty($image_url)) {
-                                $image_url = \Elementor\Utils::get_placeholder_image_src();
-                            }
-                            $image_html = '<img src="' . esc_attr($image_url) . '" alt="' . esc_attr($item['title']) . '">';
+                                                    //image
+                                                    $image_url = \Elementor\Group_Control_Image_Size::get_attachment_image_src($item['image']['id'], 'simage_size', $settings);
+                                                    if (empty($image_url)) {
+                                                        $image_url = \Elementor\Utils::get_placeholder_image_src();
+                                                    }
+                                                    $image_html = '<img src="' . esc_attr($image_url) . '" alt="' . esc_attr($item['title']) . '">';
 
-                            // button one
-                            if (!empty($item['btn_link']['url'])) {
-                                $this->add_link_attributes('button' . $key, $item['btn_link']);
-                            }
-                            $this->add_render_attribute('button' . $key, 'class', 'bd-btn is-btn-anim hexa-el-btn');
+                                                ?>
+                                                    <?php if (!empty($item['image']['url'])) { ?>
+                                                        <div class="tr-hero-3-slider-item mb-40">
+                                                            <?php echo wp_kses_post($image_html); ?>
+                                                        </div>
+                                                    <?php } ?>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                            <div class="tr-hero-slider-wrap tr-hero-3-active-2">
+                                                <?php
+                                                foreach ($settings['hero_slider2'] as $key => $item) :
+                                                    //image
+                                                    $image_url2 = \Elementor\Group_Control_Image_Size::get_attachment_image_src($item['image2']['id'], 'simage_size2', $settings);
+                                                    if (empty($image_url2)) {
+                                                        $image_url2 = \Elementor\Utils::get_placeholder_image_src();
+                                                    }
+                                                    $image_html2 = '<img src="' . esc_attr($image_url2) . '" alt="' . esc_attr($item['title2']) . '">';
 
-                            // button two
-                            if (!empty($item['btn_link2']['url'])) {
-                                $this->add_link_attributes('button2' . $key, $item['btn_link2']);
-                            }
-                            $this->add_render_attribute('button2' . $key, 'class', 'bd-btn is-btn-anim hexa-el-btn2');
-
-                            //title
-                            $this->add_render_attribute('title', 'class', 'banner__title xlarge hexa-el-title');
-                            $this->add_render_attribute('title', 'data-animation', 'fadeInUp');
-                            $this->add_render_attribute('title', 'data-delay', '0.3s');
-                            $title_html = sprintf('<%1$s %2$s>%3$s</%1$s>', $html_tag, $this->get_render_attribute_string('title'), $title);
-
-                        ?>
-                            <div class="swiper-slide banner_more_item">
-                                <div class="banner__single-slide">
-                                    <?php if (!empty($item['image']['url'])) : ?>
-                                        <div class="bg__thumb-position include-bg is-overlay" data-background="<?php echo esc_attr($image_url); ?>"></div>
-                                    <?php endif; ?>
-
-                                    <div class="container">
-                                        <div class="row justify-content-center">
-                                            <div class="col-xl-8 col-lg-9 ">
-                                                <div class="banner__content text-center">
-
-                                                    <?php if (!empty($item['title'])) {
-                                                        echo $title_html;
-                                                    } ?>
-
-                                                    <?php if (!empty($item['desc'])) : ?>
-                                                        <p class="banner__text" data-animation="fadeInUp" data-delay=".5s">
-                                                            <?php echo wp_kses_post($item['desc']); ?>
-                                                        </p>
-                                                    <?php endif; ?>
-
-                                                    <div class="banner__btn-wrap justify-content-center" data-animation="fadeInUp" data-delay=".7s">
-
-                                                        <a <?php echo $this->get_render_attribute_string('button' . $key); ?>>
-                                                            <span class="bd-btn-inner">
-                                                                <span class="bd-btn-normal">
-                                                                    <?php echo wp_kses_post($item['btn_text']); ?>
-                                                                </span>
-                                                                <span class="bd-btn-hover">
-                                                                    <?php echo wp_kses_post($item['btn_text']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </a>
-                                                        <a <?php echo $this->get_render_attribute_string('button2' . $key); ?>>
-                                                            <span class="bd-btn-inner">
-                                                                <span class="bd-btn-normal">
-                                                                    <?php echo wp_kses_post($item['btn_text2']); ?>
-                                                                </span>
-                                                                <span class="bd-btn-hover">
-                                                                    <?php echo wp_kses_post($item['btn_text2']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
+                                                ?>
+                                                    <?php if (!empty($item['image2']['url'])) { ?>
+                                                        <div class="tr-hero-3-slider-item mb-40">
+                                                            <?php echo wp_kses_post($image_html2); ?>
+                                                        </div>
+                                                    <?php } ?>
+                                                <?php endforeach; ?>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        <?php endforeach; ?>
+                        </div>
                     </div>
                 </div>
-
-                <?php if (!empty($settings['nav_show'])) : ?>
-                    <!-- If we need navigation buttons -->
-                    <div class="banner__navigation d-none d-md-block">
-                        <button class="slider__button-prev circle-btn slider__nav-btn is-btn-large"><i class="fa-regular fa-arrow-left-long"></i></button>
-                        <button class="slider__button-next circle-btn slider__nav-btn is-btn-large"><i class="fa-regular fa-arrow-right-long"></i></button>
-                    </div>
-                <?php endif; ?>
-            </section>
-            <!-- banner area end -->
+            </div>
+            <!-- hero-area-end -->
 
 <?php endif;
     }
