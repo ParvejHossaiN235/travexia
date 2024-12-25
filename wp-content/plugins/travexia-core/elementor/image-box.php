@@ -236,7 +236,7 @@ class Hexa_Image_Box extends Widget_Base
                     'span' => 'span',
                     'p' => 'p',
                 ],
-                'default' => 'h3',
+                'default' => 'h4',
             ]
         );
 
@@ -378,7 +378,35 @@ class Hexa_Image_Box extends Widget_Base
 
 ?>
 
-        <?php if ($settings['hexa_design_layout']  == 'layout_2') : ?>
+        <?php if ($settings['hexa_design_layout']  == 'layout_2') :
+
+            $image_html = \Elementor\Group_Control_Image_Size::get_attachment_image_html($settings, 'image_size', 'image');
+            $this->add_render_attribute('title', 'class', 'tr-gellary-title hexa-el-title');
+            $title_html = sprintf('<%1$s %2$s>%3$s</%1$s>', $title_tag, $this->get_render_attribute_string('title'), $title);
+            if (!empty($settings['link']['url'])) {
+                $this->add_render_attribute('link', 'class', 'border-line-white');
+                $this->add_link_attributes('link', $settings['link']);
+                $title_html = sprintf('<%1$s %2$s><a ' . $this->get_render_attribute_string('link') . '>%3$s</a></%1$s>', $title_tag, $this->get_render_attribute_string('title'), $title);
+            }
+
+        ?>
+
+            <div class="tr-gellary-item p-relative fix">
+                <?php if (!empty($settings['image']['url'])) : ?>
+                    <div class="hexa-el-image tr-gellary-thumb">
+                        <?php echo wp_kses_post($image_html); ?>
+                    </div>
+                <?php endif; ?>
+                <div class="tr-gellary-content theme-bg hexa-el-card">
+                    <?php if (!empty($settings['title'])) {
+                        echo $title_html;
+                    } ?>
+                    <?php if (!empty($settings['content'])) {
+                        echo '<p class="hexa-image-desc hexa-el-desc">' . $settings['desc'] . '</p>';
+                    } ?>
+                </div>
+            </div>
+
 
         <?php else :
 
@@ -422,8 +450,6 @@ class Hexa_Image_Box extends Widget_Base
                     <?php } ?>
                 </div>
             </div>
-
-
 <?php endif;
     }
 }

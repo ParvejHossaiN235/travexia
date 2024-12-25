@@ -247,6 +247,7 @@ class Hexa_Core_Plugin
 			'tour-locations',
 			'tour-search-form',
 			'tour-search-result',
+			'tour-tabs',
 			'video-popup'
 		];
 	}
