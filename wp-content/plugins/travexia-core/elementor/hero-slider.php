@@ -154,7 +154,7 @@ class Hexa_Hero_Slider extends Widget_Base
             [
                 'label' => __('Title', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __('Banner title', 'hexacore'),
+                'default' => __('Discover Your <br> Next Adventure Explore', 'hexacore'),
                 'label_block' => true,
             ]
         );
@@ -175,7 +175,7 @@ class Hexa_Hero_Slider extends Widget_Base
                     'span' => 'span',
                     'p' => 'p',
                 ],
-                'default' => 'h3',
+                'default' => 'h2',
             ]
         );
 
@@ -195,7 +195,7 @@ class Hexa_Hero_Slider extends Widget_Base
             [
                 'label' => __('Button', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Click here', 'hexacore'),
+                'default' => __('Book Now', 'hexacore'),
                 'label_block' => true,
             ]
         );

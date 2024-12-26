@@ -128,7 +128,7 @@ class Hexa_Hero_Banner_2 extends Widget_Base
                 'label' => __('Subtitle', 'hexacore'),
                 'label_block' => true,
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __('Banner subtitle', 'hexacore'),
+                'default' => __('Lets Help Them', 'hexacore'),
             ]
         );
 
@@ -137,7 +137,7 @@ class Hexa_Hero_Banner_2 extends Widget_Base
             [
                 'label' => __('Title', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __('Banner title', 'hexacore'),
+                'default' => __('Immerse <br> yourself in the <br> travel agency', 'hexacore'),
                 'label_block' => true,
             ]
         );
@@ -158,7 +158,7 @@ class Hexa_Hero_Banner_2 extends Widget_Base
                     'span' => 'span',
                     'p' => 'p',
                 ],
-                'default' => 'h3',
+                'default' => 'h2',
             ]
         );
 
@@ -169,7 +169,7 @@ class Hexa_Hero_Banner_2 extends Widget_Base
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'rows' => '10',
                 'label_block' => true,
-                'default' => __('Cum sociis natoque penatibus et magnis dis parturient montes.', 'hexacore'),
+                'default' => __('A travel agency is a private retailer or public <br> service that provides', 'hexacore'),
             ]
         );
 
@@ -178,7 +178,7 @@ class Hexa_Hero_Banner_2 extends Widget_Base
             [
                 'label' => __('Button', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Click here', 'hexacore'),
+                'default' => __('Book Now', 'hexacore'),
                 'label_block' => true,
             ]
         );
@@ -203,7 +203,7 @@ class Hexa_Hero_Banner_2 extends Widget_Base
             [
                 'label' => __('Small Title', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Small Title', 'hexacore'),
+                'default' => __('Museum <br> Tour', 'hexacore'),
                 'label_block' => true,
             ]
         );
@@ -213,7 +213,7 @@ class Hexa_Hero_Banner_2 extends Widget_Base
             [
                 'label' => __('Small Title 2', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Small Title', 'hexacore'),
+                'default' => __('Cruises <br> Tour', 'hexacore'),
                 'label_block' => true,
             ]
         );

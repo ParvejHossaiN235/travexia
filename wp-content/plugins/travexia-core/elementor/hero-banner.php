@@ -135,21 +135,11 @@ class Hexa_Hero_Banner extends Widget_Base
         );
 
         $this->add_control(
-            'subtitle',
-            [
-                'label' => __('Subtitle', 'hexacore'),
-                'label_block' => true,
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __('Banner subtitle', 'hexacore'),
-            ]
-        );
-
-        $this->add_control(
             'title',
             [
                 'label' => __('Title', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => __('Banner title', 'hexacore'),
+                'default' => __('Your gateway to amazing <span>adventure</span> experiences', 'hexacore'),
                 'label_block' => true,
             ]
         );
@@ -181,7 +171,7 @@ class Hexa_Hero_Banner extends Widget_Base
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'rows' => '10',
                 'label_block' => true,
-                'default' => __('Cum sociis natoque penatibus et magnis dis parturient montes.', 'hexacore'),
+                'default' => __('A travel agency is a private retailer or public service that provides travel and tourism-related services to the general public', 'hexacore'),
             ]
         );
 
