@@ -398,14 +398,14 @@ class Hexa_Hero_Banner_2 extends Widget_Base
                                     <?php echo wp_kses_post($settings['desc']); ?>
                                 </p>
                             <?php endif; ?>
-
-                            <div class="tr-hero-2-btn wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".9s">
-                                <a <?php echo $this->get_render_attribute_string('button'); ?>>
-                                    <?php echo wp_kses_post($settings['btn_text']); ?>
-                                    <i class="fa-sharp fa-regular fa-arrow-right-long"></i>
-                                </a>
-                            </div>
-
+                            <?php if (!empty($settings['btn_text'])) : ?>
+                                <div class="tr-hero-2-btn wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".9s">
+                                    <a <?php echo $this->get_render_attribute_string('button'); ?>>
+                                        <?php echo wp_kses_post($settings['btn_text']); ?>
+                                        <i class="fa-sharp fa-regular fa-arrow-right-long"></i>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="col-xl-7 col-lg-6">

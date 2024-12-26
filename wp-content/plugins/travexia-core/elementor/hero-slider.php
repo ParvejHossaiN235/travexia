@@ -129,12 +129,89 @@ class Hexa_Hero_Slider extends Widget_Base
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
                     'layout_1' => esc_html__('Layout 1', 'hexacore'),
-                    'layout_2' => esc_html__('Layout 2', 'hexacore'),
+                    //'layout_2' => esc_html__('Layout 2', 'hexacore'),
                     // 'layout-3' => esc_html__('Layout 3', 'hexacore'),
                     // 'layout-4' => esc_html__('Layout 4', 'hexacore'),
                     // 'layout-5' => esc_html__('Layout 5', 'hexacore'),
                 ],
                 'default' => 'layout_1',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        // hero slider
+        $this->start_controls_section(
+            'section_hero_banner_2',
+            [
+                'label' => __('Banner Content', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
+        $this->add_control(
+            'title',
+            [
+                'label' => __('Title', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => __('Banner title', 'hexacore'),
+                'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
+            'title_tag',
+            [
+                'label' => __('Title HTML Tag', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => [
+                    'h1' => 'H1',
+                    'h2' => 'H2',
+                    'h3' => 'H3',
+                    'h4' => 'H4',
+                    'h5' => 'H5',
+                    'h6' => 'H6',
+                    'div' => 'div',
+                    'span' => 'span',
+                    'p' => 'p',
+                ],
+                'default' => 'h3',
+            ]
+        );
+
+        $this->add_control(
+            'desc',
+            [
+                'label' => __('Description', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'rows' => '10',
+                'label_block' => true,
+                'default' => __('A travel agency is a private retailer or public service <br> that provides Traveling opens up a world', 'hexacore'),
+            ]
+        );
+
+        $this->add_control(
+            'btn_text',
+            [
+                'label' => __('Button', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => __('Click here', 'hexacore'),
+                'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
+            'btn_link',
+            [
+                'label' => esc_html__('Link', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::URL,
+                'options' => ['url', 'is_external', 'nofollow'],
+                'default' => [
+                    'url' => '',
+                    'is_external' => false,
+                    'nofollow' => false,
+                ],
+                'label_block' => true,
             ]
         );
 
@@ -301,7 +378,25 @@ class Hexa_Hero_Slider extends Widget_Base
 
         <?php if ($settings['hexa_design_layout']  == 'layout_2') : ?>
 
-        <?php else : ?>
+        <?php else :
+
+
+            if (!empty($settings['btn_link']['url'])) {
+                $this->add_link_attributes('button', $settings['btn_link']);
+            }
+            $this->add_render_attribute('button', 'class', 'tr-btn-green hexa-el-btn');
+
+
+            //title
+            $this->add_render_attribute('title', 'class', 'tr-hero-3-title mb-25 hexa-el-title wow itfadeUp');
+            $this->add_render_attribute('title', 'data-wow-delay', '0.9s');
+            $this->add_render_attribute('title', 'data-wow-duration', '0.3s');
+            $title_html = sprintf('<%1$s %2$s>%3$s</%1$s>', $html_tag, $this->get_render_attribute_string('title'), $title);
+
+
+
+
+        ?>
 
             <!-- hero-area-start -->
             <div class="tr-hero-3-area grey-bg z-index-1">
@@ -310,11 +405,22 @@ class Hexa_Hero_Slider extends Widget_Base
                         <div class="row align-items-center">
                             <div class="col-xl-6 col-lg-6">
                                 <div class="tr-hero-3-content">
-                                    <h3 class="tr-hero-3-title mb-25 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">Discover Your <br> Next Adventure Explore </h3>
-                                    <p class="wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">A travel agency is a private retailer or public service <br> that provides Traveling opens up a world</p>
-                                    <div class="tr-hero-2-btn wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-                                        <a class="tr-btn-green" href="contact.html">Book Now<i class="fa-sharp fa-regular fa-arrow-right-long"></i></a>
-                                    </div>
+                                    <?php if (!empty($settings['title'])) {
+                                        echo $title_html;
+                                    } ?>
+                                    <?php if (!empty($settings['desc'])) : ?>
+                                        <p class="wow itfadeUp hexa-el-desc" data-wow-delay=".9s" data-wow-duration=".5s">
+                                            <?php echo wp_kses_post($settings['desc']); ?>
+                                        </p>
+                                    <?php endif; ?>
+                                    <?php if (!empty($settings['btn_text'])) : ?>
+                                        <div class="tr-hero-2-btn wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
+                                            <a <?php echo $this->get_render_attribute_string('button'); ?>>
+                                                <?php echo wp_kses_post($settings['btn_text']); ?>
+                                                <i class="fa-sharp fa-regular fa-arrow-right-long"></i>
+                                            </a>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6">
