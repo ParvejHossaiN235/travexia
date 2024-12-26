@@ -190,7 +190,7 @@ class Hexa_Hero_Banner_2 extends Widget_Base
                 'type' => \Elementor\Controls_Manager::URL,
                 'options' => ['url', 'is_external', 'nofollow'],
                 'default' => [
-                    'url' => '',
+                    'url' => '#',
                     'is_external' => false,
                     'nofollow' => false,
                 ],

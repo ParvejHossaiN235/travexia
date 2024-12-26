@@ -207,7 +207,7 @@ class Hexa_Hero_Slider extends Widget_Base
                 'type' => \Elementor\Controls_Manager::URL,
                 'options' => ['url', 'is_external', 'nofollow'],
                 'default' => [
-                    'url' => '',
+                    'url' => '#',
                     'is_external' => false,
                     'nofollow' => false,
                 ],
@@ -380,21 +380,18 @@ class Hexa_Hero_Slider extends Widget_Base
 
         <?php else :
 
-
+            $html_tag = $settings['title_tag'];
+            $title = $settings['title'];
             if (!empty($settings['btn_link']['url'])) {
                 $this->add_link_attributes('button', $settings['btn_link']);
             }
             $this->add_render_attribute('button', 'class', 'tr-btn-green hexa-el-btn');
-
 
             //title
             $this->add_render_attribute('title', 'class', 'tr-hero-3-title mb-25 hexa-el-title wow itfadeUp');
             $this->add_render_attribute('title', 'data-wow-delay', '0.9s');
             $this->add_render_attribute('title', 'data-wow-duration', '0.3s');
             $title_html = sprintf('<%1$s %2$s>%3$s</%1$s>', $html_tag, $this->get_render_attribute_string('title'), $title);
-
-
-
 
         ?>
 
