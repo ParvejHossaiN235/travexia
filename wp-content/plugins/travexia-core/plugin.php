@@ -239,6 +239,7 @@ class Hexa_Core_Plugin
 			'advanced-tabs',
 			'team',
 			'team-slider',
+			'text-slider',
 			'testimonial',
 			'testimonial-slider',
 			'tour-grid',

@@ -354,6 +354,9 @@ class Hexa_Testimonial_Slider extends Widget_Base
             [
                 'label' => __('Slider Option', 'hexacore'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+                'condition' => [
+                    'hexa_design_layout' => 'layout-5'
+                ]
             ]
         );
 
@@ -451,8 +454,6 @@ class Hexa_Testimonial_Slider extends Widget_Base
         $this->hexa_basic_style_controls('testi_job', 'Degination', '.hf-el-job');
     }
 
-
-
     /**
      * Render the widget output on the frontend.
      *
@@ -487,87 +488,77 @@ class Hexa_Testimonial_Slider extends Widget_Base
 
         <?php else : ?>
 
-            <!-- testimonial style 05 start -->
-            <div class="testimonial__slider">
-                <div class="swiper testimonial__active-two">
-                    <div class="swiper-wrapper">
-                        <?php
-                        foreach ($settings['testi_slider'] as $key => $item) :
+            <div class="row align-items-center">
+                <div class="col-xl-4 col-lg-4">
+                    <div class="tr-testimonial-left tr-slider-nav fix">
+                        <?php foreach ($settings['testi_slider'] as $key => $item) :
                             $image_url = \Elementor\Group_Control_Image_Size::get_attachment_image_src($item['timage']['id'], 'timage_size', $settings);
                             if (empty($image_url)) {
                                 $image_url = \Elementor\Utils::get_placeholder_image_src();
                             }
                             $image_html = '<img src="' . esc_attr($image_url) . '" alt="' . esc_attr($item['tname']) . '">';
-                        ?>
-                            <div class="swiper-slide">
-                                <div class="testimonial__wrapper">
-                                    <div class="testimonial__top-item">
-                                        <h3 class="hf-el-title">OUTSTANDING QUALITY!</h3>
-                                        <?php if (!empty($item['is_quote'])) { ?>
-                                            <div class="testimonial__shape">
-                                                <?php if ($item['icon_type'] == 'icon') : ?>
-                                                    <?php if (!empty($item['selected_icon']['value'])) : ?>
-                                                        <div class="hf-el-rep-icon hf-el-icon">
-                                                            <?php \Elementor\Icons_Manager::render_icon($item['selected_icon'], ['aria-hidden' => 'true']); ?>
-                                                        </div>
-                                                    <?php endif; ?>
-                                                <?php elseif ($item['icon_type'] == 'image') : ?>
-                                                    <?php if (!empty($item['icon_image']['url'])) : ?>
-                                                        <div class="hf-el-rep-icon hf-el-icon">
-                                                            <img src="<?php echo $item['icon_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['icon_image']['url']), '_wp_attachment_image_alt', true); ?>">
-                                                        </div>
-                                                    <?php endif; ?>
-                                                <?php else : ?>
-                                                    <?php if (!empty($item['icon_svg'])) : ?>
-                                                        <div class="hf-el-rep-icon hf-el-icon">
-                                                            <?php echo $item['icon_svg']; ?>
-                                                        </div>
-                                                    <?php endif; ?>
-                                                <?php endif; ?>
-                                            </div>
+                            ?>
+                            <div class="tr-testimonial-author-wrap d-flex align-items-center mb-20">
+                                <div class="tr-testimonial-author-thumb">
+                                    <?php if (!empty($item['timage']['url'])) {
+                                        echo wp_kses_post($image_html);
+                                    } ?>
+                                </div>
+                                <div class="tr-testimonial-author-info">
+                                    <h5 class="">Kathryn Murphy</h5>
+                                    <?php if (!empty($item['tname'])) { ?>
+                                        <h5 class="tr-testimonial-author-title hf-el-name">
+                                            <?php $this->print_unescaped_setting('tname', 'testi_slider', $key); ?>
+                                        </h5>
+                                    <?php } ?>
+                                    <span class="testimonial__avatar-designation hf-el-job">
+                                        <?php if (!empty($item['tjob'])) { ?>
+                                            <?php $this->print_unescaped_setting('tjob', 'testi_slider', $key); ?>
                                         <?php } ?>
-                                    </div>
-                                    <div class="testimonial__item">
-                                        <div class="testimonial__content">
-                                            <div class="testimonial__text hf-el-desc">
-                                                <?php $this->print_unescaped_setting('tcontent', 'testi_slider', $key); ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial__thumb-wrap">
-                                        <div class="testimonial__thumb">
-                                            <?php if (!empty($item['timage']['url'])) {
-                                                echo wp_kses_post($image_html);
-                                            } ?>
-                                        </div>
-                                        <div class="testimonial__avatar-info">
-                                            <?php if (!empty($item['tname'])) { ?>
-                                                <h4 class="testimonial__avatar-title hf-el-name">
-                                                    <?php $this->print_unescaped_setting('tname', 'testi_slider', $key); ?>
-                                                </h4>
-                                            <?php } ?>
-                                            <span class="testimonial__avatar-designation hf-el-job">
-                                                <?php if (!empty($item['tjob'])) { ?>
-                                                    <?php $this->print_unescaped_setting('tjob', 'testi_slider', $key); ?>
-                                                <?php } ?>
-                                            </span>
-                                        </div>
-                                    </div>
+                                    </span>
                                 </div>
                             </div>
                         <?php endforeach; ?>
                     </div>
                 </div>
-                <div class="testimonial-pagination"></div>
-                <!-- If we need navigation buttons -->
-                <div class="testimonial__navigation">
-                    <button class="testimonial__button-prev"><i class="fas fa-arrow-left"></i></button>
-                    <button class="testimonial__button-next"><i class="fas fa-arrow-right"></i></button>
+                <div class="col-xl-8 col-lg-8">
+                    <div class="tr-testimonial-content-wrap tr-slider-for">
+
+                        <div class="tr-testimonial-content">
+                            <?php if (!empty($item['is_quote'])) { ?>
+                                <div class="tr-testimonial-quote">
+                                    <?php if ($item['icon_type'] == 'icon') : ?>
+                                        <?php if (!empty($item['selected_icon']['value'])) : ?>
+                                            <div class="hf-el-rep-icon hf-el-icon">
+                                                <?php \Elementor\Icons_Manager::render_icon($item['selected_icon'], ['aria-hidden' => 'true']); ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php elseif ($item['icon_type'] == 'image') : ?>
+                                        <?php if (!empty($item['icon_image']['url'])) : ?>
+                                            <div class="hf-el-rep-icon hf-el-icon">
+                                                <img src="<?php echo $item['icon_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($item['icon_image']['url']), '_wp_attachment_image_alt', true); ?>">
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php else : ?>
+                                        <?php if (!empty($item['icon_svg'])) : ?>
+                                            <div class="hf-el-rep-icon hf-el-icon">
+                                                <?php echo $item['icon_svg']; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                </div>
+                            <?php } ?>
+
+                            <p>
+                                <?php $this->print_unescaped_setting('tcontent', 'testi_slider', $key); ?>
+                            </p>
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
-            <!-- testimonial style 05 end -->
 
-<?php endif;
+        <?php endif;
     }
 }
 

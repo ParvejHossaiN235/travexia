@@ -131,7 +131,7 @@ class Hexa_Counter extends Widget_Base
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
                     'layout_1' => esc_html__('Layout 1', 'hexacore'),
-                    //'layout_2' => esc_html__('Layout 2', 'hexacore'),
+                    'layout_2' => esc_html__('Layout 2', 'hexacore'),
                 ],
                 'default' => 'layout_1',
             ]
@@ -246,6 +246,33 @@ class Hexa_Counter extends Widget_Base
             ]
         );
 
+        $this->add_control(
+            'image',
+            [
+                'label' => esc_html__('Upload Image', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+                'condition' => [
+                    'hexa_design_layout' => 'layout_2',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Image_Size::get_type(),
+            [
+                'name' => 'image_size',
+                'exclude' => ['1536x1536', '2048x2048'],
+                'include' => [],
+                'default' => 'full',
+                'condition' => [
+                    'hexa_design_layout' => 'layout_2',
+                ]
+            ]
+        );
+
         $this->end_controls_section();
     }
 
@@ -253,6 +280,8 @@ class Hexa_Counter extends Widget_Base
     protected function style_tab_content()
     {
         $this->hexa_section_style_controls('fact_section', 'Section - Style', '.hf-el-section');
+        $this->hexa_basic_style_controls('testi_title', 'Title', '.hf-el-title');
+        $this->hexa_basic_style_controls('testi_name', 'Number', '.hf-el-number');
     }
 
     /**
@@ -271,7 +300,58 @@ class Hexa_Counter extends Widget_Base
 
 ?>
 
-<?php if ($settings['hexa_design_layout']  == 'layout_2') : ?>
+<?php if ($settings['hexa_design_layout']  == 'layout_2') : 
+    $image_html = \Elementor\Group_Control_Image_Size::get_attachment_image_html($settings, 'image_size', 'image');
+    ?>
+
+    <div class="tr-funfact-2-item text-center" data-background="<?php echo esc_url($settings['image']['url']); ?>">
+        <?php if ($settings['icon_type'] == 'icon') : ?>
+            <div class="tr-funfact-2-icon mb-85">
+                <?php if (!empty($settings['selected_icon']['value'])) : ?>
+                    <span class="counter-icon hf-el-rep-icon">
+                        <?php \Elementor\Icons_Manager::render_icon($settings['selected_icon'], ['aria-hidden' => 'true']); ?>
+                    </span>
+                <?php endif; ?>
+            </div>
+        <?php elseif ($settings['icon_type'] == 'image') : ?>
+            <?php if (!empty($settings['icon_image']['url'])) : ?>
+                <div class="tr-funfact-2-icon mb-85">
+                    <span class="counter-icon hf-el-rep-icon">
+                        <img src="<?php echo $settings['icon_image']['url']; ?>"
+                            alt="<?php echo get_post_meta(attachment_url_to_postid($settings['icon_image']['url']), '_wp_attachment_image_alt', true); ?>">
+                    </span>
+                </div>
+            <?php endif; ?>
+        <?php elseif (!empty($settings['icon_svg'])) : ?>
+            <div class="tr-funfact-2-icon mb-85">
+                <span class="counter-icon hf-el-rep-icon">
+                    <?php echo $settings['icon_svg']; ?>
+                </span>
+            </div>
+        <?php endif; ?>
+
+        <div class="tr-funfact-2-content">
+            <h4 class="">
+                <i class="purecounter" data-purecounter-duration="1"                data-purecounter-end="20">  
+                    0
+                </i>
+                k+
+            </h4>
+
+            <?php if (!empty($settings['number'])) : ?>
+                <h4 class="tr-funfact-2-title hf-el-number">
+                    <i data-purecounter-duration="1" data-purecounter-end="<?php echo hexa_kses($settings['number']); ?>" class="purecounter">
+                        <?php echo hexa_kses($settings['number']); ?>
+                    </i>
+                    <?php echo hexa_kses($settings['suffix']); ?>
+                </h4>
+            <?php endif; ?>
+
+            <?php if (!empty($settings['title'])) : ?>
+                <span class="hf-el-title"><?php echo hexa_kses($settings['title']); ?></span>
+            <?php endif; ?>
+        </div>
+    </div>
 
 <?php else : ?>
 
@@ -304,7 +384,7 @@ class Hexa_Counter extends Widget_Base
 
         <div class="tr-funfact-content">
             <?php if (!empty($settings['number'])) : ?>
-                <h4>
+                <h4 class="hf-el-number">
                     <span data-purecounter-duration="1" data-purecounter-end="<?php echo hexa_kses($settings['number']); ?>" class="purecounter">
                         <?php echo hexa_kses($settings['number']); ?>
                     </span>
@@ -313,7 +393,7 @@ class Hexa_Counter extends Widget_Base
             <?php endif; ?>
 
             <?php if (!empty($settings['title'])) : ?>
-                <span><?php echo hexa_kses($settings['title']); ?></span>
+                <span class="hf-el-title"><?php echo hexa_kses($settings['title']); ?></span>
             <?php endif; ?>
         </div>
     </div>
