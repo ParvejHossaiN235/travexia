@@ -1,355 +1,423 @@
-.tf-single-page {
-  &.tf-template-global {
-    padding: 100px 0px;
-  }
-  .tf-tour-single {
-    .tf-template-container {
-      max-width: 1320px;
-      padding: 0px 15px;
-      .tf-bottom-booking-bar {
-        display: none;
-      }
-    }
-    .tf-container-inner p {
-      font-family: var(--tr-ff-body) !important;
-      font-weight: 400 !important;
-      font-size: 16px !important;
-      font-style: normal !important;
-      line-height: 1.5 !important;
-      color: var(--tr-text-body);
-    }
-    .tf-container-inner h1,
-    .tf-main-wrapper h1,
-    .tf-container h1,
-    .tf-container-inner h2,
-    .tf-main-wrapper h2,
-    .tf-container h2,
-    .tf-container-inner h3,
-    .tf-main-wrapper h3,
-    .tf-container h3,
-    #tour_room_details_qv h3,
-    .tf-container-inner h4,
-    .tf-main-wrapper h4,
-    #tour_room_details_qv h4,
-    .tf-container h4,
-    #tf-ask-question h4,
-    .tf-container-inner h5,
-    .tf-main-wrapper h5,
-    .tf-container h5,
-    .tf-container-inner h6,
-    .tf-main-wrapper h6,
-    .tf-container h6 {
-      font-family: var(--tr-ff-heading) !important;
-      font-weight: 700 !important;
-      color: var(--tr-common-black) !important;
-      line-height: 1 !important;
-    }
-    .tf-section-title {
-      margin-bottom: 20px;
-    }
-    .tf-single-head .tf-head-info .tf-head-title h1 {
-      margin-bottom: 20px;
-    }
-    .tf-single-head a {
-      color: var(--tr-text-body);
-    }
-    .tf-trip-info li i,
-    .tf-single-head i {
-      color: var(--tr-theme-1) !important;
-    }
-    .tf-head-info .tf-icon i {
-      background: var(--tr-grey-1);
-      box-shadow: none;
-    }
-    .tf-head-info .share-tour-content .tf-dropdown-share-content h4 {
-      font-size: 16px !important;
-      color: var(--tr-text-body) !important;
-      font-weight: 500;
-    }
-    .tf-hero-gallery .tf-gallery-featured {
-      margin-bottom: 30px;
-    }
-    .tf-hero-gallery .tf-gallery-featured .tf-single-review-box .tf-single-rating {
-      background-color: rgba(3, 72, 51, 0.65);
-      color: var(--tr-common-white);
-      border-radius: 5px;
-    }
-    .tf-hero-gallery .tf-gallery a.tf-gallery-more {
-      position: relative;
-      overflow: hidden;
-    }
-    .tf-hero-gallery .tf-gallery a.tf-gallery-more::before {
-      background: #0000009c;
-      font-size: 16px;
-      border-radius: 20px;
-    }
-    .tf-hero-gallery img {
-      border-radius: 20px;
-    }
-    .tf-hero-gallery .tf-gallery-featured .featured-column {
-      background: var(--tr-grey-1);
-      border-radius: 5px;
-      a {
-        color: var(--tr-text-body);
-        &:hover {
-          background-color: var(--tr-theme-1);
-          color: var(--tr-common-white);
-        }
-      }
-    }
-    .tf-trip-info {
-      background-color: none;
-      border-radius: 20px;
-      box-shadow: none;
-      border: 1px solid var(--tr-border-1);
-    }
-    .tf-trip-info li {
-      font-size: 16px;
-      font-family: var(--tr-ff-body);
-      color: var(--tr-text-body);
-    }
-    .tf-trip-info .person-info {
-      border: 1px solid var(--tr-border-1);
-      box-shadow: none;
-      width: max-content;
-      height: unset;
-      flex-direction: row;
-      padding: 10px 15px;
-      gap: 12px;
-    }
-    .tf-trip-info .person-info.active {
-      background: var(--tr-grey-1);
-    }
-    .tf-trip-feature-blocks .tf-feature-block {
-      background: none;
-      box-shadow: none;
-      border-radius: 0;
-      padding: 0;
-      align-items: start;
-    }
-    .tf-trip-feature-blocks .tf-feature-block i {
-      color: var(--tr-theme-1) !important;
-      font-size: 30px;
-      line-height: 1;
-    }
-    .tf-highlights-wrapper {
-      background: none;
-      border-radius: 20px;
-      box-shadow: none;
-      border: 1px solid var(--tr-border-1);
-    }
-    .tf-inex-wrapper .tf-inex {
-      background: none;
-      border-radius: 20px;
-      box-shadow: none;
-      border: 1px solid var(--tr-border-1);
-    }
-    #tf-tour-map .tf-map-area #tour-location {
-      border-radius: 20px;
-    }
-    .tf-faq-wrapper .tf-faq-inner .tf-faq-single {
-      border-bottom: 0;
-      margin-bottom: 20px;
-    }
-    .tf-faq-wrapper .tf-faq-inner .tf-faq-single:last-child {
-      margin-bottom: 0;
-    }
-    .tf-faq-wrapper .tf-faq-inner .active .tf-faq-single-inner {
-      background: none;
-      border-radius: 20px;
-      margin: 0;
-      box-shadow: none;
-    }
-    .tf-faq-wrapper .tf-faq-inner .tf-faq-single-inner {
-      border-radius: 20px;
-      overflow: hidden;
-    }
-    .tf-faq-wrapper .tf-faq-single-inner .tf-faq-collaps {
-      padding: 24px;
-      background: var(--tr-grey-1);
-      box-shadow: none;
-    }
-    .tf-faq-wrapper .tf-faq-single-inner .tf-faq-content {
-      background: var(--tr-grey-1);
-    }
-    .tf-faq-wrapper .tf-faq-single-inner .tf-faq-collaps .faq-icon i.fa-plus,
-    .tf-faq-wrapper .tf-faq-inner .active .tf-faq-single-inner .tf-faq-collaps .faq-icon i.fa-minus {
-      color: var(--tr-common-black);
-    }
-    .tf-review-wrapper .tf-review-form .tf-review-form-container .tf-rating-wrapper .tf-form-single-rating > label {
-      font-family: var(--tr-ff-heading);
-      font-size: 16px !important;
-      font-weight: 500 !important;
-      line-height: 1.5 !important;
-      color: var(--tr-common-black);
-    }
-    .tf-review-wrapper .tf-review-form .tf-review-form-container .review-desc textarea {
-      padding: 15px 20px;
-      border: 1px solid var(--tr-border-1);
-      background: var(--tr-grey-1);
-      width: 100%;
-      border-radius: 20px;
-      font-size: 16px;
-      color: var(--tr-text-body);
-      font-family: var(--tr-ff-body);
-    }
-    .tf-review-wrapper .tf-review-form .tf-review-form-container .tf-rating-wrapper .tf-form-single-rating .ratings-container label:before {
-      color: var(--tr-theme-1);
-    }
-    .tf-btn-normal,
-    .tf-review-wrapper .tf-review-form .tf-review-form-container .tf-review-submit input[type="submit"],
-    .tf_button.btn-styled {
-      font-family: var(--tr-ff-body);
-      font-weight: 500 !important;
-      font-size: 18px !important;
-      padding: 16px 30px !important;
-      border-radius: 999px !important;
-      color: var(--tr-common-white) !important;
-      border: 1px solid transparent !important;
-      background: var(--tr-theme-1) !important;
-      &:hover {
-        color: var(--tr-common-black) !important;
-        background: transparent !important;
-        border-color: var(--tr-theme-1) !important;
-      }
-    }
-    .tf-trip-info .tf-trip-pricing .tf-price-amount {
-      color: var(--tr-theme-1);
-      font-weight: 700;
-    }
-    .tf-tour-details-right .tf-booking-price p {
-      font-size: 30px !important;
-      font-weight: 700 !important;
-      color: var(--tr-theme-1);
-    }
-    .tf-tour-details-right .tf-tour-booking-advantages,
-    .tf-tour-details-right .tf-tour-booking-box {
-      background: var(--tr-grey-1);
-      border-radius: 20px;
-      box-shadow: none;
-    }
-    .tf-tour-details-right .tf-tour-booking-advantages li a {
-      color: var(--tr-text-body);
-    }
-    .tf-tour-details-right .tf-tour-booking-advantages li a:hover {
-      color: var(--tr-theme-1);
-    }
-    .tf-tour-details-right .tf-tour-booking-advantages li i {
-      height: 50px;
-      width: 50px;
-      background: var(--tr-common-white);
-      border-radius: 50%;
-    }
-    .tf-ask-enquiry i {
-      background-color: var(--tr-common-white);
-      border-radius: 50%;
-      color: var(--tr-theme-1);
-    }
-    .tf-ask-enquiry h3 {
-      margin-bottom: 15px;
-    }
-    .tf-booking-form-inner h3 {
-      margin-bottom: 16px;
-    }
-    .tf-tour-details-right .tf-form-title p {
-      color: var(--tr-common-black) !important;
-      font-size: 24px !important;
-      font-weight: 700 !important;
-    }
-    .tf-field-group.tf_form-inner .tf-field,
-    .tf-field-group .tf-field {
-      border: none !important;
-      padding: 15px 40px !important;
-      width: 100% !important;
-      border-radius: 5px !important;
-      font-size: 16px !important;
-      margin: 0px !important;
-      color: var(--tr-text-body) !important;
-      font-family: var(--tr-ff-body);
-      background: var(--tr-common-white) !important;
-      -moz-appearance: auto !important;
-      height: 60px;
-      &:focus {
-        box-shadow: none;
-      }
-      i {
-        color: var(--tr-theme-1);
-      }
-    }
-    .tf-field-group.tf_form-inner i,
-    .tf-field-group i {
-      color: var(--tr-theme-1);
-    }
-    .tf_acrselection.tf-field-group .tf-field {
-      padding: 15px 20px !important;
-    }
-    .acr-select input[type="number"] {
-      width: 50px !important;
-      padding: 0px !important;
-      margin: 0px !important;
-      border: 0px !important;
-      box-shadow: none;
-      background: transparent !important;
-      text-align: center;
-      -moz-appearance: none !important;
-      appearance: none !important;
-      height: unset;
-      line-height: unset;
-    }
-    .acr-inc,
-    .acr-dec {
-      background-color: var(--tr-common-white);
-      color: var(--tr-theme-1);
-      border-color: var(--tr-border-1);
-      border: 1px solid var(--tr-border-1);
-      font-size: 24px;
-      font-weight: 500;
-    }
-  }
+.tf-single-page.tf-template-global {
+  padding-top: 100px;
+  padding-bottom: 60px;
 }
-
-div.tf-aq-inner {
-  .tf-ask-question-head-content h3 {
-    font-family: var(--tr-ff-heading);
-    color: var(--tr-common-black);
-  }
-  .ask-question-svg svg * {
-    fill: var(--tr-theme-1);
-  }
-  .tf-aq-field input,
-  .tf-aq-field textarea {
-    border: 1px solid var(--tr-border-1);
-    border-radius: 30px;
-    padding: 12px 16px;
-    background-color: var(--tr-grey-1);
-    color: var(--tr-text-body);
-    &:focus {
-      border-color: var(--tr-theme-1);
-    }
-  }
-  .tf-aq-field label {
-    font-family: var(--tr-ff-heading);
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--tr-common-black);
-  }
-  form .tf-ask-question-submit {
-    font-family: var(--tr-ff-body) !important;
-    font-weight: 500 !important;
-    font-size: 18px !important;
-    padding: 16px 30px !important;
-    border-radius: 999px !important;
-    color: var(--tr-common-white) !important;
-    border: 1px solid transparent !important;
-    background: var(--tr-theme-1) !important;
-    &:hover {
-      color: var(--tr-common-black) !important;
-      background: transparent !important;
-      border-color: var(--tr-theme-1) !important;
-    }
-  }
+.tf-single-page .tf-tour-single .tf-template-container {
+  max-width: 1320px;
+  padding: 0px 15px;
 }
-
+.tf-single-page .tf-tour-single .tf-template-container .tf-bottom-booking-bar {
+  display: none;
+}
+.tf-single-page .tf-tour-single .tf-container-inner p {
+  font-family: var(--tr-ff-body) !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  font-style: normal !important;
+  line-height: 1.5 !important;
+  color: var(--tr-text-body);
+}
+.tf-single-page .tf-tour-single .tf-container-inner h1,
+.tf-single-page .tf-tour-single .tf-main-wrapper h1,
+.tf-single-page .tf-tour-single .tf-container h1,
+.tf-single-page .tf-tour-single .tf-container-inner h2,
+.tf-single-page .tf-tour-single .tf-main-wrapper h2,
+.tf-single-page .tf-tour-single .tf-container h2,
+.tf-single-page .tf-tour-single .tf-container-inner h3,
+.tf-single-page .tf-tour-single .tf-main-wrapper h3,
+.tf-single-page .tf-tour-single .tf-container h3,
+.tf-single-page .tf-tour-single #tour_room_details_qv h3,
+.tf-single-page .tf-tour-single .tf-container-inner h4,
+.tf-single-page .tf-tour-single .tf-main-wrapper h4,
+.tf-single-page .tf-tour-single #tour_room_details_qv h4,
+.tf-single-page .tf-tour-single .tf-container h4,
+.tf-single-page .tf-tour-single #tf-ask-question h4,
+.tf-single-page .tf-tour-single .tf-container-inner h5,
+.tf-single-page .tf-tour-single .tf-main-wrapper h5,
+.tf-single-page .tf-tour-single .tf-container h5,
+.tf-single-page .tf-tour-single .tf-container-inner h6,
+.tf-single-page .tf-tour-single .tf-main-wrapper h6,
+.tf-single-page .tf-tour-single .tf-container h6 {
+  font-family: var(--tr-ff-heading) !important;
+  font-weight: 700 !important;
+  color: var(--tr-common-black) !important;
+  line-height: 1 !important;
+}
+.tf-single-page .tf-tour-single .tf-section-title {
+  margin-bottom: 20px;
+}
+.tf-single-page .tf-tour-single .tf-single-head .tf-head-info .tf-head-title h1 {
+  margin-bottom: 20px;
+}
+.tf-single-page .tf-tour-single .tf-single-head a {
+  color: var(--tr-text-body);
+}
+.tf-single-page .tf-tour-single .tf-trip-info li i,
+.tf-single-page .tf-tour-single .tf-single-head i {
+  color: var(--tr-theme-1) !important;
+}
+.tf-single-page .tf-tour-single .tf-head-info .tf-icon i {
+  background: var(--tr-grey-1);
+  box-shadow: none;
+}
+.tf-single-page .tf-tour-single .tf-head-info .share-tour-content .tf-dropdown-share-content h4 {
+  font-size: 16px !important;
+  color: var(--tr-text-body) !important;
+  font-weight: 500;
+}
+.tf-single-page .tf-tour-single .tf-hero-gallery .tf-gallery-featured {
+  margin-bottom: 30px;
+}
+.tf-single-page .tf-tour-single .tf-hero-gallery .tf-gallery-featured .tf-single-review-box .tf-single-rating {
+  background-color: rgba(3, 72, 51, 0.65);
+  color: var(--tr-common-white);
+  border-radius: 5px;
+}
+.tf-single-page .tf-tour-single .tf-hero-gallery .tf-gallery a.tf-gallery-more {
+  position: relative;
+  overflow: hidden;
+}
+.tf-single-page .tf-tour-single .tf-hero-gallery .tf-gallery a.tf-gallery-more::before {
+  background: #0000009c;
+  font-size: 16px;
+  border-radius: 20px;
+}
+.tf-single-page .tf-tour-single .tf-hero-gallery img {
+  border-radius: 20px;
+}
+.tf-single-page .tf-tour-single .tf-hero-gallery .tf-gallery-featured .featured-column {
+  background: var(--tr-grey-1);
+  border-radius: 5px;
+}
+.tf-single-page .tf-tour-single .tf-hero-gallery .tf-gallery-featured .featured-column a {
+  color: var(--tr-text-body);
+}
+.tf-single-page .tf-tour-single .tf-hero-gallery .tf-gallery-featured .featured-column a:hover {
+  background-color: var(--tr-theme-1);
+  color: var(--tr-common-white);
+}
+.tf-single-page .tf-tour-single .tf-trip-info {
+  background-color: none;
+  border-radius: 20px;
+  box-shadow: none;
+  border: 1px solid var(--tr-border-1);
+}
+.tf-single-page .tf-tour-single .tf-trip-info li {
+  font-size: 16px;
+  font-family: var(--tr-ff-body);
+  color: var(--tr-text-body);
+}
+.tf-single-page .tf-tour-single .tf-trip-info .person-info {
+  border: 1px solid var(--tr-border-1);
+  box-shadow: none;
+  width: max-content;
+  height: unset;
+  flex-direction: row;
+  padding: 10px 15px;
+  gap: 12px;
+}
+.tf-single-page .tf-tour-single .tf-trip-info .person-info.active {
+  background: var(--tr-grey-1);
+}
+.tf-single-page .tf-tour-single .tf-trip-feature-blocks .tf-feature-block {
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  align-items: start;
+}
+.tf-single-page .tf-tour-single .tf-trip-feature-blocks .tf-feature-block i {
+  color: var(--tr-theme-1) !important;
+  font-size: 30px;
+  line-height: 1;
+}
+.tf-single-page .tf-tour-single .tf-highlights-wrapper {
+  background: none;
+  border-radius: 20px;
+  box-shadow: none;
+  border: 1px solid var(--tr-border-1);
+}
+.tf-single-page .tf-tour-single .tf-inex-wrapper .tf-inex {
+  background: none;
+  border-radius: 20px;
+  box-shadow: none;
+  border: 1px solid var(--tr-border-1);
+}
+.tf-single-page .tf-tour-single #tf-tour-map .tf-map-area #tour-location {
+  border-radius: 20px;
+}
+.tf-single-page .tf-tour-single .tf-faq-wrapper .tf-faq-inner .tf-faq-single {
+  border-bottom: 0;
+  margin-bottom: 20px;
+}
+.tf-single-page .tf-tour-single .tf-faq-wrapper .tf-faq-inner .tf-faq-single:last-child {
+  margin-bottom: 0;
+}
+.tf-single-page .tf-tour-single .tf-faq-wrapper .tf-faq-inner .active .tf-faq-single-inner {
+  background: none;
+  border-radius: 20px;
+  margin: 0;
+  box-shadow: none;
+}
+.tf-single-page .tf-tour-single .tf-faq-wrapper .tf-faq-inner .tf-faq-single-inner {
+  border-radius: 20px;
+  overflow: hidden;
+}
+.tf-single-page .tf-tour-single .tf-faq-wrapper .tf-faq-single-inner .tf-faq-collaps {
+  padding: 24px;
+  background: var(--tr-grey-1);
+  box-shadow: none;
+}
+.tf-single-page .tf-tour-single .tf-faq-wrapper .tf-faq-single-inner .tf-faq-content {
+  background: var(--tr-grey-1);
+}
+.tf-single-page .tf-tour-single .tf-faq-wrapper .tf-faq-single-inner .tf-faq-collaps .faq-icon i.fa-plus,
+.tf-single-page .tf-tour-single .tf-faq-wrapper .tf-faq-inner .active .tf-faq-single-inner .tf-faq-collaps .faq-icon i.fa-minus {
+  color: var(--tr-common-black);
+}
+.tf-single-page .tf-tour-single .tf-review-wrapper .tf-review-form .tf-review-form-container .tf-rating-wrapper .tf-form-single-rating > label {
+  font-family: var(--tr-ff-heading);
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+  color: var(--tr-common-black);
+}
+.tf-single-page .tf-tour-single .tf-review-wrapper .tf-review-form .tf-review-form-container .review-desc textarea {
+  padding: 15px 20px;
+  border: 1px solid var(--tr-border-1);
+  background: var(--tr-grey-1);
+  width: 100%;
+  border-radius: 20px;
+  font-size: 16px;
+  color: var(--tr-text-body);
+  font-family: var(--tr-ff-body);
+}
+.tf-single-page .tf-tour-single .tf-review-wrapper .tf-review-form .tf-review-form-container .tf-rating-wrapper .tf-form-single-rating .ratings-container label:before {
+  color: var(--tr-theme-1);
+}
+.tf-single-page .tf-tour-single .tf-btn-normal,
+.tf-single-page .tf-tour-single .tf-review-wrapper .tf-review-form .tf-review-form-container .tf-review-submit input[type="submit"],
+.tf-single-page .tf-tour-single .tf_button.btn-styled {
+  font-family: var(--tr-ff-body);
+  font-weight: 500 !important;
+  font-size: 18px !important;
+  padding: 16px 30px !important;
+  border-radius: 999px !important;
+  color: var(--tr-common-white) !important;
+  border: 1px solid transparent !important;
+  background: var(--tr-theme-1) !important;
+}
+.tf-single-page .tf-tour-single .tf-btn-normal:hover,
+.tf-single-page .tf-tour-single .tf-review-wrapper .tf-review-form .tf-review-form-container .tf-review-submit input[type="submit"]:hover,
+.tf-single-page .tf-tour-single .tf_button.btn-styled:hover {
+  color: var(--tr-common-black) !important;
+  background: transparent !important;
+  border-color: var(--tr-theme-1) !important;
+}
+.tf-single-page .tf-tour-single .tf-trip-info .tf-trip-pricing .tf-price-amount {
+  color: var(--tr-theme-1);
+  font-weight: 700;
+}
+.tf-single-page .tf-tour-single .tf-tour-details-right .tf-booking-price p {
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  color: var(--tr-theme-1);
+}
+.tf-single-page .tf-tour-single .tf-tour-details-right .tf-tour-booking-advantages,
+.tf-single-page .tf-tour-single .tf-tour-details-right .tf-tour-booking-box {
+  background: var(--tr-grey-1);
+  border-radius: 20px;
+  box-shadow: none;
+}
+.tf-single-page .tf-tour-single .tf-tour-details-right .tf-tour-booking-advantages li a {
+  color: var(--tr-text-body);
+}
+.tf-single-page .tf-tour-single .tf-tour-details-right .tf-tour-booking-advantages li a:hover {
+  color: var(--tr-theme-1);
+}
+.tf-single-page .tf-tour-single .tf-tour-details-right .tf-tour-booking-advantages li i {
+  height: 50px;
+  width: 50px;
+  background: var(--tr-common-white);
+  border-radius: 50%;
+}
+.tf-single-page .tf-tour-single .tf-ask-enquiry i {
+  background-color: var(--tr-common-white);
+  border-radius: 50%;
+  color: var(--tr-theme-1);
+}
+.tf-single-page .tf-tour-single .tf-ask-enquiry h3 {
+  margin-bottom: 15px;
+}
+.tf-single-page .tf-tour-single .tf-booking-form-inner h3 {
+  margin-bottom: 16px;
+}
+.tf-single-page .tf-tour-single .tf-tour-details-right .tf-form-title p {
+  color: var(--tr-common-black) !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+}
+.tf-single-page .tf-tour-single .tf-field-group.tf_form-inner .tf-field,
+.tf-single-page .tf-tour-single .tf-field-group .tf-field {
+  border: none !important;
+  padding: 15px 40px !important;
+  width: 100% !important;
+  border-radius: 5px !important;
+  font-size: 16px !important;
+  margin: 0px !important;
+  color: var(--tr-text-body) !important;
+  font-family: var(--tr-ff-body);
+  background: var(--tr-common-white) !important;
+  -moz-appearance: auto !important;
+  height: 60px;
+}
+.tf-single-page .tf-tour-single .tf-field-group.tf_form-inner .tf-field:focus,
+.tf-single-page .tf-tour-single .tf-field-group .tf-field:focus {
+  box-shadow: none;
+}
+.tf-single-page .tf-tour-single .tf-field-group.tf_form-inner .tf-field i,
+.tf-single-page .tf-tour-single .tf-field-group .tf-field i {
+  color: var(--tr-theme-1);
+}
+.tf-single-page .tf-tour-single .tf-field-group.tf_form-inner i,
+.tf-single-page .tf-tour-single .tf-field-group i {
+  color: var(--tr-theme-1);
+}
+.tf-single-page .tf-tour-single .tf_acrselection.tf-field-group .tf-field {
+  padding: 15px 20px !important;
+}
+.tf-single-page .tf-tour-single .acr-select input[type="number"] {
+  width: 50px !important;
+  padding: 0px !important;
+  margin: 0px !important;
+  border: 0px !important;
+  box-shadow: none;
+  background: transparent !important;
+  text-align: center;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  height: unset;
+  line-height: unset;
+}
+.tf-single-page .tf-tour-single .acr-inc,
+.tf-single-page .tf-tour-single .acr-dec {
+  background-color: var(--tr-common-white);
+  color: var(--tr-theme-1);
+  border-color: var(--tr-border-1);
+  border: 1px solid var(--tr-border-1);
+  font-size: 24px;
+  font-weight: 500;
+}
+.tf-single-page .tf-tour-single {
+  margin-bottom: 0;
+}
+.tf-single-page .tf-tour-single .upcomming-tours {
+  padding-top: 100px;
+  border-top: 1px solid var(--tr-border-1);
+}
+.tf-single-page .tf-tour-single .upcomming-tours .section-title h2 {
+  margin-bottom: 20px;
+}
+.tf-single-page .tf-tour-single .upcomming-tours .tf-slider-items-wrapper.slick-slider {
+  margin-bottom: 0;
+}
+.tf-single-page .tf-tour-single .upcomming-tours .tf-slider-items-wrapper.slick-slider .slick-list {
+  margin: 0 !important;
+}
+.tf-single-page .tf-tour-single .upcomming-tours .tf-slider-items-wrapper.slick-slider .slick-track {
+  margin-left: unset;
+  margin-right: unset;
+  width: 100% !important;
+}
+.tf-single-page .tf-tour-single .upcomming-tours .tf-slider-items-wrapper.slick-slider .slick-track .tf-slider-item {
+  margin: 0 30px 30px !important;
+  margin-left: 0 !important;
+}
+.tf-single-page .tf-tour-single .upcomming-tours .tf-slider-items-wrapper.slick-slider .slick-track .tf-slider-item:last-child {
+  margin-right: 0 !important;
+}
+.tf-single-page .tf-tour-single .upcomming-tours .tf-slider-items-wrapper.slick-slider .slick-track .tf-slider-item .tf-post-single-box {
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: var(--tr-common-white);
+  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.1);
+}
+.tf-single-page .tf-tour-single .upcomming-tours .tf-slider-items-wrapper.slick-slider .slick-track .tf-slider-item .tf-post-single-box .tf-image-data {
+  border-radius: 0;
+}
+.tf-single-page .tf-tour-single .upcomming-tours .tf-slider-items-wrapper.slick-slider .slick-track .tf-slider-item .tf-post-single-box .tf-meta-data-price {
+  background: var(--tr-common-white);
+  padding: 15px 22px;
+  font-size: 15px;
+  border-radius: 0 20px 0 0;
+  color: var(--tr-text-body);
+}
+.tf-single-page .tf-tour-single .upcomming-tours .tf-slider-items-wrapper.slick-slider .slick-track .tf-slider-item .tf-post-single-box .tf-meta-data-price span {
+  color: var(--tr-theme-1);
+  font-size: 20px;
+  font-weight: 600;
+}
+.tf-single-page .tf-tour-single .upcomming-tours .tf-slider-items-wrapper.slick-slider .slick-track .tf-slider-item .tf-post-single-box .tf-meta-info {
+  padding: 30px;
+  margin-top: 0;
+}
+.tf-single-page .tf-tour-single .upcomming-tours .tf-slider-items-wrapper.slick-slider .slick-track .tf-slider-item .tf-post-single-box .tf-meta-title {
+  margin-top: 15px;
+}
+.tf-single-page .tf-tour-single .upcomming-tours .tf-slider-items-wrapper.slick-slider .slick-track .tf-slider-item .tf-post-single-box .tf-meta-title h2 {
+  font-size: 24px !important;
+  line-height: 1.2 !important;
+  font-family: var(--tr-ff-heading);
+}
+.tf-single-page .tf-tour-single .upcomming-tours .tf-slider-items-wrapper.slick-slider .slick-track .tf-slider-item .tf-post-single-box .tf-meta-title h2 a {
+  color: inherit;
+}
+.tf-single-page .tf-tour-single .upcomming-tours .tf-slider-items-wrapper.slick-slider .slick-track .tf-slider-item .tf-post-single-box .tf-meta-title h2:hover a {
+  color: var(--tr-theme-1);
+}
+.tf-single-page .tf-tour-single .upcomming-tours .tf-slider-items-wrapper.slick-slider .slick-dots {
+  display: none;
+}
+div.tf-aq-inner .tf-ask-question-head-content h3 {
+  font-family: var(--tr-ff-heading);
+  color: var(--tr-common-black);
+}
+div.tf-aq-inner .ask-question-svg svg * {
+  fill: var(--tr-theme-1);
+}
+div.tf-aq-inner .tf-aq-field input,
+div.tf-aq-inner .tf-aq-field textarea {
+  border: 1px solid var(--tr-border-1);
+  border-radius: 30px;
+  padding: 12px 16px;
+  background-color: var(--tr-grey-1);
+  color: var(--tr-text-body);
+}
+div.tf-aq-inner .tf-aq-field input:focus,
+div.tf-aq-inner .tf-aq-field textarea:focus {
+  border-color: var(--tr-theme-1);
+}
+div.tf-aq-inner .tf-aq-field label {
+  font-family: var(--tr-ff-heading);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--tr-common-black);
+}
+div.tf-aq-inner form .tf-ask-question-submit {
+  font-family: var(--tr-ff-body) !important;
+  font-weight: 500 !important;
+  font-size: 18px !important;
+  padding: 16px 30px !important;
+  border-radius: 999px !important;
+  color: var(--tr-common-white) !important;
+  border: 1px solid transparent !important;
+  background: var(--tr-theme-1) !important;
+}
+div.tf-aq-inner form .tf-ask-question-submit:hover {
+  color: var(--tr-common-black) !important;
+  background: transparent !important;
+  border-color: var(--tr-theme-1) !important;
+}
 div.tf-withoutpayment-booking .tf-withoutpayment-popup .tf-booking-tabs,
 div.tf-withoutpayment-booking-confirm .tf-withoutpayment-popup .tf-booking-tabs {
   border-bottom: 0.3px solid var(--tr-border-1);
@@ -362,7 +430,6 @@ div.tf-withoutpayment-booking-confirm .tf-withoutpayment-popup .tf-booking-conte
   font-family: var(--tr-ff-heading);
   font-weight: 700 !important;
 }
-
 div.tf-withoutpayment-booking .tf-withoutpayment-popup .tf-booking-content-summery .tf-booking-summery .tf-booking-fixed-summery h4,
 div.tf-withoutpayment-booking-confirm .tf-withoutpayment-popup .tf-booking-content-summery .tf-booking-summery .tf-booking-fixed-summery h4 {
   color: var(--tr-common-black);
@@ -387,7 +454,6 @@ div.tf-withoutpayment-booking-confirm .tf-withoutpayment-popup .tf-booking-conte
   font-family: var(--tr-ff-heading);
   border-top: 0.3px solid var(--tr-border-1);
 }
-
 div.tf-withoutpayment-booking .tf-withoutpayment-popup .tf-booking-pagination .tf-control-pagination button,
 div.tf-withoutpayment-booking-confirm .tf-withoutpayment-popup .tf-booking-pagination .tf-control-pagination button {
   font-family: var(--tr-ff-body) !important;
@@ -398,214 +464,257 @@ div.tf-withoutpayment-booking-confirm .tf-withoutpayment-popup .tf-booking-pagin
   color: var(--tr-common-white) !important;
   border: 1px solid transparent !important;
   background: var(--tr-theme-1) !important;
-  &:hover {
-    color: var(--tr-common-black) !important;
-    background: transparent !important;
-    border-color: var(--tr-theme-1) !important;
-  }
 }
-
+div.tf-withoutpayment-booking .tf-withoutpayment-popup .tf-booking-pagination .tf-control-pagination button:hover,
+div.tf-withoutpayment-booking-confirm .tf-withoutpayment-popup .tf-booking-pagination .tf-control-pagination button:hover {
+  color: var(--tr-common-black) !important;
+  background: transparent !important;
+  border-color: var(--tr-theme-1) !important;
+}
 /* Tour grid css */
-.tf-archive-page {
-  &.tf-template-global {
-    padding: 100px 0;
-  }
-  .tf-container {
-    max-width: 1320px;
-  }
-  .tf-container h3 {
-    font-weight: 700 !important;
-    font-size: 24px !important;
-    font-style: normal !important;
-    line-height: 1.2 !important;
-    font-family: var(--tr-ff-heading);
-    color: var(--tr-common-black);
-  }
-  .tf-archive-inner {
-    .tf-archive-head .tf-search-result {
-      color: var(--tr-common-black);
-    }
-    .tf-archive-head .tf-icon {
-      background-color: var(--tr-grey-1);
-      border-radius: 5px;
-      border: 1px solid var(--tr-border-1);
-      svg * {
-        fill: var(--tr-theme-1);
-      }
-      &.active {
-        background: var(--tr-theme-1);
-        border-color: var(--tr-theme-1);
-        svg * {
-          fill: var(--tr-common-white);
-        }
-      }
-    }
-    .tf-archive-ordering .nice-select {
-      height: 50px;
-      line-height: 50px;
-      border: 1px solid var(--tr-border-1);
-      .option:hover {
-        background-color: var(--tr-theme-1);
-        color: var(--tr-common-white);
-      }
-    }
-    .tf-search-results-list .tf-item-card {
-      overflow: hidden;
-      background-color: var(--tr-common-white);
-      border-radius: 20px;
-      box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.1);
-    }
-    .tf-search-results-list .tf-item-card .tf-item-details {
-      padding: 30px;
-    }
-    .tf-search-results-list .tf-item-card .tf-item-details i {
-      color: var(--tr-theme-1) !important;
-    }
-    .tf-search-results-list .tf-item-card .tf-item-details p {
-      font-size: 16px !important;
-      color: var(--tr-text-body);
-      line-height: 1.5 !important;
-    }
-    .tf-search-results-list .tf-item-card .tf-item-details .tf-title h2 {
-      font-size: 24px !important;
-      line-height: 1.2 !important;
-      font-family: var(--tr-ff-heading);
-      font-weight: 700 !important;
-      a {
-        color: var(--tr-common-black);
-        display: inline;
-        background-repeat: no-repeat;
-        background-size: 0% 1px, 0 1px;
-        background-position: 100% 100%, 0 100%;
-        transition: background-size 0.3s linear;
-        background-image: linear-gradient(var(--tr-common-black), var(--tr-common-black)), linear-gradient(var(--tr-common-black), var(--tr-common-black));
-        &:hover {
-          color: var(--tr-theme-1);
-          background-size: 0% 1px, 100% 1px;
-        }
-      }
-    }
-    .tf-search-results-list .tf-item-card .tf-item-details .tf-post-footer .tf-pricing {
-      font-size: 16px;
-      font-family: var(--tr-ff-body);
-    }
-    .tf-search-results-list .tf-item-card .tf-item-details .tf-post-footer .tf-pricing span {
-      font-size: 20px;
-      color: var(--tr-theme-1) !important;
-      font-weight: 600;
-    }
-    .tf-search-results-list .tf-item-card .tf-item-details .tf-post-footer .tf-pricing del span {
-      font-size: 16px;
-    }
-    .tf-search-results-list .tf-item-card .tf-item-details .tf-post-footer .tf-booking-bttns {
-      a {
-        font-family: var(--tr-ff-body);
-        font-weight: 600;
-        padding: 0;
-        background: transparent !important;
-        color: var(--tr-text-body) !important;
-        &:hover {
-          color: var(--tr-theme-1) !important;
-        }
-      }
-    }
-    .tf-search-results-list .tf-item-card .tf-item-featured .tf-features-box .tf-feature {
-      background: var(--tr-theme-1) !important;
-      color: var(--tr-common-white);
-    }
-    .tf-search-results-list .tf-item-card .tf-item-featured {
-      overflow: hidden;
-      img {
-        transition: all 0.9s;
-      }
-    }
-    .tf-search-results-list .tf-item-card .tf-item-featured .tf-tag-items {
-      z-index: 9999999;
-    }
-    .tf-search-results-list .tf-layout-grid .tf-item-card:hover {
-      .tf-item-featured {
-        img {
-          transform: scale(1.1) rotate(-2deg);
-        }
-      }
-    }
-    .tf-sidebar .tf-box-wrapper.tf-box {
-      background: var(--tr-grey-1);
-      border-radius: 20px;
-      box-shadow: none;
-      .tf-field-group.tf_form-inner .tf-field,
-      .tf-field-group .tf-field {
-        border: none !important;
-        padding: 15px 40px !important;
-        width: 100% !important;
-        border-radius: 5px !important;
-        font-size: 16px !important;
-        margin: 0px !important;
-        color: var(--tr-text-body) !important;
-        font-family: var(--tr-ff-body);
-        background: var(--tr-common-white) !important;
-        -moz-appearance: auto !important;
-        height: 60px;
-        &:focus {
-          box-shadow: none;
-        }
-        i {
-          color: var(--tr-theme-1);
-        }
-      }
-      .tf_acrselection.tf-field-group .tf-field {
-        padding: 15px 20px !important;
-      }
-      .acr-select input[type="number"] {
-        width: 50px !important;
-        padding: 0px !important;
-        margin: 0px !important;
-        border: 0px !important;
-        box-shadow: none;
-        background: transparent !important;
-        text-align: center;
-        -moz-appearance: none !important;
-        appearance: none !important;
-        height: unset;
-        line-height: unset;
-      }
-      .acr-inc,
-      .acr-dec {
-        background-color: var(--tr-common-white);
-        color: var(--tr-theme-1);
-        border-color: var(--tr-border-1);
-        border: 1px solid var(--tr-border-1);
-        font-size: 24px;
-        font-weight: 500;
-      }
-      .tf-field-group.tf_form-inner i,
-      .tf-field-group i {
-        color: var(--tr-theme-1);
-      }
-      .tf-booking-bttns button {
-        font-family: var(--tr-ff-body);
-        font-weight: 500 !important;
-        font-size: 18px !important;
-        padding: 16px 30px !important;
-        border-radius: 999px !important;
-        color: var(--tr-common-white) !important;
-        border: 1px solid transparent !important;
-        background: var(--tr-theme-1) !important;
-        &:hover {
-          color: var(--tr-common-black) !important;
-          background: transparent !important;
-          border-color: var(--tr-theme-1) !important;
-        }
-      }
-      .tf-field-group.tf-destination-box {
-        margin-bottom: 16px;
-      }
-    }
-  }
+.tf-archive-page.tf-template-global {
+  padding: 100px 0;
 }
-
+.tf-archive-page .tf-container {
+  max-width: 1320px;
+}
+.tf-archive-page .tf-container h3 {
+  font-weight: 700 !important;
+  font-size: 24px !important;
+  font-style: normal !important;
+  line-height: 1.2 !important;
+  font-family: var(--tr-ff-heading);
+  color: var(--tr-common-black);
+}
+.tf-archive-page .tf-archive-inner .tf-archive-head .tf-search-result {
+  color: var(--tr-common-black);
+}
+.tf-archive-page .tf-archive-inner .tf-archive-head .tf-icon {
+  background-color: var(--tr-grey-1);
+  border-radius: 5px;
+  border: 1px solid var(--tr-border-1);
+}
+.tf-archive-page .tf-archive-inner .tf-archive-head .tf-icon svg * {
+  fill: var(--tr-theme-1);
+}
+.tf-archive-page .tf-archive-inner .tf-archive-head .tf-icon.active {
+  background: var(--tr-theme-1);
+  border-color: var(--tr-theme-1);
+}
+.tf-archive-page .tf-archive-inner .tf-archive-head .tf-icon.active svg * {
+  fill: var(--tr-common-white);
+}
+.tf-archive-page .tf-archive-inner .tf-archive-ordering .nice-select {
+  height: 50px;
+  line-height: 50px;
+  border: 1px solid var(--tr-border-1);
+}
+.tf-archive-page .tf-archive-inner .tf-archive-ordering .nice-select .option:hover {
+  background-color: var(--tr-theme-1);
+  color: var(--tr-common-white);
+}
+.tf-archive-page .tf-archive-inner .tf-search-results-list .tf-item-card {
+  overflow: hidden;
+  background-color: var(--tr-common-white);
+  border-radius: 20px;
+  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.1);
+}
+.tf-archive-page .tf-archive-inner .tf-search-results-list .tf-item-card .tf-item-details {
+  padding: 30px;
+}
+.tf-archive-page .tf-archive-inner .tf-search-results-list .tf-item-card .tf-item-details i {
+  color: var(--tr-theme-1) !important;
+}
+.tf-archive-page .tf-archive-inner .tf-search-results-list .tf-item-card .tf-item-details p {
+  font-size: 16px !important;
+  color: var(--tr-text-body);
+  line-height: 1.5 !important;
+}
+.tf-archive-page .tf-archive-inner .tf-search-results-list .tf-item-card .tf-item-details .tf-title h2 {
+  font-size: 24px !important;
+  line-height: 1.2 !important;
+  font-family: var(--tr-ff-heading);
+  font-weight: 700 !important;
+}
+.tf-archive-page .tf-archive-inner .tf-search-results-list .tf-item-card .tf-item-details .tf-title h2 a {
+  color: var(--tr-common-black);
+  display: inline;
+  background-repeat: no-repeat;
+  background-size: 0% 1px, 0 1px;
+  background-position: 100% 100%, 0 100%;
+  transition: background-size 0.3s linear;
+  background-image: linear-gradient(var(--tr-common-black), var(--tr-common-black)), linear-gradient(var(--tr-common-black), var(--tr-common-black));
+}
+.tf-archive-page .tf-archive-inner .tf-search-results-list .tf-item-card .tf-item-details .tf-title h2 a:hover {
+  color: var(--tr-theme-1);
+  background-size: 0% 1px, 100% 1px;
+}
+.tf-archive-page .tf-archive-inner .tf-search-results-list .tf-item-card .tf-item-details .tf-post-footer .tf-pricing {
+  font-size: 16px;
+  font-family: var(--tr-ff-body);
+}
+.tf-archive-page .tf-archive-inner .tf-search-results-list .tf-item-card .tf-item-details .tf-post-footer .tf-pricing span {
+  font-size: 20px;
+  color: var(--tr-theme-1) !important;
+  font-weight: 600;
+}
+.tf-archive-page .tf-archive-inner .tf-search-results-list .tf-item-card .tf-item-details .tf-post-footer .tf-pricing del span {
+  font-size: 16px;
+}
+.tf-archive-page .tf-archive-inner .tf-search-results-list .tf-item-card .tf-item-details .tf-post-footer .tf-booking-bttns a {
+  font-family: var(--tr-ff-body);
+  font-weight: 600;
+  padding: 0;
+  background: transparent !important;
+  color: var(--tr-text-body) !important;
+}
+.tf-archive-page .tf-archive-inner .tf-search-results-list .tf-item-card .tf-item-details .tf-post-footer .tf-booking-bttns a:hover {
+  color: var(--tr-theme-1) !important;
+}
+.tf-archive-page .tf-archive-inner .tf-search-results-list .tf-item-card .tf-item-featured .tf-features-box .tf-feature {
+  background: var(--tr-theme-1) !important;
+  color: var(--tr-common-white);
+}
+.tf-archive-page .tf-archive-inner .tf-search-results-list .tf-item-card .tf-item-featured {
+  overflow: hidden;
+}
+.tf-archive-page .tf-archive-inner .tf-search-results-list .tf-item-card .tf-item-featured img {
+  transition: all 0.9s;
+}
+.tf-archive-page .tf-archive-inner .tf-search-results-list .tf-item-card .tf-item-featured .tf-tag-items {
+  z-index: 9999999;
+}
+.tf-archive-page .tf-archive-inner .tf-search-results-list .tf-layout-grid .tf-item-card:hover .tf-item-featured img {
+  transform: scale(1.1) rotate(-2deg);
+}
+.tf-archive-page .tf-archive-inner .tf-sidebar .tf-box-wrapper.tf-box {
+  background: var(--tr-grey-1);
+  border-radius: 20px;
+  box-shadow: none;
+}
+.tf-archive-page .tf-archive-inner .tf-sidebar .tf-box-wrapper.tf-box .tf-field-group.tf_form-inner .tf-field,
+.tf-archive-page .tf-archive-inner .tf-sidebar .tf-box-wrapper.tf-box .tf-field-group .tf-field {
+  border: none !important;
+  padding: 15px 40px !important;
+  width: 100% !important;
+  border-radius: 5px !important;
+  font-size: 16px !important;
+  margin: 0px !important;
+  color: var(--tr-text-body) !important;
+  font-family: var(--tr-ff-body);
+  background: var(--tr-common-white) !important;
+  -moz-appearance: auto !important;
+  height: 60px;
+}
+.tf-archive-page .tf-archive-inner .tf-sidebar .tf-box-wrapper.tf-box .tf-field-group.tf_form-inner .tf-field:focus,
+.tf-archive-page .tf-archive-inner .tf-sidebar .tf-box-wrapper.tf-box .tf-field-group .tf-field:focus {
+  box-shadow: none;
+}
+.tf-archive-page .tf-archive-inner .tf-sidebar .tf-box-wrapper.tf-box .tf-field-group.tf_form-inner .tf-field i,
+.tf-archive-page .tf-archive-inner .tf-sidebar .tf-box-wrapper.tf-box .tf-field-group .tf-field i {
+  color: var(--tr-theme-1);
+}
+.tf-archive-page .tf-archive-inner .tf-sidebar .tf-box-wrapper.tf-box .tf_acrselection.tf-field-group .tf-field {
+  padding: 15px 20px !important;
+}
+.tf-archive-page .tf-archive-inner .tf-sidebar .tf-box-wrapper.tf-box .acr-select input[type="number"] {
+  width: 50px !important;
+  padding: 0px !important;
+  margin: 0px !important;
+  border: 0px !important;
+  box-shadow: none;
+  background: transparent !important;
+  text-align: center;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  height: unset;
+  line-height: unset;
+}
+.tf-archive-page .tf-archive-inner .tf-sidebar .tf-box-wrapper.tf-box .acr-inc,
+.tf-archive-page .tf-archive-inner .tf-sidebar .tf-box-wrapper.tf-box .acr-dec {
+  background-color: var(--tr-common-white);
+  color: var(--tr-theme-1);
+  border-color: var(--tr-border-1);
+  border: 1px solid var(--tr-border-1);
+  font-size: 24px;
+  font-weight: 500;
+}
+.tf-archive-page .tf-archive-inner .tf-sidebar .tf-box-wrapper.tf-box .tf-field-group.tf_form-inner i,
+.tf-archive-page .tf-archive-inner .tf-sidebar .tf-box-wrapper.tf-box .tf-field-group i {
+  color: var(--tr-theme-1);
+}
+.tf-archive-page .tf-archive-inner .tf-sidebar .tf-box-wrapper.tf-box .tf-booking-bttns button {
+  font-family: var(--tr-ff-body);
+  font-weight: 500 !important;
+  font-size: 18px !important;
+  padding: 16px 30px !important;
+  border-radius: 999px !important;
+  color: var(--tr-common-white) !important;
+  border: 1px solid transparent !important;
+  background: var(--tr-theme-1) !important;
+}
+.tf-archive-page .tf-archive-inner .tf-sidebar .tf-box-wrapper.tf-box .tf-booking-bttns button:hover {
+  color: var(--tr-common-black) !important;
+  background: transparent !important;
+  border-color: var(--tr-theme-1) !important;
+}
+.tf-archive-page .tf-archive-inner .tf-sidebar .tf-box-wrapper.tf-box .tf-field-group.tf-destination-box {
+  margin-bottom: 16px;
+}
 .fa-regular,
-.fa-solid,
 .far {
   font-family: "Font Awesome 6 Pro" !important;
+}
+
+@media (max-width: 991px) {
+  .tf-single-page.tf-template-global {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .tf-single-page .tf-tour-single .tf-template-container {
+    max-width: 720px;
+  }
+  .tf-single-page .tf-tour-single .tf-single-details-wrapper .tf-single-details-inner .tf-tour-details-left {
+    flex-basis: 100%;
+    width: 100%;
+  }
+  .tf-single-page .tf-tour-single .tf-single-details-wrapper .tf-single-details-inner .tf-tour-details-right {
+    flex-basis: 70%;
+    width: 70%;
+  }
+  .tf-single-page .tf-tour-single .upcomming-tours .tf-slider-items-wrapper.slick-slider .slick-track .tf-slider-item {
+    width: 47% !important;
+  }
+  .tf-single-page .tf-tour-single .upcomming-tours {
+    padding-top: 80px;
+    margin-top: 80px;
+  }
+  .tf-single-page .tf-tour-single .tf-single-head .tf-head-info .tf-head-title h1 {
+    font-size: 36px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .tf-single-page.tf-template-global {
+    padding-top: 60px;
+  }
+  .tf-single-page .tf-tour-single .tf-template-container {
+    max-width: 520px;
+  }
+  .tf-single-page .tf-tour-single .tf-single-details-wrapper .tf-single-details-inner .tf-tour-details-right {
+    flex-basis: 100%;
+    width: 100%;
+    margin-top: 0;
+  }
+  .tf-single-page .tf-tour-single .upcomming-tours .tf-slider-items-wrapper.slick-slider .slick-track .tf-slider-item {
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+  .tf-single-page .tf-tour-single .upcomming-tours {
+    padding-top: 60px;
+    margin-top: 60px;
+  }
+  .tf-single-page .tf-tour-single .tf-single-head .tf-head-info .tf-head-title h1 {
+    font-size: 30px !important;
+  }
 }
