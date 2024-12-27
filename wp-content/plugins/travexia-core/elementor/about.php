@@ -139,7 +139,7 @@ class Hexa_About extends Widget_Base
                 'options' => [
                     'layout-1' => esc_html__('Layout 1', 'hexacore'),
                     'layout-2' => esc_html__('Layout 2', 'hexacore'),
-                    // 'layout-3' => esc_html__('Layout 3', 'hexacore'),
+                    'layout-3' => esc_html__('Layout 3', 'hexacore'),
                     // 'layout-4' => esc_html__('Layout 4', 'hexacore'),
                     // 'layout-5' => esc_html__('Layout 5', 'hexacore'),
                     // 'layout-6' => esc_html__('Layout 6', 'hexacore'),
@@ -236,7 +236,6 @@ class Hexa_About extends Widget_Base
 
         $this->end_controls_section();
 
-
         // button
         $this->start_controls_section(
             'hexa_button_section',
@@ -283,7 +282,6 @@ class Hexa_About extends Widget_Base
 
         $this->end_controls_section();
 
-
         // Features Sections
         $this->start_controls_section(
             'about_features_list_sec',
@@ -291,7 +289,7 @@ class Hexa_About extends Widget_Base
                 'label' => esc_html__('Features List', 'hexacore'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
                 'condition' => [
-                    'hexa_design_layout' => ['layout-1', 'layout-2', 'layout-3', 'layout-4', 'layout-5', 'layout-6', 'layout-8', 'layout-9']
+                    'hexa_design_layout' => ['layout-1', 'layout-2', 'layout-3', 'layout-4', 'layout-5']
                 ]
             ]
         );
@@ -306,13 +304,8 @@ class Hexa_About extends Widget_Base
                 'options' => [
                     'style_1' => __('Style 1', 'hexacore'),
                     'style_2' => __('Style 2', 'hexacore'),
-                    // 'style_3' => __('Style 3', 'hexacore'),
+                    'style_3' => __('Style 3', 'hexacore'),
                     // 'style_4' => __('Style 4', 'hexacore'),
-                    // 'style_5' => __('Style 5', 'hexacore'),
-                    // 'style_6' => __('Style 6', 'hexacore'),
-                    // 'style_7' => __('Style 7', 'hexacore'),
-                    // 'style_8' => __('Style 8', 'hexacore'),
-                    // 'style_9' => __('Style 9', 'hexacore'),
                 ],
                 'default' => 'style_1',
                 'frontend_available' => true,
@@ -410,7 +403,7 @@ class Hexa_About extends Widget_Base
                 'default' => esc_html__('Understand how your keyword/group is ranking specific cases.', 'hexacore'),
                 'label_block' => true,
                 'condition' => [
-                    'repeater_condition' => ['style_1', 'style_4', 'style_5', 'style_6', 'style_8', 'style_9']
+                    'repeater_condition' => ['style_1', 'style_3', 'style_5', 'style_6', 'style_8', 'style_9']
                 ]
             ]
         );
@@ -605,7 +598,7 @@ class Hexa_About extends Widget_Base
                                     <div class="tr-about-list p-relative mb-45">
                                         <ul>
                                             <?php foreach ($settings['about_features_list'] as $key => $item): ?>
-                                                <li>
+                                                <li class="hexa-el-about-list">
                                                     <div class="hfchoose-icon">
                                                         <?php if ($item['hexa_box_icon_type'] == 'icon'): ?>
                                                             <?php if (!empty($item['hexa_box_icon']) || !empty($item['hexa_box_selected_icon']['value'])): ?>
@@ -652,6 +645,154 @@ class Hexa_About extends Widget_Base
                 </div>
             </div>
             <!-- about-area-end -->
+
+
+            <?php elseif ($settings['hexa_design_layout'] == 'layout-3'): 
+                
+                // thumbnail
+                if (!empty($settings['hexa_image']['url'])) {
+                    $hexa_image = !empty($settings['hexa_image']['id']) ? wp_get_attachment_image_url($settings['hexa_image']['id'], $settings['hexa_image_size_size']) : $settings['hexa_image']['url'];
+                    $hexa_image_alt = get_post_meta($settings["hexa_image"]["id"], "_wp_attachment_image_alt", true);
+                }
+
+                $this->add_render_attribute('title_args', 'class', 'tr-section-title mb-20 hf-el-title');
+
+                // button one
+                if (!empty($settings['btn_link']['url'])) {
+                    $this->add_link_attributes('button', $settings['btn_link']);
+                }
+                $this->add_render_attribute('button', 'class', 'tr-btn hexa-el-btn');
+                
+                ?>
+
+                <div class="tr-about-3-area fix">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="tr-about-3-thumb-wrap p-relative">
+
+                                    <?php if (!empty($hexa_image)): ?>
+                                        <div class="tr-about-3-thumb-main">
+                                            <img src="<?php echo esc_url($hexa_image); ?>"
+                                                alt="<?php echo esc_attr($hexa_image_alt); ?>">
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <div class="tr-about-client">
+                                        <div class="tr-about-client-content">
+                                            <?php if (!empty($settings['client_content_number'])): ?>
+                                                <h4>
+                                                    <span n="1"
+                                                        data-purecounter-endata-purecounter-duratiod="<?php echo esc_attr($settings['client_content_number']); ?>"
+                                                        class="purecounter">
+                                                        0
+                                                    </span>
+                                                    +
+                                                </h4>
+                                                <?php endif; ?>
+
+                                                <?php if (!empty($settings['client_content_title'])): ?>
+                                                <span>
+                                                    <?php echo hexa_kses($settings['client_content_title']); ?>
+                                                </span>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="tr-about-left">
+                                    <div class="tr-about-title-box">
+
+                                        <?php if (!empty($settings['about_subtitle'])): ?>
+                                            <span class="tr-section-subtitle mb-10 hf-el-subtitle">
+                                                <?php echo hexa_kses($settings['about_subtitle']); ?>
+                                            </span>
+                                        <?php endif; ?>
+                                        
+                                        <?php
+                                            if (!empty($settings['title'])):
+                                                printf(
+                                                    '<%1$s %2$s>%3$s</%1$s>',
+                                                    tag_escape($settings['title_tag']),
+                                                    $this->get_render_attribute_string('title_args'),
+                                                    hexa_kses($settings['title'])
+                                                );
+                                            endif;
+                                        ?>
+
+                                    </div>
+
+                                    <?php if (!empty($settings['desc'])): ?>
+                                        <div class="tr-about-text">
+                                            <p class="hf-el-content">
+                                                <?php echo hexa_kses($settings['desc']); ?>
+                                            </p>
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <div class="tr-about-list p-relative mb-40">
+                                        <ul>
+                                            <?php foreach ($settings['about_features_list'] as $key => $item): ?>
+                                                <li class="hexa-el-about-list">
+                                                    <div class="hfchoose-icon">
+                                                        <?php if ($item['hexa_box_icon_type'] == 'icon'): ?>
+                                                        <?php if (!empty($item['hexa_box_icon']) || !empty($item['hexa_box_selected_icon']['value'])): ?>
+                                                            <span class="tr-about-list-icon">
+                                                                <?php hexa_render_icon($item, 'hexa_box_icon', 'hexa_box_selected_icon'); ?>
+                                                            </span>
+                                                        <?php endif; ?>
+
+                                                        <?php elseif ($item['hexa_box_icon_type'] == 'image'): ?>
+                                                        <?php if (!empty($item['hexa_box_icon_image']['url'])): ?>
+                                                        <div class="hf-el-rep-icon">
+                                                            <img src="<?php echo $item['hexa_box_icon_image']['url']; ?>"
+                                                                alt="<?php echo get_post_meta(attachment_url_to_postid($item['hexa_box_icon_image']['url']), '_wp_attachment_image_alt', true); ?>">
+                                                        </div>
+                                                        <?php endif; ?>
+                                                        <?php else: ?>
+
+                                                        <?php if (!empty($item['hexa_box_icon_svg'])): ?>
+                                                        <div class="hf-el-rep-icon">
+                                                            <?php echo $item['hexa_box_icon_svg']; ?>
+                                                        </div>
+                                                        <?php endif; ?>
+                                                        <?php endif; ?>
+                                                    </div>
+
+                                                    <div class="about-features-contents tr-about-list-content">
+                                                        <?php if (!empty($item['about_features_title'])): ?>
+                                                        <span class="hf-el-rep-title">
+                                                            <?php echo hexa_kses($item['about_features_title']); ?>
+                                                        </span>
+                                                        <?php endif; ?>
+
+                                                        <?php if (!empty($item['about_features_des'])): ?>
+                                                            <p class="hf-el-rep-des">
+                                                            <?php echo hexa_kses($item['about_features_des']); ?>
+                                                            </p>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+
+                                    </div>
+
+                                    <?php if (!empty($settings['btn_text'])): ?>
+                                        <div class="tr-about-btn">
+                                            <a <?php echo $this->get_render_attribute_string('button'); ?>>
+                                                <?php echo hexa_kses($settings['btn_text']); ?>
+                                                <i class="<?php echo esc_attr($settings['button_icon']['value']); ?>"></i>
+                                            </a>
+                                        </div>
+                                    <?php endif; ?>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
             <?php else:
@@ -710,7 +851,7 @@ class Hexa_About extends Widget_Base
                                 <?php endif; ?>
 
                                 <?php foreach ($settings['about_features_list'] as $key => $item): ?>
-                                    <div class="tr-about-content p-relative">
+                                    <div class="tr-about-content hexa-el-about-list p-relative">
 
                                         <div class="hfchoose-icon">
                                             <?php if ($item['hexa_box_icon_type'] == 'icon'): ?>
@@ -735,17 +876,19 @@ class Hexa_About extends Widget_Base
                                             <?php endif; ?>
                                         </div>
 
-                                        <?php if (!empty($item['about_features_title'])): ?>
-                                        <span class="hf-el-rep-title">
-                                            <?php echo hexa_kses($item['about_features_title']); ?>
-                                        </span>
-                                        <?php endif; ?>
+                                        <div class="about-features-contents tr-about-list-content">
+                                            <?php if (!empty($item['about_features_title'])): ?>
+                                            <span class="hf-el-rep-title">
+                                                <?php echo hexa_kses($item['about_features_title']); ?>
+                                            </span>
+                                            <?php endif; ?>
 
-                                        <?php if (!empty($item['about_features_des'])): ?>
-                                        <p class="hf-el-rep-des">
-                                            <?php echo hexa_kses($item['about_features_des']); ?>
-                                        </p>
-                                        <?php endif; ?>
+                                            <?php if (!empty($item['about_features_des'])): ?>
+                                            <p class="hf-el-rep-des">
+                                                <?php echo hexa_kses($item['about_features_des']); ?>
+                                            </p>
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
                                 <?php endforeach; ?>
 

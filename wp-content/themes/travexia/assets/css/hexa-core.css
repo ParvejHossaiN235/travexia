@@ -274,7 +274,7 @@ button:focus {
 
 input {
   height: 60px;
-  width: auto;
+  width: 100%;
   border: none;
   outline: none;
   padding: 0 20px;
@@ -4546,21 +4546,14 @@ div.postbox-details-thumb img {
 }
 .tr-about-list ul li > span {
   position: relative;
-  padding-left: 23px;
   font-weight: 700;
   font-size: 18px;
   text-transform: capitalize;
   color: var(--tr-common-black);
 }
-.tr-about-list ul li > span i {
-  position: absolute;
-  top: 0;
-  left: 0;
+.tr-about-list ul li i {
   font-size: 25px;
   color: var(--tr-theme-1);
-}
-.tr-about-list-content {
-  padding-left: 45px;
 }
 .tr-about-list-content span {
   font-weight: 700;
@@ -4571,9 +4564,6 @@ div.postbox-details-thumb img {
   color: var(--tr-common-black);
 }
 .tr-about-list-icon {
-  position: absolute;
-  top: 0;
-  left: 0;
   font-size: 20px;
   color: var(--tr-theme-1);
 }
@@ -4666,6 +4656,11 @@ div.postbox-details-thumb img {
   .tr-about-3-thumb-main img {
     width: 100%;
   }
+}
+
+.hexa-el-about-list {
+  display: flex;
+  gap: 20px;
 }
 
 /*----------------------------------------*/

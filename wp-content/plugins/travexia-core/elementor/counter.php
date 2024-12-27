@@ -331,13 +331,6 @@ class Hexa_Counter extends Widget_Base
         <?php endif; ?>
 
         <div class="tr-funfact-2-content">
-            <h4 class="">
-                <i class="purecounter" data-purecounter-duration="1"                data-purecounter-end="20">  
-                    0
-                </i>
-                k+
-            </h4>
-
             <?php if (!empty($settings['number'])) : ?>
                 <h4 class="tr-funfact-2-title hf-el-number">
                     <i data-purecounter-duration="1" data-purecounter-end="<?php echo hexa_kses($settings['number']); ?>" class="purecounter">

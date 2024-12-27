@@ -126,23 +126,19 @@
                 }
                 & > span {
                     position: relative;
-                    padding-left: 23px;
                     font-weight: 700;
                     font-size: 18px;
                     text-transform: capitalize;
                     color: var(--tr-common-black);
-                    & i {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        font-size: 25px;
-                        color: var(--tr-theme-1);
-                    }
+                    
+                }
+                & i {
+                    font-size: 25px;
+                    color: var(--tr-theme-1);
                 }
             }
         }
         &-content {
-            padding-left: 45px;
             & span {
                 font-weight: 700;
                 font-size: 18px;
@@ -153,9 +149,6 @@
             }
         }
         &-icon {
-            position: absolute;
-            top: 0;
-            left: 0;
             font-size: 20px;
             color: var(--tr-theme-1);
         }
@@ -254,4 +247,11 @@
             }
         }
     }
+}
+
+
+.hexa-el-about-list {
+    display: flex;
+    gap: 20px;
+    
 }

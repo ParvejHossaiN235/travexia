@@ -135,7 +135,7 @@ class Hexa_Contact_Info extends Widget_Base
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
                     'layout_1' => esc_html__('Layout 1', 'hexacore'),
-                    'layout_2' => esc_html__('Layout 2', 'hexacore'),
+                    //'layout_2' => esc_html__('Layout 2', 'hexacore'),
                 ],
                 'default' => 'layout_1',
             ]
@@ -216,21 +216,11 @@ class Hexa_Contact_Info extends Widget_Base
         );
 
         $this->add_control(
-            'subtitle',
-            [
-                'label' => esc_html__('Label', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => esc_html__('Contact Label', 'hexacore'),
-                'label_block' => true,
-            ]
-        );
-
-        $this->add_control(
             'title',
             [
-                'label' => esc_html__('Title', 'hexacore'),
+                'label' => esc_html__('Contact Label', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => esc_html__('Contact Title', 'hexacore'),
+                'default' => esc_html__('Contact Label', 'hexacore'),
                 'label_block' => true,
             ]
         );
@@ -246,25 +236,6 @@ class Hexa_Contact_Info extends Widget_Base
             ]
         );
 
-        $this->add_control(
-            'title_tag',
-            [
-                'label' => __('Title HTML Tag', 'hexacore'),
-                'type' => \Elementor\Controls_Manager::SELECT,
-                'options' => [
-                    'h1' => 'H1',
-                    'h2' => 'H2',
-                    'h3' => 'H3',
-                    'h4' => 'H4',
-                    'h5' => 'H5',
-                    'h6' => 'H6',
-                    'div' => 'div',
-                    'span' => 'span',
-                    'p' => 'p',
-                ],
-                'default' => 'h3',
-            ]
-        );
         $this->end_controls_section();
     }
 
@@ -419,52 +390,36 @@ class Hexa_Contact_Info extends Widget_Base
         ?>
 
 
-        <?php else :
+        <?php else : ?>
 
-            $this->add_render_attribute('title', 'class', 'hexa-contact-title hexa-el-title');
-            $title_html = sprintf('<%1$s %2$s>%3$s</%1$s>', $title_tag, $this->get_render_attribute_string('title'), $title);
-            if (!empty($settings['link']['url'])) {
-                $this->add_link_attributes('link', $settings['link']);
-                if (!empty($settings['link'])) {
-                    $title_html = sprintf('<%1$s %2$s><a ' . $this->get_render_attribute_string('link') . '>%3$s</a></%1$s>', $title_tag, $this->get_render_attribute_string('title'), $title);
-                }
-            }
+            <div class="tr-contact-box">
+                <ul>
+                    <li class="tr-contact-item <?php echo esc_attr($display); ?>">
+                        <span>
+                            
+                            <?php if ($settings['icon_type'] == 'icon') : ?>
+                                    <?php if (!empty($settings['selected_icon']['value'])) : ?>
+                                        <?php \Elementor\Icons_Manager::render_icon($settings['selected_icon'], ['aria-hidden' => 'true']); ?>
+                                    <?php endif; ?>
+                                <?php elseif ($settings['icon_type'] == 'image') : ?>
+                                    <?php if (!empty($settings['icon_image']['url'])) : ?>
+                                        <img src="<?php echo $settings['icon_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($settings['icon_image']['url']), '_wp_attachment_image_alt', true); ?>">
+                                    <?php endif; ?>
+                                <?php else : ?>
+                                    <?php if (!empty($settings['icon_svg'])) : ?>
+                                        <?php echo $settings['icon_svg']; ?>
+                                    <?php endif; ?>
+                                <?php endif; ?>
 
-        ?>
-
-            <div class="hexa-contact-item hexa-el-card <?php echo esc_attr($display); ?>">
-                <div class=" hexa-contact-icon">
-                    <?php if ($settings['icon_type'] == 'icon') : ?>
-                        <?php if (!empty($settings['selected_icon']['value'])) : ?>
-                            <span class="hexa-el-icon">
-                                <?php \Elementor\Icons_Manager::render_icon($settings['selected_icon'], ['aria-hidden' => 'true']); ?>
-                            </span>
-                        <?php endif; ?>
-                    <?php elseif ($settings['icon_type'] == 'image') : ?>
-                        <?php if (!empty($settings['icon_image']['url'])) : ?>
-                            <span class="hexa-el-icon">
-                                <img src="<?php echo $settings['icon_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($settings['icon_image']['url']), '_wp_attachment_image_alt', true); ?>">
-                            </span>
-                        <?php endif; ?>
-                    <?php else : ?>
-                        <?php if (!empty($settings['icon_svg'])) : ?>
-                            <span class="hexa-el-icon">
-                                <?php echo $settings['icon_svg']; ?>
-                            </span>
-                        <?php endif; ?>
-                    <?php endif; ?>
-                </div>
-                <div class="hexa-contact-content">
-                    <?php if (!empty($settings['subtitle'])) : ?>
-                        <span class="hexa-contact-label hexa-el-label"><?php echo hexa_kses($settings['subtitle']); ?></span>
-                    <?php endif; ?>
-                    <?php if (!empty($settings['title'])) {
-                        echo $title_html;
-                    } ?>
-                </div>
+                            <a href="<?php echo esc_attr($settings['link']['url']); ?>">
+                                <?php echo hexa_kses($settings['title']); ?>
+                            </a>
+                        </span>
+                    </li>
+                </ul>
             </div>
 
-<?php endif;
+        <?php endif;
     }
 }
 
