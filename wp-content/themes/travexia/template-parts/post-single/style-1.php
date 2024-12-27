@@ -39,6 +39,9 @@ $post_column = is_active_sidebar('post-sidebar') ? 'col-xl-8 col-lg-8 col-md-12'
                         </div>
                     </div>
                 <?php } ?>
+                <div class="col-12">
+                    <?php get_template_part('template-parts/post-meta/related'); ?>
+                </div>
             </div>
         </div>
     </div>
