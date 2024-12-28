@@ -128,6 +128,7 @@ class Hexa_Tour_Acitivities extends Widget_Base
 				'options' => [
 					'layout_1' => esc_html__('Layout 1', 'hexacore'),
 					'layout_2' => esc_html__('Layout 2', 'hexacore'),
+					'layout_3' => esc_html__('Layout 3', 'hexacore'),
 				],
 				'default' => 'layout_1',
 			]
@@ -476,13 +477,13 @@ class Hexa_Tour_Acitivities extends Widget_Base
 								<?php if (!empty($item['title'])) : ?>
 									<h4 class="tr-memorise-title hexa-el-title">
 										<a class="border-line-black" <?php echo $this->get_render_attribute_string('link_' . $key); ?>>
-											<?php echo esc_html($item['title']); ?>
+											<?php echo hexa_kses($item['title']); ?>
 										</a>
 									</h4>
 								<?php endif; ?>
 								<?php if (!empty($item['text'])) : ?>
 									<p class="mt-25 mb-0">
-										<?php echo esc_html($item['text']); ?>
+										<?php echo hexa_kses($item['text']); ?>
 									</p>
 								<?php endif; ?>
 							</div>
@@ -522,13 +523,13 @@ class Hexa_Tour_Acitivities extends Widget_Base
 									<?php if (!empty($item['title'])) : ?>
 										<h4 class="tr-memorise-title hexa-el-title">
 											<a class="border-line-black" <?php echo $this->get_render_attribute_string('link_' . $key); ?>>
-												<?php echo esc_html($item['title']); ?>
+												<?php echo hexa_kses($item['title']); ?>
 											</a>
 										</h4>
 									<?php endif; ?>
 									<?php if (!empty($item['text'])) : ?>
 										<p class="mt-25 mb-0">
-											<?php echo esc_html($item['text']); ?>
+											<?php echo hexa_kses($item['text']); ?>
 										</p>
 									<?php endif; ?>
 								</div>
@@ -570,13 +571,13 @@ class Hexa_Tour_Acitivities extends Widget_Base
 									<?php if (!empty($item['title'])) : ?>
 										<h4 class="tr-memorise-title hexa-el-title">
 											<a class="border-line-white" <?php echo $this->get_render_attribute_string('link_' . $key); ?>>
-												<?php echo esc_html($item['title']); ?>
+												<?php echo hexa_kses($item['title']); ?>
 											</a>
 										</h4>
 									<?php endif; ?>
 									<?php if (!empty($item['text'])) : ?>
 										<p class="mt-25 mb-0">
-											<?php echo esc_html($item['text']); ?>
+											<?php echo hexa_kses($item['text']); ?>
 										</p>
 									<?php endif; ?>
 								</div>
