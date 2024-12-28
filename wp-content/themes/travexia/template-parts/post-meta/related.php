@@ -13,10 +13,11 @@ $post_read_more = get_theme_mod('post_read_more', 'Read More');
 ?>
 
 <div class="postbox__related">
-    <?php if (!empty($post_related_title)) : ?>
-    <h4 class="postbox__related-title mb-35"><?php echo wp_kses_post($post_related_title); ?></h4>
-    <?php endif; ?>
+
     <div class="row g-5">
+        <?php if (!empty($post_related_title)) : ?>
+        <h4 class="postbox__related-title m-0"><?php echo wp_kses_post($post_related_title); ?></h4>
+        <?php endif; ?>
         <?php
         global $post;
         $current_post_id = $post->ID;
@@ -58,7 +59,7 @@ $post_read_more = get_theme_mod('post_read_more', 'Read More');
             }
             wp_reset_postdata(); // Reset the query
         } else {
-            echo 'No related posts found.';
+            echo '<h6>' . __('No related posts found.', 'hexa-theme') . '</h6>';
         }
         ?>
     </div>
