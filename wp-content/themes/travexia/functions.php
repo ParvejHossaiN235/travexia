@@ -154,7 +154,7 @@ function hexa_widgets_init()
         'id'            => 'post-sidebar',
         'before_widget' => '<div id="%1$s" class="sidebar-widget widget mb-40 %2$s">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h4 class="sidebar-widget-title mb-35">',
+        'before_title'  => '<h4 class="sidebar-widget-title mb-30">',
         'after_title'   => '</h4>',
     ]);
 }

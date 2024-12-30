@@ -23,7 +23,7 @@ get_header();
 					<div class="row">
 						<div class="col-12">
 							<?php wc_get_template_part('archive', 'content'); ?>
-						</div>'
+						</div>
 					</div>
 				</div>
 			</div>
@@ -31,6 +31,5 @@ get_header();
 	</div>
 	<?php do_action('hexa_after_page_content'); ?>
 </section>
-
 
 <?php get_footer(); ?>

@@ -1,7 +1,7 @@
 <?php
 $classes = 'col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12';
 if (is_active_sidebar('woocommerce_sidebar')) {
-   $classes = 'col-xl-9 col-lg-8 col-md-12 col-sm-12 col-xs-12';
+   $classes = 'col-xl-70 col-lg-8 col-md-12 col-sm-12 col-xs-12';
 }
 ?>
 
@@ -50,7 +50,7 @@ if (is_active_sidebar('woocommerce_sidebar')) {
          </div>
 
          <?php if (is_active_sidebar('woocommerce_sidebar')) { ?>
-            <div class="sidebar wp-sidebar sidebar-right col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12">
+            <div class="sidebar wp-sidebar col-xl-30 col-lg-4 col-md-12 col-sm-12 col-12">
                <div class="sidebar-inner">
                   <?php dynamic_sidebar('woocommerce_sidebar'); ?>
                </div>

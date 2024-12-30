@@ -1208,3 +1208,11 @@
     content: none;
   }
 }
+@media (min-width: 1200px) {
+  .col-xl-30 {
+    width: 30%;
+  }
+  .col-xl-70 {
+    width: 70%;
+  }
+}

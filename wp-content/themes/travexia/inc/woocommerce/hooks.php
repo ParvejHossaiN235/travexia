@@ -17,7 +17,6 @@ remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_re
 
 add_theme_support('wc-product-gallery-lightbox');
 add_theme_support('wc-product-gallery-slider');
-add_theme_support('wc-product-gallery-zoom');
 
 function hexa_woocommerce_custom_sales_price()
 {
@@ -74,9 +73,9 @@ function hexa_woo_widgets_init()
 			'name' 		     => esc_html__('WooCommerce Shop Sidebar', 'hexa'),
 			'id' 		     => 'woocommerce_sidebar',
 			'description'    => esc_html__('Appears in the Plugin WooCommerce section of the site.', 'hexa'),
-			'before_widget'  => '<aside id="%1$s" class="widget clearfix %2$s">',
+			'before_widget'  => '<aside id="%1$s" class="widget sidebar-widget mb-40 clearfix %2$s">',
 			'after_widget'	 => '</aside>',
-			'before_title' 	 => '<h3 class="widget-title"><span>',
+			'before_title' 	 => '<h3 class="widget-title sidebar-widget-title mb-30"><span>',
 			'after_title'    => '</span></h3>',
 		));
 	}
