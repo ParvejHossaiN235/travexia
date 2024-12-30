@@ -26,6 +26,7 @@ function hexa_main_scripts()
     wp_enqueue_style('hf-magnific-popup', HEXA_THEME_CSS_DIR . 'magnific-popup.css', []);
     wp_enqueue_style('hf-spacing', HEXA_THEME_CSS_DIR . 'spacing.css', []);
     wp_enqueue_style('hf-hexaflow', HEXA_THEME_CSS_DIR . 'hexaflow-font.css', []);
+    wp_enqueue_style('hf-linearicons', HEXA_THEME_CSS_DIR . 'linearicons.css', []);
     wp_enqueue_style('hf-hexa-elementor', HEXA_THEME_CSS_DIR . 'hexa-elementor.css', []);
     wp_enqueue_style('hf-hexa-unit', HEXA_THEME_CSS_DIR . 'hexa-unit.css', [], time());
     wp_enqueue_style('hf-hexa-core', HEXA_THEME_CSS_DIR . 'hexa-core.css', [], time());

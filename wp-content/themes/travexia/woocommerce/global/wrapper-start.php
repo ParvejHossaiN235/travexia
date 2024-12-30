@@ -23,7 +23,7 @@ switch ($template) {
 		echo '<div id="primary" class="site-content"><div id="content" role="main" class="entry-content twentythirteen">';
 		break;
 	case 'hexa-theme':
-		echo '<div id="primary" class="content-area"><div id="content" role="main" class="site-content gowilds">';
+		echo '<div id="primary" class="content-area"><div id="content" role="main" class="site-content hexa">';
 		break;
 	default:
 		echo '<div class="woo-container"><div id="content" role="main">';

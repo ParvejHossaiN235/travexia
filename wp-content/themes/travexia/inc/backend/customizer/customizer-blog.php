@@ -148,18 +148,6 @@ function blog_customize_settings()
 				'flex-row-reverse' => esc_attr__('Left Sidebar', 'hexa-theme'),
 			)
 		),
-		'single_post_style' => array(
-			'type'        => 'select',
-			'label'       => esc_html__('Single Post Style', 'hexa-theme'),
-			'section'     => 'single_post',
-			'default'     => 'style_1',
-			'priority'    => 10,
-			'choices'     => array(
-				'style_1' => esc_attr__('Style 1', 'hexa-theme'),
-				'style_2' => esc_attr__('Style 2', 'hexa-theme'),
-				'style_3' => esc_attr__('Style 3', 'hexa-theme'),
-			)
-		),
 		'single_separator2'     => array(
 			'type'        => 'custom',
 			'label'       => esc_html__('Social Share', 'hexa-theme'),

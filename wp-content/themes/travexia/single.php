@@ -10,25 +10,45 @@
 
 get_header();
 
-$single_post_style = get_theme_mod('single_post_style', '1');
-$single_post_template = function_exists('rwmb_meta') ? rwmb_meta('single_post_template') : false;
+$row_swipe = (!empty(get_theme_mod('single_post_layout')) ? get_theme_mod('single_post_layout') : 'right-sidebar');
+$post_column = is_active_sidebar('post-sidebar') ? 'col-xl-8 col-lg-8 col-md-12' : 'col-xl-12 col-lg-12 col-md-12';
+$related_post = get_theme_mod('related_post', false);
+?>
 
-if (!empty($single_post_template)) :
-    if ($single_post_template == 'style_3') :
-        get_template_part('template-parts/post-single/style-3');
-    elseif ($single_post_template == 'style_2') :
-        get_template_part('template-parts/post-single/style-2');
-    elseif ($single_post_template == 'style_1') :
-        get_template_part('template-parts/post-single/style-1');
-    endif;
-else :
-    if ($single_post_style == 'style_3') :
-        get_template_part('template-parts/post-single/style-3');
-    elseif ($single_post_style == 'style_2') :
-        get_template_part('template-parts/post-single/style-2');
-    else :
-        get_template_part('template-parts/post-single/style-1');
-    endif;
-endif;
+<div class="hexa-area postbox-area pt-100 pb-100">
+    <div class="entry-content">
+        <div class="container">
+            <div class="row row-gap-50 <?php echo $row_swipe; ?>">
+                <div class="<?php echo $post_column; ?>">
+                    <div class="content-wrapper">
+                        <?php while (have_posts()) : the_post();
 
+                            get_template_part('template-parts/post-type/content', get_post_format());
+
+                            // If comments are open or we have at least one comment, load up the comment template.
+                            if (comments_open() || get_comments_number()) :
+                                comments_template();
+                            endif;
+
+                        endwhile; // End of the loop.
+                        ?>
+                    </div>
+                </div>
+                <?php if (is_active_sidebar('post-sidebar')) { ?>
+                    <div class="col-xl-4 col-lg-4 col-md-12">
+                        <div class="widget-wrapper sidebar-right">
+                            <?php get_sidebar(); ?>
+                        </div>
+                    </div>
+                <?php } ?>
+                <?php if (!empty($related_post)) { ?>
+                    <div class="col-12">
+                        <?php get_template_part('template-parts/post-meta/related'); ?>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+</div>
+<?php
 get_footer();

@@ -2,13 +2,12 @@
   "use strict";
 
   var windowOn = $(window);
-  ///////////////////////////////////////////////////
+
   // 01. PreLoader Js
   windowOn.on("load", function () {
     $("#loading").fadeOut(500);
   });
 
-  ///////////////////////////////////////////////////
   // 03. scroll-to-target
   windowOn.on("scroll", function () {
     var scroll = windowOn.scrollTop();
@@ -22,7 +21,6 @@
   // last child menu
   $(".hexa-defaults-headers nav > ul > li").slice(-4).addClass("menu-last");
 
-  ///////////////////////////////////////////////////
   // 04. Scroll Up Js
   if ($(".scroll-to-target").length) {
     $(".scroll-to-target").on("click", function () {
@@ -37,7 +35,6 @@
     });
   }
 
-  ///////////////////////////////////////////////////
   // 05. wow animation
   var wow = new WOW({
     mobile: true,
@@ -45,13 +42,11 @@
   wow.init();
   var windowOn = $(window);
 
-  ///////////////////////////////////////////////////
   // 06. PreLoader Js
   windowOn.on("load", function () {
     $("#loading").fadeOut(500);
   });
 
-  ///////////////////////////////////////////////////
   // 07. Sticky Header Js
   windowOn.on("scroll", function () {
     var scroll = windowOn.scrollTop();
@@ -68,22 +63,6 @@
     $("body").delay(350).css({ overflow: "visible" });
   });
 
-  if ($(".tr-header-height").length > 0) {
-    var headerHeight = document.querySelector(".tr-header-height");
-    var setHeaderHeight = headerHeight.offsetHeight;
-    $(".tr-header-height").each(function () {
-      $(this).css({
-        height: setHeaderHeight + "px",
-      });
-    });
-
-    $(".tr-header-height.header-sticky").each(function () {
-      $(this).css({
-        height: inherit,
-      });
-    });
-  }
-
   // 09. Sidebar Js
   $(".tr-menu-bar").on("click", function () {
     $(".it-offcanvas").addClass("opened");
@@ -98,7 +77,6 @@
     $(".body-overlay").removeClass("apply");
   });
 
-  ////////////////////////////////////////////////////
   // 13. Swiper Js
   const tripswiper = new Swiper(".tr-trip-active", {
     // Optional parameters
@@ -134,7 +112,6 @@
     },
   });
 
-  ////////////////////////////////////////////////////
   // 13. Swiper Js
   const testimonialswiper = new Swiper(".tr-testimonial-2-active", {
     // Optional parameters
@@ -212,7 +189,6 @@
     },
   });
 
-  ////////////////////////////////////////////////////
   // 13. Swiper Js
   const brandswiper = new Swiper(".tr-brand-active", {
     // Optional parameters
@@ -244,7 +220,6 @@
     },
   });
 
-  ////////////////////////////////////////////////////
   // 13. Swiper Js
   var tr_text_slider = new Swiper(".tr-text-slider-active", {
     loop: true,
@@ -260,130 +235,136 @@
     },
   });
 
-  ////////////////////////////////////////////////////
   // 13. slick Js
-  $(".tr-slider-for").slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    fade: false,
-    asNavFor: ".tr-slider-nav",
-  });
-
-  $(".tr-slider-nav").slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: false,
-    vertical: true,
-    asNavFor: ".tr-slider-for",
-    dots: false,
-    focusOnSelect: true,
-    verticalSwiping: true,
-    centerPadding: "0",
-    centerMode: true,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          vertical: false,
-          slidesToShow: 2,
+  if ($(".tr-slider-for").length > 0) {
+    $(".tr-slider-for").slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      fade: false,
+      asNavFor: ".tr-slider-nav",
+    });
+  }
+  if ($(".tr-slider-nav").length > 0) {
+    $(".tr-slider-nav").slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      arrows: false,
+      vertical: true,
+      asNavFor: ".tr-slider-for",
+      dots: false,
+      focusOnSelect: true,
+      verticalSwiping: true,
+      centerPadding: "0",
+      centerMode: true,
+      responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            vertical: false,
+            slidesToShow: 2,
+          },
         },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          vertical: false,
-          slidesToShow: 1,
+        {
+          breakpoint: 768,
+          settings: {
+            vertical: false,
+            slidesToShow: 1,
+          },
         },
-      },
-      {
-        breakpoint: 580,
-        settings: {
-          vertical: false,
-          slidesToShow: 1,
+        {
+          breakpoint: 580,
+          settings: {
+            vertical: false,
+            slidesToShow: 1,
+          },
         },
-      },
-      {
-        breakpoint: 380,
-        settings: {
-          vertical: false,
-          slidesToShow: 1,
+        {
+          breakpoint: 380,
+          settings: {
+            vertical: false,
+            slidesToShow: 1,
+          },
         },
-      },
-    ],
-  });
-
-  // 09. Home-1-Slider js
-  $(".tr-hero-3-active-1").slick({
-    speed: 8000,
-    autoplay: true,
-    autoplaySpeed: 0,
-    cssEase: "linear",
-    slidesPerRow: 1,
-    slidesToShow: 2,
-    arrows: false,
-    buttons: false,
-    vertical: true,
-    verticalSwiping: true,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {},
-      },
-      {
-        breakpoint: 992,
-        settings: {},
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  });
+      ],
+    });
+  }
 
   // 09. Home-1-Slider js
-  $(".tr-hero-3-active-2").slick({
-    speed: 8000,
-    autoplay: true,
-    autoplaySpeed: 0,
-    cssEase: "linear",
-    slidesPerRow: 1,
-    slidesToShow: 2,
-    arrows: false,
-    buttons: false,
-    vertical: true,
-    verticalSwiping: true,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {},
-      },
-      {
-        breakpoint: 992,
-        settings: {},
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
+  if ($(".tr-slider-nav").length > 0) {
+    $(".tr-hero-3-active-1").slick({
+      speed: 8000,
+      autoplay: true,
+      autoplaySpeed: 0,
+      cssEase: "linear",
+      slidesPerRow: 1,
+      slidesToShow: 2,
+      arrows: false,
+      buttons: false,
+      vertical: true,
+      verticalSwiping: true,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {},
         },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
+        {
+          breakpoint: 992,
+          settings: {},
         },
-      },
-    ],
-  });
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+      ],
+    });
+  }
+
+  // 09. Home-1-Slider js
+  if ($(".tr-slider-nav").length > 0) {
+    $(".tr-hero-3-active-2").slick({
+      speed: 8000,
+      autoplay: true,
+      autoplaySpeed: 0,
+      cssEase: "linear",
+      slidesPerRow: 1,
+      slidesToShow: 2,
+      arrows: false,
+      buttons: false,
+      vertical: true,
+      verticalSwiping: true,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {},
+        },
+        {
+          breakpoint: 992,
+          settings: {},
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+      ],
+    });
+  }
 
   if ($(".it-menu-content").length && $(".it-menu-mobile").length) {
     let navContent = document.querySelector(".it-menu-content").outerHTML;
@@ -412,13 +393,11 @@
     });
   }
 
-  ///////////////////////////////////////////////////
   // 10. Magnific Js
   $(".popup-video").magnificPopup({
     type: "iframe",
   });
 
-  ////////////////////////////////////////////////////
   // 14. magnificPopup Js
   $(".popup-image").magnificPopup({
     type: "image",
@@ -427,9 +406,8 @@
     },
   });
 
-  ////////////////////////////////////////////////////
   // 11. Data CSS Js
-  $("[data-background").each(function () {
+  $("[data-background]").each(function () {
     $(this).css("background-image", "url( " + $(this).attr("data-background") + "  )");
   });
 
@@ -441,7 +419,6 @@
     $(this).css("background-color", $(this).attr("data-bg-color"));
   });
 
-  ////////////////////////////////////////////////////
   // 12. Counter Js
   if ($(".purecounter").length) {
     new PureCounter({
@@ -455,7 +432,6 @@
   // 08. Nice Select Js
   $("select").niceSelect();
 
-  ////////////////////////////////////////////////////
   // 14. magnificPopup Js
   $(".popup-image").magnificPopup({
     type: "image",
@@ -464,13 +440,11 @@
     },
   });
 
-  ////////////////////////////////////////////////////
   // 15. MagnificPopup video view Js
   $(".popup-video").magnificPopup({
     type: "iframe",
   });
 
-  ////////////////////////////////////////////////////
   //26.isotope
   $(".grid").imagesLoaded(function () {
     // init Isotope

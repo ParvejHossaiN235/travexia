@@ -7,7 +7,7 @@
  *
  * @package hexa
  */
-$protocol = is_ssl() ? 'https' : 'http';
+
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
@@ -15,15 +15,13 @@ $protocol = is_ssl() ? 'https' : 'http';
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width">
-    <link rel="profile" href="<?php echo esc_attr($protocol) ?>://gmpg.org/xfn/11">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
     <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-    <?php // get_header(); 
-    ?>
 
-    <section class="hexa-area postbox-area pt-120 pb-100" >
+    <section class="hexa-area postbox-area pt-100 pb-100">
         <div class="entry-content">
             <?php
             while (have_posts()) :

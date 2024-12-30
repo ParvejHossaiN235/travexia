@@ -10,8 +10,6 @@
  * @package hexa
  */
 
-$protocol = is_ssl() ? 'https' : 'http';
-
 ?>
 
 <!doctype html>
@@ -20,7 +18,7 @@ $protocol = is_ssl() ? 'https' : 'http';
 <head>
    <meta charset="<?php bloginfo('charset'); ?>">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="profile" href="<?php echo esc_attr($protocol) ?>://gmpg.org/xfn/11">
+   <link rel="profile" href="https://gmpg.org/xfn/11">
    <?php wp_head(); ?>
 </head>
 

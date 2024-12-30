@@ -220,7 +220,7 @@ add_action('after_setup_theme', function () {
     }
 });
 
-//Load Woocommerce plugin
+// Load Woocommerce plugin
 if (class_exists('WooCommerce')) {
     add_theme_support('woocommerce');
     require(HEXA_THEME_INC . 'woocommerce/functions.php');

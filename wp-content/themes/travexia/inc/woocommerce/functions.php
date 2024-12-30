@@ -1,28 +1,28 @@
 <?php
-add_filter('add_to_cart_fragments', 'gowilds_woocommerce_header_add_to_cart_fragment');
-add_action('wp_print_scripts', 'gowilds_de_script', 100);
+add_filter('add_to_cart_fragments', 'hexa_woocommerce_header_add_to_cart_fragment');
+add_action('wp_print_scripts', 'hexa_de_script', 100);
 
-function gowilds_de_script()
+function hexa_de_script()
 {
 	wp_dequeue_script('wc-cart-fragments');
 	return true;
 }
 
-function gowilds_woocommerce_header_add_to_cart_fragment($fragments)
+function hexa_woocommerce_header_add_to_cart_fragment($fragments)
 {
 	global $woocommerce;
 	ob_start();
-	gowilds_get_cart_contents();
+	hexa_get_cart_contents();
 	$fragments['.cart'] = ob_get_clean();
 	return $fragments;
 }
 
-function gowilds_get_cart_contents()
+function hexa_get_cart_contents()
 {
 	global $woocommerce;
 ?>
 	<div class="cart mini-cart-inner">
-		<a class="mini-cart" href="#" title="<?php echo esc_attr__('View your shopping cart', 'gowilds'); ?>">
+		<a class="mini-cart" href="#" title="<?php echo esc_attr__('View your shopping cart', 'hexa'); ?>">
 			<span class="title-cart"><i class="las la-shopping-cart"></i></span>
 			<span class="mini-cart-items">
 				<?php
@@ -208,7 +208,7 @@ if (!function_exists('hexa_wc_get_gallery_image_html')) {
 					$main_image
 				)
 			);
-			return '<div class="swiper-slide"><div class="product-details-thumb"><div data-thumb="' . esc_url($thumbnail_src[0]) . '" data-thumb-alt="' . esc_attr($alt_text) . '" class="woocommerce-product-gallery__image"><a href="' . esc_url($full_src[0]) . '">' . $image . '</a></div></div></div>';
+			return '<div data-thumb="' . esc_url($thumbnail_src[0]) . '" data-thumb-alt="' . esc_attr($alt_text) . '" class="woocommerce-product-gallery__image swiper-slide"><a href="' . esc_url($full_src[0]) . '">' . $image . '</a></div>';
 		} else {
 			return '<div class="hexa-gallery-thumbnail-image swiper-slide"><button class="custom-button">' . wp_get_attachment_image($attachment_id, $image_size) . '</button></div>';
 		}

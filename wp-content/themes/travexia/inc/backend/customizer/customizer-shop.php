@@ -23,20 +23,6 @@ function hexa_shop_customize_settings()
     );
 
     $fields = array(
-        // Shop Page
-        'shop_layout'     => array(
-            'type'        => 'select',
-            'label'       => esc_html__('Shop Layout', 'hexa-theme'),
-            'section'     => 'woocommerce_product_catalog',
-            'default'     => 'left-sidebar',
-            'priority'    => 7,
-            'description' => esc_html__('Select default sidebar for the shop page.', 'hexa-theme'),
-            'choices'     => array(
-                'left-sidebar' => esc_attr__('Left Sidebar', 'hexa-theme'),
-                'flex-row-reverse' => esc_attr__('Right Sidebar', 'hexa-theme'),
-            )
-        ),
-
         // Product options
         'products_per_page'    => array(
             'type'     => 'number',

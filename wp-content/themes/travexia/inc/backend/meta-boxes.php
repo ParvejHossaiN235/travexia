@@ -194,29 +194,6 @@ function hexa_register_meta_boxes($meta_boxes)
 		),
 	);
 
-	$meta_boxes[] = array(
-		'id'       => 'blog_single_post_template',
-		'title'    => esc_html__('Single Post Template Style', 'hexa-theme'),
-		'pages'    => array('post'),
-		'context'  => 'normal',
-		'priority' => 'high',
-		'fields'   => array(
-			array(
-				'name'   => esc_html__('Blog Details Style', 'hexa-theme'),
-				'id'     => "single_post_template",
-				'type'   => 'select_advanced',
-				'options'         => [
-					''  => 'Default',
-					'style_1' => 'Style 1',
-					'style_2' => 'Style 2 ',
-					'style_3' => 'Style 3 ',
-				],
-				'std' => '',
-				'placeholder'  => 'Select an item'
-			)
-		),
-	);
-
 	return $meta_boxes;
 }
 

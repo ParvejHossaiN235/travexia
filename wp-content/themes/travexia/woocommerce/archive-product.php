@@ -15,7 +15,7 @@ get_header();
 ?>
 
 <section id="wp-main-content" class="clearfix main-page">
-	<?php do_action('gowilds_before_page_content'); ?>
+	<?php do_action('hexa_before_page_content'); ?>
 	<div class="main-page-content">
 		<div class="content-page">
 			<div id="wp-content" class="wp-content clearfix">
@@ -29,7 +29,7 @@ get_header();
 			</div>
 		</div>
 	</div>
-	<?php do_action('gowilds_after_page_content'); ?>
+	<?php do_action('hexa_after_page_content'); ?>
 </section>
 
 
