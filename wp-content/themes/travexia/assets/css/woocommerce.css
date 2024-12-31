@@ -1517,7 +1517,7 @@ table.variations a.reset_variations {
   border-radius: 20px;
   overflow: hidden;
 }
-.single-product .image_frame .wc-gallery-nav .swiper-slide-active button {
+.single-product .image_frame .wc-gallery-nav .swiper-slide-thumb-active button {
   border-color: var(--tr-theme-1);
 }
 .single-product .image_frame .swiper-container {

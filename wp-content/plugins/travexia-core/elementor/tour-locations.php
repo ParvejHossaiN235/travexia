@@ -334,7 +334,7 @@ class Hexa_Tour_Locations extends Widget_Base
                 <div class="row row-gap-30 justify-content-center">
                     <?php foreach ($destinations as $term) {
                         $meta      = get_term_meta($term->term_id, 'tf_tour_destination', true);
-                        $image_url = !empty($meta['image']) ? $meta['image'] : esc_url(get_bloginfo('stylesheet_directory') . '/assets/images/thumbnail-default.png');
+                        $image_url = !empty($meta['image']) ? $meta['image'] : esc_url(get_bloginfo('stylesheet_directory') . '/assets/img/thumbnail-default.png');
                         $term_count = !empty($term->count) ? $term->count : '';
                         $term_name = !empty($term->name) ? $term->name : '';
                         $term_link = !empty(get_term_link($term)) ? get_term_link($term) : '#';
@@ -379,7 +379,7 @@ class Hexa_Tour_Locations extends Widget_Base
                 <div class="row row-gap-30">
                     <?php foreach ($destinations as $term) {
                         $meta      = get_term_meta($term->term_id, 'tf_tour_destination', true);
-                        $image_url = !empty($meta['image']) ? $meta['image'] : esc_url(get_bloginfo('stylesheet_directory') . '/assets/images/thumbnail-default.png');
+                        $image_url = !empty($meta['image']) ? $meta['image'] : esc_url(get_bloginfo('stylesheet_directory') . '/assets/img/thumbnail-default.png');
                         $term_count = !empty($term->count) ? $term->count : '';
                         $term_name = !empty($term->name) ? $term->name : '';
                         $term_link = !empty(get_term_link($term)) ? get_term_link($term) : '#';

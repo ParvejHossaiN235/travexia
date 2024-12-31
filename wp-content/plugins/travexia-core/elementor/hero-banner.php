@@ -336,7 +336,7 @@ class Hexa_Hero_Banner extends Widget_Base
                 <div class="tr-hero-bg z-index-1" <?php if (!empty($settings['bg_image']['url'])) { ?> data-background="<?php echo esc_attr($bg_image_url); ?>" <?php } ?>>
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-xl-8">
+                            <div class="col-xl-10">
                                 <div class="tr-hero-content mb-115 text-center">
                                     <?php if (!empty($settings['title'])) {
                                         echo $title_html;
