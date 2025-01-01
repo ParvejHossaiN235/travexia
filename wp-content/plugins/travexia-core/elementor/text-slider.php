@@ -203,11 +203,11 @@ class Hexa_Text_Slider extends Widget_Base
                     ]
                 ],
                 'fields'      => $repeater->get_controls(),
-                'title_field' => '{{{tname}}}',
+                'title_field' => '{{{tcontent}}}',
             ]
         );
 
-        $this->end_controls_section();
+        $this->end_controls_section();         
 
     }
 
