@@ -654,7 +654,7 @@ class Hexa_Tour_Search_Results extends Widget_Base
                                             ];
                                             $thumbnail_html = \Elementor\Group_Control_Image_Size::get_attachment_image_html($settings, 'post_thumbnail');
                                         } else {
-                                            $thumbnail_html = '<img src="' . get_bloginfo('stylesheet_directory') . '/assets/images/thumbnail-default.png" />';
+                                            $thumbnail_html = '<img src="' . get_bloginfo('stylesheet_directory') . '/assets/img/thumbnail-default.png" />';
                                         }
                                         echo hexa_kses($thumbnail_html);
                                         ?>
