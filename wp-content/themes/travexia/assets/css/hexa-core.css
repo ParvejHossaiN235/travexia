@@ -2213,6 +2213,8 @@ input[type=color] {
 }
 .tr-trip-duration {
   margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 .tr-trip-duration span {
   font-weight: 400;
@@ -2290,9 +2292,15 @@ input[type=color] {
 }
 .tr-trip-style-2 .tr-trip-price span {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: end;
 }
-.tr-trip-style-2 .tr-trip-price span::before {
+.tr-trip-style-2 .tr-trip-price .tour-price {
+  position: relative;
+}
+.tr-trip-style-2 .tr-trip-price .tour-price::before {
   position: absolute;
   top: 5px;
   left: 0;

@@ -93,6 +93,8 @@
     }
     &-duration{
         margin-bottom: 40px;
+        flex-wrap: wrap;
+        gap: 10px;
         & span{
             font-weight: 400;
             font-size: 14px;
@@ -173,7 +175,13 @@
         & .tr-trip-price  {
             & span {
                 position: relative;
-                display: block;
+                display: flex;
+                align-items: center;
+                width: 100%;
+                justify-content: end;                
+            }
+            & .tour-price {
+                position: relative;
                 &::before{
                     position: absolute;
                     top: 5px;
