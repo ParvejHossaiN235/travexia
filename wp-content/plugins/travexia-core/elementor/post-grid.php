@@ -415,6 +415,7 @@ class Hexa_Post_Grid extends Widget_Base
     protected function register_style_controls()
     {
         $this->hexa_section_style_controls('blog_section', 'Section Style', '.hf-el-section');
+        $this->hexa_basic_style_controls('section_title', 'Section - Title', '.hf-el-title');
     }
 
     /**
@@ -850,7 +851,7 @@ class Hexa_Post_Grid extends Widget_Base
                                         <?php endif; ?>
                                     </div>
                                     <?php if (!empty($settings['title_show'])) : ?>
-                                        <h4 class="hf-blog-title tr-blog-title">
+                                        <h4 class="hf-blog-title tr-blog-title hf-el-title">
                                             <a class="border-line-black" href="<?php the_permalink($post->ID); ?>">
                                                 <?php echo wp_trim_words(get_the_title($post->ID), $settings['title_limit'], ''); ?>
                                             </a>
