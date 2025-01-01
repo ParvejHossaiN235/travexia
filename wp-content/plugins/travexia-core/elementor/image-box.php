@@ -195,7 +195,7 @@ class Hexa_Image_Box extends Widget_Base
                 'default'    => [],
                 'separator' => 'before',
                 'label_block' => 'true',
-                'condition' => [    
+                'condition' => [
                     'hexa_design_layout!' => ['layout_3']
                 ]
             ]
@@ -248,13 +248,13 @@ class Hexa_Image_Box extends Widget_Base
         $this->add_control(
             'animation_type',
             [
-                'label'   => esc_html__( 'Animation Type', 'hexacore' ),
+                'label'   => esc_html__('Animation Type', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
-                    'none'  => esc_html__( 'None', 'hexacore' ),
-                    'itfadeLeft'  => esc_html__( 'Fade Left', 'hexacore' ),
-                    'itfadeRight'  => esc_html__( 'Fade Right', 'hexacore' ),
-                    'itfadeUp'  => esc_html__( 'Fade Up', 'hexacore' ),                    
+                    'none'  => esc_html__('None', 'hexacore'),
+                    'itfadeLeft'  => esc_html__('Fade Left', 'hexacore'),
+                    'itfadeRight'  => esc_html__('Fade Right', 'hexacore'),
+                    'itfadeUp'  => esc_html__('Fade Up', 'hexacore'),
                 ],
                 'default' => 'none',
                 'condition' => [
@@ -424,22 +424,22 @@ class Hexa_Image_Box extends Widget_Base
                     <?php if (!empty($settings['title'])) {
                         echo $title_html;
                     } ?>
-                    <?php if (!empty($settings['content'])) {
+                    <?php if (!empty($settings['desc'])) {
                         echo '<p class="hexa-image-desc hexa-el-desc">' . $settings['desc'] . '</p>';
                     } ?>
                 </div>
             </div>
 
-        <?php elseif ($settings['hexa_design_layout']  == 'layout_3') : 
+        <?php elseif ($settings['hexa_design_layout']  == 'layout_3') :
             $image_html = \Elementor\Group_Control_Image_Size::get_attachment_image_html($settings, 'image_size', 'image');
 
             $this->add_render_attribute('title', 'class', 'tr-adventure-title hexa-el-title');
-            $title_html = sprintf('<%1$s %2$s>%3$s</%1$s>', $title_tag, $this->get_render_attribute_string('title'), $title);            
+            $title_html = sprintf('<%1$s %2$s>%3$s</%1$s>', $title_tag, $this->get_render_attribute_string('title'), $title);
             if (!empty($settings['blink']['url'])) {
                 $this->add_link_attributes('blink', $settings['blink']);
             }
             $this->add_render_attribute('blink', 'class', 'tr-btn-white hexa-el-btn');
-            
+
         ?>
             <div class="wow <?php echo esc_attr($animation_type); ?>" data-wow-duration=".9s" data-wow-delay=".3s">
                 <div class="tr-adventure-item" data-background="<?php echo esc_url($settings['image']['url']); ?>">
@@ -502,7 +502,7 @@ class Hexa_Image_Box extends Widget_Base
                     <?php } ?>
                 </div>
             </div>
-        <?php endif;
+<?php endif;
     }
 }
 

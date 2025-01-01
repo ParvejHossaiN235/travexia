@@ -115,6 +115,7 @@ class Hexa_Tour_Search_Form extends Widget_Base
     protected function register_content_controls()
     {
         $this->design_layout();
+        $this->banner_content();
         $this->search_content();
         $this->search_setting();
     }

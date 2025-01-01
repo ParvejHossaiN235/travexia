@@ -130,7 +130,7 @@ class Hexa_Heading extends Widget_Base
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'options' => [
 					'layout_1' => esc_html__('Layout 1', 'hexacore'),
-					'layout-2' => esc_html__('Layout 2', 'hexacore'),
+					'layout_2' => esc_html__('Layout 2', 'hexacore'),
 					//'layout-3' => esc_html__('Layout 3', 'hexacore'),
 				],
 				'default' => 'layout_1',
