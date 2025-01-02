@@ -135,7 +135,7 @@ class Hexa_Contact_Info extends Widget_Base
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
                     'layout_1' => esc_html__('Layout 1', 'hexacore'),
-                    //'layout_2' => esc_html__('Layout 2', 'hexacore'),
+                    'layout_2' => esc_html__('Layout 2', 'hexacore'),
                 ],
                 'default' => 'layout_1',
             ]
@@ -216,9 +216,22 @@ class Hexa_Contact_Info extends Widget_Base
         );
 
         $this->add_control(
-            'title',
+            'contact_label',
             [
                 'label' => esc_html__('Contact Label', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('Contact Label', 'hexacore'),
+                'label_block' => true,
+                'condition' => [
+                    'hexa_design_layout' => 'layout_2',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'title',
+            [
+                'label' => esc_html__('Contact', 'hexacore'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => esc_html__('Contact Label', 'hexacore'),
                 'label_block' => true,
@@ -376,50 +389,71 @@ class Hexa_Contact_Info extends Widget_Base
         extract($settings);
 ?>
 
-        <?php if ($settings['hexa_design_layout']  == 'layout_2') :
+<?php if ($settings['hexa_design_layout']  == 'layout_2') : ?>
 
-            $this->add_render_attribute('title', 'class', 'hexa-contact-title hexa-el-title');
-            $title_html = sprintf('<%1$s %2$s>%3$s</%1$s>', $title_tag, $this->get_render_attribute_string('title'), $title);
-            if (!empty($settings['link']['url'])) {
-                $this->add_link_attributes('link', $settings['link']);
-                if (!empty($settings['link'])) {
-                    $title_html = sprintf('<%1$s %2$s><a ' . $this->get_render_attribute_string('link') . '>%3$s</a></%1$s>', $title_tag, $this->get_render_attribute_string('title'), $title);
-                }
-            }
-
-        ?>
-
-
+<div class="tr-inner-contact-info-item d-flex align-items-start mb-30">
+    <div class="tr-inner-contact-info-icon">
+        <?php if ($settings['icon_type'] == 'icon') : ?>
+        <?php if (!empty($settings['selected_icon']['value'])) : ?>
+        <?php \Elementor\Icons_Manager::render_icon($settings['selected_icon'], ['aria-hidden' => 'true']); ?>
+        <?php endif; ?>
+        <?php elseif ($settings['icon_type'] == 'image') : ?>
+        <?php if (!empty($settings['icon_image']['url'])) : ?>
+        <img src="<?php echo $settings['icon_image']['url']; ?>"
+            alt="<?php echo get_post_meta(attachment_url_to_postid($settings['icon_image']['url']), '_wp_attachment_image_alt', true); ?>">
+        <?php endif; ?>
         <?php else : ?>
+        <?php if (!empty($settings['icon_svg'])) : ?>
+        <?php echo $settings['icon_svg']; ?>
+        <?php endif; ?>
+        <?php endif; ?>
+    </div>
+    <div class="tr-inner-contact-info-details">
 
-            <div class="tr-contact-box">
-                <ul>
-                    <li class="tr-contact-item <?php echo esc_attr($display); ?>">
-                        <span>
-                            
-                            <?php if ($settings['icon_type'] == 'icon') : ?>
-                                    <?php if (!empty($settings['selected_icon']['value'])) : ?>
-                                        <?php \Elementor\Icons_Manager::render_icon($settings['selected_icon'], ['aria-hidden' => 'true']); ?>
-                                    <?php endif; ?>
-                                <?php elseif ($settings['icon_type'] == 'image') : ?>
-                                    <?php if (!empty($settings['icon_image']['url'])) : ?>
-                                        <img src="<?php echo $settings['icon_image']['url']; ?>" alt="<?php echo get_post_meta(attachment_url_to_postid($settings['icon_image']['url']), '_wp_attachment_image_alt', true); ?>">
-                                    <?php endif; ?>
-                                <?php else : ?>
-                                    <?php if (!empty($settings['icon_svg'])) : ?>
-                                        <?php echo $settings['icon_svg']; ?>
-                                    <?php endif; ?>
-                                <?php endif; ?>
+        <?php if(!empty($settings['contact_label'])) : ?>
+        <span>
+            <?php echo hexa_kses($settings['contact_label']) ; ?> 
+        </span>
+        <?php endif; ?>
 
-                            <a href="<?php echo esc_attr($settings['link']['url']); ?>">
-                                <?php echo hexa_kses($settings['title']); ?>
-                            </a>
-                        </span>
-                    </li>
-                </ul>
-            </div>
+        <a href="<?php echo esc_attr($settings['link']['url']); ?>">
+            <?php echo hexa_kses($settings['title']); ?>
+        </a>
+    </div>
+</div>
 
-        <?php endif;
+
+<?php else : ?>
+
+<div class="tr-contact-box">
+    <ul>
+        <li class="tr-contact-item <?php echo esc_attr($display); ?>">
+            <span>
+
+                <?php if ($settings['icon_type'] == 'icon') : ?>
+                <?php if (!empty($settings['selected_icon']['value'])) : ?>
+                <?php \Elementor\Icons_Manager::render_icon($settings['selected_icon'], ['aria-hidden' => 'true']); ?>
+                <?php endif; ?>
+                <?php elseif ($settings['icon_type'] == 'image') : ?>
+                <?php if (!empty($settings['icon_image']['url'])) : ?>
+                <img src="<?php echo $settings['icon_image']['url']; ?>"
+                    alt="<?php echo get_post_meta(attachment_url_to_postid($settings['icon_image']['url']), '_wp_attachment_image_alt', true); ?>">
+                <?php endif; ?>
+                <?php else : ?>
+                <?php if (!empty($settings['icon_svg'])) : ?>
+                <?php echo $settings['icon_svg']; ?>
+                <?php endif; ?>
+                <?php endif; ?>
+
+                <a href="<?php echo esc_attr($settings['link']['url']); ?>">
+                    <?php echo hexa_kses($settings['title']); ?>
+                </a>
+            </span>
+        </li>
+    </ul>
+</div>
+
+<?php endif;
     }
 }
 

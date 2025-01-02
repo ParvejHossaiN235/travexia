@@ -290,7 +290,7 @@ class Hexa_Post_Grid extends Widget_Base
                 'label' => __('Post Settings', 'hexacore'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
                 'condition' => [
-                    'hexa_design_layout' => ['layout_1', 'layout_2', 'layout_3']
+                    'hexa_design_layout' => ['layout_1', 'layout_2', 'layout_3', 'layout_4']
                 ]
             ]
         );

@@ -509,31 +509,44 @@ class Hexa_Faq extends Widget_Base
 ?>
 
 
-        <?php if ($settings['hexa_design_layout']  == 'layout-2') : ?>
+<?php if ($settings['hexa_design_layout']  == 'layout-2') : ?>
 
-        <?php else : ?>
+<?php else : ?>
 
-            <div class="hexa-accordion <?php echo $acc_class; ?>">
-                <div class="accordion" id="<?php echo $accid; ?>">
-                    <?php foreach ($settings['accordion_list'] as $key => $item) :
-                        $key_id = $key + 1;
-                        $collapsed = $item['acc_active'] ? '' : 'collapsed';
-                        $show = $item['acc_active'] ? 'show' : '';
-                    ?>
-                        <div class="accordion-item">
-                            <<?php echo $title_tag; ?> class="accordion-header" id="<?php echo $accid; ?>-heading-<?php echo $key_id; ?>">
-                                <button class="accordion-button hexa-el-rep-title <?php echo esc_attr($collapsed); ?>" type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo $accid; ?>-collapse-<?php echo $key_id; ?>" aria-expanded="true" aria-controls="<?php echo $accid; ?>-collapse-<?php echo $key_id; ?>">
-                                    <?php echo wp_kses_post($item['acc_title']); ?>
-                                </button>
 
-                            </<?php echo $title_tag; ?>>
-                            <div id="<?php echo $accid; ?>-collapse-<?php echo $key_id; ?>" class="accordion-collapse collapse <?php echo esc_attr($show); ?>" aria-labelledby="<?php echo $accid; ?>-heading-<?php echo $key_id; ?>" data-bs-parent="#<?php echo $accid; ?>">
-                                <div class="accordion-body hexa-el-rep-desc"><?php echo wp_kses_post($item['acc_content']); ?></div>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
+<div class="tr-faq-wrap">
+    <div class="hexa-accordion tr-custom-accordion <?php echo $acc_class; ?>">
+        <div class="accordion" id="<?php echo $accid; ?>">
+            <?php foreach ($settings['accordion_list'] as $key => $item) :
+                $key_id = $key + 1;
+                $collapsed = $item['acc_active'] ? '' : 'collapsed';
+                $show = $item['acc_active'] ? 'show' : '';
+            ?>
+            <div class="accordion-items">
+                <<?php echo $title_tag; ?> class="accordion-header"
+                    id="<?php echo $accid; ?>-heading-<?php echo $key_id; ?>">
+                    <button class="accordion-buttons hexa-el-rep-title <?php echo esc_attr($collapsed); ?>" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#<?php echo $accid; ?>-collapse-<?php echo $key_id; ?>"
+                        aria-expanded="true" aria-controls="<?php echo $accid; ?>-collapse-<?php echo $key_id; ?>">
+                        <?php echo wp_kses_post($item['acc_title']); ?>
+                    </button>
+
+                </<?php echo $title_tag; ?>>
+                <div id="<?php echo $accid; ?>-collapse-<?php echo $key_id; ?>"
+                    class="accordion-collapse collapse <?php echo esc_attr($show); ?>"
+                    aria-labelledby="<?php echo $accid; ?>-heading-<?php echo $key_id; ?>"
+                    data-bs-parent="#<?php echo $accid; ?>">
+                    <div class="accordion-body hexa-el-rep-desc">
+                        <p class="mb-0">
+                        <?php echo wp_kses_post($item['acc_content']); ?>
+                        </p>
+                    </div>
                 </div>
             </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
 
 <?php endif;
     }
