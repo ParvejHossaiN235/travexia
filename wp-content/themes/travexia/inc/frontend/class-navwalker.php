@@ -55,7 +55,7 @@ if (!class_exists('Hexa_Navwalker_Class')) {
             }
             $indent = str_repeat($t, $depth);
             // Default class to add to the file.
-            $classes = ['sub-menu submenu'];
+            $classes = ['sub-menu submenu it-submenu'];
             /**
              * Filters the CSS class(es) applied to a menu list element.
              *
