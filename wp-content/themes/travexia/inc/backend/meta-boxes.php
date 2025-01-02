@@ -88,31 +88,6 @@ function hexa_register_meta_boxes($meta_boxes)
 				),
 			),
 			array(
-				'name'             => esc_html__('Header Transparent?', 'hexa-theme'),
-				'id'               => 'is_trans',
-				'type'             => 'select',
-				'options'   => array(
-					'default'   => 'Default',
-					'yes' 		=> 'Yes',
-					'no' 		=> 'No',
-				),
-				'std'       => 'default'
-			),
-			array(
-				'name' 	=> 'Header Mobile Layout',
-				'id' 	=> 'select_header_mobile',
-				'type'  => 'post',
-				'post_type'   => 'hexa_header',
-				'field_type'  => 'select_advanced',
-				'placeholder' => 'Select a header mobile',
-				'query_args'  => array(
-					'post_status'    => 'publish',
-					'posts_per_page' => -1,
-					'orderby' 		 => 'date',
-					'order' 		 => 'ASC',
-				),
-			),
-			array(
 				'name' => 'Footer Layout',
 				'id' => 'select_footer',
 				'type'        => 'post',
@@ -128,7 +103,6 @@ function hexa_register_meta_boxes($meta_boxes)
 			),
 		),
 	);
-
 
 	// Post format's meta box
 	$meta_boxes[] = array(
