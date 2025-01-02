@@ -1419,7 +1419,7 @@ input[type=color] {
 .tr-dropdown-menu > nav > ul > li > .submenu > li, .tr-dropdown-menu > nav > ul > li > .submenu .submenu > li {
   list-style: none;
   display: block;
-  padding: 0 45px;
+  padding: 0 35px;
 }
 .tr-dropdown-menu > nav > ul > li > .submenu > li:not(:last-child), .tr-dropdown-menu > nav > ul > li > .submenu .submenu > li:not(:last-child) {
   margin-bottom: 13px;

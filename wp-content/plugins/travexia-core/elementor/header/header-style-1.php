@@ -345,6 +345,155 @@ class Hexa_Header_Style_One extends Widget_Base
         );
 
         $this->end_controls_section();
+
+        // offcanvas_section
+        $this->start_controls_section(
+            'offcanvas_section',
+            [
+                'label' => __('Mobile Menu', 'hexacore'),
+                'sparator' => 'before',
+            ]
+        );
+        $this->add_control(
+            'site_logo_image',
+            [
+                'label' => esc_html__('Image', 'hexacore'),
+                'type'  => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'site_logo_link',
+            [
+                'label' => esc_html__('Link', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::URL,
+                'options' => ['url', 'is_external', 'nofollow'],
+                'default' => [
+                    'url' => '#',
+                    'is_external' => false,
+                    'nofollow' => false,
+                ],
+                'label_block' => true,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'site_logo_width',
+            [
+                'label' => __('Width', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 500,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .hexa-el-site-logo img' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'side_contact_desc',
+            [
+                'label' => esc_html__('Contact Description', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'default' => esc_html__('Contact Description', 'hexacore'),   
+                'title' => esc_html__('Contact Description', 'hexacore'),
+                'label_block' => true,
+            ]
+        );
+
+        $this->end_controls_section();
+
+        // side contact info
+        $this->start_controls_section(
+            'side_contact_section',
+            [
+                'label' => __('Side Contact Info', 'hexacore'),
+                'sparator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'side_contact_title',
+            [
+                'label' => esc_html__('Contact Title', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('Contact Title', 'hexacore'),   
+                'title' => esc_html__('Contact Title', 'hexacore'),
+                'label_block' => true,
+            ]
+        );        
+        
+        $repeater = new \Elementor\Repeater();
+
+        $repeater->add_control(
+           'side_contact_icon',
+            [
+                'label' => esc_html__( 'Icon', 'hexacore' ),
+                'type' => \Elementor\Controls_Manager::ICONS,
+                'default' => [
+                    'value' => 'fal fa-envelope',
+                    'library' => 'fa-solid',
+                ],
+            ]
+        );        
+        
+        $repeater->add_control(
+            'content_label_text',
+            [
+                'label'   => esc_html__( 'Label', 'hexacore' ),
+                'type'        => \Elementor\Controls_Manager::TEXT,
+                'default'     => esc_html__( 'Email', 'hexacore' ),
+                'label_block' => true,
+            ]
+        );
+        
+        $repeater->add_control(
+            'content_text',
+            [
+                'label'   => esc_html__( 'Text', 'hexacore' ),
+                'type'        => \Elementor\Controls_Manager::TEXT,
+                'default'     => esc_html__( 'admin@example.com', 'hexacore' ),
+                'label_block' => true,
+            ]
+        );
+        
+        $repeater->add_control(
+            'content_label_text_link',
+            [
+                'label'   => esc_html__( 'Link', 'hexacore' ),
+                'type'        => \Elementor\Controls_Manager::TEXT,
+                'default'     => esc_html__( '#', 'hexacore' ),
+                'label_block' => true,
+            ]
+        );
+         
+        $this->add_control(
+           'contact_section_id',
+            [
+                'label'       => esc_html__( 'Section Label', 'hexacore' ),
+                'type'        => \Elementor\Controls_Manager::REPEATER,
+                'fields'      => $repeater->get_controls(),
+                'default'     => [
+                    [
+                        'content_label_text'   => esc_html__( 'Email', 'hexacore' ),
+                        'content_label_text'   => esc_html__( 'Phone', 'hexacore' ),
+                        'content_label_text'   => esc_html__( 'Location', 'hexacore' ),
+                    ],
+                ],
+                'fields'      => $repeater->get_controls(),
+                'title_field' => '{{{content_label_text}}}',
+            ]
+        );
+
+
+        $this->end_controls_section();
     }
 
     protected function register_styles_section()
@@ -633,6 +782,10 @@ class Hexa_Header_Style_One extends Widget_Base
             $this->add_link_attributes('logo_link', $settings['logo_link']);
         }
 
+        if (!empty($settings['site_logo_link']['url'])) {
+            $this->add_link_attributes('site_logo_link', $settings['site_logo_link']);
+        }
+
         $this->add_render_attribute('phone', 'class', 'border-line-black');
         if (!empty($settings['phone_link']['url'])) {
             $this->add_link_attributes('phone', $settings['phone_link']);
@@ -644,72 +797,148 @@ class Hexa_Header_Style_One extends Widget_Base
         }
 ?>
 
-        <div class="tr-header-height">
-            <div id="header-sticky" class="tr-header-area tr-header-ptb">
-                <div class="container container-1790">
-                    <div class="header-inner d-flex align-items-center justify-content-between">
-                        <?php if (!empty($settings['logo_image']['url'])) : ?>
-                            <div class="tr-header-logo">
-                                <a <?php echo $this->get_render_attribute_string('logo_link'); ?>>
-                                    <img src="<?php echo esc_attr($settings['logo_image']['url']); ?>" alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
-                                </a>
-                            </div>
-                        <?php endif; ?>
+<div class="tr-header-height">
+    <div id="header-sticky" class="tr-header-area tr-header-ptb">
+        <div class="container container-1790">
+            <div class="header-inner d-flex align-items-center justify-content-between">
+                <?php if (!empty($settings['logo_image']['url'])) : ?>
+                <div class="tr-header-logo">
+                    <a <?php echo $this->get_render_attribute_string('logo_link'); ?>>
+                        <img src="<?php echo esc_attr($settings['logo_image']['url']); ?>"
+                            alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
+                    </a>
+                </div>
+                <?php endif; ?>
 
-                        <div class="tr-header-menu tr-dropdown-menu d-none d-xl-block ">
-                            <nav class="it-menu-content">
-                                <?php echo $menu_html; ?>
-                            </nav>
+                <div class="tr-header-menu tr-dropdown-menu d-none d-xl-block ">
+                    <nav class="it-menu-content">
+                        <?php echo $menu_html; ?>
+                    </nav>
+                </div>
+
+                <div class="tr-header-right-action d-flex justify-content-end align-items-center">
+                    <?php if (!empty($settings['phone_text'])) : ?>
+                    <div class="tr-header-right-tel d-none d-xxl-flex align-items-center">
+                        <div class="tr-header-right-tel-icon">
+                            <span>
+                                <svg width="55" height="55" viewBox="0 0 55 55" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M31.8535 30.2461H42.8705" stroke="currentcolor" stroke-width="2.57908"
+                                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M31.8535 35.3555H42.8705" stroke="currentcolor" stroke-width="2.57908"
+                                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M31.8535 40.4648H42.8705" stroke="currentcolor" stroke-width="2.57908"
+                                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M12.041 12.0547H23.058" stroke="currentcolor" stroke-width="2.57908"
+                                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M12.041 17.1641H23.058" stroke="currentcolor" stroke-width="2.57908"
+                                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M12.041 22.2773H17.5495" stroke="currentcolor" stroke-width="2.57908"
+                                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                    <mask id="mask0_7810_514" style="mask-type:luminance" maskUnits="userSpaceOnUse"
+                                        x="0" y="0" width="55" height="55">
+                                        <path d="M0 7.62939e-06H55V55H0V7.62939e-06Z" fill="white" />
+                                    </mask>
+                                    <g mask="url(#mask0_7810_514)">
+                                        <path
+                                            d="M37.3613 47.2486H42.27H44.6512C44.9039 47.2486 44.8766 47.2394 45.1019 47.3581L49.8704 49.8037C50.1292 49.898 50.251 49.8281 50.2388 49.5694L49.9618 44.4805C49.9557 44.441 49.9465 44.435 49.9739 44.4106C52.5501 42.2205 54.1943 38.9628 54.1943 35.34V34.8229C54.1943 28.2708 48.829 22.9112 42.27 22.9112H32.1939C25.6349 22.9112 20.2695 28.2708 20.2695 34.8229V35.34C20.2695 41.889 25.6349 47.2486 32.1939 47.2486H33.6403"
+                                            stroke="currentcolor" stroke-width="2.57908" stroke-miterlimit="10"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path
+                                            d="M18.3959 5.15734H22.8021C29.3611 5.15734 34.7264 10.517 34.7264 17.069V17.583C34.7264 19.4963 34.2697 21.3063 33.4596 22.9124M21.5384 29.4947H12.7291H10.3478C10.0921 29.4947 10.1195 29.4856 9.89408 29.6012L5.12562 32.0499C4.86985 32.1442 4.74503 32.0741 4.76018 31.8126L5.03432 26.7267C5.04033 26.6841 5.04946 26.678 5.02207 26.6568C2.44599 24.4666 0.804688 21.2089 0.804688 17.583V17.069C0.804688 10.517 6.17009 5.15734 12.7291 5.15734H14.6749"
+                                            stroke="currentcolor" stroke-width="2.57908" stroke-miterlimit="10"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                </svg>
+                            </span>
                         </div>
-
-                        <div class="tr-header-right-action d-flex justify-content-end align-items-center">
-                            <?php if (!empty($settings['phone_text'])) : ?>
-                                <div class="tr-header-right-tel d-none d-xxl-flex align-items-center">
-                                    <div class="tr-header-right-tel-icon">
-                                        <span>
-                                            <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M31.8535 30.2461H42.8705" stroke="currentcolor" stroke-width="2.57908" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                                <path d="M31.8535 35.3555H42.8705" stroke="currentcolor" stroke-width="2.57908" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                                <path d="M31.8535 40.4648H42.8705" stroke="currentcolor" stroke-width="2.57908" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                                <path d="M12.041 12.0547H23.058" stroke="currentcolor" stroke-width="2.57908" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                                <path d="M12.041 17.1641H23.058" stroke="currentcolor" stroke-width="2.57908" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                                <path d="M12.041 22.2773H17.5495" stroke="currentcolor" stroke-width="2.57908" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                                <mask id="mask0_7810_514" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="55" height="55">
-                                                    <path d="M0 7.62939e-06H55V55H0V7.62939e-06Z" fill="white" />
-                                                </mask>
-                                                <g mask="url(#mask0_7810_514)">
-                                                    <path d="M37.3613 47.2486H42.27H44.6512C44.9039 47.2486 44.8766 47.2394 45.1019 47.3581L49.8704 49.8037C50.1292 49.898 50.251 49.8281 50.2388 49.5694L49.9618 44.4805C49.9557 44.441 49.9465 44.435 49.9739 44.4106C52.5501 42.2205 54.1943 38.9628 54.1943 35.34V34.8229C54.1943 28.2708 48.829 22.9112 42.27 22.9112H32.1939C25.6349 22.9112 20.2695 28.2708 20.2695 34.8229V35.34C20.2695 41.889 25.6349 47.2486 32.1939 47.2486H33.6403" stroke="currentcolor" stroke-width="2.57908" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M18.3959 5.15734H22.8021C29.3611 5.15734 34.7264 10.517 34.7264 17.069V17.583C34.7264 19.4963 34.2697 21.3063 33.4596 22.9124M21.5384 29.4947H12.7291H10.3478C10.0921 29.4947 10.1195 29.4856 9.89408 29.6012L5.12562 32.0499C4.86985 32.1442 4.74503 32.0741 4.76018 31.8126L5.03432 26.7267C5.04033 26.6841 5.04946 26.678 5.02207 26.6568C2.44599 24.4666 0.804688 21.2089 0.804688 17.583V17.069C0.804688 10.517 6.17009 5.15734 12.7291 5.15734H14.6749" stroke="currentcolor" stroke-width="2.57908" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                                </g>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                    <div class="tr-header-right-tel-content">
-                                        <span><?php $this->print_unescaped_setting('phone_label'); ?></span>
-                                        <a <?php echo $this->get_render_attribute_string('phone'); ?>>
-                                            <?php $this->print_unescaped_setting('phone_text'); ?>
-                                        </a>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                            <?php if (!empty($settings['btn_text'])) : ?>
-                                <div class="tr-header-right-btn d-none d-md-block">
-                                    <a <?php echo $this->get_render_attribute_string('button'); ?>>
-                                        <?php $this->print_unescaped_setting('btn_text'); ?>
-                                    </a>
-                                </div>
-                            <?php endif; ?>
-                            <div class="tr-header-bar d-xl-none ml-30">
-                                <button class="tr-menu-bar">
-                                    <i class="fa-sharp fa-light fa-bars-staggered"></i>
-                                </button>
-                            </div>
-
+                        <div class="tr-header-right-tel-content">
+                            <span><?php $this->print_unescaped_setting('phone_label'); ?></span>
+                            <a <?php echo $this->get_render_attribute_string('phone'); ?>>
+                                <?php $this->print_unescaped_setting('phone_text'); ?>
+                            </a>
                         </div>
                     </div>
+                    <?php endif; ?>
+                    <?php if (!empty($settings['btn_text'])) : ?>
+                    <div class="tr-header-right-btn d-none d-md-block">
+                        <a <?php echo $this->get_render_attribute_string('button'); ?>>
+                            <?php $this->print_unescaped_setting('btn_text'); ?>
+                        </a>
+                    </div>
+                    <?php endif; ?>
+                    <div class="tr-header-bar d-xl-none ml-30">
+                        <button class="tr-menu-bar">
+                            <i class="fa-sharp fa-light fa-bars-staggered"></i>
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+
+<!-- it-offcanvus-area-start -->
+<div class="it-offcanvas-area">
+    <div class="it-offcanvas">
+        <div class="it-offcanvas__close-btn">
+            <button class="close-btn"><i class="fal fa-times"></i></button>
+        </div>
+
+        <?php if (!empty($settings['site_logo_image']['url'])) : ?>
+        <div class="it-offcanvas__logo hexa-el-site-logo">
+            <a <?php echo $this->get_render_attribute_string('site_logo_link'); ?>>
+                <img src="<?php echo esc_attr($settings['site_logo_image']['url']); ?>"
+                    alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
+            </a>
+        </div>
+        <?php endif; ?>
+
+        <?php if (!empty($settings['side_contact_desc'])) : ?>
+        <div class="it-offcanvas__text">
+            <p>
+                <?php echo hexa_kses($settings['side_contact_desc']); ?>
+            </p>
+        </div>
+        <?php endif; ?>
+        <div class="it-menu-mobile"></div>
+        
+        <div class="it-offcanvas__info">
+            <?php if (!empty($settings['side_contact_title'])) : ?>
+                <h3 class="it-offcanvas-title">
+                    <?php echo hexa_kses($settings['side_contact_title']); ?>
+                </h3>
+            <?php endif; ?>
+
+            <?php foreach ($settings['contact_section_id'] as $key => $item) : ?>
+            <div class="it-info-wrapper mb-20 d-flex align-items-center">
+                <div class="it-offcanvas__info-icon">
+                   <a href="<?php echo esc_url($item['content_label_text_link']); ?>">
+                    <i class="<?php echo esc_attr($item['side_contact_icon']['value']); ?>"></i>
+                   </a>
+                </div>
+                <div class="it-offcanvas__info-address">
+                    <?php if (!empty($item['content_label_text'])) : ?>
+                    <span>
+                        <?php echo hexa_kses($item['content_label_text']); ?>
+                    </span>
+                    <?php endif; ?>
+
+                    <?php if (!empty($item['content_text'])) : ?>
+                    <a href="<?php echo esc_url($item['content_label_text_link']); ?>">
+                        <?php echo hexa_kses($item['content_text']); ?>
+                    </a>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <?php endforeach; ?>            
+        </div>
+    </div>
+</div>
+<div class="body-overlay"></div>
+<!-- it-offcanvus-area-end -->
 
 <?php
     }
