@@ -25,7 +25,7 @@ function hexa_register_required_plugins()
      * If the source is NOT from the .org repo, then source is also required.
      */
 
-    $url = 'https://wp.hexaflow.net/hexa/source/';
+    $url = 'https://travexia.sapwp.com/source/';
 
     $plugins = [
         [
@@ -36,7 +36,7 @@ function hexa_register_required_plugins()
         [
             'name'         => HEXA_THEME_NAME . ' Core ',
             'slug'         => HEXA_THEME_SLUG . '-core',
-            'source'       => 'hexa-core.zip',
+            'source'       => 'travexia-core.zip',
             'required'     => true,
         ],
         [
@@ -47,6 +47,11 @@ function hexa_register_required_plugins()
         [
             'name'         => 'Meta Box',
             'slug'         => 'meta-box',
+            'required'     => true,
+        ],
+        [
+            'name'         => 'WooCommerce',
+            'slug'         => 'woocommerce',
             'required'     => true,
         ],
         [
@@ -63,27 +68,7 @@ function hexa_register_required_plugins()
             'name'         => 'One Click Demo Import',
             'slug'         => 'one-click-demo-import',
             'required'     => false,
-        ],
-        [
-            'name'         => 'WooCommerce',
-            'slug'         => 'woocommerce',
-            'required'     => false,
-        ],
-        [
-            'name'         => 'WPC Smart Wishlist',
-            'slug'         => 'woo-smart-wishlist',
-            'required'     => false,
-        ],
-        [
-            'name'         => 'WPC Smart Compare',
-            'slug'         => 'woo-smart-compare',
-            'required'     => false,
-        ],
-        [
-            'name'         => 'WPC Smart Quick View',
-            'slug'         => 'woo-smart-quick-view',
-            'required'     => false,
-        ],
+        ]
     ];
     $config = [
         'id'           => HEXA_THEME_SLUG,

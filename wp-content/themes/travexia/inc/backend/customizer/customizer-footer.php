@@ -37,11 +37,11 @@ function footer_customize_settings()
 			'default'     => '<hr>',
 			'priority'    => 2,
 		),
-		'backtotop'  => array(
+		'back_to_top'  => array(
 			'type'        => 'toggle',
 			'label'       => esc_html__('Back To Top On/Off?', 'hexa-theme'),
 			'section'     => 'footer',
-			'default'     => 1,
+			'default'     => false,
 			'priority'    => 3,
 		),
 		'color_backtotop' => array(

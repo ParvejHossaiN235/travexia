@@ -216,13 +216,6 @@ function hexa_customize_settings()
             'priority'    => 11,
             'capability'  => 'edit_theme_options',
         ),
-        /* back_to_top */
-        'back_to_top_section'     => array(
-            'title'       => esc_attr__('Back to Top', 'hexa-theme'),
-            'description' => '',
-            'priority'    => 10,
-            'capability'  => 'edit_theme_options',
-        ),
         /* typography */
         'typography'           => array(
             'title'       => esc_html__('Typography', 'hexa-theme'),
@@ -321,16 +314,6 @@ function hexa_customize_settings()
                     'value'    => 1,
                 ),
             ),
-        ),
-
-
-        /* back to top */
-        'back_to_top'     => array(
-            'type'        => 'toggle',
-            'label'       => esc_attr__('Back to Top', 'hexa-theme'),
-            'section'     => 'back_to_top_section',
-            'default'     => false,
-            'priority'    => 10,
         ),
 
         /* typography */
