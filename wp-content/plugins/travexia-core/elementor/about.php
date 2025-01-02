@@ -681,12 +681,11 @@ class Hexa_About extends Widget_Base
                                     <div class="tr-about-client">
                                         <div class="tr-about-client-content">
                                             <?php if (!empty($settings['client_content_number'])): ?>
+                                                
                                                 <h4>
-                                                    <span n="1"
-                                                        data-purecounter-endata-purecounter-duratiod="<?php echo esc_attr($settings['client_content_number']); ?>"
-                                                        class="purecounter">
-                                                        0
-                                                    </span>
+                                                    <span data-purecounter-duration="1"
+                                                        data-purecounter-end="<?php echo esc_attr($settings['client_content_number']); ?>"
+                                                        class="purecounter">0</span>
                                                     +
                                                 </h4>
                                                 <?php endif; ?>
