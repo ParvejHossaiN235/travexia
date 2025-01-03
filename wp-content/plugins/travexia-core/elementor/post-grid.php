@@ -307,6 +307,18 @@ class Hexa_Post_Grid extends Widget_Base
             ]
         );
         $this->add_control(
+            'row_swipe',
+            [
+                'label' => esc_html__('Sidebar Position', 'hexacore'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => [
+                    '' => esc_html__('Right Sidebar', 'hexacore'),
+                    'flex-row-reverse' => esc_html__('Left Sidebar', 'hexacore'),
+                ],
+                'default' => '',
+            ]
+        );
+        $this->add_control(
             'show_sidebar',
             [
                 'label' => __('Show Sidebar', 'hexacore'),
@@ -544,7 +556,7 @@ class Hexa_Post_Grid extends Widget_Base
                                                 $content_limit = (!empty($settings['content_limit'])) ? $settings['content_limit'] : '';
                                             ?>
                                                 <p class="hexa-el-desc">
-                                                    <?php print wp_trim_words(get_the_excerpt($post->ID), $content_limit, ''); ?>
+                                                    <?php print wp_trim_words(get_the_excerpt($post->ID), $content_limit, '...'); ?>
                                                 </p>
                                             <?php endif; ?>
                                             <?php if (!empty($settings['btn_text'])) : ?>
@@ -565,8 +577,8 @@ class Hexa_Post_Grid extends Widget_Base
                             <div class="col-12">
                                 <div class="hexa-pagination mt-50">
                                     <?php
-                                    $prev = '<i class="fas fa-long-arrow-left"></i>';
-                                    $next = '<i class="fas fa-long-arrow-right"></i>';
+                                    $prev = '<i class="fa-solid fa-arrow-left-long"></i>';
+                                    $next = '<i class="fa-solid fa-arrow-right-long"></i>';
                                     $pagination = array(
                                         'base'      => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
                                         'format'    => '?paged=%#%',
@@ -648,7 +660,7 @@ class Hexa_Post_Grid extends Widget_Base
                                             $content_limit = (!empty($settings['content_limit'])) ? $settings['content_limit'] : '';
                                         ?>
                                             <p class="hexa-el-desc">
-                                                <?php print wp_trim_words(get_the_excerpt($post->ID), $content_limit, ''); ?>
+                                                <?php print wp_trim_words(get_the_excerpt($post->ID), $content_limit, '...'); ?>
                                             </p>
                                         <?php endif; ?>
                                     </div>
@@ -661,8 +673,8 @@ class Hexa_Post_Grid extends Widget_Base
                         <div class="col-12">
                             <div class="hexa-pagination mt-50">
                                 <?php
-                                $prev = '<i class="fas fa-long-arrow-left"></i>';
-                                $next = '<i class="fas fa-long-arrow-right"></i>';
+                                $prev = '<i class="fa-solid fa-arrow-left-long"></i>';
+                                $next = '<i class="fa-solid fa-arrow-right-long"></i>';
                                 $pagination = array(
                                     'base'      => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
                                     'format'    => '?paged=%#%',
@@ -693,7 +705,7 @@ class Hexa_Post_Grid extends Widget_Base
             <!-- postbox area start -->
             <div class="blog-area">
                 <div class="<?php echo esc_attr($post_container); ?>">
-                    <div class="row">
+                    <div class="row <?php echo esc_attr($row_swipe); ?>">
                         <div class="<?php echo esc_attr($post_column); ?>">
                             <div class="row row-gap-30">
                                 <?php if ($the_query->have_posts()) :
@@ -739,7 +751,7 @@ class Hexa_Post_Grid extends Widget_Base
                                                         <?php endif; ?>
                                                     </div>
                                                     <?php if (!empty($settings['title_show'])) : ?>
-                                                        <h4 class="hf-blog-title tr-blog-title">
+                                                        <h4 class="hf-blog-title tr-blog-title hf-el-title">
                                                             <a class="border-line-black" href="<?php the_permalink($post->ID); ?>">
                                                                 <?php echo wp_trim_words(get_the_title($post->ID), $settings['title_limit'], ''); ?>
                                                             </a>
@@ -749,7 +761,7 @@ class Hexa_Post_Grid extends Widget_Base
                                                         $content_limit = (!empty($settings['content_limit'])) ? $settings['content_limit'] : '';
                                                     ?>
                                                         <p class="hexa-el-desc">
-                                                            <?php print wp_trim_words(get_the_excerpt($post->ID), $content_limit, ''); ?>
+                                                            <?php print wp_trim_words(get_the_excerpt($post->ID), $content_limit, '...'); ?>
                                                         </p>
                                                     <?php endif; ?>
                                                     <?php if (!empty($settings['btn_text'])) : ?>
@@ -771,8 +783,8 @@ class Hexa_Post_Grid extends Widget_Base
                             <?php if (!empty($settings['show_pagination'])) : ?>
                                 <div class="hexa-pagination mt-50">
                                     <?php
-                                    $prev = '<i class="fas fa-long-arrow-left"></i>';
-                                    $next = '<i class="fas fa-long-arrow-right"></i>';
+                                    $prev = '<i class="fa-solid fa-arrow-left-long"></i>';
+                                    $next = '<i class="fa-solid fa-arrow-right-long"></i>';
                                     $pagination = array(
                                         'base'      => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
                                         'format'    => '?paged=%#%',
@@ -861,7 +873,7 @@ class Hexa_Post_Grid extends Widget_Base
                                         $content_limit = (!empty($settings['content_limit'])) ? $settings['content_limit'] : '';
                                     ?>
                                         <p class="hexa-el-desc">
-                                            <?php print wp_trim_words(get_the_excerpt($post->ID), $content_limit, ''); ?>
+                                            <?php print wp_trim_words(get_the_excerpt($post->ID), $content_limit, '...'); ?>
                                         </p>
                                     <?php endif; ?>
                                     <?php if (!empty($settings['btn_text'])) : ?>
@@ -882,8 +894,8 @@ class Hexa_Post_Grid extends Widget_Base
                     <div class="col-12">
                         <div class="hexa-pagination mt-50">
                             <?php
-                            $prev = '<i class="fas fa-long-arrow-left"></i>';
-                            $next = '<i class="fas fa-long-arrow-right"></i>';
+                            $prev = '<i class="fa-solid fa-arrow-left-long"></i>';
+                            $next = '<i class="fa-solid fa-arrow-right-long"></i>';
                             $pagination = array(
                                 'base'      => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
                                 'format'    => '?paged=%#%',

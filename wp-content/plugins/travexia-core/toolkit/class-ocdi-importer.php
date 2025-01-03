@@ -87,24 +87,21 @@ class OCDI_Demo_Importer
   private function assign_frontpage_id($selected_import)
   {
     // Default pages
-    $front_page_title = 'Plumbing';
+    $front_page_title = 'Home';
     $blog_page_title = 'Blog';
 
     // Mapping custom page titles
     switch ($selected_import['import_page_name']) {
-      case 'plumbing-shop':
-        $front_page_title = 'Plumbing Shop';
+      case 'home-03':
+        $front_page_title = 'Home 03';
         break;
-      case 'solar-energy':
-        $front_page_title = 'Solar Energy';
+      case 'home-02':
+        $front_page_title = 'Home 02';
         break;
-      case 'air-condition':
-        $front_page_title = 'Air Condition';
+      case 'home':
+        $front_page_title = 'Home';
         break;
-      case 'plumbing':
-        $front_page_title = 'Plumbing';
-        break;
-        // Add more cases as needed
+      // Add more cases as needed
     }
 
     // Set up the query to retrieve the front page
@@ -130,11 +127,11 @@ class OCDI_Demo_Importer
       $blog_page_id = $blog_page_query->posts[0]->ID;
 
       // WooCommerce default settings reset
-      if (class_exists('woocommerce')) {
-        update_option('woocommerce_shop_page_id', '999');
-        update_option('woocommerce_cart_page_id', '1000');
-        update_option('woocommerce_checkout_page_id', '1001');
-        update_option('woocommerce_myaccount_page_id', '1002');
+      if (class_exists('WooCommerce')) {
+        update_option('woocommerce_shop_page_id', '454');
+        update_option('woocommerce_cart_page_id', '455');
+        update_option('woocommerce_checkout_page_id', '456');
+        update_option('woocommerce_myaccount_page_id', '457');
       }
 
       // Set front page and blog page

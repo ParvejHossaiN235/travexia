@@ -1,0 +1,1076 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Travexia\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-03 13:21+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.14; wp-6.7.1\n"
+"X-Domain: travexia"
+
+#: inc/frontend/template-tags.php:157
+msgid " "
+msgstr ""
+
+#: comments.php:26
+msgid " Comment "
+msgstr ""
+
+#: comments.php:26
+msgid " Comments"
+msgstr ""
+
+#. 1: list of categories.
+#: inc/frontend/template-functions.php:231 inc/frontend/template-tags.php:161
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: woocommerce/single-product/rating.php:34
+#, php-format
+msgid "%s customer review"
+msgid_plural "%s customer reviews"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:54
+msgid "&larr; Older "
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:71
+msgid "2 Columns"
+msgstr ""
+
+#: inc/backend/customizer/customizer-shop.php:31
+msgid "24"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:72
+msgid "3 Columns"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:73
+msgid "4 Columns"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:228
+#: inc/frontend/page-header/breadcrumbs.php:94
+msgid "404"
+msgstr ""
+
+#: inc/frontend/template-tags.php:112
+msgid "<button> Reply</button>"
+msgstr ""
+
+#: woocommerce/single-product/meta.php:27
+msgid "<span class=\"title\">Category:</span>"
+msgid_plural "<span class=\"title\">Categories:</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/single-product/meta.php:23
+msgid "<span class=\"title\">SKU:</span>"
+msgstr ""
+
+#: woocommerce/single-product/meta.php:29
+msgid "<span class=\"title\">Tag:</span>"
+msgid_plural "<span class=\"title\">Tags:</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/single-product/tabs/additional-information.php:18
+msgid "Additional Information"
+msgstr ""
+
+#: inc/backend/plugin-requires.php:139
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: inc/woocommerce/hooks.php:75
+msgid "Appears in the Plugin WooCommerce section of the site."
+msgstr ""
+
+#: inc/backend/meta-boxes.php:135
+msgid "Audio"
+msgstr ""
+
+#: inc/frontend/template-tags.php:325
+#: inc/backend/customizer/customizer-blog.php:92
+msgid "Author"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:182
+msgid "Author Info Box"
+msgstr ""
+
+#: woocommerce/global/breadcrumb.php:191
+msgid "Author:"
+msgstr ""
+
+#: woocommerce/single-product/product-image.php:62
+msgid "Awaiting product image"
+msgstr ""
+
+#: inc/frontend/builder.php:104
+msgid "Back To Home"
+msgstr ""
+
+#: inc/backend/customizer/customizer-footer.php:42
+msgid "Back To Top On/Off?"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:553
+msgid "Background Body"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:111
+#: inc/backend/customizer/customizer.php:295
+msgid "Background Color"
+msgstr ""
+
+#: inc/backend/meta-boxes.php:149
+#: inc/backend/customizer/customizer-page-header.php:91
+msgid "Background Image"
+msgstr ""
+
+#: inc/backend/meta-boxes.php:35 inc/backend/meta-boxes.php:61
+msgid "Background Page Header"
+msgstr ""
+
+#: woocommerce/single-product/rating.php:31
+#, php-format
+msgid "based on %s customer rating"
+msgid_plural "based on %s customer ratings"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/backend/plugin-requires.php:129
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/backend/plugin-requires.php:119
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/backend/plugin-requires.php:124
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/backend/customizer/customizer-blog.php:14
+#: inc/frontend/page-header/page-header.php:28
+msgid "Blog"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:22
+msgid "Blog Page"
+msgstr ""
+
+#: functions.php:147
+msgid "Blog Sidebar"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:323
+msgid "Body Font"
+msgstr ""
+
+#: inc/backend/customizer/customizer-footer.php:82
+msgid "Bottom (Ex: 20px)"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:150
+msgid "Breadcrumbs Color"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:174
+msgid "Breadcrumbs Hover Color"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:32
+msgid "Breadcrumbs On/Off"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:134
+msgid "Button On/Off"
+msgstr ""
+
+#: template-parts/post-meta/meta.php:21
+msgid "By"
+msgstr ""
+
+#: comments.php:120
+msgid "Cancel reply"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:113
+msgid "Category"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:78
+msgid "Center"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:95
+msgid "Checkout"
+msgstr ""
+
+#: inc/backend/customizer/customizer-footer.php:26
+msgid "Choose a footer for all site here."
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:521
+msgid "Choose a template in pages."
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:50
+msgid "Choose an html tag"
+msgstr ""
+
+#: inc/backend/customizer/customizer-header.php:26
+msgid "Choose the header on desktop."
+msgstr ""
+
+#: inc/backend/customizer/customizer-header.php:78
+msgid "Choose the side panel on header."
+msgstr ""
+
+#: inc/backend/customizer/customizer-footer.php:49
+#: inc/backend/customizer/customizer.php:276
+msgid "Color"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:242
+msgid "Color Scheme"
+msgstr ""
+
+#: comments.php:50
+msgid "Comment navigation"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:106
+msgid "Comments"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:513
+msgid "Customize?"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:99
+msgid "Date"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:203
+#: inc/backend/customizer/customizer-page-header.php:265
+msgid "Desktop"
+msgstr ""
+
+#: inc/backend/plugin-requires.php:140
+msgid "Dismiss this notice"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:60
+msgid "DIV"
+msgstr ""
+
+#: comments.php:85
+msgid "Enter Email"
+msgstr ""
+
+#: comments.php:84
+msgid "Enter Name"
+msgstr ""
+
+#: comments.php:86
+msgid "Enter Website"
+msgstr ""
+
+#: comments.php:99
+msgid "Enter Your Comment"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:175
+msgid "Entry Footer"
+msgstr ""
+
+#: woocommerce/global/breadcrumb.php:143
+msgid "Error 404"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:120
+msgid "Excerpt Length"
+msgstr ""
+
+#: inc/backend/meta-boxes.php:45
+msgid "Extra Settings"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:164
+msgid "Facebook"
+msgstr ""
+
+#: inc/backend/customizer/customizer-footer.php:15
+msgid "Footer"
+msgstr ""
+
+#: inc/backend/meta-boxes.php:110
+msgid "Format Details"
+msgstr ""
+
+#: inc/backend/meta-boxes.php:127
+msgid "Gallery"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:207
+msgid "General"
+msgstr ""
+
+#. If there are characters in your language that are not supported
+#. by chosen font(s), translate this to 'off'. Do not translate into your own language.
+#: inc/frontend/common/scripts.php:76
+msgctxt "Google font: on or off"
+msgid "on"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:166
+msgid "Google Plus"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:52
+msgid "H1"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:53
+msgid "H2"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:54
+msgid "H3"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:55
+msgid "H4"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:56
+msgid "H5"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:57
+msgid "H6"
+msgstr ""
+
+#: inc/backend/customizer/customizer-header.php:14
+msgid "Header"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:350
+msgid "Heading 1"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:377
+msgid "Heading 2"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:404
+msgid "Heading 3"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:431
+msgid "Heading 4"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:458
+msgid "Heading 5"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:484
+msgid "Heading 6"
+msgstr ""
+
+#: inc/frontend/class-navwalker.php:403
+#: inc/frontend/page-header/breadcrumbs.php:15
+#: inc/frontend/page-header/breadcrumbs.php:17
+#: inc/frontend/page-header/page-header.php:30
+msgid "Home"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://themeforest.net/user/saptheme/"
+msgstr ""
+
+#. URI of the theme
+msgid "https://travexia.sapwp.com/"
+msgstr ""
+
+#: inc/backend/meta-boxes.php:117
+msgid "Image"
+msgstr ""
+
+#: inc/frontend/template-functions.php:76
+msgid "Image Alt Text"
+msgstr ""
+
+#: inc/backend/plugin-requires.php:85
+msgid "Install Plugins"
+msgstr ""
+
+#: inc/backend/plugin-requires.php:84
+msgid "Install Required Plugins"
+msgstr ""
+
+#: inc/backend/plugin-requires.php:86
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: template-parts/post-type/content-none.php:39
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: comments.php:118
+msgid "Leave A Comment"
+msgstr ""
+
+#: comments.php:119
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:77
+msgid "Left"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:48
+#: inc/backend/customizer/customizer-blog.php:148
+msgid "Left Sidebar"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:165
+msgid "Linkedin"
+msgstr ""
+
+#: comments.php:113
+msgid "Log out of this account"
+msgstr ""
+
+#: comments.php:113
+msgid "Log out?"
+msgstr ""
+
+#: comments.php:108
+msgid "logged in"
+msgstr ""
+
+#: comments.php:113
+msgid "Logged in as"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:252
+msgid "Logo Width(px)"
+msgstr ""
+
+#: functions.php:61
+msgid "Main Menu"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:205
+#: inc/backend/customizer/customizer-page-header.php:267
+msgid "Mobile"
+msgstr ""
+
+#: woocommerce/single-product/meta.php:15
+msgid "n/a"
+msgstr ""
+
+#: comments.php:57
+msgid "Newer &rarr;"
+msgstr ""
+
+#: inc/frontend/template-tags.php:227
+msgid "Next"
+msgstr ""
+
+#: inc/backend/plugin-requires.php:137
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:81
+msgid "No products in the cart."
+msgstr ""
+
+#: template-parts/post-meta/related.php:62
+msgid "No related posts found."
+msgstr ""
+
+#: template-parts/post-type/content-none.php:15
+msgid "Nothing Found"
+msgstr ""
+
+#: inc/frontend/builder.php:100
+msgid "Oops! Page Not Found"
+msgstr ""
+
+#: woocommerce/single-product/rating.php:30
+#, php-format
+msgid "out of %s5%s"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:59
+msgid "P"
+msgstr ""
+
+#: template-parts/post-type/content-page.php:21
+#: woocommerce/global/breadcrumb.php:195
+msgid "Page"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:14
+msgid "Page Header"
+msgstr ""
+
+#: inc/backend/meta-boxes.php:26 inc/backend/meta-boxes.php:52
+#: inc/backend/customizer/customizer-page-header.php:25
+msgid "Page Header On/Off"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:198
+msgid "Page Header Padding (Ex: 100px)"
+msgstr ""
+
+#: inc/frontend/page-header/page-header.php:38
+msgid "Page Not Found"
+msgstr ""
+
+#: inc/backend/meta-boxes.php:19
+msgid "Page Settings"
+msgstr ""
+
+#. Name of the template
+#: page-sidebar.php:3
+msgid "Page Sidebar"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:46
+msgid "Page Title HTML Tag"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:260
+msgid "Page Title Size (Ex: 30px)"
+msgstr ""
+
+#: template-parts/post-type/content-audio.php:37
+#: template-parts/post-type/content-gallery.php:46
+#: template-parts/post-type/content-image.php:38
+#: template-parts/post-type/content-page.php:17
+#: template-parts/post-type/content-search.php:28
+#: template-parts/post-type/content-video.php:40
+#: template-parts/post-type/content.php:33
+msgid "Pages:"
+msgstr ""
+
+#: inc/woocommerce/functions.php:141
+msgid "Place holder"
+msgstr ""
+
+#: inc/backend/plugin-requires.php:142
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: inc/backend/plugin-requires.php:135
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: inc/backend/plugin-requires.php:138
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:546
+msgid "portfolio"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:544
+msgid "Portfolio Slug"
+msgstr ""
+
+#. %s: post author.
+#: inc/frontend/template-tags.php:178
+#, php-format
+msgctxt "post author"
+msgid "%s"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:127
+msgid "Post Button"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:65
+msgid "Post Columns"
+msgstr ""
+
+#: comments.php:104 comments.php:121
+msgid "Post Comment"
+msgstr ""
+
+#. %s: post date.
+#: inc/frontend/template-tags.php:141
+#, php-format
+msgctxt "post date"
+msgid "%s"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:60
+msgid "Post Grid"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:59
+msgid "Post List"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:85
+msgid "Post Meta"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:189
+msgid "Post Navigation"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:235
+msgid "Post Slug"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:53
+msgid "Post Style"
+msgstr ""
+
+#: woocommerce/global/breadcrumb.php:187
+msgid "Posts tagged &ldquo;"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:214
+#: inc/backend/customizer/customizer.php:269
+msgid "Preloader"
+msgstr ""
+
+#: inc/frontend/template-tags.php:219
+msgid "Prev"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:566
+msgid "Primary Color"
+msgstr ""
+
+#: inc/backend/customizer/customizer-shop.php:81
+msgid "Product Columns for Extra Small Screen"
+msgstr ""
+
+#: inc/backend/customizer/customizer-shop.php:36
+msgid "Product Columns for Large Screen"
+msgstr ""
+
+#: inc/backend/customizer/customizer-shop.php:51
+msgid "Product Columns for Medium Screen"
+msgstr ""
+
+#: inc/backend/customizer/customizer-shop.php:66
+msgid "Product Columns for Small Screen"
+msgstr ""
+
+#: woocommerce/single-product/tabs/description.php:15
+msgid "Product Description"
+msgstr ""
+
+#: inc/backend/customizer/customizer-shop.php:17
+msgid "Product Options"
+msgstr ""
+
+#: inc/backend/customizer/customizer-shop.php:29
+msgid "Products Per Page"
+msgstr ""
+
+#: woocommerce/global/breadcrumb.php:71
+msgid "Products tagged &ldquo;"
+msgstr ""
+
+#: woocommerce/global/quantity-input.php:19
+msgid "Qty"
+msgstr ""
+
+#: inc/backend/meta-boxes.php:157
+msgid "Quote"
+msgstr ""
+
+#: inc/backend/meta-boxes.php:163
+msgid "Quote Name"
+msgstr ""
+
+#: woocommerce/single-product/rating.php:28
+#, php-format
+msgid "Rated %s out of 5"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:129
+msgid "Read More"
+msgstr ""
+
+#. 1: link to WP admin new post page.
+#: template-parts/post-type/content-none.php:23
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:168
+msgid "Reddit"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:196
+msgid "Related Posts"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:65
+msgid "Remove this item"
+msgstr ""
+
+#: inc/backend/plugin-requires.php:134
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:79
+msgid "Right"
+msgstr ""
+
+#: inc/backend/customizer/customizer-footer.php:83
+msgid "Right (Ex: 20px)"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:47
+#: inc/backend/customizer/customizer-blog.php:147
+msgid "Right Sidebar"
+msgstr ""
+
+#: woocommerce/single-product/sale-flash.php:17
+msgid "Sale"
+msgstr ""
+
+#: woocommerce/loop/sale-flash.php:17
+msgid "Sale!"
+msgstr ""
+
+#. Author of the theme
+msgid "Saptheme"
+msgstr ""
+
+#: inc/frontend/page-header/breadcrumbs.php:90
+msgid "Search"
+msgstr ""
+
+#: inc/frontend/template-tags.php:73
+msgid "Search Here..."
+msgstr ""
+
+#: woocommerce/global/breadcrumb.php:95 woocommerce/global/breadcrumb.php:184
+msgid "Search results for &ldquo;"
+msgstr ""
+
+#: search.php:28
+msgid "Search Results For:"
+msgstr ""
+
+#: inc/frontend/page-header/page-header.php:36
+msgid "Search Results for: "
+msgstr ""
+
+#: inc/backend/customizer/customizer-footer.php:30
+msgid "Select a footer"
+msgstr ""
+
+#: inc/backend/customizer/customizer-header.php:30
+msgid "Select a header"
+msgstr ""
+
+#: inc/backend/customizer/customizer-header.php:82
+msgid "Select a panel"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:69
+msgid "Select columns default for the blog page."
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:45
+msgid "Select default sidebar for the blog page."
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:144
+msgid "Select default sidebar for the single post."
+msgstr ""
+
+#: inc/backend/customizer/customizer-footer.php:25
+msgid "Select Footer"
+msgstr ""
+
+#: inc/backend/customizer/customizer-header.php:25
+msgid "Select Header"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:520
+msgid "Select Page"
+msgstr ""
+
+#: inc/backend/customizer/customizer-header.php:77
+msgid "Select Side Panel"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:57
+msgid "Select style default for the blog page."
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:539
+msgid "service"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:537
+msgid "Service Slug"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:255
+msgid "Set logo width like 120px, 130px"
+msgstr ""
+
+#: template-parts/post-type/content-audio.php:61
+#: template-parts/post-type/content-gallery.php:70
+#: template-parts/post-type/content-image.php:62
+#: template-parts/post-type/content-video.php:64
+#: template-parts/post-type/content.php:57
+msgid "Share"
+msgstr ""
+
+#: inc/backend/customizer/customizer-header.php:63
+msgid "Side Logo link"
+msgstr ""
+
+#: inc/backend/customizer/customizer-header.php:35
+msgid "Side Panel for all site?"
+msgstr ""
+
+#: inc/backend/customizer/customizer-header.php:49
+msgid "Side Panel Logo"
+msgstr ""
+
+#: inc/backend/customizer/customizer-header.php:94
+msgid "Side Panel On Left"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:41
+#: inc/backend/customizer/customizer-blog.php:141
+msgid "Sidebar Layout"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:29
+msgid "Single Post"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:153
+msgid "Social Share"
+msgstr ""
+
+#: inc/backend/plugin-requires.php:88
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: template-parts/post-type/content-none.php:34
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: inc/backend/customizer/customizer-footer.php:73
+msgid "Spacing"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:58
+msgid "SPAN"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:89
+msgid "Subtotal"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:204
+#: inc/backend/customizer/customizer-page-header.php:266
+msgid "Tablet"
+msgstr ""
+
+#: template-parts/post-type/content-audio.php:50
+#: template-parts/post-type/content-gallery.php:59
+#: template-parts/post-type/content-image.php:51
+#: template-parts/post-type/content-video.php:53
+#: template-parts/post-type/content.php:46
+msgid "Tag"
+msgstr ""
+
+#: inc/backend/customizer/customizer-page-header.php:72
+msgid "Text Align"
+msgstr ""
+
+#: inc/backend/plugin-requires.php:99
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/backend/plugin-requires.php:136
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#: inc/backend/plugin-requires.php:114
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/backend/plugin-requires.php:109
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/frontend/builder.php:102
+msgid ""
+"The page you are looking for is not available or has been moved. Try a "
+"different page or go to homepage with the button below."
+msgstr ""
+
+#: inc/backend/plugin-requires.php:141
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+
+#: inc/backend/plugin-requires.php:104
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/backend/plugin-requires.php:94
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/backend/plugin-requires.php:89
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/backend/customizer/customizer-page-header.php:131
+msgid "Title Color"
+msgstr ""
+
+#: comments.php:108
+msgid "to post a comment."
+msgstr ""
+
+#. Name of the theme
+msgid "Travexia"
+msgstr ""
+
+#. Description of the theme
+msgid "Travexia - Tour and Travel booking WordPress Theme"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:167
+msgid "Tumblr"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:163
+msgid "Twitter"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:221
+msgid "Typography"
+msgstr ""
+
+#: inc/backend/customizer/customizer.php:316
+msgid "Typography Customize?"
+msgstr ""
+
+#: inc/backend/plugin-requires.php:87
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: inc/backend/meta-boxes.php:142
+msgid "Video"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:94
+msgid "View Cart"
+msgstr ""
+
+#: inc/woocommerce/functions.php:25
+msgid "View your shopping cart"
+msgstr ""
+
+#: inc/backend/customizer/customizer-blog.php:169
+msgid "VK"
+msgstr ""
+
+#: inc/woocommerce/hooks.php:73
+msgid "WooCommerce Shop Sidebar"
+msgstr ""
+
+#: template-parts/post-meta/related.php:11
+msgid "You May Also Like"
+msgstr ""
+
+#: comments.php:108
+msgid "You must be"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:27
+msgid "You must be logged in to checkout."
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:20
+msgid "Your Cart"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:59
+msgid "Your order"
+msgstr ""
+
+#: inc/frontend/builder.php:148
+msgid "© Copyright 2025 Travexia. All Rights Reserved"
+msgstr ""
