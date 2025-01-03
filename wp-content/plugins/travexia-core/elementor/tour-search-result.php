@@ -412,31 +412,21 @@ class Hexa_Tour_Search_Results extends Widget_Base
         $settings = $this->get_settings_for_display();
         extract($settings);
 
-        $number_show = (!empty($settings['number_show']) ? $settings['number_show'] : 16);
-
-        if (get_query_var('paged')) {
-            $paged = get_query_var('paged');
-        } elseif (get_query_var('page')) {
-            $paged = get_query_var('page');
-        } else {
-            $paged = 1;
-        }
-
-        $args = array(
-            'paged' => $paged,
-            'post_type' => 'tf_tours',
-            'post_status' => 'publish',
-            'posts_per_page' => $number_show,
-        );
-
 
         $s_loc = !empty($_GET['loc']) ? sanitize_text_field($_GET['loc']) : 0;
         $s_tour = !empty($_GET['tour']) ? sanitize_text_field($_GET['tour']) : 0;
         $s_activity = !empty($_GET['activity']) ? sanitize_text_field($_GET['activity']) : 0;
 
-        if (!empty($s_loc) || !empty($s_activity)) {
+        $number_show = (!empty($settings['number_show']) ? $settings['number_show'] : -1);
+        $args = array(
+            'post_type' => 'tf_tours',
+            'post_status' => 'publish',
+            'posts_per_page' => $number_show,
+        );
+
+        if (!empty($s_loc) && !empty($s_activity)) {
             $args['tax_query'] = [
-                'relation' => 'OR',
+                'relation' => 'AND',
                 [
                     'taxonomy' => 'tour_destination',
                     'field' => 'name',
@@ -448,7 +438,7 @@ class Hexa_Tour_Search_Results extends Widget_Base
                     'terms' => [$s_activity]
                 ]
             ];
-        } elseif (!empty($s_loc) || empty($s_activity)) {
+        } elseif (!empty($s_loc) && empty($s_activity)) {
             $args['tax_query'] = [
                 [
                     'taxonomy' => 'tour_destination',
@@ -456,7 +446,7 @@ class Hexa_Tour_Search_Results extends Widget_Base
                     'terms' => [$s_loc]
                 ]
             ];
-        } elseif (empty($s_loc) || !empty($s_activity)) {
+        } elseif (empty($s_loc) && !empty($s_activity)) {
             $args['tax_query'] = [
                 [
                     'taxonomy' => 'tour_activities',
@@ -467,90 +457,79 @@ class Hexa_Tour_Search_Results extends Widget_Base
         }
 
         $the_query = new \WP_Query($args);
-
 ?>
 
-        <?php if ($settings['hexa_design_layout']  == 'layout_2') : ?>
+        <div class="row row-gap-30">
+            <?php if ($the_query->have_posts()) : ?>
+                <?php $i = 0;
+                while ($the_query->have_posts()) :
+                    $the_query->the_post();
+                    global $post;
+                    $meta                   = get_post_meta($post->ID, 'tf_tours_opt', true);
+                    $destinations           = get_the_terms($post->ID, 'tour_destination');
+                    $destination_name = !empty($destinations[0]) ? $destinations[0]->name : '';
+                    $destination_slug = !empty($destinations[0]) ? get_term_link($destinations[0]->term_id) : '#';
+                    $tour_duration = !empty($meta['duration']) ? $meta['duration'] : '';
+                    $duration_time = !empty($meta['duration_time']) ? $meta['duration_time'] : '';
+                    $night         = !empty($meta['night']) ? $meta['night'] : false;
+                    $night_count   = !empty($meta['night_count']) ? $meta['night_count'] : '';
+                    $tour_price             = new Tour_Price($meta);
 
+                    // new function
+                    $disable_adult_price  = !empty($meta['disable_adult_price']) ? $meta['disable_adult_price'] : false;
+                    $custom_pricing_by_rule = !empty($meta['custom_pricing_by']) ? $meta['custom_pricing_by'] : '';
+                    $tour_archive_page_price_settings = !empty(Helper::tfopt('tour_archive_price_minimum_settings')) ? Helper::tfopt('tour_archive_price_minimum_settings') : 'all';
 
-        <?php else : ?>
+                    $pricing_rule = !empty($meta['pricing']) ? $meta['pricing'] : null;
+                    $tour_type = !empty($meta['type']) ? $meta['type'] : null;
+                    if ($pricing_rule == 'group') {
+                        $price = !empty($meta['group_price']) ? $meta['group_price'] : null;
+                    } else {
+                        $price = !empty($meta['adult_price']) ? $meta['adult_price'] : null;
+                    }
+                    $discount_type = !empty($meta['discount_type']) ? $meta['discount_type'] : null;
+                    $discounted_price = !empty($meta['discount_price']) ? $meta['discount_price'] : NULL;
+                    if ($discount_type == 'percent') {
+                        $sale_price = number_format($price - (($price / 100) * $discounted_price), 1);
+                    } elseif ($discount_type == 'fixed') {
+                        $sale_price = number_format(($price - $discounted_price), 1);
+                    }
 
-            <div class="row row-gap-30">
-                <?php if ($the_query->have_posts()) : ?>
-                    <?php $i = 0;
-                    while ($the_query->have_posts()) :
-                        $the_query->the_post();
-                        global $post;
-                        $meta                   = get_post_meta($post->ID, 'tf_tours_opt', true);
-                        $destinations           = get_the_terms($post->ID, 'tour_destination');
-                        $destination_name = !empty($destinations[0]) ? $destinations[0]->name : '';
-                        $destination_slug = !empty($destinations[0]) ? get_term_link($destinations[0]->term_id) : '#';
-                        $tour_duration = !empty($meta['duration']) ? $meta['duration'] : '';
-                        $duration_time = !empty($meta['duration_time']) ? $meta['duration_time'] : '';
-                        $night         = !empty($meta['night']) ? $meta['night'] : false;
-                        $night_count   = !empty($meta['night_count']) ? $meta['night_count'] : '';
-                        $tour_price             = new Tour_Price($meta);
-
-                        // new function
-                        $disable_adult_price  = !empty($meta['disable_adult_price']) ? $meta['disable_adult_price'] : false;
-                        $custom_pricing_by_rule = !empty($meta['custom_pricing_by']) ? $meta['custom_pricing_by'] : '';
-                        $tour_archive_page_price_settings = !empty(Helper::tfopt('tour_archive_price_minimum_settings')) ? Helper::tfopt('tour_archive_price_minimum_settings') : 'all';
-
-                        $pricing_rule = !empty($meta['pricing']) ? $meta['pricing'] : null;
-                        $tour_type = !empty($meta['type']) ? $meta['type'] : null;
-                        if ($pricing_rule == 'group') {
-                            $price = !empty($meta['group_price']) ? $meta['group_price'] : null;
-                        } else {
-                            $price = !empty($meta['adult_price']) ? $meta['adult_price'] : null;
-                        }
-                        $discount_type = !empty($meta['discount_type']) ? $meta['discount_type'] : null;
-                        $discounted_price = !empty($meta['discount_price']) ? $meta['discount_price'] : NULL;
-                        if ($discount_type == 'percent') {
-                            $sale_price = number_format($price - (($price / 100) * $discounted_price), 1);
-                        } elseif ($discount_type == 'fixed') {
-                            $sale_price = number_format(($price - $discounted_price), 1);
-                        }
-
-                        // Tour Starting Price
-                        $tour_price = [];
-                        if ($pricing_rule  && $pricing_rule == 'group') {
-                            if (!empty($check_in_out)) {
-                                if (!empty($meta['type']) && $meta['type'] === 'continuous') {
-                                    $custom_availability = !empty($meta['custom_avail']) ? $meta['custom_avail'] : false;
-                                    if ($custom_availability) {
-                                        foreach ($meta['cont_custom_date'] as $repval) {
-                                            //Initial matching date array
-                                            $show_tour = [];
-                                            $dates = $repval['date'];
-                                            // Check if any date range match with search form date range and set them on array
-                                            if (!empty($period)) {
-                                                foreach ($period as $date) {
-                                                    $show_tour[] = intval(strtotime($date->format('Y-m-d')) >= strtotime($dates['from']) && strtotime($date->format('Y-m-d')) <= strtotime($dates['to']));
-                                                }
-                                            }
-                                            if (!in_array(0, $show_tour)) {
-                                                if ($custom_pricing_by_rule  && $custom_pricing_by_rule == 'group') {
-                                                    if (!empty($repval['group_price'])) {
-                                                        $tour_price[] = $repval['group_price'];
-                                                    }
-                                                }
-                                                if ($custom_pricing_by_rule  && $custom_pricing_by_rule == 'person') {
-                                                    if ($tour_archive_page_price_settings == "all") {
-                                                        if (!empty($repval['adult_price']) && !$disable_adult_price) {
-                                                            $tour_price[] = $repval['adult_price'];
-                                                        }
-                                                    }
-                                                    if ($tour_archive_page_price_settings == "adult") {
-                                                        if (!empty($repval['adult_price']) && !$disable_adult_price) {
-                                                            $tour_price[] = $repval['adult_price'];
-                                                        }
-                                                    }
-                                                }
+                    // Tour Starting Price
+                    $tour_price = [];
+                    if ($pricing_rule  && $pricing_rule == 'group') {
+                        if (!empty($check_in_out)) {
+                            if (!empty($meta['type']) && $meta['type'] === 'continuous') {
+                                $custom_availability = !empty($meta['custom_avail']) ? $meta['custom_avail'] : false;
+                                if ($custom_availability) {
+                                    foreach ($meta['cont_custom_date'] as $repval) {
+                                        //Initial matching date array
+                                        $show_tour = [];
+                                        $dates = $repval['date'];
+                                        // Check if any date range match with search form date range and set them on array
+                                        if (!empty($period)) {
+                                            foreach ($period as $date) {
+                                                $show_tour[] = intval(strtotime($date->format('Y-m-d')) >= strtotime($dates['from']) && strtotime($date->format('Y-m-d')) <= strtotime($dates['to']));
                                             }
                                         }
-                                    } else {
-                                        if (!empty($meta['group_price'])) {
-                                            $tour_price[] = $meta['group_price'];
+                                        if (!in_array(0, $show_tour)) {
+                                            if ($custom_pricing_by_rule  && $custom_pricing_by_rule == 'group') {
+                                                if (!empty($repval['group_price'])) {
+                                                    $tour_price[] = $repval['group_price'];
+                                                }
+                                            }
+                                            if ($custom_pricing_by_rule  && $custom_pricing_by_rule == 'person') {
+                                                if ($tour_archive_page_price_settings == "all") {
+                                                    if (!empty($repval['adult_price']) && !$disable_adult_price) {
+                                                        $tour_price[] = $repval['adult_price'];
+                                                    }
+                                                }
+                                                if ($tour_archive_page_price_settings == "adult") {
+                                                    if (!empty($repval['adult_price']) && !$disable_adult_price) {
+                                                        $tour_price[] = $repval['adult_price'];
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 } else {
@@ -563,54 +542,46 @@ class Hexa_Tour_Search_Results extends Widget_Base
                                     $tour_price[] = $meta['group_price'];
                                 }
                             }
+                        } else {
+                            if (!empty($meta['group_price'])) {
+                                $tour_price[] = $meta['group_price'];
+                            }
                         }
-                        if ($pricing_rule  && $pricing_rule == 'person') {
-                            if (!empty($check_in_out)) {
-                                if (!empty($meta['type']) && $meta['type'] === 'continuous') {
-                                    $custom_availability = !empty($meta['custom_avail']) ? $meta['custom_avail'] : false;
-                                    if ($custom_availability) {
-                                        foreach ($meta['cont_custom_date'] as $repval) {
-                                            //Initial matching date array
-                                            $show_tour = [];
-                                            $dates = $repval['date'];
-                                            // Check if any date range match with search form date range and set them on array
-                                            if (!empty($period)) {
-                                                foreach ($period as $date) {
-                                                    $show_tour[] = intval(strtotime($date->format('Y-m-d')) >= strtotime($dates['from']) && strtotime($date->format('Y-m-d')) <= strtotime($dates['to']));
-                                                }
-                                            }
-                                            if (!in_array(0, $show_tour)) {
-                                                if ($custom_pricing_by_rule  && $custom_pricing_by_rule == 'group') {
-                                                    if (!empty($repval['group_price'])) {
-                                                        $tour_price[] = $repval['group_price'];
-                                                    }
-                                                }
-                                                if ($custom_pricing_by_rule  && $custom_pricing_by_rule == 'person') {
-                                                    if (!empty($repval['adult_price']) && !$disable_adult_price) {
-                                                        if ($tour_archive_page_price_settings == "all") {
-                                                            if (!empty($repval['adult_price']) && !$disable_adult_price) {
-                                                                $tour_price[] = $repval['adult_price'];
-                                                            }
-                                                        }
-                                                        if ($tour_archive_page_price_settings == "adult") {
-                                                            if (!empty($repval['adult_price']) && !$disable_adult_price) {
-                                                                $tour_price[] = $repval['adult_price'];
-                                                            }
-                                                        }
-                                                    }
-                                                }
+                    }
+                    if ($pricing_rule  && $pricing_rule == 'person') {
+                        if (!empty($check_in_out)) {
+                            if (!empty($meta['type']) && $meta['type'] === 'continuous') {
+                                $custom_availability = !empty($meta['custom_avail']) ? $meta['custom_avail'] : false;
+                                if ($custom_availability) {
+                                    foreach ($meta['cont_custom_date'] as $repval) {
+                                        //Initial matching date array
+                                        $show_tour = [];
+                                        $dates = $repval['date'];
+                                        // Check if any date range match with search form date range and set them on array
+                                        if (!empty($period)) {
+                                            foreach ($period as $date) {
+                                                $show_tour[] = intval(strtotime($date->format('Y-m-d')) >= strtotime($dates['from']) && strtotime($date->format('Y-m-d')) <= strtotime($dates['to']));
                                             }
                                         }
-                                    } else {
-                                        if ($tour_archive_page_price_settings == "all") {
-                                            if (!empty($meta['adult_price']) && !$disable_adult_price) {
-                                                $tour_price[] = $meta['adult_price'];
+                                        if (!in_array(0, $show_tour)) {
+                                            if ($custom_pricing_by_rule  && $custom_pricing_by_rule == 'group') {
+                                                if (!empty($repval['group_price'])) {
+                                                    $tour_price[] = $repval['group_price'];
+                                                }
                                             }
-                                        }
-
-                                        if ($tour_archive_page_price_settings == "adult") {
-                                            if (!empty($meta['adult_price']) && !$disable_adult_price) {
-                                                $tour_price[] = $meta['adult_price'];
+                                            if ($custom_pricing_by_rule  && $custom_pricing_by_rule == 'person') {
+                                                if (!empty($repval['adult_price']) && !$disable_adult_price) {
+                                                    if ($tour_archive_page_price_settings == "all") {
+                                                        if (!empty($repval['adult_price']) && !$disable_adult_price) {
+                                                            $tour_price[] = $repval['adult_price'];
+                                                        }
+                                                    }
+                                                    if ($tour_archive_page_price_settings == "adult") {
+                                                        if (!empty($repval['adult_price']) && !$disable_adult_price) {
+                                                            $tour_price[] = $repval['adult_price'];
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -633,149 +604,162 @@ class Hexa_Tour_Search_Results extends Widget_Base
                                         $tour_price[] = $meta['adult_price'];
                                     }
                                 }
+
                                 if ($tour_archive_page_price_settings == "adult") {
                                     if (!empty($meta['adult_price']) && !$disable_adult_price) {
                                         $tour_price[] = $meta['adult_price'];
                                     }
                                 }
                             }
+                        } else {
+                            if ($tour_archive_page_price_settings == "all") {
+                                if (!empty($meta['adult_price']) && !$disable_adult_price) {
+                                    $tour_price[] = $meta['adult_price'];
+                                }
+                            }
+                            if ($tour_archive_page_price_settings == "adult") {
+                                if (!empty($meta['adult_price']) && !$disable_adult_price) {
+                                    $tour_price[] = $meta['adult_price'];
+                                }
+                            }
                         }
+                    }
 
-                        $i++;
-                    ?>
-                        <div class="col-xl-<?php echo esc_attr($desktop_col); ?> col-lg-<?php echo esc_attr($laptop_col); ?> col-md-<?php echo esc_attr($tablet_col); ?> col-<?php echo esc_attr($mobile_col); ?>">
-                            <div class="tr-trip-item">
-                                <div class="tr-trip-thumb fix">
-                                    <a href="<?php the_permalink($post->ID); ?>">
-                                        <?php
-                                        if (has_post_thumbnail()) {
-                                            $settings['post_thumbnail'] = [
-                                                'id' => get_post_thumbnail_id(),
-                                            ];
-                                            $thumbnail_html = \Elementor\Group_Control_Image_Size::get_attachment_image_html($settings, 'post_thumbnail');
-                                        } else {
-                                            $thumbnail_html = '<img src="' . get_bloginfo('stylesheet_directory') . '/assets/img/thumbnail-default.png" />';
-                                        }
-                                        echo hexa_kses($thumbnail_html);
-                                        ?>
+                    $i++;
+                ?>
+                    <div class="col-xl-<?php echo esc_attr($desktop_col); ?> col-lg-<?php echo esc_attr($laptop_col); ?> col-md-<?php echo esc_attr($tablet_col); ?> col-<?php echo esc_attr($mobile_col); ?>">
+                        <div class="tr-trip-item">
+                            <div class="tr-trip-thumb fix">
+                                <a href="<?php the_permalink($post->ID); ?>">
+                                    <?php
+                                    if (has_post_thumbnail()) {
+                                        $settings['post_thumbnail'] = [
+                                            'id' => get_post_thumbnail_id(),
+                                        ];
+                                        $thumbnail_html = \Elementor\Group_Control_Image_Size::get_attachment_image_html($settings, 'post_thumbnail');
+                                    } else {
+                                        $thumbnail_html = '<img src="' . get_bloginfo('stylesheet_directory') . '/assets/img/thumbnail-default.png" />';
+                                    }
+                                    echo hexa_kses($thumbnail_html);
+                                    ?>
+                                </a>
+                            </div>
+                            <div class="tr-trip-content">
+                                <?php if (!empty($settings['show_location'])) : ?>
+                                    <a href="<?php echo esc_url($destination_slug); ?>" class="tr-trip-location">
+                                        <i class="fa-sharp fa-solid fa-location-dot"></i>
+                                        <?php echo esc_html($destination_name); ?>
                                     </a>
-                                </div>
-                                <div class="tr-trip-content">
-                                    <?php if (!empty($settings['show_location'])) : ?>
-                                        <a href="<?php echo esc_url($destination_slug); ?>" class="tr-trip-location">
-                                            <i class="fa-sharp fa-solid fa-location-dot"></i>
-                                            <?php echo esc_html($destination_name); ?>
+                                <?php endif; ?>
+                                <?php if (!empty($settings['title_show'])) : ?>
+                                    <h5 class="tr-trip-title">
+                                        <a class="border-line-black" href="<?php the_permalink($post->ID); ?>">
+                                            <?php echo wp_trim_words(get_the_title($post->ID), $settings['title_limit'], ''); ?>
+                                        </a>
+                                    </h5>
+                                <?php endif; ?>
+                                <?php if (!empty($settings['show_rating'])) : ?>
+                                    <div class="tr-trip-ratting">
+                                        <span>
+                                            <?php TF_Review::tf_archive_single_rating(); ?>
+                                        </span>
+                                    </div>
+                                <?php endif; ?>
+
+                                <?php if (!empty($settings['content_show'])) :
+                                    $content_limit = (!empty($settings['content_limit'])) ? $settings['content_limit'] : '';
+                                ?>
+                                    <p class="hexa-el-desc">
+                                        <?php print wp_trim_words(get_the_excerpt($post->ID), $content_limit, ''); ?>
+                                    </p>
+                                <?php endif; ?>
+                                <?php if (!empty($settings['show_duration'])) : ?>
+                                    <div class="tr-trip-duration d-flex align-items-center">
+                                        <span>
+                                            <i class="fa-sharp fa-light fa-clock"></i>
+                                            <?php echo esc_html__('Time period:', 'hexacore'); ?>
+                                        </span>
+                                        <p><?php echo esc_html($tour_duration); ?>
+                                            <?php
+                                            if ($tour_duration > 1) {
+                                                $dur_string         = 's';
+                                                $duration_time_html = $duration_time . $dur_string;
+                                            } else {
+                                                $duration_time_html = $duration_time;
+                                            }
+                                            echo " " . esc_html($duration_time_html);
+                                            ?>
+                                            <?php if ($night) { ?>
+                                                <?php echo esc_html($night_count); ?>
+                                                <?php
+                                                if (!empty($night_count)) {
+                                                    if ($night_count > 1) {
+                                                        echo esc_html__('Nights', 'bdevs-elementor');
+                                                    } else {
+                                                        echo esc_html__('Night', 'bdevs-elementor');
+                                                    }
+                                                }
+                                                ?>
+                                            <?php } ?>
+                                        </p>
+                                    </div>
+                                <?php endif; ?>
+                                <div class="tr-trip-price d-flex align-items-center justify-content-between">
+                                    <?php if (!empty($settings['btn_text'])) : ?>
+                                        <a class="tr-trip-link" href="<?php echo esc_url(get_the_permalink($post->ID)); ?>">
+                                            <?php echo esc_html($btn_text); ?>
+                                            <i class="fa-sharp fa-regular fa-arrow-right-long"></i>
                                         </a>
                                     <?php endif; ?>
-                                    <?php if (!empty($settings['title_show'])) : ?>
-                                        <h5 class="tr-trip-title">
-                                            <a class="border-line-black" href="<?php the_permalink($post->ID); ?>">
-                                                <?php echo wp_trim_words(get_the_title($post->ID), $settings['title_limit'], ''); ?>
-                                            </a>
-                                        </h5>
-                                    <?php endif; ?>
-                                    <?php if (!empty($settings['show_rating'])) : ?>
-                                        <div class="tr-trip-ratting">
-                                            <span>
-                                                <?php TF_Review::tf_archive_single_rating(); ?>
-                                            </span>
-                                        </div>
-                                    <?php endif; ?>
-
-                                    <?php if (!empty($settings['content_show'])) :
-                                        $content_limit = (!empty($settings['content_limit'])) ? $settings['content_limit'] : '';
-                                    ?>
-                                        <p class="hexa-el-desc">
-                                            <?php print wp_trim_words(get_the_excerpt($post->ID), $content_limit, ''); ?>
-                                        </p>
-                                    <?php endif; ?>
-                                    <?php if (!empty($settings['show_duration'])) : ?>
-                                        <div class="tr-trip-duration d-flex align-items-center">
-                                            <span>
-                                                <i class="fa-sharp fa-light fa-clock"></i>
-                                                <?php echo esc_html__('Time period:', 'hexacore'); ?>
-                                            </span>
-                                            <p><?php echo esc_html($tour_duration); ?>
-                                                <?php
-                                                if ($tour_duration > 1) {
-                                                    $dur_string         = 's';
-                                                    $duration_time_html = $duration_time . $dur_string;
-                                                } else {
-                                                    $duration_time_html = $duration_time;
-                                                }
-                                                echo " " . esc_html($duration_time_html);
-                                                ?>
-                                                <?php if ($night) { ?>
-                                                    <?php echo esc_html($night_count); ?>
+                                    <?php if (!empty($settings['show_price'])) : ?>
+                                        <?php
+                                        $hide_price = Helper::tfopt('t-hide-start-price');
+                                        if (isset($hide_price) && $hide_price !== '1' && !empty($tour_price)) :
+                                        ?>
+                                            <span class="tour-price">
+                                                <?php echo esc_html__('From', 'hexacore'); ?>
+                                                <i>
                                                     <?php
-                                                    if (!empty($night_count)) {
-                                                        if ($night_count > 1) {
-                                                            echo esc_html__('Nights', 'bdevs-elementor');
-                                                        } else {
-                                                            echo esc_html__('Night', 'bdevs-elementor');
+                                                    $tf_tour_min_price      = min($tour_price);
+                                                    $tf_tour_full_price     = min($tour_price);
+                                                    $tf_tour_discount_type  = !empty($meta['discount_type']) ? $meta['discount_type'] : '';
+                                                    $tf_tour_discount_price = !empty($meta['discount_price']) ? $meta['discount_price'] : '';
+                                                    if (!empty($tf_tour_discount_type) && !empty($tf_tour_min_price) && !empty($tf_tour_discount_price)) {
+                                                        if ($tf_tour_discount_type == "percent") {
+                                                            $tf_tour_min_discount = ($tf_tour_min_price * $tf_tour_discount_price) / 100;
+                                                            $tf_tour_min_price    = $tf_tour_min_price - $tf_tour_min_discount;
+                                                        }
+                                                        if ($tf_tour_discount_type == "fixed") {
+                                                            $tf_tour_min_discount = $tf_tour_discount_price;
+                                                            $tf_tour_min_price    = $tf_tour_min_price - $tf_tour_discount_price;
                                                         }
                                                     }
+                                                    $lowest_price = wc_price($tf_tour_min_price);
+                                                    if (empty($tf_tour_min_discount)) {
+                                                        echo  hexa_kses(wc_price($tf_tour_full_price));
+                                                    } else {
+                                                        echo  hexa_kses($lowest_price);
+                                                    }
                                                     ?>
-                                                <?php } ?>
-                                            </p>
-                                        </div>
+                                                </i>
+                                            </span>
+                                        <?php endif; ?>
                                     <?php endif; ?>
-                                    <div class="tr-trip-price d-flex align-items-center justify-content-between">
-                                        <?php if (!empty($settings['btn_text'])) : ?>
-                                            <a class="tr-trip-link" href="<?php echo esc_url(get_the_permalink($post->ID)); ?>">
-                                                <?php echo esc_html($btn_text); ?>
-                                                <i class="fa-sharp fa-regular fa-arrow-right-long"></i>
-                                            </a>
-                                        <?php endif; ?>
-                                        <?php if (!empty($settings['show_price'])) : ?>
-                                            <?php
-                                            $hide_price = Helper::tfopt('t-hide-start-price');
-                                            if (isset($hide_price) && $hide_price !== '1' && !empty($tour_price)) :
-                                            ?>
-                                                <span class="tour-price">
-                                                    <?php echo esc_html__('From', 'hexacore'); ?>
-                                                    <i>
-                                                        <?php
-                                                        $tf_tour_min_price      = min($tour_price);
-                                                        $tf_tour_full_price     = min($tour_price);
-                                                        $tf_tour_discount_type  = !empty($meta['discount_type']) ? $meta['discount_type'] : '';
-                                                        $tf_tour_discount_price = !empty($meta['discount_price']) ? $meta['discount_price'] : '';
-                                                        if (!empty($tf_tour_discount_type) && !empty($tf_tour_min_price) && !empty($tf_tour_discount_price)) {
-                                                            if ($tf_tour_discount_type == "percent") {
-                                                                $tf_tour_min_discount = ($tf_tour_min_price * $tf_tour_discount_price) / 100;
-                                                                $tf_tour_min_price    = $tf_tour_min_price - $tf_tour_min_discount;
-                                                            }
-                                                            if ($tf_tour_discount_type == "fixed") {
-                                                                $tf_tour_min_discount = $tf_tour_discount_price;
-                                                                $tf_tour_min_price    = $tf_tour_min_price - $tf_tour_discount_price;
-                                                            }
-                                                        }
-                                                        $lowest_price = wc_price($tf_tour_min_price);
-                                                        if (empty($tf_tour_min_discount)) {
-                                                            echo  hexa_kses(wc_price($tf_tour_full_price));
-                                                        } else {
-                                                            echo  hexa_kses($lowest_price);
-                                                        }
-                                                        ?>
-                                                    </i>
-                                                </span>
-                                            <?php endif; ?>
-                                        <?php endif; ?>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                    <?php endwhile; ?>
-                <?php else : ?>
-                    <div class="col-12">
-                        <div class="alert alert-danger text-center" role="alert">
-                            <?php echo hexa_kses($settings['error_text']); ?>
-                        </div>
                     </div>
-                <?php endif; ?>
-                <?php wp_reset_postdata(); ?>
-            </div>
-<?php endif;
+                <?php endwhile; ?>
+            <?php else : ?>
+                <div class="col-12">
+                    <div class="alert alert-danger text-center" role="alert">
+                        <?php echo hexa_kses($settings['error_text']); ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <?php wp_reset_postdata(); ?>
+        </div>
+<?php
     }
 }
 
