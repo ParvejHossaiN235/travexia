@@ -25,11 +25,11 @@ $protocol = is_ssl() ? 'https' : 'http';
 ?>
 
 <div class="woocommerce-product-rating" itemprop="aggregateRating" itemscope itemtype="<?php echo esc_attr($protocol) ?>://schema.org/AggregateRating">
-	<div class="star-rating" title="<?php printf(esc_attr__('Rated %s out of 5', 'hexa-theme'), $average); ?>">
+	<div class="star-rating" title="<?php printf(esc_attr__('Rated %s out of 5', 'travexia'), $average); ?>">
 		<span style="width:<?php echo (($average / 5) * 100); ?>%">
-			<strong itemprop="ratingValue" class="rating"><?php echo esc_html($average); ?></strong> <?php printf(esc_html__('out of %s5%s', 'hexa-theme'), '<span itemprop="bestRating">', '</span>'); ?>
-			<?php printf(_n('based on %s customer rating', 'based on %s customer ratings', $rating_count, 'hexa-theme'), '<span itemprop="ratingCount" class="rating">' . $rating_count . '</span>'); ?>
+			<strong itemprop="ratingValue" class="rating"><?php echo esc_html($average); ?></strong> <?php printf(esc_html__('out of %s5%s', 'travexia'), '<span itemprop="bestRating">', '</span>'); ?>
+			<?php printf(_n('based on %s customer rating', 'based on %s customer ratings', $rating_count, 'travexia'), '<span itemprop="ratingCount" class="rating">' . $rating_count . '</span>'); ?>
 		</span>
 	</div>
-	<?php if (comments_open()) : ?><a href="#reviews" class="woocommerce-review-link" rel="nofollow">(<?php printf(_n('%s customer review', '%s customer reviews', $review_count, 'hexa-theme'), '<span itemprop="reviewCount" class="count">' . $review_count . '</span>'); ?>)</a><?php endif ?>
+	<?php if (comments_open()) : ?><a href="#reviews" class="woocommerce-review-link" rel="nofollow">(<?php printf(_n('%s customer review', '%s customer reviews', $review_count, 'travexia'), '<span itemprop="reviewCount" class="count">' . $review_count . '</span>'); ?>)</a><?php endif ?>
 </div>

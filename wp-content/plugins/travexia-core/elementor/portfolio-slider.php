@@ -215,7 +215,7 @@ class Hexa_Portfolio_Slider extends Widget_Base
                 'label' => __('Custom Class', 'hexacore'),
                 'label_block' => true,
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('flaticon-world-globe', 'hexacore'),
+                'default' => __('fa-solid fa-globe', 'hexacore'),
                 'condition' => [
                     'icon_type' => 'class',
                 ]

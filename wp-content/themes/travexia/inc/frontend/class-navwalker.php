@@ -400,7 +400,7 @@ if (!class_exists('Hexa_Navwalker_Class')) {
                     $fallback_output .= ' class="' . esc_attr($menu_class) . '"';
                 }
                 $fallback_output .= '>';
-                $fallback_output .= '<li><a href="' . esc_url(home_url('/')) . '" title="' . esc_attr__('Home', 'hexa-theme') . '">' . esc_html__('Home', 'hexa-theme') . '</a></li>';
+                $fallback_output .= '<li><a href="' . esc_url(home_url('/')) . '" title="' . esc_attr__('Home', 'travexia') . '">' . esc_html__('Home', 'travexia') . '</a></li>';
                 $fallback_output .= '</ul>';
                 if ($container) {
                     $fallback_output .= '</' . esc_attr($container) . '>';

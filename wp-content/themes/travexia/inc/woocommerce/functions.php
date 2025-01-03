@@ -1,28 +1,28 @@
 <?php
-add_filter('add_to_cart_fragments', 'hexa_woocommerce_header_add_to_cart_fragment');
-add_action('wp_print_scripts', 'hexa_de_script', 100);
+add_filter('add_to_cart_fragments', 'travexia_woocommerce_header_add_to_cart_fragment');
+add_action('wp_print_scripts', 'travexia_de_script', 100);
 
-function hexa_de_script()
+function travexia_de_script()
 {
 	wp_dequeue_script('wc-cart-fragments');
 	return true;
 }
 
-function hexa_woocommerce_header_add_to_cart_fragment($fragments)
+function travexia_woocommerce_header_add_to_cart_fragment($fragments)
 {
 	global $woocommerce;
 	ob_start();
-	hexa_get_cart_contents();
+	travexia_get_cart_contents();
 	$fragments['.cart'] = ob_get_clean();
 	return $fragments;
 }
 
-function hexa_get_cart_contents()
+function travexia_get_cart_contents()
 {
 	global $woocommerce;
 ?>
 	<div class="cart mini-cart-inner">
-		<a class="mini-cart" href="#" title="<?php echo esc_attr__('View your shopping cart', 'hexa'); ?>">
+		<a class="mini-cart" href="#" title="<?php echo esc_attr__('View your shopping cart', 'travexia'); ?>">
 			<span class="title-cart"><i class="las la-shopping-cart"></i></span>
 			<span class="mini-cart-items">
 				<?php
@@ -45,8 +45,8 @@ function hexa_get_cart_contents()
 /**
  * Get image size
  */
-if (!function_exists('hexa_get_image_size')) :
-	function hexa_get_image_size($size = 'thumbnail')
+if (!function_exists('travexia_get_image_size')) :
+	function travexia_get_image_size($size = 'thumbnail')
 	{
 		global $_wp_additional_image_sizes;
 		$sizes = array();
@@ -71,18 +71,18 @@ if (!function_exists('hexa_get_image_size')) :
 	}
 endif;
 
-function hexa_get_post_thumbnail($size = 'thumbnail', $css_class = '', $attributes = false)
+function travexia_get_post_thumbnail($size = 'thumbnail', $css_class = '', $attributes = false)
 {
 
 	global $post;
 
 	$thumbnail_id = get_post_thumbnail_id();
-	$html = hexa_get_image_html($thumbnail_id, $size, $css_class, $attributes);
+	$html = travexia_get_image_html($thumbnail_id, $size, $css_class, $attributes);
 
 	return $html;
 }
 
-function hexa_get_image_html($attachment_id, $size = 'thumbnail', $css_class = '', $attr = false)
+function travexia_get_image_html($attachment_id, $size = 'thumbnail', $css_class = '', $attr = false)
 {
 
 	$html = '';
@@ -128,8 +128,8 @@ function hexa_get_image_html($attachment_id, $size = 'thumbnail', $css_class = '
 		}
 		$html .= ' />';
 	} else {
-		$src = get_template_directory_uri() . '/assets/images/thumbnail-default.png';
-		$dimensions        = hexa_get_image_size($size);
+		$src = get_template_directory_uri() . '/assets/img/thumbnail-default.png';
+		$dimensions        = travexia_get_image_size($size);
 		$hwstring         = image_hwstring($dimensions['width'], $dimensions['height']);
 		$size_class     = $size;
 		if (is_array($size_class)) {
@@ -138,7 +138,7 @@ function hexa_get_image_html($attachment_id, $size = 'thumbnail', $css_class = '
 		$default_attr = array(
 			'src'    => $src,
 			'class'    => "attachment-$size_class size-$size_class " . $css_class,
-			'alt'    => esc_attr__('Place holder', 'hexa'),
+			'alt'    => esc_attr__('Place holder', 'travexia'),
 		);
 		$attr = wp_parse_args($attr, $default_attr);
 		$attr = array_map('esc_attr', $attr);
@@ -153,28 +153,28 @@ function hexa_get_image_html($attachment_id, $size = 'thumbnail', $css_class = '
 }
 
 
-if (!function_exists('hexa_wc_get_gallery_html')) {
+if (!function_exists('travexia_wc_get_gallery_html')) {
 	/**
 	 * Get HTML for a gallery
 	 * @since 1.0
 	 */
-	function hexa_wc_get_gallery_html($gallery_image_ids, $main_image = false)
+	function travexia_wc_get_gallery_html($gallery_image_ids, $main_image = false)
 	{
 		$gallery_output = '';
 
 		foreach ($gallery_image_ids as $gallery_image_id) {
-			$gallery_output .= hexa_wc_get_gallery_image_html($gallery_image_id, $main_image);
+			$gallery_output .= travexia_wc_get_gallery_image_html($gallery_image_id, $main_image);
 		}
 		return $gallery_output;
 	}
 }
 
-if (!function_exists('hexa_wc_get_gallery_image_html')) {
+if (!function_exists('travexia_wc_get_gallery_image_html')) {
 	/**
 	 * Get Product Gallery Image HTML
 	 * @since 1.0
 	 */
-	function hexa_wc_get_gallery_image_html($attachment_id, $main_image = false)
+	function travexia_wc_get_gallery_image_html($attachment_id, $main_image = false)
 	{
 		$flexslider        = (bool) apply_filters('woocommerce_single_product_flexslider_enabled', get_theme_support('wc-product-gallery-slider'));
 		$gallery_thumbnail = wc_get_image_size('gallery_thumbnail');
@@ -215,12 +215,12 @@ if (!function_exists('hexa_wc_get_gallery_image_html')) {
 	}
 }
 
-if (!function_exists('hexa_wc_gallery_thumbnail_image_size')) {
-	function hexa_wc_gallery_thumbnail_image_size($size)
+if (!function_exists('travexia_wc_gallery_thumbnail_image_size')) {
+	function travexia_wc_gallery_thumbnail_image_size($size)
 	{
 		$size['width']  = 150;
 		$size['height'] = 150;
 		return $size;
 	}
-	add_filter('woocommerce_get_image_size_gallery_thumbnail', 'hexa_wc_gallery_thumbnail_image_size');
+	add_filter('woocommerce_get_image_size_gallery_thumbnail', 'travexia_wc_gallery_thumbnail_image_size');
 }

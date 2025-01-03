@@ -5,7 +5,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package hexa
+ * @package travexia
  */
 
 $sidebar = 'post-sidebar';

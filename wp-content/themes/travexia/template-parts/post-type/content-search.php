@@ -5,10 +5,10 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package hexa
+ * @package travexia
  */
 $categories = get_the_terms($post->ID, 'category');
-$hexa_blog_cat = get_theme_mod('hexa_blog_cat', false);
+$travexia_blog_cat = get_theme_mod('travexia_blog_cat', false);
 
 if (is_single()) : ?>
 
@@ -25,7 +25,7 @@ if (is_single()) : ?>
                 <?php the_content(); ?>
                 <?php
                 wp_link_pages([
-                    'before'      => '<div class="page-links">' . esc_html__('Pages:', 'hexa-theme'),
+                    'before'      => '<div class="page-links">' . esc_html__('Pages:', 'travexia'),
                     'after'       => '</div>',
                     'link_before' => '<span class="page-number">',
                     'link_after'  => '</span>',
@@ -33,26 +33,26 @@ if (is_single()) : ?>
                 ?>
             </div>
             <!-- post tatgs and social share -->
-            <?php if (!empty(hexa_get_tag()) || !empty(get_theme_mod('post_socials'))) : ?>
+            <?php if (!empty(travexia_get_tag()) || !empty(get_theme_mod('post_socials'))) : ?>
                 <div class="postbox-share">
                     <div class="postbox-tags">
-                        <?php print hexa_get_tag(); ?>
+                        <?php print travexia_get_tag(); ?>
                     </div>
                     <div class="postbox-social">
-                        <?php if (get_theme_mod('post_socials')) hexa_socials_share(); ?>
+                        <?php if (get_theme_mod('post_socials')) travexia_socials_share(); ?>
                     </div>
                 </div>
             <?php endif; ?>
             <!-- post author -->
-            <?php if (get_theme_mod('author_box')) hexa_author_info_box(); ?>
+            <?php if (get_theme_mod('author_box')) travexia_author_info_box(); ?>
             <!-- single post nav -->
-            <?php if (get_theme_mod('post_nav')) hexa_single_post_nav(); ?>
+            <?php if (get_theme_mod('post_nav')) travexia_single_post_nav(); ?>
         </div>
     </article>
 
 <?php else : ?>
 
-    <div class="<?php hexa_blog_style(); ?>">
+    <div class="<?php travexia_blog_style(); ?>">
         <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item format-search mb-80'); ?>>
             <?php if (has_post_thumbnail()) : ?>
                 <div class="postbox-thumb postbox-main-thumb mb-35">

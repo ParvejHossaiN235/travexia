@@ -71,3 +71,22 @@ function hexa_elementor_updated_option()
     }
 }
 add_action('elementor/init', 'hexa_elementor_updated_option');
+
+/** Add Contact Methods in the User Profile **/
+function hexa_user_contact_methods($user_contact)
+{
+    $user_contact['user_post']   = esc_html__('Written By', 'hexacore');
+    $user_contact['facebook']   = esc_html__('Facebook', 'hexacore');
+    $user_contact['instagram']  = esc_html__('Instagram', 'hexacore');
+    $user_contact['linkedin']   = esc_html__('LinkedIn', 'hexacore');
+    $user_contact['youtube']    = esc_html__('Youtube', 'hexacore');
+    $user_contact['twitter']    = esc_html__('Twitter', 'hexacore');
+    $user_contact['googleplus'] = esc_html__('Google +', 'hexacore');
+    $user_contact['pinterest']  = esc_html__('Pinterest', 'hexacore');
+    $user_contact['github']     = esc_html__('Github', 'hexacore');
+    $user_contact['skype']      = esc_html__('Skype', 'hexacore');
+    return $user_contact;
+};
+add_filter('user_contactmethods', 'hexa_user_contact_methods');
+/** Allow HTML in author bio section **/
+remove_filter('pre_user_description', 'wp_filter_kses');

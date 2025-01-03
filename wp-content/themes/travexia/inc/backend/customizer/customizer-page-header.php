@@ -6,12 +6,12 @@ function page_header_customize_settings()
      */
 
     $settings = array(
-        'theme' => HEXA_THEME_SLUG,
+        'theme' => TRAVEXIA_THEME_SLUG,
     );
 
     $sections = array(
         'page_header'     => array(
-            'title'       => esc_html__('Page Header', 'hexa-theme'),
+            'title'       => esc_html__('Page Header', 'travexia'),
             'description' => '',
             'priority'    => 9,
             'capability'  => 'edit_theme_options',
@@ -22,14 +22,14 @@ function page_header_customize_settings()
         /*page header */
         'pheader_switch'  => array(
             'type'        => 'toggle',
-            'label'       => esc_html__('Page Header On/Off', 'hexa-theme'),
+            'label'       => esc_html__('Page Header On/Off', 'travexia'),
             'section'     => 'page_header',
             'default'     => 1,
             'priority'    => 10,
         ),
         'breadcrumbs'     => array(
             'type'        => 'toggle',
-            'label'       => esc_html__('Breadcrumbs On/Off', 'hexa-theme'),
+            'label'       => esc_html__('Breadcrumbs On/Off', 'travexia'),
             'section'     => 'page_header',
             'default'     => 1,
             'priority'    => 10,
@@ -43,21 +43,21 @@ function page_header_customize_settings()
         ),
         'pheader_htmltag'   => array(
             'type'          => 'select',
-            'label'         => esc_html__('Page Title HTML Tag', 'hexa-theme'),
+            'label'         => esc_html__('Page Title HTML Tag', 'travexia'),
             'section'       => 'page_header',
             'default'       => 'h1',
             'priority'      => 10,
-            'placeholder'   => esc_html__('Choose an html tag', 'hexa-theme'),
+            'placeholder'   => esc_html__('Choose an html tag', 'travexia'),
             'choices'       => array(
-                'h1'        => esc_html__('H1', 'hexa-theme'),
-                'h2'        => esc_html__('H2', 'hexa-theme'),
-                'h3'        => esc_html__('H3', 'hexa-theme'),
-                'h4'        => esc_html__('H4', 'hexa-theme'),
-                'h5'        => esc_html__('H5', 'hexa-theme'),
-                'h6'        => esc_html__('H6', 'hexa-theme'),
-                'span'      => esc_html__('SPAN', 'hexa-theme'),
-                'p'         => esc_html__('P', 'hexa-theme'),
-                'div'       => esc_html__('DIV', 'hexa-theme'),
+                'h1'        => esc_html__('H1', 'travexia'),
+                'h2'        => esc_html__('H2', 'travexia'),
+                'h3'        => esc_html__('H3', 'travexia'),
+                'h4'        => esc_html__('H4', 'travexia'),
+                'h5'        => esc_html__('H5', 'travexia'),
+                'h6'        => esc_html__('H6', 'travexia'),
+                'span'      => esc_html__('SPAN', 'travexia'),
+                'p'         => esc_html__('P', 'travexia'),
+                'div'       => esc_html__('DIV', 'travexia'),
             ),
             'active_callback' => array(
                 array(
@@ -69,14 +69,14 @@ function page_header_customize_settings()
         ),
         'pheader_align'    => array(
             'type'     => 'radio',
-            'label'    => esc_html__('Text Align', 'hexa-theme'),
+            'label'    => esc_html__('Text Align', 'travexia'),
             'section'  => 'page_header',
             'default'  => 'text-start',
             'priority' => 10,
             'choices'     => array(
-                'text-start'     => esc_html__('Left', 'hexa-theme'),
-                'text-center'   => esc_html__('Center', 'hexa-theme'),
-                'text-end'    => esc_html__('Right', 'hexa-theme'),
+                'text-start'     => esc_html__('Left', 'travexia'),
+                'text-center'   => esc_html__('Center', 'travexia'),
+                'text-end'    => esc_html__('Right', 'travexia'),
             ),
             'active_callback' => array(
                 array(
@@ -88,7 +88,7 @@ function page_header_customize_settings()
         ),
         'pheader_img'  => array(
             'type'     => 'image',
-            'label'    => esc_html__('Background Image', 'hexa-theme'),
+            'label'    => esc_html__('Background Image', 'travexia'),
             'section'  => 'page_header',
             'default'  => get_template_directory_uri() . '/assets/img/breadcurmb/breadcurmb.jpg',
             'priority' => 10,
@@ -108,7 +108,7 @@ function page_header_customize_settings()
         ),
         'pheader_color'    => array(
             'type'     => 'color',
-            'label'    => esc_html__('Background Color', 'hexa-theme'),
+            'label'    => esc_html__('Background Color', 'travexia'),
             'section'  => 'page_header',
             'default'  => '#222',
             'priority' => 10,
@@ -128,7 +128,7 @@ function page_header_customize_settings()
         ),
         'ptitle_color'    => array(
             'type'     => 'color',
-            'label'    => esc_html__('Title Color', 'hexa-theme'),
+            'label'    => esc_html__('Title Color', 'travexia'),
             'section'  => 'page_header',
             'priority' => 10,
             'output'    => array(
@@ -147,7 +147,7 @@ function page_header_customize_settings()
         ),
         'bread_color'    => array(
             'type'     => 'color',
-            'label'    => esc_html__('Breadcrumbs Color', 'hexa-theme'),
+            'label'    => esc_html__('Breadcrumbs Color', 'travexia'),
             'section'  => 'page_header',
             'priority' => 10,
             'output'    => array(
@@ -171,7 +171,7 @@ function page_header_customize_settings()
         ),
         'bread_acolor'    => array(
             'type'     => 'color',
-            'label'    => esc_html__('Breadcrumbs Hover Color', 'hexa-theme'),
+            'label'    => esc_html__('Breadcrumbs Hover Color', 'travexia'),
             'section'  => 'page_header',
             'priority' => 10,
             'output'    => array(
@@ -195,14 +195,14 @@ function page_header_customize_settings()
         ),
         'pheader_height'  => array(
             'type'     => 'dimensions',
-            'label'    => esc_html__('Page Header Padding (Ex: 100px)', 'hexa-theme'),
+            'label'    => esc_html__('Page Header Padding (Ex: 100px)', 'travexia'),
             'section'  => 'page_header',
             'transport' => 'auto',
             'priority' => 10,
             'choices'   => array(
-                'desktop' => esc_attr__('Desktop', 'hexa-theme'),
-                'tablet'  => esc_attr__('Tablet', 'hexa-theme'),
-                'mobile'  => esc_attr__('Mobile', 'hexa-theme'),
+                'desktop' => esc_attr__('Desktop', 'travexia'),
+                'tablet'  => esc_attr__('Tablet', 'travexia'),
+                'mobile'  => esc_attr__('Mobile', 'travexia'),
             ),
             'output'   => array(
                 array(
@@ -257,14 +257,14 @@ function page_header_customize_settings()
         ),
         'head_size'  => array(
             'type'     => 'dimensions',
-            'label'    => esc_html__('Page Title Size (Ex: 30px)', 'hexa-theme'),
+            'label'    => esc_html__('Page Title Size (Ex: 30px)', 'travexia'),
             'section'  => 'page_header',
             'transport' => 'auto',
             'priority' => 10,
             'choices'   => array(
-                'desktop' => esc_attr__('Desktop', 'hexa-theme'),
-                'tablet'  => esc_attr__('Tablet', 'hexa-theme'),
-                'mobile'  => esc_attr__('Mobile', 'hexa-theme'),
+                'desktop' => esc_attr__('Desktop', 'travexia'),
+                'tablet'  => esc_attr__('Tablet', 'travexia'),
+                'mobile'  => esc_attr__('Mobile', 'travexia'),
             ),
             'output'   => array(
                 array(
@@ -301,10 +301,10 @@ function page_header_customize_settings()
         ),
     );
 
-    $settings['sections'] = apply_filters('hexa_customize_sections', $sections);
-    $settings['fields']   = apply_filters('hexa_customize_fields', $fields);
+    $settings['sections'] = apply_filters('travexia_customize_sections', $sections);
+    $settings['fields']   = apply_filters('travexia_customize_fields', $fields);
 
     return $settings;
 }
 
-$hexa_customize = new Hexa_Customize(page_header_customize_settings());
+$travexia_customize = new Travexia_Customize(page_header_customize_settings());

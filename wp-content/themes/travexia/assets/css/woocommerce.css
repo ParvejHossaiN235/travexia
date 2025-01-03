@@ -1920,7 +1920,7 @@ table.variations a.reset_variations {
 .single-product .product-single-inner .add-cart:after {
   clear: both;
 }
-
+.return-to-shop a.wc-backward,
 .single-product .product-single-inner .cart .button,
 .single-product .product-single-inner .add-cart .button {
   display: inline-block;
@@ -1940,11 +1940,13 @@ table.variations a.reset_variations {
   font-family: var(--tr-ff-body);
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
+  .return-to-shop a.wc-backward,
   .single-product .product-single-inner .cart .button,
   .single-product .product-single-inner .add-cart .button {
     font-size: 16px;
   }
 }
+.return-to-shop a.wc-backward:hover,
 .single-product .product-single-inner .cart .button:hover,
 .single-product .product-single-inner .add-cart .button:hover {
   color: var(--tr-common-black);
@@ -3041,6 +3043,7 @@ h3#order_review_heading {
   padding: 12px 20px;
   display: inline-block;
   white-space: nowrap;
+  border-radius: 30px;
 }
 
 .product-block .product-thumbnail .content-hover .add-to-cart a:before {
@@ -4135,4 +4138,37 @@ body.admin-bar .mini-cart-header .mini-cart-inner.open .minicart-content {
 }
 .widget_product_categories.sidebar-widget ul li a:hover::before {
   color: #fff;
+}
+
+.cart-empty.woocommerce-info {
+  text-align: center;
+}
+p.return-to-shop {
+  margin-top: 30px;
+  margin-bottom: 0;
+  text-align: center;
+}
+.u-columns.woocommerce-Addresses.col2-set.addresses {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.u-column2.col-2.woocommerce-Address,
+.u-column1.col-1.woocommerce-Address {
+  width: 30%;
+  flex-grow: 1;
+}
+header.woocommerce-Address-title.title h2 {
+  margin-bottom: 20px;
+}
+header.woocommerce-Address-title.title a {
+  margin-bottom: 15px;
+  display: block;
+}
+.woocommerce-address-fields__field-wrapper .select2-container--default .select2-selection--single {
+  height: 50px;
+}
+.woocommerce-address-fields__field-wrapper .select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 11px;
+  right: 8px;
 }

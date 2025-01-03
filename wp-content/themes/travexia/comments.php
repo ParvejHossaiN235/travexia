@@ -23,7 +23,7 @@ if (post_password_required()) {
 
                 <?php
                 $comment_no = number_format_i18n(get_comments_number());
-                $comment_text = (!empty($comment_no) and ($comment_no > 1)) ? esc_html__(' Comments', 'hexa-theme') : esc_html__(' Comment ', 'hexa-theme');
+                $comment_text = (!empty($comment_no) and ($comment_no > 1)) ? esc_html__(' Comments', 'travexia') : esc_html__(' Comment ', 'travexia');
                 $comment_no = (!empty($comment_no) and ($comment_no > 0)) ? '<h3 class="postbox-comment-title mb-35">' . esc_html($comment_no . $comment_text) . '</h3>' : ' ';
                 print sprintf("%s", $comment_no);
                 ?>
@@ -34,7 +34,7 @@ if (post_password_required()) {
                     <?php
                     wp_list_comments([
                         'style'       => 'ul',
-                        'callback'    => 'hexa_comment',
+                        'callback'    => 'travexia_comment',
                         'avatar_size' => 90,
                         'short_ping'  => true,
                     ]);
@@ -47,14 +47,14 @@ if (post_password_required()) {
         <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) : ?>
             <div class="comment-pagination mb-50 d-none">
                 <nav id="comment-nav-below" class="comment-navigation" role="navigation">
-                    <h1 class="screen-reader-text"><?php esc_html_e('Comment navigation', 'hexa-theme'); ?></h1>
+                    <h1 class="screen-reader-text"><?php esc_html_e('Comment navigation', 'travexia'); ?></h1>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="nav-previous ">
-                                <?php previous_comments_link(esc_html__('&larr; Older ', 'hexa-theme')); ?></div>
+                                <?php previous_comments_link(esc_html__('&larr; Older ', 'travexia')); ?></div>
                         </div>
                         <div class="col-md-6">
-                            <div class="nav-next "><?php next_comments_link(esc_html__('Newer &rarr;', 'hexa-theme')); ?>
+                            <div class="nav-next "><?php next_comments_link(esc_html__('Newer &rarr;', 'travexia')); ?>
                             </div>
                         </div>
                     </div>
@@ -81,9 +81,9 @@ if (post_password_required()) {
             $aria_req    = ($req ? " aria-required='true'" : '');
 
             $fields = array(
-                'author' => '<div class="row"><div class="col-md-6"><div class="postbox-comment-input"><input placeholder="' .  esc_attr__('Enter Name', 'hexa-theme') . '" id="author" class="tp-form-control" name="author" type="text" value="' . esc_attr($commenter['comment_author']) . '" size="30"' . $aria_req . ' /></div></div>',
-                'email'  => '<div class="col-md-6"><div class="postbox-comment-input"><input placeholder="' .  esc_attr__('Enter Email', 'hexa-theme') . '" id="email" name="email" class="tp-form-control" type="email" value="' . esc_attr($commenter['comment_author_email']) . '" size="30"' . $aria_req . ' /></div></div>',
-                'url'    => '<div class="col-md-12"><div class="postbox-comment-input"><input placeholder="' .  esc_attr__('Enter Website', 'hexa-theme') . '" id="url" name="url" class="tp-form-control" type="url" value="' . esc_attr($commenter['comment_author_url']) . '" size="30" /></div></div></div>'
+                'author' => '<div class="row"><div class="col-md-6"><div class="postbox-comment-input"><input placeholder="' .  esc_attr__('Enter Name', 'travexia') . '" id="author" class="tp-form-control" name="author" type="text" value="' . esc_attr($commenter['comment_author']) . '" size="30"' . $aria_req . ' /></div></div>',
+                'email'  => '<div class="col-md-6"><div class="postbox-comment-input"><input placeholder="' .  esc_attr__('Enter Email', 'travexia') . '" id="email" name="email" class="tp-form-control" type="email" value="' . esc_attr($commenter['comment_author_email']) . '" size="30"' . $aria_req . ' /></div></div>',
+                'url'    => '<div class="col-md-12"><div class="postbox-comment-input"><input placeholder="' .  esc_attr__('Enter Website', 'travexia') . '" id="url" name="url" class="tp-form-control" type="url" value="' . esc_attr($commenter['comment_author_url']) . '" size="30" /></div></div></div>'
             );
 
             if (is_user_logged_in()) {
@@ -96,29 +96,29 @@ if (post_password_required()) {
                 'comment_field'      => '
             <div class="row post-input">
                 <div class="col-md-12 ' . $cl . '">
-                    <div class="postbox-comment-input"><textarea class="tp-form-control msg-box" placeholder="' .  esc_attr__('Enter Your Comment', 'hexa-theme') . '" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+                    <div class="postbox-comment-input"><textarea class="tp-form-control msg-box" placeholder="' .  esc_attr__('Enter Your Comment', 'travexia') . '" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
                 </div></div>
                 <div class="clearfix"></div>
             </div>
         ',
-                'submit_button'    => '<div class="col-xl-12 form-inner-btn"><button class="tr-btn-green" type="submit">' . esc_html__('Post Comment', 'hexa-theme') . ' </button></div>',
-                /** This filtwp-content/themes/hexa/incer is documented in wp-includes/link-template.php */
+                'submit_button'    => '<div class="col-xl-12 form-inner-btn"><button class="tr-btn-green" type="submit">' . esc_html__('Post Comment', 'travexia') . ' </button></div>',
+                /** This filtwp-content/themes/travexia/incer is documented in wp-includes/link-template.php */
                 'must_log_in'        => '
             <p class="must-log-in">
-            ' . esc_html__('You must be', 'hexa-theme') . ' <a href="' . esc_url(wp_login_url(apply_filters('the_permalink', get_permalink($post_id)))) . '">' . esc_html__('logged in', 'hexa-theme') . '</a> ' . esc_html__('to post a comment.', 'hexa-theme') . '
+            ' . esc_html__('You must be', 'travexia') . ' <a href="' . esc_url(wp_login_url(apply_filters('the_permalink', get_permalink($post_id)))) . '">' . esc_html__('logged in', 'travexia') . '</a> ' . esc_html__('to post a comment.', 'travexia') . '
             </p>',
                 /** This filter is documented in wp-includes/link-template.php */
                 'logged_in_as'       => '
             <p class="logged-in-as">
-            ' . esc_html__('Logged in as', 'hexa-theme') . ' <a href="' . esc_url(get_edit_user_link()) . '">' . esc_html($user_identity) . '</a>. <a href="' . esc_url(wp_logout_url(apply_filters('the_permalink', get_permalink($post_id)))) . '" title="' . esc_attr__('Log out of this account', 'hexa-theme') . '">' . esc_html__('Log out?', 'hexa-theme') . '</a>
+            ' . esc_html__('Logged in as', 'travexia') . ' <a href="' . esc_url(get_edit_user_link()) . '">' . esc_html($user_identity) . '</a>. <a href="' . esc_url(wp_logout_url(apply_filters('the_permalink', get_permalink($post_id)))) . '" title="' . esc_attr__('Log out of this account', 'travexia') . '">' . esc_html__('Log out?', 'travexia') . '</a>
             </p>',
                 'id_form'            => 'commentform',
                 'id_submit'          => 'submit',
                 'class_submit'       => 'tp-btn',
-                'title_reply'        => esc_html__('Leave A Comment', 'hexa-theme'),
-                'title_reply_to'     => esc_html__('Leave a Reply to %s', 'hexa-theme'),
-                'cancel_reply_link'  => esc_html__('Cancel reply', 'hexa-theme'),
-                'label_submit'       => esc_html__('Post Comment', 'hexa-theme'),
+                'title_reply'        => esc_html__('Leave A Comment', 'travexia'),
+                'title_reply_to'     => esc_html__('Leave a Reply to %s', 'travexia'),
+                'cancel_reply_link'  => esc_html__('Cancel reply', 'travexia'),
+                'label_submit'       => esc_html__('Post Comment', 'travexia'),
                 'format'             => 'xhtml',
             ];
 

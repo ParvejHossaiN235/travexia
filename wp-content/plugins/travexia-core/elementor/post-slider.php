@@ -475,7 +475,7 @@ class Hexa_Post_Slider extends Widget_Base
                                 <div class="hf-blog-content">
                                     <div class="hf-blog-item-info d-flex">
                                         <?php if (!empty($settings['admin_show'])) : ?>
-                                            <span><i class="flaticon-user"></i>
+                                            <span><i class="fa-solid fa-user"></i>
                                                 <a href="<?php print esc_url($author_avatar_url); ?>">
                                                     <?php echo ucwords(get_the_author()); ?>
                                                 </a>

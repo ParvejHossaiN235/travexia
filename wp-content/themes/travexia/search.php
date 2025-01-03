@@ -5,7 +5,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package hexa
+ * @package travexia
  */
 
 get_header();
@@ -15,17 +15,17 @@ $post_column = is_active_sidebar('post-sidebar') ? 'col-xl-8 col-lg-8 col-md-12'
 
 ?>
 
-<div class="hexa-area postbox-area pt-120 pb-100" >
+<div class="hexa-area postbox-area pt-120 pb-100">
 	<div class="entry-content">
 		<div class="container">
-			<div class="row row-gap-50 <?php echo $row_swipe; ?>">
-				<div class="<?php echo $post_column; ?>">
+			<div class="row row-gap-50 <?php echo esc_attr($row_swipe); ?>">
+				<div class="<?php echo esc_attr($post_column); ?>">
 					<div class="content-wrapper">
 						<?php
 						if (have_posts()) :
 						?>
 							<div class="result-bar search-header d-none">
-								<h1 class="page-title"><?php esc_html_e('Search Results For:', 'hexa-theme'); ?>
+								<h1 class="page-title"><?php esc_html_e('Search Results For:', 'travexia'); ?>
 									<?php print get_search_query(); ?></h1>
 							</div>
 							<?php
@@ -33,7 +33,7 @@ $post_column = is_active_sidebar('post-sidebar') ? 'col-xl-8 col-lg-8 col-md-12'
 								get_template_part('template-parts/post-type/content', 'search');
 							endwhile;
 							?>
-							<?php hexa_posts_navigation(); ?>
+							<?php travexia_posts_navigation(); ?>
 						<?php
 						else :
 							get_template_part('template-parts/post-type/content', 'none');
@@ -43,7 +43,7 @@ $post_column = is_active_sidebar('post-sidebar') ? 'col-xl-8 col-lg-8 col-md-12'
 				</div>
 				<?php if (is_active_sidebar('post-sidebar')) { ?>
 					<div class="col-xl-4 col-lg-4 col-md-12">
-						<div class="widget-wrapper sidebar-right" >
+						<div class="widget-wrapper sidebar-right">
 							<?php get_sidebar(); ?>
 						</div>
 					</div>

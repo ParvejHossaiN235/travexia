@@ -2,11 +2,11 @@
 <header id="site-header" class="site-header">
 
     <!-- #header-desktop-open -->
-    <?php hexa_header_builder(); ?>
+    <?php travexia_header_builder(); ?>
     <!-- #header-desktop-close -->
 
     <!-- #header-mobile-open -->
-    <?php hexa_mobile_builder(); ?>
+    <?php travexia_mobile_builder(); ?>
     <!-- #header-mobile-close -->
 
 </header>
@@ -17,7 +17,7 @@
         <div class="side-panel-content">
             <div class="side-panel-content-top d-flex align-items-center justify-content-between mb-50">
                 <div class="side-panel-logo" id="site-logo">
-                    <?php hexa_sidepanel_logo(); ?>
+                    <?php travexia_sidepanel_logo(); ?>
                 </div>
                 <div class="side-panel-close">
                     <button class="panel-close-btn panel-nl-close">
@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="side-panel-block">
-                <?php if (did_action('elementor/loaded')) hexa_sidepanel_builder(); ?>
+                <?php if (did_action('elementor/loaded')) travexia_sidepanel_builder(); ?>
             </div>
         </div>
     </div>

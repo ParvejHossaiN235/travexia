@@ -68,7 +68,7 @@ if ((! is_front_page() && ! (is_post_type_archive() && get_option('page_on_front
 	} elseif (is_tax('product_tag')) {
 
 		$queried_object = $wp_query->get_queried_object();
-		$output_html .= $prepend . $before . esc_html__('Products tagged &ldquo;', 'hexa-theme') . $queried_object->name . '&rdquo;' . $after;
+		$output_html .= $prepend . $before . esc_html__('Products tagged &ldquo;', 'travexia') . $queried_object->name . '&rdquo;' . $after;
 	} elseif (is_day()) {
 
 		$output_html .= $before . '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a>' . $after . $delimiter;
@@ -92,7 +92,7 @@ if ((! is_front_page() && ! (is_post_type_archive() && get_option('page_on_front
 
 		if (is_search()) {
 
-			$output_html .= $before . '<a href="' . get_post_type_archive_link('product') . '">' . $_name . '</a>' . $delimiter . esc_html__('Search results for &ldquo;', 'hexa-theme') . get_search_query() . '&rdquo;' . $after;
+			$output_html .= $before . '<a href="' . get_post_type_archive_link('product') . '">' . $_name . '</a>' . $delimiter . esc_html__('Search results for &ldquo;', 'travexia') . get_search_query() . '&rdquo;' . $after;
 		} elseif (is_paged()) {
 
 			$output_html .= $before . '<a href="' . get_post_type_archive_link('product') . '">' . $_name . '</a>' . $after;
@@ -140,7 +140,7 @@ if ((! is_front_page() && ! (is_post_type_archive() && get_option('page_on_front
 		}
 	} elseif (is_404()) {
 
-		$output_html .= $before . esc_html__('Error 404', 'hexa-theme') . $after;
+		$output_html .= $before . esc_html__('Error 404', 'travexia') . $after;
 	} elseif (! is_single() && ! is_page() && get_post_type() != 'post') {
 
 		$post_type = get_post_type_object(get_post_type());
@@ -181,18 +181,18 @@ if ((! is_front_page() && ! (is_post_type_archive() && get_option('page_on_front
 		$output_html .= $before . get_the_title() . $after;
 	} elseif (is_search()) {
 
-		$output_html .= $before . esc_html__('Search results for &ldquo;', 'hexa-theme') . get_search_query() . '&rdquo;' . $after;
+		$output_html .= $before . esc_html__('Search results for &ldquo;', 'travexia') . get_search_query() . '&rdquo;' . $after;
 	} elseif (is_tag()) {
 
-		$output_html .= $before . esc_html__('Posts tagged &ldquo;', 'hexa-theme') . single_tag_title('', false) . '&rdquo;' . $after;
+		$output_html .= $before . esc_html__('Posts tagged &ldquo;', 'travexia') . single_tag_title('', false) . '&rdquo;' . $after;
 	} elseif (is_author()) {
 
 		$userdata = get_userdata($author);
-		$output_html .= $before . esc_html__('Author:', 'hexa-theme') . ' ' . $userdata->display_name . $after;
+		$output_html .= $before . esc_html__('Author:', 'travexia') . ' ' . $userdata->display_name . $after;
 	}
 
 	if (get_query_var('paged')) {
-		$output_html .= ' (' . esc_html__('Page', 'hexa-theme') . ' ' . get_query_var('paged') . ')';
+		$output_html .= ' (' . esc_html__('Page', 'travexia') . ' ' . get_query_var('paged') . ')';
 	}
 
 	$output_html .= $wrap_after;

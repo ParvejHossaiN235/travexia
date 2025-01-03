@@ -27,7 +27,7 @@ if (is_active_sidebar('woocommerce_sidebar')) {
                         <?php do_action('woocommerce_before_shop_loop'); ?>
                      </div>
 
-                     <?php do_action('hexa_woocommerce_active_filter');  ?>
+                     <?php do_action('travexia_woocommerce_active_filter');  ?>
 
                      <?php
                      woocommerce_product_loop_start();

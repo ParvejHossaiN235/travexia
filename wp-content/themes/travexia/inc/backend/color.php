@@ -1,7 +1,7 @@
 <?php
 //Custom Style Frontend
-if (!function_exists('hexa_color_scheme')) {
-    function hexa_color_scheme()
+if (!function_exists('travexia_color_scheme')) {
+    function travexia_color_scheme()
     {
         $color_scheme = '';
 
@@ -24,4 +24,4 @@ if (!function_exists('hexa_color_scheme')) {
         }
     }
 }
-add_action('wp_head', 'hexa_color_scheme');
+add_action('wp_head', 'travexia_color_scheme');

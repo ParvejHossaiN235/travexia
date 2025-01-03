@@ -5,7 +5,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package hexa
+ * @package travexia
  */
 
 $post_read_more = get_theme_mod('post_read_more', 'Read More');

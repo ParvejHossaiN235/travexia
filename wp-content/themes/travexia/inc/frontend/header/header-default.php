@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package hexa
+ * @package travexia
  */
 
 $logo_space = has_nav_menu('main-menu') ? '' : 'pt-25 pb-25';
@@ -21,11 +21,11 @@ $logo_space = has_nav_menu('main-menu') ? '' : 'pt-25 pb-25';
          <div class="container container-1790">
             <div class="header-area d-flex align-items-center justify-content-between">
                <div class="tr-header-logo <?php echo esc_attr($logo_space); ?>">
-                  <?php hexa_header_logo(); ?>
+                  <?php travexia_header_logo(); ?>
                </div>
                <div class="tr-header-menu tr-dropdown-menu text-end d-none d-xl-block">
                   <nav class="it-menu-content">
-                     <?php hexa_header_menu(); ?>
+                     <?php travexia_header_menu(); ?>
                   </nav>
                </div>
                <div class="tr-header-bar d-xl-none ml-30">
@@ -50,7 +50,7 @@ $logo_space = has_nav_menu('main-menu') ? '' : 'pt-25 pb-25';
          <button class="close-btn"><i class="fal fa-times"></i></button>
       </div>
       <div class="it-offcanvas__logo">
-         <?php hexa_header_logo(); ?>
+         <?php travexia_header_logo(); ?>
       </div>
       <div class="it-menu-mobile"></div>
    </div>

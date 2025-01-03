@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Documentation | Travexia - Tour Booking WordPress Theme</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/hexaflow-font.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,300italic|Inconsolata:400,700" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/assets/favicon.png" />
+  </head>
+
+  <body>
+    <div class="loading-wrapper">
+      <div class="loading-content">
+        <img src="images/assets/page_loading.gif" alt="Loading" />
+      </div>
+    </div>
+
+    <main>
+      <!-- Menu -->
+      <span class="menu-icon-toggle open"><i class="hicon-menu open"></i><i class="hicon-cancel close"></i></span>
+      <nav>
+        <ul>
+          <li class="menu-logo">
+            <img loading="lazy" src="images/assets/logo.png" alt="Travexia" />
+          </li>
+          <li class="has-child">
+            <a href="#introduction">Introduction</a>
+            <ul class="sub-menu">
+              <li><a href="#before-getting-started">Before Getting Started</a></li>
+              <li><a href="#requirements-compatibility">Requirements & Compatibility</a></li>
+            </ul>
+          </li>
+          <li class="has-child">
+            <a href="#installation">Installation</a>
+            <ul class="sub-menu">
+              <li><a href="#wordpress-installation">WordPress Installation</a></li>
+              <li><a href="#ftp-installation">FTP Installation</a></li>
+              <li><a href="#required-plugins">Required Plugins</a></li>
+              <li><a href="#demo-content">Demo Content</a></li>
+              <li><a href="#updating-the-theme">Updating The Theme</a></li>
+            </ul>
+          </li>
+          <li><a href="#theme-options">Theme Options</a></li>
+          <li class="has-child">
+            <a href="#widgets-and-sidebars">Widgets & Sidebars</a>
+          </li>
+          <li class="has-child">
+            <a href="#header">Header</a>
+            <ul class="sub-menu">
+              <li><a href="#adding-the-logo-favicon">Adding The Logo & Favicon</a></li>
+              <li><a href="#setting-up-header">Header</a></li>
+            </ul>
+          </li>
+          <li><a href="#footer">Footer</a></li>
+          <li class="has-child">
+            <a href="#pages">Pages</a>
+            <ul class="sub-menu">
+              <li><a href="#create-a-new-page">Create A New Page</a></li>
+              <li><a href="#page-options">Page Options</a></li>
+              <li><a href="#home-pages">Home Pages</a></li>
+            </ul>
+          </li>
+          <li class="has-child">
+            <a href="#blog">Blog</a>
+            <ul class="sub-menu">
+              <li><a href="#create-a-new-post">Create A New Post</a></li>
+            </ul>
+          </li>
+          <li class="has-child">
+            <a href="#tours">Tour</a>
+            <ul class="sub-menu">
+              <li><a href="#create-a-new-tour">Create A New Tour</a></li>
+            </ul>
+          </li>
+          <li class="has-child">
+            <a href="#elementor">Elementor</a>
+            <ul class="sub-menu">
+              <li><a href="#elementor-add-new-element">How to add new element</a></li>
+              <li><a href="#elementor-ts-elements">HF Addons</a></li>
+            </ul>
+          </li>
+          <li class="has-child">
+            <a href="#woocommerce">WooCommerce</a>
+            <ul class="sub-menu">
+              <li><a href="#woocommerce-install">Install WooCommerce</a></li>
+              <li><a href="#woocommerce-adding-page">Adding WooCommerce Pages</a></li>
+              <li><a href="#woocommerce-settings">Setting Up WooCommerce</a></li>
+              <li><a href="#woocommerce-adding-product">Adding Product</a></li>
+            </ul>
+          </li>
+          <li class="has-child">
+            <a href="#translations">Translations</a>
+            <ul class="sub-menu">
+              <li><a href="#using-po-file">Using Po File</a></li>
+              <li><a href="#using-wpml">Using WPML</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Introduction -->
+      <section id="introduction">
+        <header>
+          <h2>Travexia - Tour Booking WordPress Theme</h2>
+        </header>
+        <ul>
+          <li><strong>Theme Version:</strong> 1.0.0</li>
+          <li><strong>Author:</strong> Saptheme</li>
+        </ul>
+        <p>
+          Thank you for purchasing our theme. In this document, we provide all kinds of good information with all the details you need to use our theme. We hope you have fun and enjoy working with our
+          theme. If you need more help, please feel free to <a href="#" target="_blank">open a ticket on our support center</a>.
+        </p>
+      </section>
+
+      <!-- Before Getting Started -->
+      <section id="before-getting-started">
+        <header>
+          <h2>Before Getting Started</h2>
+        </header>
+        <p>
+          If you are not familiar with WordPress, please get accustomed with it before proceeding to using our theme. Here are some links that will help you to become more confident with WordPress:
+        </p>
+        <ul>
+          <li>
+            First Steps with WordPress:
+            <a target="_blank" href="https://wordpress.org/support/article/first-steps-with-wordpress-classic/">https://wordpress.org/support/article/first-steps-with-wordpress-classic/</a>
+          </li>
+          <li>WordPress Optimization: <a target="_blank" href="https://wordpress.org/support/article/optimization/">https://wordpress.org/support/article/optimization/</a></li>
+          <li>We recommend that you should use <a href="https://www.keycdn.com/?a=48775" target="_blank">CDN</a> if you sell products on many countries</li>
+        </ul>
+      </section>
+
+      <!-- Requirement & Compatibility -->
+      <section id="requirements-compatibility">
+        <header>
+          <h2>Requirements & Compatibility</h2>
+        </header>
+        <h3 class="heading-index">Requirements</h3>
+        <p><strong>To run WordPress your host just needs a couple of things:</strong></p>
+        <ul>
+          <li><strong>PHP</strong> version 7.4 or greater</li>
+          <li><strong>MySQL</strong> version 5.7 or greater</li>
+        </ul>
+
+        <h3 class="heading-index">Compatibility</h3>
+        <p><strong>Our theme is compatible with the following browsers:</strong></p>
+        <ul>
+          <li>Chrome</li>
+          <li>Firefox</li>
+          <li>Safari</li>
+          <li>Microsoft Edge</li>
+        </ul>
+      </section>
+
+      <!-- Installation -->
+      <section id="installation">
+        <header>
+          <h2>Installation</h2>
+        </header>
+        <h3 class="heading-index">WordPress Core</h3>
+        <p>You download and install <a href="https://wordpress.org/" target="_blank">WordPress</a> version 6.0 or later</p>
+
+        <h3 class="heading-index">Theme Package</h3>
+        <p>
+          To download, you need to log into your ThemeForest account and go to your <a href="http://themeforest.net/downloads" target="_blank">http://themeforest.net/downloads</a> page. Locate the
+          theme that you purchased in your Downloads list and click on the <strong>Download</strong> button
+        </p>
+        <img loading="lazy" data-src="images/media/installation_1.jpg" src="images/assets/img_loading.gif" atl="Installation" />
+        <ul>
+          <li>
+            <strong>All files & documentation</strong>: contains documentation, licenses, theme package and child theme package. So if you select this option, you need to extract the downloaded
+            package and install the theme package inside.
+          </li>
+          <li><strong>Installation WordPress file only</strong>: contains only the theme package</li>
+          <li><strong>License certificate & purchase code (PDF)</strong>: contains your license information in a PDF file</li>
+          <li><strong>License certificate & purchase code (text)</strong>: contains your license information in a text file</li>
+        </ul>
+      </section>
+
+      <!-- WordPress Installation -->
+      <section id="wordpress-installation">
+        <header>
+          <h2>WordPress Installation</h2>
+        </header>
+
+        <div class="one-half">
+          <p class="no-margin-top"><strong>Follow the steps below to install via WordPress:</strong></p>
+          <ol>
+            <li>In your WordPress Admin Panel, go to <strong>Appearance > Themes</strong></li>
+            <li>Click on the <strong>Add New</strong> and <strong>Upload Theme</strong> buttons</li>
+            <li>Click on the <strong>Choose File</strong> button and navigate to find the <strong>travexia.zip</strong> file on your computer and click on the <strong>Install Now</strong> button</li>
+            <li>Wait while the theme is uploaded and installed</li>
+            <li>Activate the newly installed theme</li>
+            <li>Then you will get a notification about installing the required plugins. <a href="#required-plugins" class="internal-link">Follow the steps to install and activate the plugins</a></li>
+          </ol>
+        </div>
+        <div class="one-half last">
+          <img loading="lazy" data-src="images/media/wordpress_installation.jpg" src="images/assets/img_loading.gif" alt="WordPress Installation" />
+        </div>
+
+        <div class="info">
+          <strong>Please note that:</strong>
+          <ul>
+            <li>
+              Some hostings have a restriction on a size of a file that you are uploading. If you have any warning, you will contact your hosting provider. They should increase your maximum upload
+              size.
+            </li>
+            <li>
+              If you get the error message: <i>"The package could not be installed. The theme is missing the style.css stylesheet."</i>, it means that you didn't upload the theme package. You will
+              need to extract your package and install the travexia.zip file inside.
+            </li>
+          </ul>
+        </div>
+
+        <div class="">
+          <h3 class="heading-index">Increase the Maximum File Upload Size in WordPress</h3>
+          <p>
+            Do you want to increase the maximum file upload size in WordPress. Some times low file upload size limit can stop you from uploading files via media uploader, or install plugins and
+            themes. In this article, we will show you how to easily increase the maximum file upload size in WordPress to fix those issues.
+          </p>
+          <p>
+            <strong>Note</strong>: This is an intermediate level tutorial. It may not work with some&nbsp;<strong>shared hosts</strong>&nbsp;in which case you would have to ask your hosting service
+            provider for support.
+          </p>
+          <h3 class="heading-index">How to Check Your Maximum File Upload Size Limit in WordPress?</h3>
+          <p>
+            WordPress will automatically show the maximum file upload size limit when you are uploading images or media. To check it you can simply go to Media > Add New page and you will see the
+            maximum file upload size limit for your WordPress site.
+          </p>
+          <img loading="lazy" data-src="images/media/upload_file_size.png" src="images/assets/img_loading.gif" alt="Install Required Plugins" />
+          <h3 class="heading-index">1. Theme Functions File:</h3>
+          <p>There are cases where we have seen that just by adding the following code in theme’s functions.php file, you can increase the upload size:</p>
+          <pre class="hljs css">
+            @<span class="hljs-keyword">ini_set</span>( <span class="hljs-string">'upload_max_size'</span> , <span class="hljs-string">'512M'</span> );
+            @<span class="hljs-keyword">ini_set</span>( <span class="hljs-string">'post_max_size'</span>, <span class="hljs-string">'512M'</span>);
+            @<span class="hljs-keyword">ini_set</span>( <span class="hljs-string">'max_execution_time'</span>, <span class="hljs-string">'3000'</span> );</pre>
+          <h3 class="heading-index">2. Create or Edit an existing PHP.INI file:</h3>
+          <p>For this method you will need to access your WordPress site’s root folder by&nbsp;using FTP&nbsp;or File Manager app in your hosting account’s cPanel dashboard.</p>
+          <p>
+            In most cases if you are on a shared host, then you will not see a php.ini file in your directory. If you do not see one, then create a file called <strong>php.ini</strong> and upload it
+            in the root folder. In that file add the following code:
+          </p>
+          <pre class="hljs ini">
+            <span class="hljs-attr">upload_max_filesize</span> = <span class="hljs-number">512</span>M
+            <span class="hljs-attr">post_max_size</span> = <span class="hljs-number">512</span>M
+            <span class="hljs-attr">max_execution_time</span> = <span class="hljs-number">3000</span></pre>
+          <h3 class="heading-index">3. htaccess Method:</h3>
+          <p>
+            Some people have tried using the&nbsp;<strong>.htaccess</strong>&nbsp;method where by modifying the .htaccess file in the root directory, you can increase the maximum upload size in
+            WordPress. Edit the .htaccess file in your WordPress site’s root folder and add the following code:
+          </p>
+          <pre class="hljs nginx">
+            php_value upload_max_filesize <span class="hljs-number">512M</span>
+            php_value post_max_size <span class="hljs-number">512M</span>
+            php_value max_execution_time <span class="hljs-number">3000</span>
+            php_value max_input_time <span class="hljs-number">3000</span></pre>
+        </div>
+      </section>
+
+      <!-- FTP Installation -->
+      <section id="ftp-installation">
+        <header>
+          <h2>FTP Installation</h2>
+        </header>
+        <div class="one-half-full">
+          <p><strong>Follow the steps below to install via FTP:</strong></p>
+          <ol>
+            <li>Log into your hosting space via a FTP software</li>
+            <li>Unzip the <strong>travexia.zip</strong> file and ONLY use the extracted <strong>travexia</strong> folder</li>
+            <li>Upload the extracted <strong>travexia</strong> folder into <strong>wp-content > themes</strong> folder</li>
+            <li>Go to <strong>Appearance > Themes</strong> and activate the Travexia theme</li>
+            <li>Then you will get a notification about installing the required plugins. <a href="#required-plugins" class="internal-link">Follow the steps to install and activate the plugins</a></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Required Plugins -->
+      <section id="required-plugins">
+        <header>
+          <h2>Required Plugins</h2>
+        </header>
+        <p>After activating the theme, you will get a notification about installing the required plugins. You go to <strong>Appearance > Install Plugins</strong> to install them.</p>
+        <img loading="lazy" data-src="images/media/required_plugins.jpg" src="images/assets/img_loading.gif" alt="Install Required Plugins" />
+
+        <div class="info">
+          <strong>Please note that:</strong>
+          <ul>
+            <li>
+              You should also not update other plugins without updating the theme. Please see our changelog to make sure that the current theme version is compatible with the new plugin version.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Demo Content -->
+      <section id="demo-content">
+        <header>
+          <h2>Demo Content</h2>
+        </header>
+        <p>
+          Our theme includes the demo data to the <strong>One Click Demo Import</strong> plugin. In admin panel, you go to <strong>Appearance > Travexia Importer</strong> (You have to install and
+          activate the <strong>ThemeSky</strong> and <strong>One Click Demo Import</strong> plugins to see this menu item). Then you select one of demos, click on the
+          <strong>Import Demo</strong> button and the <strong>Continue & Import</strong> button (without selecting any recommended plugin from One Click Demo Import). It will take a few minutes to
+          complete!
+        </p>
+        <img loading="lazy" data-src="images/media/import_demo_content.jpg" src="images/assets/img_loading.gif" alt="Import Demo Content" />
+
+        <div class="info">
+          <p><strong>Please note that</strong></p>
+          <ul>
+            <li>
+              If you have any problem with import, please read this article <a href="https://ocdi.com/import-issues/" target="_blank">https://ocdi.com/import-issues/</a> and check your hosting
+              configuration, or contact us here <a href="https://hexaflow.ticksy.com/" target="_blank">https://hexaflow.ticksy.com/</a>
+            </li>
+            <li>Product and product category images are only used for the demo purpose because of license. So, they are not imported. Other images are included in importer.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Updating The Theme -->
+      <section id="updating-the-theme">
+        <header>
+          <h2>Updating The Theme</h2>
+        </header>
+
+        <h3 class="heading-index">Manual Update</h3>
+        <p><strong>Follow the steps below to manually update the theme:</strong></p>
+        <ol>
+          <li>
+            First, you download the new theme package from themeforest. You have to log into your themeforest account and navigate to the
+            <a href="http://themeforest.net/downloads" target="_blank">Downloads</a> tab. You find the Travexia theme in your purchased themes list.
+          </li>
+          <li>You delete the current theme. Don't worry about this. Your data won't be lost.</li>
+          <li>You upload the new theme package via <a href="#wordpress-installation" class="internal-link">WordPress</a> or <a href="#ftp-installation" class="internal-link">FTP software</a>.</li>
+        </ol>
+        <div class="info">
+          <strong>Please ensure that</strong> you only upload the installable WordPress file. If not, you will get an error message:
+          <i>"The package could not be installed. The theme is missing the style.css stylesheet."</i>
+        </div>
+
+        <h3 class="heading-index">Automatic Update</h3>
+        <p>You update the theme through the <strong>Envato Market</strong> plugin. Follow the steps below to set up this plugin:</p>
+        <ol>
+          <li>Download and install the <a href="http://envato.github.io/wp-envato-market/" target="_blank">Envato Market</a> plugin</li>
+          <li>You go to here <a href="https://build.envato.com/create-token/" target="_blank">https://build.envato.com/create-token/</a> and create a token. Get it.</li>
+          <li>In WordPress admin panel, you find the section called <strong>Envato Market</strong>. You enter your token code in there.</li>
+        </ol>
+
+        <div class="info">
+          <div><strong>Please note that:</strong></div>
+          <ul>
+            <li>
+              If you translated the theme to another language, you should backup your translation files in the <strong>themes > travexia > languages</strong> folder before updating. You should also
+              backup the translation files in plugins.
+            </li>
+            <li>
+              After updating the theme, you should update the recommended plugins if there is a notification about updating plugins. You go to <strong>Appearance > Install Plugins</strong> to update
+              plugins. If you can not update the recommended plugins in wp admin, you should manually update them. You can find the plugin packages in
+              <strong>the theme folder > plugins</strong> folder.
+            </li>
+            <li>
+              You can not update the <strong>Travexia Core</strong> plugin in <strong>Appearance > Install Plugins</strong> because it is a custom plugin. To update it, you need to deactivate and
+              delete it first. Then, you go to <strong>Appearance > Install Plugins</strong> and install it again.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Theme Options -->
+      <section id="theme-options">
+        <header>
+          <h2>Theme Options</h2>
+        </header>
+        <p>After activating our theme, you can go to <strong>Appearance > Customize</strong> to configure the theme. Below will explain what you can do with Theme Options.</p>
+        <div class="one-half">
+          <ul>
+            <li><strong>General:</strong> Add your logo and some global options</li>
+            <li><strong>Header:</strong> Select <a href="#header" class="internal-link">Header Layout</a> for all pages</li>
+            <li><strong>Page Header:</strong> set up the Page Header, breadcrumb and other options</li>
+            <li><strong>Blog:</strong> configure the Blog Layout and some options to Show/Hide some things on the blog page</li>
+            <li><strong>Footer:</strong> select <a href="#footer" class="internal-link">Footer Layout</a> which you want to show</li>
+            <li><strong>Preloader:</strong> manage your site preloader</li>
+            <li><strong>Typography:</strong> you can change font and font size in there</li>
+            <li><strong>404 Page:</strong> set your 404 page</li>
+            <li><strong>Post Slug:</strong> change custom post slug here</li>
+            <li><strong>Menu:</strong> some options for menu</li>
+            <li><strong>WooCommerce:</strong> some global WooCommerce options</li>
+            <li><strong>Additional CSS:</strong> alllow you to add custom css code</li>
+            <li><strong>Color Scheme:</strong> manage your site color</li>
+            <li><strong>Google Analytics Code:</strong> allow you to add custom css/js code</li>
+          </ul>
+        </div>
+        <div class="one-half last">
+          <img loading="lazy" data-src="images/media/theme_options.jpg" src="images/assets/img_loading.gif" alt="Theme Options" data-rel="theme_options[]" />
+        </div>
+      </section>
+
+      <!-- Widgets & Sidebars -->
+      <section id="widgets-and-sidebars">
+        <header>
+          <h2>Widgets & Sidebars</h2>
+        </header>
+        <p>To manage widgets, you go to <strong>Appearance > Widgets</strong>. Just drag and drop widgets over to the sidebar.</p>
+        <p>Travexia comes with 12 custom widgets and 6 sidebars. You can also easily add the custom sidebars.</p>
+      </section>
+
+      <!-- Header -->
+      <section id="header">
+        <header>
+          <h2>Header</h2>
+        </header>
+        <p>
+          The header is probably one of the first thing that you will want to setup. It includes the logo, favicon, menu and other things. The following sections will explain how to set up and
+          customize header.
+        </p>
+      </section>
+
+      <!-- Header -->
+      <section id="adding-the-logo-favicon">
+        <header>
+          <h2>Adding The Logo & Favicon</h2>
+        </header>
+
+        <div class="one-half">
+          <p><strong>Follow the steps below to set up the logo & favicon:</strong></p>
+          <ol>
+            <li>Navigate to <strong>Appearance > Theme Options</strong>. You select the <strong>General</strong> tab</li>
+            <li>Find the logo (Default Header) and favicon options</li>
+            <li>Click on the <strong>Upload</strong> button and choose a file from your library</li>
+          </ol>
+        </div>
+        <div class="one-half last">
+          <img loading="lazy" data-src="images/media/logo_favicon.jpg" src="images/assets/img_loading.gif" alt="Logo & Favicon" />
+        </div>
+
+        <div class="info"><strong>Please note that</strong> there is also the logo option for only theme's default header. We have created the header with elementor.</div>
+      </section>
+
+      <!-- Setting Up Header -->
+      <section id="setting-up-header">
+        <header>
+          <h2>Header</h2>
+        </header>
+        <p>Travexia allows you to create <strong>unlimited header layouts</strong>. The following sections will explain how to set up a new header.</p>
+        <h3>Adding Header Content</h3>
+        <div class="one-half">
+          <ol>
+            <li>In admin panel, you go to <strong>Header Builder</strong></li>
+            <li>Add a new header and add content as you normally do with page</li>
+            <li>Then, you go to <strong>Appearance > Customize > Header</strong>. You select your header layout in there</li>
+          </ol>
+          <p>You can also choose the header layout for individual pages (see <a href="#page-options" class="internal-link">Page Options</a>).</p>
+        </div>
+        <div class="one-half last">
+          <img loading="lazy" data-src="images/media/header_layout.jpg" src="images/assets/img_loading.gif" alt="Header Layout" />
+        </div>
+
+        <div class="one-half">
+          <h3>Breadcrumb</h3>
+          <p>Travexia comes with uniqe breadcrumb layouts. Just choose one of our breadcrumb layouts for your site.</p>
+        </div>
+        <div class="one-half last">
+          <img loading="lazy" data-src="images/media/breadcrumb_options.jpg" src="images/assets/img_loading.gif" alt="Header Breadcrumb" />
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <section id="footer">
+        <header>
+          <h2>Footer</h2>
+        </header>
+        <p>Travexia allows you to create <strong>unlimited footer layouts</strong>. The following sections will explain how to set up a new footer.</p>
+
+        <h3>Adding Footer Content</h3>
+        <div class="one-half">
+          <p><strong>Follow the steps below to add a new footer content:</strong></p>
+          <ol>
+            <li>In admin panel, you go to <strong>Footer Builder</strong></li>
+            <li>Add a new footer and add content as you normally do with page</li>
+            <li>Then, you go to <strong>Appearance > Customize > Footer</strong>. You select your footer layout in there</li>
+          </ol>
+        </div>
+        <div class="one-half last">
+          <img loading="lazy" data-src="images/media/adding_footer_content.jpg" src="images/assets/img_loading.gif" alt="Adding Footer Content" />
+        </div>
+        <div class="info">
+          <strong>Please note that:</strong>
+          <ul>
+            <li>You have to activate our Travexia Core plugin to see the Header/Footer Builder.</li>
+            <li>
+              If the Elementor editor does not show up, you will go to <strong>Elementor > Settings</strong>. You check <strong>Header/Footer Builder</strong> in the
+              <strong>Post Types</strong> option.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Pages -->
+      <section id="pages">
+        <header>
+          <h2>Pages</h2>
+        </header>
+        <p>
+          Travexia is built based on the <strong>Elementor</strong> plugin and powerful <a href="#page-options" class="internal-link">Page Options</a> which help you build any kinds of pages. The
+          following sections will explain how to create a new page.
+        </p>
+      </section>
+
+      <!-- Create A New Page -->
+      <section id="create-a-new-page">
+        <header>
+          <h2>Create A New Page</h2>
+        </header>
+        <div class="two-third">
+          <p class="no-margin-top"><strong>Follow the steps below to create a new page:</strong></p>
+          <ol>
+            <li>In admin panel, go to <strong>Pages</strong> and click on the <strong>Add New</strong> button</li>
+            <li>Input the page title and page content</li>
+            <li>On the Settings sidebar, choose a page template from the Template option if you need</li>
+            <li>Scroll down and find the <a href="#page-options" class="internal-link">Page Options</a> section, make some configurations for your page</li>
+          </ol>
+        </div>
+        <div class="one-third last">
+          <img loading="lazy" data-src="images/media/create_a_new_page.jpg" src="images/assets/img_loading.gif" alt="Create A New Page" />
+        </div>
+      </section>
+
+      <!-- Page Options -->
+      <section id="page-options">
+        <header>
+          <h2>Page Options</h2>
+        </header>
+        <p>In the page editor (You Edit Page, not Edit with Elementor), you will see the Page Options section at the bottom of editor. It will help you create many kinds of pages.</p>
+        <p>After changing Page Options, you can switch to Elementor and continue editing page content.</p>
+        <img loading="lazy" data-src="images/media/page_options.jpg" src="images/assets/img_loading.gif" alt="Page Options" />
+
+        <p>Some options will override the options in Theme Options. Select <strong>Default</strong> if you want to use your global settings.</p>
+
+        <ul>
+          <li><strong>Header Layout:</strong> select one of Header Layouts</li>
+          <li><strong>Footer Layout:</strong> select one of Footer Layouts</li>
+          <li><strong>Page Header:</strong> Page Header show/hide option</li>
+          <li><strong>Page Header Image:</strong> Page Header Image option</li>
+        </ul>
+      </section>
+
+      <!-- Home Pages -->
+      <section id="home-pages">
+        <header>
+          <h2>Home Pages</h2>
+        </header>
+
+        <h3 class="heading-index">Setting up a home page</h3>
+        <div class="one-half">
+          <ol>
+            <li>In admin panel, you go to <strong>Settings > Reading</strong>.</li>
+            <li>You choose the <strong>A static page(select below)</strong> option.</li>
+            <li>Select a page from dropdown list of the <strong>Homepage</strong> option.</li>
+          </ol>
+        </div>
+        <div class="one-half last">
+          <img loading="lazy" data-src="images/media/reading_settings.jpg" src="images/assets/img_loading.gif" alt="Reading Settings" />
+        </div>
+      </section>
+
+      <!-- Blog -->
+      <section id="blog">
+        <header>
+          <h2>Blog</h2>
+        </header>
+        <p>Travexia supports 5 post formats: Standard, Audio, Gallery, Quote and Video. They will help you easily make a microblogging website.</p>
+      </section>
+
+      <!-- Create A New Post -->
+      <section id="create-a-new-post">
+        <header>
+          <h2>Create A New Post</h2>
+        </header>
+        <div class="two-third">
+          <p class="no-margin-top"><strong>Follow the steps below to create a new post:</strong></p>
+          <ol>
+            <li>Go to <strong>Posts</strong></li>
+            <li>Click on the <strong>Add New</strong> button</li>
+            <li>Input the post title and post content</li>
+            <li>Choose the post format and category on the right hand side</li>
+            <li>Scroll down and find the <a href="#post-options" class="internal-link">Post Options</a> section, make some configurations for your post</li>
+          </ol>
+        </div>
+        <div class="one-third last">
+          <img loading="lazy" data-src="images/media/create_a_new_post.jpg" src="images/assets/img_loading.gif" alt="Create A New Post" />
+        </div>
+      </section>
+
+      <!-- Tour -->
+      <section id="tours">
+        <header>
+          <h2>Tour</h2>
+        </header>
+        <p>
+          Travexia allows yout to create unlimited tour package using <a href="https://wordpress.org/plugins/tourfic/"><strong>Tourfic Plugin</strong></a
+          >. Tourfic documentation: <a href="https://themefic.com/docs/tourfic/">https://themefic.com/docs/tourfic/</a>
+        </p>
+        <p>Please note: <strong>We have only used this plugin for tour booking system</strong></p>
+      </section>
+
+      <section id="create-a-new-tour">
+        <header>
+          <h2>Create A New Tour</h2>
+        </header>
+        <div class="one-half">
+          <p class="no-margin-top"><strong>Follow the steps below to create a new tour:</strong></p>
+          <ol>
+            <li>Go to <strong>Tour Settings</strong></li>
+            <li>Click on the <strong>Add New</strong> Tour</li>
+            <li>Input the post title and post content</li>
+          </ol>
+        </div>
+        <div class="one-half last">
+          <img loading="lazy" data-src="images/media/create_a_new_tour.jpg" src="images/assets/img_loading.gif" alt="Create A New Post" />
+        </div>
+      </section>
+
+      <!-- Elementor -->
+      <section id="elementor">
+        <header>
+          <h2>Elementor</h2>
+        </header>
+        <p>
+          Elementor will help you manage your content at the WordPress sites and build any layout you can imagine in a few minutes without coding. You can watch
+          <a href="https://www.youtube.com/watch?v=_X0eYtY8T_U" target="_blank">tutorial video</a> to get started.
+        </p>
+      </section>
+
+      <!-- Elementor - Add new element -->
+      <section id="elementor-add-new-element">
+        <header>
+          <h2>How to add new element</h2>
+        </header>
+
+        <p>To use Elementor, you click the <strong>Edit with Elementor</strong> button</p>
+
+        <img loading="lazy" data-src="images/media/edit_with_elementor.jpg" src="images/assets/img_loading.gif" alt="Edit with Elementor" />
+
+        <p>It will change to the Elementor editor as below</p>
+
+        <img loading="lazy" data-src="images/media/elementor_editor.jpg" src="images/assets/img_loading.gif" alt="Elementor Editor" />
+
+        <p>Then, you choose an element, drag and drop it from the left panel to the right panel</p>
+        <img loading="lazy" data-src="images/media/elementor_add_element.jpg" src="images/assets/img_loading.gif" alt="Elementor Add Element" />
+      </section>
+
+      <!-- Elementor - HF Addons -->
+      <section id="elementor-ts-elements">
+        <header>
+          <h2>HF Addons</h2>
+        </header>
+
+        <p>All our elements are in the <strong>HF Addons</strong> section (with the <strong>HF</strong> prefix). Below explains about them.</p>
+
+        <img loading="lazy" data-src="images/media/hf-adons.jpg" src="images/assets/img_loading.gif" alt="Elementor Add Element" />
+      </section>
+
+      <!-- WooCommerce -->
+      <section id="woocommerce">
+        <header>
+          <h2>WooCommerce</h2>
+        </header>
+        <p>
+          Travexia theme is fully compatible with the latest version of the WooCommerce plugin. We customized and added many features, shortcodes and widgets for this plugin. In the following
+          sections, you will know how to install and set up the WooCommerce plugin. You can also refer
+          <a href="https://woocommerce.com/documentation/plugins/woocommerce/getting-started/" target="_blank">WooCommerce Documentation</a> to get more information.
+        </p>
+      </section>
+
+      <!-- Install WooCommerce -->
+      <section id="woocommerce-install">
+        <header>
+          <h2>Install WooCommerce</h2>
+        </header>
+
+        <div class="one-half">
+          <p><strong>There are 2 ways to install WooCommerce</strong></p>
+          <ol>
+            <li>After activating our theme, you go to <strong>Appearance > Install Plugins</strong>. You install WooCommerce from the required plugins list.</li>
+            <li>Install WooCommerce from the <strong>Plugins</strong> page</li>
+          </ol>
+        </div>
+        <div class="one-half last">
+          <img loading="lazy" data-src="images/media/install_woocommerce_1.jpg" src="images/assets/img_loading.gif" alt="Install WooCommerce" />
+        </div>
+
+        <img loading="lazy" data-src="images/media/install_woocommerce_2.jpg" src="images/assets/img_loading.gif" alt="Install WooCommerce" />
+
+        <div class="info">
+          You should install WooCommerce from the required plugins list. Because we tested that version and it is compatible with the current theme version. To make sure our theme is compatible with
+          the new version of WooCommerce, you should see our changelog or <a href="https://hexaflow.ticksy.com/" target="_blank">contact us</a>.
+        </div>
+      </section>
+
+      <!-- Adding WooCommerce Pages -->
+      <section id="woocommerce-adding-page">
+        <header>
+          <h2>Adding WooCommerce Pages</h2>
+        </header>
+
+        <p>After activating the WooCommerce plugin, WooCommerce will automatically create all WooCommerce pages</p>
+        <p>
+          If you want to add WooCommerce pages manually, you can use the WooCommerce shortcodes. You can get them
+          <a href="https://woocommerce.com/document/woocommerce-shortcodes/" target="_blank">here</a>
+        </p>
+
+        <div class="info">
+          If you import our <a href="#demo-content" class="internal-link">demo content</a>, WooCommerce pages will also be imported. In this case, you can remove pages which are not used.
+        </div>
+      </section>
+
+      <!-- Setting Up WooCommerce -->
+      <section id="woocommerce-settings">
+        <header>
+          <h2>Setting Up WooCommerce</h2>
+        </header>
+        <p>To set up WooCommerce, you go to <strong>WooCommerce > Settings</strong> in admin panel.</p>
+
+        <div class="one-half">
+          <h3 class="heading-index">Currency Options</h3>
+          <ol>
+            <li>In WooCommerce Settings page, you select the <strong>General</strong> tab</li>
+            <li>You find the <strong>Currency Options</strong> section and configure your currency</li>
+          </ol>
+          <p><strong>List of currencies that you can choose</strong></p>
+          <select name="woocommerce_currency" id="woocommerce_currency" style="min-width: 350px; padding: 5px" class="wc-enhanced-select enhanced" tabindex="-1" title="Currency">
+            <option value="AED">United Arab Emirates dirham (د.إ)</option>
+            <option value="AFN">Afghan afghani (؋)</option>
+            <option value="ALL">Albanian lek (L)</option>
+            <option value="AMD">Armenian dram (AMD)</option>
+            <option value="ANG">Netherlands Antillean guilder (ƒ)</option>
+            <option value="AOA">Angolan kwanza (Kz)</option>
+            <option value="ARS">Argentine peso ($)</option>
+            <option value="AUD">Australian dollar ($)</option>
+            <option value="AWG">Aruban florin (Afl.)</option>
+            <option value="AZN">Azerbaijani manat (₼)</option>
+            <option value="BAM">Bosnia and Herzegovina convertible mark (KM)</option>
+            <option value="BBD">Barbadian dollar ($)</option>
+            <option value="BDT">Bangladeshi taka (৳&nbsp;)</option>
+            <option value="BGN">Bulgarian lev (лв.)</option>
+            <option value="BHD">Bahraini dinar (.د.ب)</option>
+            <option value="BIF">Burundian franc (Fr)</option>
+            <option value="BMD">Bermudian dollar ($)</option>
+            <option value="BND">Brunei dollar ($)</option>
+            <option value="BOB">Bolivian boliviano (Bs.)</option>
+            <option value="BRL">Brazilian real (R$)</option>
+            <option value="BSD">Bahamian dollar ($)</option>
+            <option value="BTC">Bitcoin (฿)</option>
+            <option value="BTN">Bhutanese ngultrum (Nu.)</option>
+            <option value="BWP">Botswana pula (P)</option>
+            <option value="BYR">Belarusian ruble (old) (Br)</option>
+            <option value="BYN">Belarusian ruble (Br)</option>
+            <option value="BZD">Belize dollar ($)</option>
+            <option value="CAD">Canadian dollar ($)</option>
+            <option value="CDF">Congolese franc (Fr)</option>
+            <option value="CHF">Swiss franc (CHF)</option>
+            <option value="CLP">Chilean peso ($)</option>
+            <option value="CNY">Chinese yuan (¥)</option>
+            <option value="COP">Colombian peso ($)</option>
+            <option value="CRC">Costa Rican colón (₡)</option>
+            <option value="CUC">Cuban convertible peso ($)</option>
+            <option value="CUP">Cuban peso ($)</option>
+            <option value="CVE">Cape Verdean escudo ($)</option>
+            <option value="CZK">Czech koruna (Kč)</option>
+            <option value="DJF">Djiboutian franc (Fr)</option>
+            <option value="DKK">Danish krone (kr.)</option>
+            <option value="DOP">Dominican peso (RD$)</option>
+            <option value="DZD">Algerian dinar (د.ج)</option>
+            <option value="EGP">Egyptian pound (EGP)</option>
+            <option value="ERN">Eritrean nakfa (Nfk)</option>
+            <option value="ETB">Ethiopian birr (Br)</option>
+            <option value="EUR">Euro (€)</option>
+            <option value="FJD">Fijian dollar ($)</option>
+            <option value="FKP">Falkland Islands pound (£)</option>
+            <option value="GBP">Pound sterling (£)</option>
+            <option value="GEL">Georgian lari (₾)</option>
+            <option value="GGP">Guernsey pound (£)</option>
+            <option value="GHS">Ghana cedi (₵)</option>
+            <option value="GIP">Gibraltar pound (£)</option>
+            <option value="GMD">Gambian dalasi (D)</option>
+            <option value="GNF">Guinean franc (Fr)</option>
+            <option value="GTQ">Guatemalan quetzal (Q)</option>
+            <option value="GYD">Guyanese dollar ($)</option>
+            <option value="HKD">Hong Kong dollar ($)</option>
+            <option value="HNL">Honduran lempira (L)</option>
+            <option value="HRK">Croatian kuna (kn)</option>
+            <option value="HTG">Haitian gourde (G)</option>
+            <option value="HUF">Hungarian forint (Ft)</option>
+            <option value="IDR">Indonesian rupiah (Rp)</option>
+            <option value="ILS">Israeli new shekel (₪)</option>
+            <option value="IMP">Manx pound (£)</option>
+            <option value="INR">Indian rupee (₹)</option>
+            <option value="IQD">Iraqi dinar (د.ع)</option>
+            <option value="IRR">Iranian rial (﷼)</option>
+            <option value="IRT">Iranian toman (تومان)</option>
+            <option value="ISK">Icelandic króna (kr.)</option>
+            <option value="JEP">Jersey pound (£)</option>
+            <option value="JMD">Jamaican dollar ($)</option>
+            <option value="JOD">Jordanian dinar (د.ا)</option>
+            <option value="JPY">Japanese yen (¥)</option>
+            <option value="KES">Kenyan shilling (KSh)</option>
+            <option value="KGS">Kyrgyzstani som (сом)</option>
+            <option value="KHR">Cambodian riel (៛)</option>
+            <option value="KMF">Comorian franc (Fr)</option>
+            <option value="KPW">North Korean won (₩)</option>
+            <option value="KRW">South Korean won (₩)</option>
+            <option value="KWD">Kuwaiti dinar (د.ك)</option>
+            <option value="KYD">Cayman Islands dollar ($)</option>
+            <option value="KZT">Kazakhstani tenge (₸)</option>
+            <option value="LAK">Lao kip (₭)</option>
+            <option value="LBP">Lebanese pound (ل.ل)</option>
+            <option value="LKR">Sri Lankan rupee (රු)</option>
+            <option value="LRD">Liberian dollar ($)</option>
+            <option value="LSL">Lesotho loti (L)</option>
+            <option value="LYD">Libyan dinar (د.ل)</option>
+            <option value="MAD">Moroccan dirham (د.م.)</option>
+            <option value="MDL">Moldovan leu (MDL)</option>
+            <option value="MGA">Malagasy ariary (Ar)</option>
+            <option value="MKD">Macedonian denar (ден)</option>
+            <option value="MMK">Burmese kyat (Ks)</option>
+            <option value="MNT">Mongolian tögrög (₮)</option>
+            <option value="MOP">Macanese pataca (P)</option>
+            <option value="MRU">Mauritanian ouguiya (UM)</option>
+            <option value="MUR">Mauritian rupee (₨)</option>
+            <option value="MVR">Maldivian rufiyaa (.ރ)</option>
+            <option value="MWK">Malawian kwacha (MK)</option>
+            <option value="MXN">Mexican peso ($)</option>
+            <option value="MYR">Malaysian ringgit (RM)</option>
+            <option value="MZN">Mozambican metical (MT)</option>
+            <option value="NAD">Namibian dollar (N$)</option>
+            <option value="NGN">Nigerian naira (₦)</option>
+            <option value="NIO">Nicaraguan córdoba (C$)</option>
+            <option value="NOK">Norwegian krone (kr)</option>
+            <option value="NPR">Nepalese rupee (₨)</option>
+            <option value="NZD">New Zealand dollar ($)</option>
+            <option value="OMR">Omani rial (ر.ع.)</option>
+            <option value="PAB">Panamanian balboa (B/.)</option>
+            <option value="PEN">Sol (S/)</option>
+            <option value="PGK">Papua New Guinean kina (K)</option>
+            <option value="PHP">Philippine peso (₱)</option>
+            <option value="PKR">Pakistani rupee (₨)</option>
+            <option value="PLN">Polish złoty (zł)</option>
+            <option value="PRB">Transnistrian ruble (р.)</option>
+            <option value="PYG">Paraguayan guaraní (₲)</option>
+            <option value="QAR">Qatari riyal (ر.ق)</option>
+            <option value="RON">Romanian leu (lei)</option>
+            <option value="RSD">Serbian dinar (рсд)</option>
+            <option value="RUB">Russian ruble (₽)</option>
+            <option value="RWF">Rwandan franc (Fr)</option>
+            <option value="SAR">Saudi riyal (ر.س)</option>
+            <option value="SBD">Solomon Islands dollar ($)</option>
+            <option value="SCR">Seychellois rupee (₨)</option>
+            <option value="SDG">Sudanese pound (ج.س.)</option>
+            <option value="SEK">Swedish krona (kr)</option>
+            <option value="SGD">Singapore dollar ($)</option>
+            <option value="SHP">Saint Helena pound (£)</option>
+            <option value="SLL">Sierra Leonean leone (Le)</option>
+            <option value="SOS">Somali shilling (Sh)</option>
+            <option value="SRD">Surinamese dollar ($)</option>
+            <option value="SSP">South Sudanese pound (£)</option>
+            <option value="STN">São Tomé and Príncipe dobra (Db)</option>
+            <option value="SYP">Syrian pound (ل.س)</option>
+            <option value="SZL">Swazi lilangeni (E)</option>
+            <option value="THB">Thai baht (฿)</option>
+            <option value="TJS">Tajikistani somoni (ЅМ)</option>
+            <option value="TMT">Turkmenistan manat (m)</option>
+            <option value="TND">Tunisian dinar (د.ت)</option>
+            <option value="TOP">Tongan paʻanga (T$)</option>
+            <option value="TRY">Turkish lira (₺)</option>
+            <option value="TTD">Trinidad and Tobago dollar ($)</option>
+            <option value="TWD">New Taiwan dollar (NT$)</option>
+            <option value="TZS">Tanzanian shilling (Sh)</option>
+            <option value="UAH">Ukrainian hryvnia (₴)</option>
+            <option value="UGX">Ugandan shilling (UGX)</option>
+            <option value="USD" selected="selected">United States (US) dollar ($)</option>
+            <option value="UYU">Uruguayan peso ($)</option>
+            <option value="UZS">Uzbekistani som (UZS)</option>
+            <option value="VEF">Venezuelan bolívar (Bs F)</option>
+            <option value="VES">Bolívar soberano (Bs.S)</option>
+            <option value="VND">Vietnamese đồng (₫)</option>
+            <option value="VUV">Vanuatu vatu (Vt)</option>
+            <option value="WST">Samoan tālā (T)</option>
+            <option value="XAF">Central African CFA franc (CFA)</option>
+            <option value="XCD">East Caribbean dollar ($)</option>
+            <option value="XOF">West African CFA franc (CFA)</option>
+            <option value="XPF">CFP franc (Fr)</option>
+            <option value="YER">Yemeni rial (﷼)</option>
+            <option value="ZAR">South African rand (R)</option>
+            <option value="ZMW">Zambian kwacha (ZK)</option>
+          </select>
+        </div>
+        <div class="one-half last">
+          <img loading="lazy" data-src="images/media/wc_setting_currency_options.jpg" src="images/assets/img_loading.gif" alt="Currency Options" />
+        </div>
+
+        <div class="info">You can also add a custom currency symbol. Please refer <a href="https://woocommerce.com/document/add-a-custom-currency-symbol/" target="_blank">this article</a>.</div>
+
+        <div class="one-half">
+          <h3 class="heading-index">Page Settings</h3>
+          <p>After you create <a href="#woocommerce-adding-page" class="internal-link"> WooCommerce pages</a>. You will go to the Settings page to assign them.</p>
+          <ul>
+            <li>To assign the Shop page, you select the <strong>Products</strong> tab</li>
+            <li>To assign the My Account, Cart and Checkout pages, you select the <strong>Advanced</strong> tab</li>
+          </ul>
+        </div>
+        <div class="one-half last">
+          <img loading="lazy" data-src="images/media/wc_setting_pages.jpg" src="images/assets/img_loading.gif" alt="Setting Pages" />
+        </div>
+
+        <div class="one-half">
+          <h3 class="heading-index">Registration Options</h3>
+          <p>
+            You also make sure that you allow your customers to register on your site. You select the <strong>Accounts & Privacy</strong> tab and find the <strong>Account creation</strong> section as
+            the screenshot.
+          </p>
+        </div>
+        <div class="one-half last">
+          <img loading="lazy" data-src="images/media/wc_setting_registration_options.jpg" src="images/assets/img_loading.gif" alt="Registration Options" />
+        </div>
+
+        <div class="one-half">
+          <h3 class="heading-index">Product Image Sizes</h3>
+          <ol>
+            <li>You go to <strong>Appearance > Customize > WooCommerce > Product Images</strong>. You configure your product image size in there</li>
+            <li>Our default demo is configured as the screenshot</li>
+          </ol>
+          <div class="info">
+            <strong>Please note that</strong> after changing settings, you need to wait for WooCommerce to regenerate thumbnails or you can use the
+            <a href="https://wordpress.org/plugins/regenerate-thumbnails/" target="_blank">Regenerate Thumbnails</a> plugin
+          </div>
+        </div>
+        <div class="one-half last">
+          <img loading="lazy" data-src="images/media/wc_setting_product_image_size.png" src="images/assets/img_loading.gif" alt="Product Image Sizes" />
+        </div>
+      </section>
+
+      <!-- Adding Product -->
+      <section id="woocommerce-adding-product">
+        <header>
+          <h2>Adding Product</h2>
+        </header>
+        <div class="two-third">
+          <p><strong>Follow the steps below to add a new product</strong></p>
+          <ol>
+            <li>In admin panel, you go to <strong>Products</strong> and click the <strong>Add New</strong> button</li>
+            <li>Input the product title and product content</li>
+            <li>Select Product Category, Product Tag</li>
+            <li>Add Featured Image and Product Gallery</li>
+            <li>In the <a href="#product-options" class="internal-link">Product Options</a> section, you can override some options in Theme Options</li>
+            <li>Next is the <a href="#product-data" class="internal-link">Product Data</a> section. This is where the majority of the product data is configured</li>
+          </ol>
+        </div>
+        <div class="one-third last">
+          <img loading="lazy" data-src="images/media/adding_product.jpg" src="images/assets/img_loading.gif" alt="Adding Product" />
+        </div>
+
+        <div class="clear"></div>
+      </section>
+
+      <!-- Translations -->
+      <section id="translations">
+        <header>
+          <h2>Translations</h2>
+        </header>
+        <p>
+          Travexia is ready to translate by using the po file. If you want to build a multilingual site, you need to use the <a href="http://wpml.org/" target="_blank">WPML</a> plugin. Our theme does
+          not include the WPML plugin. It is only compatible with the WPML plugin. You have to buy a license for this plugin.
+        </p>
+      </section>
+
+      <!-- Using Po File -->
+      <section id="using-po-file">
+        <header>
+          <h2>Using Po File</h2>
+        </header>
+        <p><strong>There are 2 ways to create and edit the po file</strong></p>
+        <ol>
+          <li>
+            Use the <a href="http://poedit.net/" target="_blank">Poedit</a> software and refer
+            <a href="https://docs.translatehouse.org/projects/localization-guide/en/latest/guide/poedit.html" target="_blank">this document</a>
+          </li>
+          <li>Use a translation plugin, such as <a href="https://wordpress.org/plugins/loco-translate/" target="_blank">Loco Translate</a> plugin</li>
+        </ol>
+
+        <div class="info">
+          <strong>Please note that:</strong>
+          <ul>
+            <li>You have to generate <strong>the mo file</strong> after translating</li>
+            <li>You have to set your language in <strong>Settings > General</strong>. It is the <strong>Site Language</strong> option</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Using WMPL -->
+      <section id="using-wpml">
+        <header>
+          <h2>Using WPML</h2>
+        </header>
+        <p>
+          In this section, you will know how to build a multilingual website by using the WPML plugin. All the information needs to get started and use it is on the
+          <a href="https://wpml.org/" target="_blank">WPML.org</a> page.
+        </p>
+
+        <p><strong>Below are some reference links:</strong></p>
+        <ul>
+          <li><a href="http://wpml.org/documentation/" target="_blank">WPML Documentation</a></li>
+          <li><a href="https://wpml.org/documentation/getting-started-guide/translating-widgets/" target="_blank">Translating Widgets</a></li>
+        </ul>
+
+        <h3>Installing and Setting Up the WPML plugin</h3>
+        <p>
+          You need to install a recent version of WPML, including the <strong>String Translation, Translation Management and CMS Navigation</strong> modules. After installing these plugins, you set up
+          Languages from <strong>WPML > Languages</strong> and translate your content.
+        </p>
+
+        <h3>Showing language switcher dropdown style on header</h3>
+        <p>
+          You go to <strong>WPML > Languages</strong>. You enable the <strong>Custom language switchers</strong> option. Then, you click the <strong>Customize</strong> button. A popup will appear. You
+          change the <strong>Language switcher style</strong> option to <strong>Dropdown</strong> or <strong>Dropdown click</strong>.
+        </p>
+        <img loading="lazy" data-src="images/media/wpml_dropdown_style.jpg" src="images/assets/img_loading.gif" alt="Dropdown Style" />
+
+        <h3>Translating Pages and Posts</h3>
+        <p>Go to <strong>Pages</strong> and pick a page for translation. Click on the plus icon. If the page is already translated, the plus icon will be replaced by the pen icon.</p>
+        <img loading="lazy" data-src="images/media/wpml_translating_page.jpg" src="images/assets/img_loading.gif" alt="Translating pages" />
+
+        <p>
+          WPML actually creates a new WordPress page, linked to the original one. In this new page, you can add new content as you normally do. You can also keep the original content, just translate
+          into the new language.
+        </p>
+
+        <h3>Translating Categories</h3>
+        <p>To translate a category, click on the language which you want to translate it and then add a new category. Make sure the new category is linked to an original category.</p>
+        <img loading="lazy" data-src="images/media/wpml_translating_category.jpg" src="images/assets/img_loading.gif" alt="Translating categories" />
+
+        <h3>Translating Menus</h3>
+        <p>You go to <strong>Appearance > Menus</strong>. Just add a new menu. You select the language and the original menu which links to the new menu.</p>
+        <img loading="lazy" data-src="images/media/wpml_translating_menu.jpg" src="images/assets/img_loading.gif" alt="Translating menus" />
+
+        <p class="info">
+          WPML can synchronize menus for you. This means that WPML can generate and keep in sync menus for other languages pointing to the translated versions of the pages, posts or categories.
+        </p>
+
+        <h3>Translating the theme and other texts</h3>
+        <p>
+          You go to <strong>WPML > String Translation</strong>. Find the text in the list and translate it. Please make sure you check the <strong>Translation is complete</strong> checkbox after
+          translating.
+        </p>
+        <img loading="lazy" data-src="images/media/wpml_string_translation.jpg" src="images/assets/img_loading.gif" alt="String Translation" />
+
+        <p class="info">
+          Sometimes, some texts can not be found. You need to go to <strong>WPML > Theme and Plugins localization</strong>. You scan <strong>Strings in the themes</strong>. Then, you go back to the
+          String Translation page and find those texts again.
+        </p>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        &copy; 2025 Travexia. Theme by <a title="saptheme" href="#" target="_blank">Saptheme</a> Support center:
+        <a title="Support Center" href="#" target="_blank">Saptheme</a>
+      </div>
+    </footer>
+
+    <!-- Register Scripts -->
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.smooth-scroll.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html>

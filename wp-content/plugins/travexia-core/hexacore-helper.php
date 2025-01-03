@@ -23,6 +23,7 @@ define('HEXACORE_ADDONS_DIR', dirname(__FILE__));
 define('HEXACORE_ADDONS_PATH', plugin_dir_path(__FILE__));
 define('HEXACORE_ELEMENTS_PATH', HEXACORE_ADDONS_DIR . '/elementor/');
 define('HEXACORE_TOOLKIT_PATH', HEXACORE_ADDONS_DIR . '/toolkit/');
+define('HEXACORE_WIDGET_PATH', HEXACORE_ADDONS_DIR . '/widgets/');
 
 /**
  * Check if Elementor is activated
@@ -51,6 +52,14 @@ include_once(HEXACORE_TOOLKIT_PATH . 'custom-post-service.php');
 include_once(HEXACORE_TOOLKIT_PATH . 'custom-post-portfolio.php');
 include_once(HEXACORE_TOOLKIT_PATH . 'class-ocdi-importer.php');
 include_once(HEXACORE_TOOLKIT_PATH . 'custom-elementor-support.php');
+
+/**
+ * Include widget files
+ */
+
+include_once(HEXACORE_WIDGET_PATH . 'recent-posts.php');
+include_once(HEXACORE_WIDGET_PATH . 'author-info.php');
+
 
 /**
  * Main Hexa Core Class

@@ -1,26 +1,26 @@
 <?php
 
 /**
- * hexa functions and definitions
+ * travexia functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package hexa
+ * @package travexia
  */
 
-define('HEXA_THEME_NAME', 'Travexia');
-define('HEXA_THEME_SLUG', 'travexia');
-define('HEXA_THEME_DIR', get_template_directory());
-define('HEXA_THEME_URI', get_template_directory_uri());
-define('HEXA_THEME_CSS_DIR', HEXA_THEME_URI . '/assets/css/');
-define('HEXA_THEME_JS_DIR', HEXA_THEME_URI . '/assets/js/');
-define('HEXA_THEME_INC', HEXA_THEME_DIR . '/inc/');
+define('TRAVEXIA_THEME_NAME', 'Travexia');
+define('TRAVEXIA_THEME_SLUG', 'travexia');
+define('TRAVEXIA_THEME_DIR', get_template_directory());
+define('TRAVEXIA_THEME_URI', get_template_directory_uri());
+define('TRAVEXIA_THEME_CSS_DIR', TRAVEXIA_THEME_URI . '/assets/css/');
+define('TRAVEXIA_THEME_JS_DIR', TRAVEXIA_THEME_URI . '/assets/js/');
+define('TRAVEXIA_THEME_INC', TRAVEXIA_THEME_DIR . '/inc/');
 
 /**
- * Hexa theme setup function.
+ * Travexia theme setup function.
  */
 
-if (!function_exists('hexa_theme_setup')) :
+if (!function_exists('travexia_theme_setup')) :
     /**
      * Sets up theme defaults and registers support for various WordPress features.
      *
@@ -28,15 +28,15 @@ if (!function_exists('hexa_theme_setup')) :
      * runs before the init hook. The init hook is too late for some features, such
      * as indicating support for post thumbnails.
      */
-    function hexa_theme_setup()
+    function travexia_theme_setup()
     {
         /*
          * Make theme available for translation.
          * Translations can be filed in the /languages/ directory.
-         * If you're building a theme based on hexa, use a find and replace
-         * to change 'hexa-theme' to the name of your theme in all the template files.
+         * If you're building a theme based on travexia, use a find and replace
+         * to change 'travexia' to the name of your theme in all the template files.
          */
-        load_theme_textdomain('hexa-theme', get_template_directory() . '/languages');
+        load_theme_textdomain('travexia', get_template_directory() . '/languages');
 
         // Add default posts and comments RSS feed links to head.
         add_theme_support('automatic-feed-links');
@@ -58,7 +58,7 @@ if (!function_exists('hexa_theme_setup')) :
 
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus([
-            'main-menu' => esc_html__('Main Menu', 'hexa-theme'),
+            'main-menu' => esc_html__('Main Menu', 'travexia'),
         ]);
 
         /*
@@ -73,17 +73,8 @@ if (!function_exists('hexa_theme_setup')) :
             'caption',
         ]);
 
-        // Set up the WordPress core custom background feature.
-        // add_theme_support('custom-background', apply_filters('hexa_custom_background_args', [
-        //     'default-color' => 'ffffff',
-        //     'default-image' => '',
-        // ]));
-
         // Add theme support for selective refresh for widgets.
         add_theme_support('customize-selective-refresh-widgets');
-
-        //Enable custom header
-        //add_theme_support('custom-header');
 
         /**
          * Add support for core custom logo.
@@ -112,15 +103,18 @@ if (!function_exists('hexa_theme_setup')) :
         // Add support for Block Styles.
         add_theme_support('wp-block-styles');
         remove_theme_support('widgets-block-editor');
+
         // Add support for full and wide align images.
         add_theme_support('align-wide');
+
         // Add support for editor styles.
         add_theme_support('editor-styles');
+
         // Add support for responsive embedded content.
         add_theme_support('responsive-embeds');
     }
 endif;
-add_action('after_setup_theme', 'hexa_theme_setup');
+add_action('after_setup_theme', 'travexia_theme_setup');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -129,28 +123,28 @@ add_action('after_setup_theme', 'hexa_theme_setup');
  *
  * @global int $content_width
  */
-function hexa_content_width()
+function travexia_content_width()
 {
     // This variable is intended to be overruled from themes.
     // Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
     // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-    $GLOBALS['content_width'] = apply_filters('hexa_content_width', 640);
+    $GLOBALS['content_width'] = apply_filters('travexia_content_width', 640);
 }
-add_action('after_setup_theme', 'hexa_content_width', 0);
+add_action('after_setup_theme', 'travexia_content_width', 0);
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function hexa_widgets_init()
+function travexia_widgets_init()
 {
     /**
      * blog sidebar
      * never change sidebar-widget class
      */
     register_sidebar([
-        'name'          => esc_html__('Blog Sidebar', 'hexa-theme'),
+        'name'          => esc_html__('Blog Sidebar', 'travexia'),
         'id'            => 'post-sidebar',
         'before_widget' => '<div id="%1$s" class="sidebar-widget widget mb-40 %2$s">',
         'after_widget'  => '</div>',
@@ -158,56 +152,56 @@ function hexa_widgets_init()
         'after_title'   => '</h4>',
     ]);
 }
-add_action('widgets_init', 'hexa_widgets_init');
+add_action('widgets_init', 'travexia_widgets_init');
 
 /**
  *  Scripts declaration for this theme.
  */
-require HEXA_THEME_INC . 'frontend/common/scripts.php';
+require TRAVEXIA_THEME_INC . 'frontend/common/scripts.php';
 
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
-require HEXA_THEME_INC . 'frontend/template-functions.php';
+require TRAVEXIA_THEME_INC . 'frontend/template-functions.php';
 
 /**
  * Custom template tags for this theme..
  */
-require HEXA_THEME_INC . 'frontend/template-tags.php';
+require TRAVEXIA_THEME_INC . 'frontend/template-tags.php';
 
 /**
  * Load Jetpack compatibility file.
  */
 if (defined('JETPACK__VERSION')) {
-    require HEXA_THEME_INC . 'frontend/jetpack.php';
+    require TRAVEXIA_THEME_INC . 'frontend/jetpack.php';
 }
 
 /**
  * Custom Page Header for this theme.
  */
-require HEXA_THEME_INC . 'frontend/page-header/breadcrumbs.php';
-require HEXA_THEME_INC . 'frontend/page-header/page-header.php';
-require HEXA_THEME_INC . 'frontend/class-navwalker.php';
-require HEXA_THEME_INC . 'frontend/builder.php';
+require TRAVEXIA_THEME_INC . 'frontend/page-header/breadcrumbs.php';
+require TRAVEXIA_THEME_INC . 'frontend/page-header/page-header.php';
+require TRAVEXIA_THEME_INC . 'frontend/class-navwalker.php';
+require TRAVEXIA_THEME_INC . 'frontend/builder.php';
 
 
 /**
  * Register the required plugins for this theme.
  */
-require HEXA_THEME_INC . 'backend/class-tgm-plugin-activation.php';
-require HEXA_THEME_INC . 'backend/plugin-requires.php';
+require TRAVEXIA_THEME_INC . 'backend/class-tgm-plugin-activation.php';
+require TRAVEXIA_THEME_INC . 'backend/plugin-requires.php';
 
 /**
  * Custom metabox for this theme.
  */
 if (function_exists('rwmb_meta')) {
-    require HEXA_THEME_INC . 'backend/meta-boxes.php';
+    require TRAVEXIA_THEME_INC . 'backend/meta-boxes.php';
 }
 
 /**
  * Functions which add more to backend.
  */
-require HEXA_THEME_INC . 'backend/admin-functions.php';
+require TRAVEXIA_THEME_INC . 'backend/admin-functions.php';
 
 /**
  * initialize customizer.
@@ -215,14 +209,14 @@ require HEXA_THEME_INC . 'backend/admin-functions.php';
 
 add_action('after_setup_theme', function () {
     if (class_exists('Kirki')) {
-        require HEXA_THEME_INC . 'backend/customizer/customizer.php';
-        require HEXA_THEME_INC . 'backend/color.php';
+        require TRAVEXIA_THEME_INC . 'backend/customizer/customizer.php';
+        require TRAVEXIA_THEME_INC . 'backend/color.php';
     }
 });
 
 // Load Woocommerce plugin
 if (class_exists('WooCommerce')) {
     add_theme_support('woocommerce');
-    require(HEXA_THEME_INC . 'woocommerce/functions.php');
-    require(HEXA_THEME_INC . 'woocommerce/hooks.php');
+    require(TRAVEXIA_THEME_INC . 'woocommerce/functions.php');
+    require(TRAVEXIA_THEME_INC . 'woocommerce/hooks.php');
 }

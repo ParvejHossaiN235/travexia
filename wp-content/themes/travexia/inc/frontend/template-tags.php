@@ -5,18 +5,18 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package hexa
+ * @package travexia
  */
 
 // header logo
-function hexa_header_logo()
+function travexia_header_logo()
 { ?>
     <a href="<?php echo esc_url(home_url('/')); ?>">
         <?php
-        $hexa_custom_logo_id = get_theme_mod('custom_logo');
-        $hexa_logo = wp_get_attachment_image_src($hexa_custom_logo_id, 'full');
+        $travexia_custom_logo_id = get_theme_mod('custom_logo');
+        $travexia_logo = wp_get_attachment_image_src($travexia_custom_logo_id, 'full');
         if (has_custom_logo()) {
-            echo '<img src="' . esc_url($hexa_logo[0]) . '" alt="' . esc_attr(get_bloginfo('name')) . '">';
+            echo '<img src="' . esc_url($travexia_logo[0]) . '" alt="' . esc_attr(get_bloginfo('name')) . '">';
         } else {
             echo '<h1>' . esc_html(get_bloginfo('name')) . '</h1>';
         }
@@ -25,7 +25,7 @@ function hexa_header_logo()
 <?php
 }
 
-function hexa_sidepanel_logo()
+function travexia_sidepanel_logo()
 {
     $side_logo = get_theme_mod('side_logo');
     $side_logo_link = get_theme_mod('side_logo_link');
@@ -37,10 +37,10 @@ function hexa_sidepanel_logo()
 }
 
 /**
- * [hexa_header_menu description]
+ * [travexia_header_menu description]
  * @return [type] [description]
  */
-function hexa_header_menu()
+function travexia_header_menu()
 {
 ?>
     <?php
@@ -55,9 +55,9 @@ function hexa_header_menu()
     <?php
 }
 
-// hexa_search_filter_form
-if (!function_exists('hexa_search_filter_form')) {
-    function hexa_search_filter_form($form)
+// travexia_search_filter_form
+if (!function_exists('travexia_search_filter_form')) {
+    function travexia_search_filter_form($form)
     {
         $form = sprintf(
             '<div class="sidebar-search">
@@ -70,18 +70,18 @@ if (!function_exists('hexa_search_filter_form')) {
             </div>',
             esc_url(home_url('/')),
             esc_attr(get_search_query()),
-            esc_html__('Search Here...', 'hexa-theme')
+            esc_html__('Search Here...', 'travexia')
         );
         return $form;
     }
-    add_filter('get_search_form', 'hexa_search_filter_form');
+    add_filter('get_search_form', 'travexia_search_filter_form');
 }
 
 /**
- * hexa comment 
+ * travexia comment 
  */
-if (!function_exists('hexa_comment postbox-details-comment-inner')) {
-    function hexa_comment($comment, $args, $depth)
+if (!function_exists('travexia_comment postbox-details-comment-inner')) {
+    function travexia_comment($comment, $args, $depth)
     {
         $GLOBAL['comment'] = $comment;
         extract($args, EXTR_SKIP);
@@ -96,12 +96,12 @@ if (!function_exists('hexa_comment postbox-details-comment-inner')) {
                 <div class="postbox-comment-avater postbox-user-thumb">
                     <?php print get_avatar($comment, 102, null, null, ['class' => []]); ?>
                 </div>
-                
+
                 <div class="postbox-comment-name postbox-user-info">
                     <h4 class="user-title">
                         <?php print ucwords(get_the_author()); ?>
                     </h4>
-                    <span class="post-meta m-0 mb-15 p-0"> 
+                    <span class="post-meta m-0 mb-15 p-0">
                         <?php comment_time(get_option('date_format')); ?>
                     </span>
 
@@ -109,20 +109,20 @@ if (!function_exists('hexa_comment postbox-details-comment-inner')) {
                         <?php comment_text(); ?>
                     </div>
                     <div class="postbox-comment-reply postbox-user-reply">
-                        <?php comment_reply_link(array_merge($args, ['reply_text' => __('<button> Reply</button>', 'hexa-theme'), 'depth' => $depth, 'max_depth' => $args['max_depth']])); ?>
+                        <?php comment_reply_link(array_merge($args, ['reply_text' => __('<button> Reply</button>', 'travexia'), 'depth' => $depth, 'max_depth' => $args['max_depth']])); ?>
                     </div>
                 </div>
             </div>
-        <?php
+    <?php
     }
 }
 
 /** Post time **/
-if (!function_exists('hexa_posted_on')) :
+if (!function_exists('travexia_posted_on')) :
     /**
      * Prints HTML with meta information for the current post-date/time.
      */
-    function hexa_posted_on()
+    function travexia_posted_on()
     {
 
         $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
@@ -138,7 +138,7 @@ if (!function_exists('hexa_posted_on')) :
 
         $posted_on = sprintf(
             /* translators: %s: post date. */
-            esc_html_x('%s', 'post date', 'hexa-theme'),
+            esc_html_x('%s', 'post date', 'travexia'),
             '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
         );
 
@@ -148,17 +148,17 @@ if (!function_exists('hexa_posted_on')) :
 endif;
 
 /** Post category **/
-if (!function_exists('hexa_posted_in')) :
+if (!function_exists('travexia_posted_in')) :
     /**
      * Prints HTML with meta information for the current author.
      */
-    function hexa_posted_in()
+    function travexia_posted_in()
     {
-        $categories_list = get_the_category_list(esc_html__(' ', 'hexa-theme'));
+        $categories_list = get_the_category_list(esc_html__(' ', 'travexia'));
         $posted_in = '';
         if (!empty($categories_list)) {
             /* translators: 1: list of categories. */
-            $posted_in = sprintf(esc_html__('%1$s', 'hexa-theme'), $categories_list); // WPCS: XSS OK.
+            $posted_in = sprintf(esc_html__('%1$s', 'travexia'), $categories_list); // WPCS: XSS OK.
         }
 
         echo '<div class="post-cat"><span class="posted-in">' . $posted_in . '</span></div>'; // WPCS: XSS OK.
@@ -167,15 +167,15 @@ if (!function_exists('hexa_posted_in')) :
 endif;
 
 /** Post author **/
-if (!function_exists('hexa_posted_by')) :
+if (!function_exists('travexia_posted_by')) :
     /**
      * Prints HTML with meta information for the current author.
      */
-    function hexa_posted_by()
+    function travexia_posted_by()
     {
         $byline = sprintf(
             /* translators: %s: post author. */
-            esc_html_x('%s', 'post author', 'hexa-theme'),
+            esc_html_x('%s', 'post author', 'travexia'),
             '<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
         );
 
@@ -185,9 +185,9 @@ if (!function_exists('hexa_posted_by')) :
 endif;
 
 /** Socials Share Post**/
-if (!function_exists('hexa_socials_share')) :
+if (!function_exists('travexia_socials_share')) :
 
-    function hexa_socials_share()
+    function travexia_socials_share()
     {
         $share = get_theme_mod('post_socials');
         echo '<div class="share-post">';
@@ -206,9 +206,9 @@ if (!function_exists('hexa_socials_share')) :
 endif;
 
 /** Single Post Navigation**/
-if (!function_exists('hexa_single_post_nav')) :
+if (!function_exists('travexia_single_post_nav')) :
 
-    function hexa_single_post_nav()
+    function travexia_single_post_nav()
     {
         echo '<div class="hexa-post-nav">';
         if (get_previous_post()) {
@@ -216,7 +216,7 @@ if (!function_exists('hexa_single_post_nav')) :
             $ptitle = get_the_title($ppost->ID);
             $pdate  = get_the_time(get_option('date_format'), $ppost->ID);
             echo '<div class="post-prev">';
-            previous_post_link('%link', '<span class="title">' . esc_html__('Prev') . '</span><h6>' . $ptitle . '</h6><span class="date">' . $pdate . '</span>');
+            previous_post_link('%link', '<span class="title">' . esc_html__('Prev', 'travexia') . '</span><h6>' . $ptitle . '</h6><span class="date">' . $pdate . '</span>');
             echo '</div>';
         }
         if (get_next_post()) {
@@ -224,7 +224,7 @@ if (!function_exists('hexa_single_post_nav')) :
             $ntitle = get_the_title($npost->ID);
             $ndate  = get_the_time(get_option('date_format'), $npost->ID);
             echo '<div class="post-next">';
-            next_post_link('%link', '<span class="title">' . esc_html__('Next') . '</span><h6>' . $ntitle . '</h6><span class="date">' . $ndate . '</span>');
+            next_post_link('%link', '<span class="title">' . esc_html__('Next', 'travexia') . '</span><h6>' . $ntitle . '</h6><span class="date">' . $ndate . '</span>');
             echo '</div>';
         }
         echo '</div>';
@@ -232,13 +232,13 @@ if (!function_exists('hexa_single_post_nav')) :
 endif;
 
 
-if (!function_exists('hexa_posts_navigation')) :
-    function hexa_pagi_callback($pagination)
+if (!function_exists('travexia_posts_navigation')) :
+    function travexia_pagi_callback($pagination)
     {
         return $pagination;
     }
 
-    function hexa_posts_navigation($prev = '<i class="fa-solid fa-arrow-left-long"></i>', $next = '<i class="fa-solid fa-arrow-right-long"></i>', $pages = '')
+    function travexia_posts_navigation($prev = '<i class="fa-solid fa-arrow-left-long"></i>', $next = '<i class="fa-solid fa-arrow-right-long"></i>', $pages = '')
     {
         global $wp_query, $wp_rewrite;
 
@@ -277,37 +277,21 @@ if (!function_exists('hexa_posts_navigation')) :
 
             $pagination_output .= '</ul>';
 
-            echo hexa_pagi_callback($pagination_output);
+            echo travexia_pagi_callback($pagination_output);
         }
     }
 endif;
 
 /** Excerpt Section Blog Post **/
-function hexa_excerpt_length($length)
+function travexia_excerpt_length($length)
 {
     $length = get_theme_mod('excerpt_length', 30);
     return $length; // Change the number to the desired length of words in the excerpt
 }
-add_filter('excerpt_length', 'hexa_excerpt_length');
+add_filter('excerpt_length', 'travexia_excerpt_length');
 
-/** Add Contact Methods in the User Profile **/
-function hexa_user_contact_methods($user_contact)
-{
-    $user_contact['user_post']   = esc_html__('Written By', 'hexa-theme');
-    $user_contact['facebook']   = esc_html__('Facebook', 'hexa-theme');
-    $user_contact['instagram']  = esc_html__('Instagram', 'hexa-theme');
-    $user_contact['linkedin']   = esc_html__('LinkedIn', 'hexa-theme');
-    $user_contact['youtube']    = esc_html__('Youtube', 'hexa-theme');
-    $user_contact['twitter']    = esc_html__('Twitter', 'hexa-theme');
-    $user_contact['googleplus'] = esc_html__('Google +', 'hexa-theme');
-    $user_contact['pinterest']  = esc_html__('Pinterest', 'hexa-theme');
-    $user_contact['github']     = esc_html__('Github', 'hexa-theme');
-    $user_contact['skype']      = esc_html__('Skype', 'hexa-theme');
-    return $user_contact;
-};
-add_filter('user_contactmethods', 'hexa_user_contact_methods');
 
-function hexa_author_info_box()
+function travexia_author_info_box()
 {
 
     global $post;
@@ -338,7 +322,7 @@ function hexa_author_info_box()
         // Author avatar - - the number 90 is the px size of the image.
         $author_details .= '<div class="author-image">' . get_avatar(get_the_author_meta('ID'), 250) . '</div>';
     $author_details .= '<div class="author-info">';
-    $author_details .= '<span class="author-post">' . esc_html__('Author', 'hexa-theme') . '</span>';
+    $author_details .= '<span class="author-post">' . esc_html__('Author', 'travexia') . '</span>';
     $author_details .= '<h6 class="author-title">' . $display_name . '</h6>';
     $author_details .= '<p class="author-des">' . get_the_author_meta('description') . '</p>';
     $author_details .= '<div class="author-socials">';
@@ -385,9 +369,3 @@ function hexa_author_info_box()
     // Pass all this info to post content 
     echo '<div class="author-bio" >' . $author_details . '</div>';
 }
-/** Allow HTML in author bio section **/
-remove_filter('pre_user_description', 'wp_filter_kses');
-
-/** Custom widget **/
-require HEXA_THEME_INC . 'frontend/common/recent-posts.php';
-require HEXA_THEME_INC . 'frontend/common/author-info.php';

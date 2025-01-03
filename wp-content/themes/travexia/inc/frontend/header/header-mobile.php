@@ -5,7 +5,7 @@
 				<div class="row align-items-center">
 					<div class="col-6">
 						<div class="site-logo" id="site-logo">
-							<?php hexa_header_logo(); ?>
+							<?php travexia_header_logo(); ?>
 						</div>
 					</div>
 					<div class="col-6">

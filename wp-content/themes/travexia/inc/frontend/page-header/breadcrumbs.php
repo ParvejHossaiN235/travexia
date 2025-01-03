@@ -1,7 +1,7 @@
 <?php
 // Breadcrumbs
-if (!function_exists('hexa_get_breadcrumbs')) {
-    function hexa_get_breadcrumbs(
+if (!function_exists('travexia_get_breadcrumbs')) {
+    function travexia_get_breadcrumbs(
         $list_style = 'ul',
         $list_id = 'breadcrumbs',
         $list_class = 'breadcrumbs list-unstyled',
@@ -12,9 +12,9 @@ if (!function_exists('hexa_get_breadcrumbs')) {
         $breadcrumb = '<' . $list_style . ' id="' . $list_id . '" class="' . $list_class . '">';
         // Front page
         if (is_front_page()) {
-            $breadcrumb .= '<li class="' . $active_class . '">' . esc_html__('Home', 'hexa-theme') . '</li>'; //get_bloginfo( 'name' )
+            $breadcrumb .= '<li class="' . $active_class . '">' . esc_html__('Home', 'travexia') . '</li>'; //get_bloginfo( 'name' )
         } else {
-            $breadcrumb .= '<li><a href="' . home_url() . '">' . esc_html__('Home', 'hexa-theme') . '</a></li>'; //get_bloginfo( 'name' )
+            $breadcrumb .= '<li><a href="' . home_url() . '">' . esc_html__('Home', 'travexia') . '</a></li>'; //get_bloginfo( 'name' )
         }
         // Blog archive
         if ('page' == get_option('show_on_front') && get_option('page_for_posts')) {
@@ -87,11 +87,11 @@ if (!function_exists('hexa_get_breadcrumbs')) {
         }
         // Search
         if (is_search()) {
-            $breadcrumb .= '<li class="' . $active_class . '">' . esc_html__('Search', 'hexa-theme') . '</li>';
+            $breadcrumb .= '<li class="' . $active_class . '">' . esc_html__('Search', 'travexia') . '</li>';
         }
         // 404
         if (is_404()) {
-            $breadcrumb .= '<li class="' . $active_class . '">' . esc_html__('404', 'hexa-theme') . '</li>';
+            $breadcrumb .= '<li class="' . $active_class . '">' . esc_html__('404', 'travexia') . '</li>';
         }
         // Custom Post Type Archive
         if (is_post_type_archive()) {
@@ -115,7 +115,7 @@ if (!function_exists('hexa_get_breadcrumbs')) {
                 $cpt_obj = get_post_type_object($post_type);
                 if (!$output && get_post_type_archive_link($cpt_obj->name)) {
                     $archive_link = '';
-                    if ('hexa_portfolio' == get_post_type() && get_theme_mod('portfolio_archive') == 'archive_custom') {
+                    if ('travexia_portfolio' == get_post_type() && get_theme_mod('portfolio_archive') == 'archive_custom') {
                         $archive_link = get_page_link(get_theme_mod('archive_page_custom'));
                     } else {
                         $archive_link = get_post_type_archive_link($cpt_obj->name);
@@ -136,7 +136,7 @@ if (!function_exists('hexa_get_breadcrumbs')) {
             if (get_post_type_archive_link($cpt_obj->name)) {
                 // Custom portfolio archive page link
                 $archive_link = '';
-                if ('hexa_portfolio' == get_post_type() && get_theme_mod('portfolio_archive') == 'archive_custom') {
+                if ('travexia_portfolio' == get_post_type() && get_theme_mod('portfolio_archive') == 'archive_custom') {
                     $archive_link = get_page_link(get_theme_mod('archive_page_custom'));
                 } else {
                     $archive_link = get_post_type_archive_link($cpt_obj->name);
@@ -195,12 +195,12 @@ if (!function_exists('hexa_get_breadcrumbs')) {
     }
 }
 
-if (!function_exists('hexa_breadcrumbs')) {
-    function hexa_breadcrumbs()
+if (!function_exists('travexia_breadcrumbs')) {
+    function travexia_breadcrumbs()
     {
 
         if (get_theme_mod('breadcrumbs') && !is_front_page()) {
-            echo hexa_get_breadcrumbs();
+            echo travexia_get_breadcrumbs();
         } ?>
     
         <?php

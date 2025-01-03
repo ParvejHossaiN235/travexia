@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package hexa
+ * @package travexia
  */
 
 ?>
@@ -31,4 +31,4 @@
       } ?>
       <!-- #site-content-open -->
       <div id="content" class="site-content">
-         <?php hexa_page_header(); ?>
+         <?php travexia_page_header(); ?>

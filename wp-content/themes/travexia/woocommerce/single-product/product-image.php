@@ -56,10 +56,10 @@ $single_product_thum_classes	= apply_filters('single_product_thum_classes', arra
 					<?php
 					if ($post_thumbnail_id) {
 						array_unshift($attachment_ids, $post_thumbnail_id);
-						$html = hexa_wc_get_gallery_html($attachment_ids, true);
+						$html = travexia_wc_get_gallery_html($attachment_ids, true);
 					} else {
 						$html  = '<div class="woocommerce-product-gallery__image--placeholder">';
-						$html .= sprintf('<img src="%s" alt="%s" class="wp-post-image" />', esc_url(wc_placeholder_img_src('woocommerce_single')), esc_html__('Awaiting product image', 'hexa-theme'));
+						$html .= sprintf('<img src="%s" alt="%s" class="wp-post-image" />', esc_url(wc_placeholder_img_src('woocommerce_single')), esc_html__('Awaiting product image', 'travexia'));
 						$html .= '</div>';
 					}
 					echo apply_filters('woocommerce_single_product_image_thumbnail_html', $html, $post_thumbnail_id); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped

@@ -10,14 +10,14 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package hexa
+ * @package travexia
  */
 
 get_header();
 
 ?>
 
-<div class="hexa-area postbox-area pt-120 pb-100" >
+<div class="hexa-area postbox-area pt-120 pb-100">
 	<div class="entry-content">
 		<div class="container">
 			<div class="row">

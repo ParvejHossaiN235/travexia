@@ -21,7 +21,7 @@ switch ($template) {
 	case 'twentythirteen':
 		echo '</div></div>';
 		break;
-	case 'hexa-theme':
+	case 'travexia':
 		echo '</div></div>';
 		break;
 	default:

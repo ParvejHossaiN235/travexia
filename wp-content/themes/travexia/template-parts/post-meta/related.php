@@ -8,7 +8,7 @@
  * @package portlu
  */
 
-$post_related_title = get_theme_mod('post_related_title', __('You May Also Like', 'hexa-theme'));
+$post_related_title = get_theme_mod('post_related_title', __('You May Also Like', 'travexia'));
 $post_read_more = get_theme_mod('post_read_more', 'Read More');
 ?>
 
@@ -59,7 +59,7 @@ $post_read_more = get_theme_mod('post_read_more', 'Read More');
             }
             wp_reset_postdata(); // Reset the query
         } else {
-            echo '<p class="mt-15">' . __('No related posts found.', 'hexa-theme') . '</p>';
+            echo '<p class="mt-15">' . __('No related posts found.', 'travexia') . '</p>';
         }
         ?>
     </div>

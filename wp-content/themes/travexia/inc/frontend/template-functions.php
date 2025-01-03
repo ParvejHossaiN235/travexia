@@ -3,7 +3,7 @@
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
- * @package hexa
+ * @package travexia
  */
 
 /**
@@ -11,7 +11,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function hexa_body_classes($classes)
+function travexia_body_classes($classes)
 {
     // Adds a class of hfeed to non-singular pages.
     if (!is_singular()) {
@@ -26,12 +26,12 @@ function hexa_body_classes($classes)
     }
     return $classes;
 }
-add_filter('body_class', 'hexa_body_classes');
+add_filter('body_class', 'travexia_body_classes');
 
 /**
  * Get tags.
  */
-function hexa_get_tag()
+function travexia_get_tag()
 {
     $html = '';
     if (has_tag()) {
@@ -45,7 +45,7 @@ function hexa_get_tag()
 /**
  * Get categories.
  */
-function hexa_get_category()
+function travexia_get_category()
 {
     $categories = get_the_category(get_the_ID());
     $x = 0;
@@ -60,7 +60,7 @@ function hexa_get_category()
 }
 
 /** img alt-text **/
-function hexa_img_alt_text($img_er_id = null)
+function travexia_img_alt_text($img_er_id = null)
 {
     $image_id = $img_er_id;
     $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', false);
@@ -73,7 +73,7 @@ function hexa_img_alt_text($img_er_id = null)
             $alt_text = get_the_title($image_id);
         }
     } else {
-        $alt_text = esc_html__('Image Alt Text', 'hexa-theme');
+        $alt_text = esc_html__('Image Alt Text', 'travexia');
     }
     return $alt_text;
 }
@@ -81,17 +81,17 @@ function hexa_img_alt_text($img_er_id = null)
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
-function hexa_pingback_header()
+function travexia_pingback_header()
 {
     if (is_singular() && pings_open()) {
         printf('<link rel="pingback" href="%s">', esc_url(get_bloginfo('pingback_url')));
     }
 }
-add_action('wp_head', 'hexa_pingback_header');
+add_action('wp_head', 'travexia_pingback_header');
 
 /* Select blog style */
-if (!function_exists('hexa_blog_style')) :
-    function hexa_blog_style()
+if (!function_exists('travexia_blog_style')) :
+    function travexia_blog_style()
     {
         $blog_style = array();
         // Check if layout is one column.
@@ -110,10 +110,10 @@ if (!function_exists('hexa_blog_style')) :
 endif;
 
 /**
- * Hexa preloader function
+ * Travexia preloader function
  */
-if (!function_exists('hexa_preloader')) {
-    function hexa_preloader()
+if (!function_exists('travexia_preloader')) {
+    function travexia_preloader()
     {
         if (get_theme_mod('preload') != false) {
             echo '<div id="preloader">';
@@ -124,46 +124,38 @@ if (!function_exists('hexa_preloader')) {
         }
     }
 }
-add_action('wp_body_open', 'hexa_preloader');
+add_action('wp_body_open', 'travexia_preloader');
 
 /**
- * Hexa back to top function
+ * Travexia back to top function
  */
-if (!function_exists('hexa_custom_back_to_top')) {
-    function hexa_custom_back_to_top()
+if (!function_exists('travexia_custom_back_to_top')) {
+    function travexia_custom_back_to_top()
     {
         if (get_theme_mod('back_to_top') != false) {
             echo '<button class="scroll-top scroll-to-target" data-target="html"><i class="far fa-angle-double-up"></i></button>';
         }
     }
 }
-add_action('wp_footer', 'hexa_custom_back_to_top');
+add_action('wp_footer', 'travexia_custom_back_to_top');
 
-/**
- * Google Atlantic
- */
-function hexa_hook_javascript()
-{
-    echo get_theme_mod('js_code');
-}
-add_action('wp_head', 'hexa_hook_javascript');
 
 /**
  * Change textarea position in comment form
  */
-function hexa_move_comment_textarea_to_bottom($fields)
+function travexia_move_comment_textarea_to_bottom($fields)
 {
     $comment_field       = $fields['comment'];
     unset($fields['comment']);
     $fields['comment'] = $comment_field;
     return $fields;
 }
-add_filter('comment_form_fields', 'hexa_move_comment_textarea_to_bottom');
+add_filter('comment_form_fields', 'travexia_move_comment_textarea_to_bottom');
 
 /**
  * shortcode supports for removing extra p, spance etc
  */
-function hexa_shortcode_extra_content_remove($content)
+function travexia_shortcode_extra_content_remove($content)
 {
     $array = [
         '<p>['    => '[',
@@ -172,7 +164,7 @@ function hexa_shortcode_extra_content_remove($content)
     ];
     return strtr($content, $array);
 }
-add_filter('the_content', 'hexa_shortcode_extra_content_remove');
+add_filter('the_content', 'travexia_shortcode_extra_content_remove');
 
 /**
  * Change the default color to transparent
@@ -186,48 +178,48 @@ add_filter('woosc_bar_bg_color_default', 'custom_woosc_bar_bg_color_default');
 /**
  * This code filters the Archive widget to include the post count inside the link 
  */
-function hexa_archive_count_span($links)
+function travexia_archive_count_span($links)
 {
     $links = str_replace('</a>&nbsp;(', '<span >(', $links);
     $links = str_replace(')', ')</span></a> ', $links);
     return $links;
 }
-add_filter('get_archives_link', 'hexa_archive_count_span');
+add_filter('get_archives_link', 'travexia_archive_count_span');
 
 /**
  * This code filters the Category widget to include the post count inside the link 
  */
-function hexa_cat_count_span($links)
+function travexia_cat_count_span($links)
 {
     $links = str_replace('</a> (', '<span>', $links);
     $links = str_replace(')', '</span></a>', $links);
     return $links;
 }
-add_filter('wp_list_categories', 'hexa_cat_count_span');
+add_filter('wp_list_categories', 'travexia_cat_count_span');
 
 /**
- * Hexa service sidebar
+ * Travexia service sidebar
  */
-function hexa_service_sidebar_func()
+function travexia_service_sidebar_func()
 {
     if (is_active_sidebar('services-sidebar')) {
         dynamic_sidebar('services-sidebar');
     }
 }
-add_action('hexa_service_sidebar', 'hexa_service_sidebar_func', 20);
+add_action('travexia_service_sidebar', 'travexia_service_sidebar_func', 20);
 
 /**
- * Hexa portfolio sidebar
+ * Travexia portfolio sidebar
  */
-function hexa_portfolio_sidebar_func()
+function travexia_portfolio_sidebar_func()
 {
     if (is_active_sidebar('portfolio-sidebar')) {
         dynamic_sidebar('portfolio-sidebar');
     }
 }
-add_action('hexa_portfolio_sidebar', 'hexa_portfolio_sidebar_func', 20);
+add_action('travexia_portfolio_sidebar', 'travexia_portfolio_sidebar_func', 20);
 
-function hexa_archive_title_modifier($title)
+function travexia_archive_title_modifier($title)
 {
     if (is_category()) {
         $title = single_cat_title('', false);
@@ -236,13 +228,13 @@ function hexa_archive_title_modifier($title)
     } elseif (is_author()) {
         $title = '<span class="vcard">' . get_the_author() . '</span>';
     } elseif (is_tax()) { //for custom post types
-        $title = sprintf(__('%1$s'), single_term_title('', false));
+        $title = sprintf(__('%1$s', 'travexia'), single_term_title('', false));
     } elseif (is_post_type_archive()) {
         $title = post_type_archive_title('', false);
     }
     return $title;
 }
-add_filter('get_the_archive_title', 'hexa_archive_title_modifier');
+add_filter('get_the_archive_title', 'travexia_archive_title_modifier');
 
 
 // related portfolios post

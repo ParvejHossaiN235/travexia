@@ -203,7 +203,7 @@ class Hexa_Iconlist extends Widget_Base
 			[
 				'label' => __('Custom Class', 'hexacore'),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => __('flaticon-world-globe', 'hexacore'),
+				'default' => __('fa-solid fa-globe', 'hexacore'),
 				'condition' => [
 					'icon_type' => 'class',
 				]

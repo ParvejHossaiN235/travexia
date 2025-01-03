@@ -1,20 +1,20 @@
 <?php
 
-function hexa_shop_customize_settings()
+function travexia_shop_customize_settings()
 {
     /**
      * Customizer configuration
      */
 
     $settings = array(
-        'theme' => HEXA_THEME_SLUG,
+        'theme' => TRAVEXIA_THEME_SLUG,
     );
 
     $panels = array();
 
     $sections = array(
         'product_options'  => array(
-            'title'       => esc_html__('Product Options', 'hexa-theme'),
+            'title'       => esc_html__('Product Options', 'travexia'),
             'description' => '',
             'priority'    => 16,
             'capability'  => 'edit_theme_options',
@@ -26,14 +26,14 @@ function hexa_shop_customize_settings()
         // Product options
         'products_per_page'    => array(
             'type'     => 'number',
-            'label'    => esc_html__('Products Per Page', 'hexa-theme'),
+            'label'    => esc_html__('Products Per Page', 'travexia'),
             'section'  => 'product_options',
-            'default'  => esc_html__('24', 'hexa-theme'),
+            'default'  => esc_html__('24', 'travexia'),
             'priority' => 10,
         ),
         'product_columns_lg'   => array(
             'type'          => 'select',
-            'label'         => esc_html__('Product Columns for Large Screen', 'hexa-theme'),
+            'label'         => esc_html__('Product Columns for Large Screen', 'travexia'),
             'section'       => 'product_options',
             'default'       => '3',
             'priority'      => 10,
@@ -48,7 +48,7 @@ function hexa_shop_customize_settings()
         ),
         'product_columns_md'   => array(
             'type'          => 'select',
-            'label'         => esc_html__('Product Columns for Medium Screen', 'hexa-theme'),
+            'label'         => esc_html__('Product Columns for Medium Screen', 'travexia'),
             'section'       => 'product_options',
             'default'       => '3',
             'priority'      => 10,
@@ -63,7 +63,7 @@ function hexa_shop_customize_settings()
         ),
         'product_columns_sm'   => array(
             'type'          => 'select',
-            'label'         => esc_html__('Product Columns for Small Screen', 'hexa-theme'),
+            'label'         => esc_html__('Product Columns for Small Screen', 'travexia'),
             'section'       => 'product_options',
             'default'       => '2',
             'priority'      => 10,
@@ -78,7 +78,7 @@ function hexa_shop_customize_settings()
         ),
         'product_columns_xs'   => array(
             'type'          => 'select',
-            'label'         => esc_html__('Product Columns for Extra Small Screen', 'hexa-theme'),
+            'label'         => esc_html__('Product Columns for Extra Small Screen', 'travexia'),
             'section'       => 'product_options',
             'default'       => '1',
             'priority'      => 10,
@@ -93,11 +93,11 @@ function hexa_shop_customize_settings()
         ),
     );
 
-    $settings['panels']   = apply_filters('hexa_customize_panels', $panels);
-    $settings['sections'] = apply_filters('hexa_customize_sections', $sections);
-    $settings['fields']   = apply_filters('hexa_customize_fields', $fields);
+    $settings['panels']   = apply_filters('travexia_customize_panels', $panels);
+    $settings['sections'] = apply_filters('travexia_customize_sections', $sections);
+    $settings['fields']   = apply_filters('travexia_customize_fields', $fields);
 
     return $settings;
 }
 
-$hexa_customize = new Hexa_Customize(hexa_shop_customize_settings());
+$travexia_customize = new Travexia_Customize(travexia_shop_customize_settings());

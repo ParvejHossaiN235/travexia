@@ -928,7 +928,7 @@ msgid "In Stock"
 msgstr ""
 
 #: inc/kirki-customizer.php:459 inc/template-helper.php:299
-msgid "info@HEXA.com"
+msgid "info@TRAVEXIA.com"
 msgstr ""
 
 #: inc/kirki-customizer.php:375 inc/kirki-customizer.php:520

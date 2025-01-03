@@ -7,14 +7,14 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package hexa
+ * @package travexia
  */
 
 ?>
 
 </div><!-- #content -->
 <?php if (!function_exists('elementor_theme_do_location') || !elementor_theme_do_location('footer')) {
-    hexa_footer_builder();
+    travexia_footer_builder();
 }
 ?>
 </div><!-- #page -->

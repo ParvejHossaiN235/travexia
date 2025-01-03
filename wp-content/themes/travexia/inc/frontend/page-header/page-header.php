@@ -1,6 +1,6 @@
 <?php
-if (!function_exists('hexa_page_header')) {
-    function hexa_page_header()
+if (!function_exists('travexia_page_header')) {
+    function travexia_page_header()
     {
         $pheader = '';
         if (function_exists('rwmb_meta')) {
@@ -25,17 +25,17 @@ if (!function_exists('hexa_page_header')) {
             $output = array();
 
             if (is_front_page() && is_home()) {
-                $title = esc_html__('Blog', 'hexa-theme');
+                $title = esc_html__('Blog', 'travexia');
             } elseif (is_front_page()) {
-                $title = esc_html__('Home', 'hexa-theme');
+                $title = esc_html__('Home', 'travexia');
             } elseif (is_home()) {
                 $title = get_the_title(get_option('page_for_posts'));
             } elseif (is_single() && 'product' == get_post_type()) {
                 $title = get_the_title();
             } elseif (is_search()) {
-                $title = esc_html__('Search Results for: ', 'hexa-theme') . get_search_query();
+                $title = esc_html__('Search Results for: ', 'travexia') . get_search_query();
             } elseif (is_404()) {
-                $title = esc_html__('Page Not Found', 'hexa-theme');
+                $title = esc_html__('Page Not Found', 'travexia');
             } elseif (is_archive()) {
                 $title = get_the_archive_title();
             } elseif (is_singular('post')) {
@@ -77,11 +77,11 @@ if (!function_exists('hexa_page_header')) {
                     <div class="row align-items-center">
                         <div class="col-sm-12">
                             <div class="page-header-inner <?php echo esc_attr($pheader_align); ?>">
-                                <<?php echo $htmltag; ?> class="page-title tr-breadcurmb-title">
+                                <<?php echo esc_attr($htmltag); ?> class="page-title tr-breadcurmb-title">
                                     <?php echo implode('', $output); ?>
-                                </<?php echo $htmltag; ?>>
-                                <?php if (function_exists('hexa_breadcrumbs') && get_theme_mod('breadcrumbs', true)) : ?>
-                                    <?php echo hexa_breadcrumbs(); ?>
+                                </<?php echo esc_attr($htmltag); ?>>
+                                <?php if (function_exists('travexia_breadcrumbs') && get_theme_mod('breadcrumbs', true)) : ?>
+                                    <?php echo travexia_breadcrumbs(); ?>
                                 <?php endif; ?>
                             </div>
                         </div>

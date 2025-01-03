@@ -5,14 +5,14 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package hexa
+ * @package travexia
  */
 
 ?>
 
 <section class="no-results not-found">
     <header class="page-headers">
-        <h1 class="page-title"><?php esc_html_e('Nothing Found', 'hexa-theme'); ?></h1>
+        <h1 class="page-title"><?php esc_html_e('Nothing Found', 'travexia'); ?></h1>
     </header><!-- .page-header -->
     <div class="page-content blog-search-content  mt-20 mb-10">
         <?php
@@ -20,7 +20,7 @@
             printf(
                 '<p>' . wp_kses(
                     /* translators: 1: link to WP admin new post page. */
-                    __('Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'hexa-theme'),
+                    __('Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'travexia'),
                     [
                         'a' => [
                             'href' => [],
@@ -31,12 +31,12 @@
             );
         elseif (is_search()) :
         ?>
-            <p><?php esc_html_e('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'hexa-theme'); ?></p>
+            <p><?php esc_html_e('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'travexia'); ?></p>
         <?php
             get_search_form();
         else :
         ?>
-            <p><?php esc_html_e('It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'hexa-theme'); ?></p>
+            <p><?php esc_html_e('It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'travexia'); ?></p>
         <?php
             get_search_form();
         endif;

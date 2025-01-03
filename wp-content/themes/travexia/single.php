@@ -5,7 +5,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package hexa
+ * @package travexia
  */
 
 get_header();
@@ -18,8 +18,8 @@ $related_post = get_theme_mod('related_post', false);
 <div class="hexa-area postbox-area pt-100 pb-100">
     <div class="entry-content">
         <div class="container">
-            <div class="row row-gap-50 <?php echo $row_swipe; ?>">
-                <div class="<?php echo $post_column; ?>">
+            <div class="row row-gap-50 <?php echo esc_attr($row_swipe); ?>">
+                <div class="<?php echo esc_attr($post_column); ?>">
                     <div class="content-wrapper">
                         <?php while (have_posts()) : the_post();
 

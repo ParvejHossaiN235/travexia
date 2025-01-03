@@ -1,8 +1,8 @@
 <?php
 
 /** header desktop **/
-if (!function_exists('hexa_header_builder')) {
-    function hexa_header_builder()
+if (!function_exists('travexia_header_builder')) {
+    function travexia_header_builder()
     {
         $header_builder = '';
 
@@ -33,8 +33,8 @@ if (!function_exists('hexa_header_builder')) {
 }
 
 /** header mobile **/
-if (!function_exists('hexa_mobile_builder')) {
-    function hexa_mobile_builder()
+if (!function_exists('travexia_mobile_builder')) {
+    function travexia_mobile_builder()
     {
         $mobile_builder = '';
 
@@ -65,8 +65,8 @@ if (!function_exists('hexa_mobile_builder')) {
 }
 
 /** side panel **/
-if (!function_exists('hexa_sidepanel_builder')) {
-    function hexa_sidepanel_builder()
+if (!function_exists('travexia_sidepanel_builder')) {
+    function travexia_sidepanel_builder()
     {
 
         $panel_builder = get_theme_mod('sidepanel_layout');
@@ -82,8 +82,8 @@ if (!function_exists('hexa_sidepanel_builder')) {
 }
 
 /** 404 template **/
-if (!function_exists('hexa_404_builder')) {
-    function hexa_404_builder()
+if (!function_exists('travexia_404_builder')) {
+    function travexia_404_builder()
     {
 
         $error_builder = get_theme_mod('page_404');
@@ -97,11 +97,11 @@ if (!function_exists('hexa_404_builder')) {
                                 <div class=" error-logo hf-error-thumb mb-50">
                                     <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/error.jpg" alt="404" />
                                 </div>
-                                <h1 class="error-title hf-error-title"><?php esc_html_e('Oops! Page Not Found', 'hexa-theme'); ?></h1>
+                                <h1 class="error-title hf-error-title"><?php esc_html_e('Oops! Page Not Found', 'travexia'); ?></h1>
                                 <div class="error-content">
-                                    <p class="mb-30"><?php esc_html_e('The page you are looking for is not available or has been moved. Try a different page or go to homepage with the button below.', 'hexa-theme'); ?></p>
+                                    <p class="mb-30"><?php esc_html_e('The page you are looking for is not available or has been moved. Try a different page or go to homepage with the button below.', 'travexia'); ?></p>
                                     <a class="hexa-btn tr-btn" href="<?php echo esc_url(home_url('/')); ?>">
-                                        <?php esc_html_e('Back To Home', 'hexa-theme'); ?>
+                                        <?php esc_html_e('Back To Home', 'travexia'); ?>
                                     </a>
                                 </div>
                             </div>
@@ -118,8 +118,8 @@ if (!function_exists('hexa_404_builder')) {
 }
 
 /** footer **/
-if (!function_exists('hexa_footer_builder')) {
-    function hexa_footer_builder()
+if (!function_exists('travexia_footer_builder')) {
+    function travexia_footer_builder()
     {
         $footer_builder = '';
 
@@ -145,7 +145,7 @@ if (!function_exists('hexa_footer_builder')) {
                             <div class="row">
                                 <div class="col-12">
                                     <div class="copyright-wrapper text-center">
-                                        <p><?php echo esc_html__('© Copyright ' . date('Y') . ' Hexa. All Rights Reserved', 'hexa-theme'); ?></p>
+                                        <p><?php echo esc_html__('© Copyright 2025 Travexia. All Rights Reserved', 'travexia'); ?></p>
                                     </div>
                                 </div>
                             </div>

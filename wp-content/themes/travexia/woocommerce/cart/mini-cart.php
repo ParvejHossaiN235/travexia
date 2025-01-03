@@ -17,7 +17,7 @@ global $woocommerce;
 
 <?php do_action('woocommerce_before_mini_cart'); ?>
 <div class="minicart-header">
-	<span class="minicart-title"><?php echo esc_html__('Your Cart', 'hexa-theme') ?></span>
+	<span class="minicart-title"><?php echo esc_html__('Your Cart', 'travexia') ?></span>
 	<a class="minicart-close" href="#"><i class="fas fa-times"></i></a>
 </div>
 <div class="cart_list product_list_widget clearfix <?php echo esc_attr($args['list_class']); ?>">
@@ -62,7 +62,7 @@ global $woocommerce;
 								sprintf(
 									'<a href="%s" class="remove" title="%s">&times;</a>',
 									esc_url(wc_get_cart_remove_url($cart_item_key)),
-									esc_html__('Remove this item', 'hexa-theme')
+									esc_html__('Remove this item', 'travexia')
 								),
 								$cart_item_key
 							);
@@ -78,7 +78,7 @@ global $woocommerce;
 
 	<?php else : ?>
 
-		<div class="empty"><?php echo esc_html__('No products in the cart.', 'hexa-theme'); ?></div>
+		<div class="empty"><?php echo esc_html__('No products in the cart.', 'travexia'); ?></div>
 
 	<?php endif; ?>
 
@@ -86,13 +86,13 @@ global $woocommerce;
 
 <?php if (sizeof(WC()->cart->get_cart()) > 0) : ?>
 
-	<p class="total"><strong><?php echo esc_html__('Subtotal', 'hexa-theme'); ?>:</strong> <?php echo WC()->cart->get_cart_subtotal(); ?></p>
+	<p class="total"><strong><?php echo esc_html__('Subtotal', 'travexia'); ?>:</strong> <?php echo WC()->cart->get_cart_subtotal(); ?></p>
 
 	<?php do_action('woocommerce_widget_shopping_cart_before_buttons'); ?>
 
 	<p class="buttons clearfix">
-		<a href="<?php echo wc_get_cart_url(); ?>" class="btn btn-theme pull-left btn-sm wc-forward"><?php echo esc_html__('View Cart', 'hexa-theme'); ?></a>
-		<a href="<?php echo wc_get_checkout_url(); ?>" class="btn btn-theme pull-right btn-sm checkout wc-forward"><?php echo esc_html__('Checkout', 'hexa-theme'); ?></a>
+		<a href="<?php echo wc_get_cart_url(); ?>" class="btn btn-theme pull-left btn-sm wc-forward"><?php echo esc_html__('View Cart', 'travexia'); ?></a>
+		<a href="<?php echo wc_get_checkout_url(); ?>" class="btn btn-theme pull-right btn-sm checkout wc-forward"><?php echo esc_html__('Checkout', 'travexia'); ?></a>
 	</p>
 
 <?php endif; ?>
