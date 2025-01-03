@@ -22,20 +22,20 @@ class OCDI_Demo_Importer
       'hexa_home_1' => array(
         'title' => __('Home 01', 'hexacore'),
         'page'  => __('home', 'hexacore'),
-        'screenshot' => get_template_directory_uri() . '/inc/assets/img/full.png',
-        'preview_link' => 'https://flowhexa.com/hexacore/',
+        'screenshot' => plugins_url('assets/img/demo/home-1.webp', dirname(__FILE__)),
+        'preview_link' => 'https://travexia.sapwp.com/',
       ),
       'hexa_home_2' => array(
         'title' => __('Home 02', 'hexacore'),
         'page'  => __('home-02', 'hexacore'),
-        'screenshot' => get_template_directory_uri() . '/inc/assets/img/full.png',
-        'preview_link' => 'https://flowhexa.com/hexacore/home-02/',
+        'screenshot' => plugins_url('assets/img/demo/home-2.webp', dirname(__FILE__)),
+        'preview_link' => 'https://travexia.sapwp.com/home-02/',
       ),
       'hexa_home_3' => array(
         'title' => __('Home 03', 'hexacore'),
         'page'  => __('home-03', 'hexacore'),
-        'screenshot' => get_template_directory_uri() . '/inc/assets/img/full.png',
-        'preview_link' => 'https://flowhexa.com/hexacore/home-03/',
+        'screenshot' => plugins_url('assets/img/demo/home-3.webp', dirname(__FILE__)),
+        'preview_link' => 'https://travexia.sapwp.com/home-03/',
       ),
     );
 
