@@ -14,7 +14,7 @@ img {
 }
 /* post sticky */
 .sticky {
-  border: 2px solid #034833;
+  border: 1px solid #034833;
   padding: 30px;
 }
 /* .entry-content {
@@ -1147,7 +1147,8 @@ ol.wp-block-latest-comments {
   line-height: 1;
 }
 .postbox-item.sticky {
-  border-top: 2px solid #034833;
+  border-top: 1px solid #034833;
+  border-radius: 20px;
 }
 .comments-replay a {
   background: #034833;
@@ -1527,7 +1528,7 @@ div.postbox-comment-content > ol {
 /* Pagination css */
 .hexa-post-nav {
   overflow: hidden;
-  border-bottom: 1px solid #EBF0E7;
+  border-bottom: 1px solid #ebf0e7;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1621,7 +1622,7 @@ div.postbox-comment-content > ol {
   border-color: var(--tr-theme-1);
 }
 .hexa-pagination ul li span.dots {
-  line-height: 32px;
+  line-height: 45px;
 }
 
 h3.postbox-tag-title {

@@ -17,7 +17,7 @@ function travexia_register_meta_boxes($meta_boxes)
 	$meta_boxes[] = array(
 		'id'       => 'page-settings',
 		'title'    => esc_html__('Page Settings', 'travexia'),
-		'pages'    => array('page'),
+		'pages'    => array('page', 'post'),
 		'context'  => 'normal',
 		'priority' => 'high',
 		'autosave' => true,

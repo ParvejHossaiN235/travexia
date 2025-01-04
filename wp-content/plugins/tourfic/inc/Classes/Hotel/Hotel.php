@@ -3146,7 +3146,7 @@ class Hotel {
                 <img src="<?php echo TF_ASSETS_APP_URL ?>images/thank-you.gif" alt="Thank You">
                 <h2>
 					<?php
-					$booking_confirmation_msg = ! empty( tfopt( 'hotel-booking-confirmation-msg' ) ) ? tfopt( 'hotel-booking-confirmation-msg' ) : esc_html__('Booked Successfully', 'tourfic');
+					$booking_confirmation_msg = ! empty( Helper::tfopt( 'hotel-booking-confirmation-msg' ) ) ? Helper::tfopt( 'hotel-booking-confirmation-msg' ) : esc_html__('Booked Successfully', 'tourfic');
 					echo wp_kses_post( $booking_confirmation_msg );
 					?>
                 </h2>
@@ -3262,7 +3262,7 @@ class Hotel {
                                     <h4><?php echo __( "Billing details", "tourfic" ); ?></h4>
                                     <div class="traveller-info billing-details">
 										<?php
-										$confirm_book_fields = ! empty( tfopt( 'hotel-book-confirm-field' ) ) ? tf_data_types( tfopt( 'hotel-book-confirm-field' ) ) : '';
+										$confirm_book_fields = ! empty( Helper::tfopt( 'hotel-book-confirm-field' ) ) ? Helper::tf_data_types( Helper::tfopt( 'hotel-book-confirm-field' ) ) : '';
 
 										if ( empty( $confirm_book_fields ) ) {
 											?>

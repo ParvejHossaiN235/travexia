@@ -28,7 +28,7 @@ function header_customize_settings()
 			'default'     => '',
 			'priority'    => 3,
 			'placeholder' => esc_attr__('Select a header', 'travexia'),
-			'choices'     => (class_exists('Kirki_Helper')) ? Kirki_Helper::get_posts(array('post_type' => 'travexia_header', 'posts_per_page' => -1)) : array(),
+			'choices'     => (class_exists('Kirki_Helper')) ? Kirki_Helper::get_posts(array('post_type' => 'hexa_header', 'posts_per_page' => -1)) : array(),
 		),
 		'is_sidepanel'    => array(
 			'type'        => 'toggle',
@@ -80,7 +80,7 @@ function header_customize_settings()
 			'default'     => '',
 			'priority'    => 9,
 			'placeholder' => esc_attr__('Select a panel', 'travexia'),
-			'choices'     => (class_exists('Kirki_Helper')) ? Kirki_Helper::get_posts(array('post_type' => 'travexia_header', 'posts_per_page' => -1)) : array(),
+			'choices'     => (class_exists('Kirki_Helper')) ? Kirki_Helper::get_posts(array('post_type' => 'hexa_header', 'posts_per_page' => -1)) : array(),
 			'active_callback' => array(
 				array(
 					'setting'  => 'is_sidepanel',

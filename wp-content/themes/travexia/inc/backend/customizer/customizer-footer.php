@@ -28,7 +28,7 @@ function footer_customize_settings()
 			'default'     => '',
 			'priority'    => 1,
 			'placeholder' => esc_attr__('Select a footer', 'travexia'),
-			'choices'     => (class_exists('Kirki_Helper')) ? Kirki_Helper::get_posts(array('post_type' => 'travexia_footer', 'posts_per_page' => -1)) : array(),
+			'choices'     => (class_exists('Kirki_Helper')) ? Kirki_Helper::get_posts(array('post_type' => 'hexa_footer', 'posts_per_page' => -1)) : array(),
 		),
 		'backtotop_separator'     => array(
 			'type'        => 'custom',
