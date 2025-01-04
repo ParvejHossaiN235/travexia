@@ -3,13 +3,13 @@
 /**
  * Plugin Name: Travexia Core
  * Description: Travexia core the ultimate elementor addons.
- * Plugin URI:  https://hexaflow.net/
+ * Plugin URI:  https://saptheme.com/
  * Version:     1.0.0
- * Author:      HexaFlow
- * Author URI:  https://hexaflow.net/
+ * Author:      Saptheme
+ * Author URI:  https://themeforest.net/user/saptheme/
  * Text Domain: hexacore
- * Elementor tested up to: 3.19.x
- * Elementor Pro tested up to: 3.19.x
+ * Elementor tested up to: 3.26.x
+ * Elementor Pro tested up to: 3.26.x
  */
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
