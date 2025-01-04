@@ -45,6 +45,11 @@ function travexia_register_required_plugins()
             'required'     => true,
         ],
         [
+            'name'         => 'Tourfic',
+            'slug'         => 'tourfic',
+            'required'     => true,
+        ],
+        [
             'name'         => 'Meta Box',
             'slug'         => 'meta-box',
             'required'     => true,
