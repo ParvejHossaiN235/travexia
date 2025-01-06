@@ -1752,3 +1752,10 @@ textarea:focus {
   --content-width: min(100%, var(--container-max-width, 1320px));
   max-width: var(--content-width);
 } */
+
+.wp-block-search__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
