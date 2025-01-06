@@ -1747,8 +1747,8 @@ textarea:focus {
   margin-bottom: 55px;
 }
 
-.e-con > .e-con-inner {
+/* .e-con > .e-con-inner {
   --container-max-width: 1320px;
   --content-width: min(100%, var(--container-max-width, 1320px));
   max-width: var(--content-width);
-}
+} */
